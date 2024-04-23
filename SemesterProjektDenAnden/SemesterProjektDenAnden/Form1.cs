@@ -6,7 +6,8 @@ namespace SemesterProjektDenAnden
         {
             InitializeComponent();
 
-            //Hej
+            
+            //hej igen
         }
     }
 }
