@@ -5,6 +5,8 @@ namespace SemesterProjektDenAnden
         public Form1()
         {
             InitializeComponent();
+
+            //Hej
         }
     }
 }
