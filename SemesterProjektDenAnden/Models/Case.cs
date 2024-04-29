@@ -10,8 +10,8 @@ namespace Models
     {
        public int caseId {  get; set; }
        public string caseTitle {  get; set; }
-       public DateTime startDate {  get; set; }
-       public DateTime exEndDate { get; set; }
+       public DateOnly startDate {  get; set; }
+       public DateOnly exEndDate { get; set; }
        public int exHours { get; set; }
        public int hoursUsed { get; set; }
        public int transExpense {  get; set; }
