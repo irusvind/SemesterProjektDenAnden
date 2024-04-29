@@ -1,12 +1,11 @@
-﻿using DataAcces;
-using Models;
+﻿using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAcces
+namespace DataAcces.Interfaces
 {
     public interface IClient
     {
