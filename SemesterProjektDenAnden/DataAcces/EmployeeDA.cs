@@ -1,6 +1,6 @@
 ﻿namespace DataAcces
 {
-    public class Class1
+    public class EmployeeDA
     {
 
     }
