@@ -8,15 +8,15 @@ namespace Models
 {
     public class Case
     {
-       public int caseId {  get; set; }
-       public string caseTitle {  get; set; }
-       public DateOnly startDate {  get; set; }
-       public DateOnly exEndDate { get; set; }
-       public int exHours { get; set; }
-       public int hoursUsed { get; set; }
-       public int transExpense {  get; set; }
-       public int serviceId {  get; set; }
-       public int employeeId { get; set; }
-       public int clientId { get; set; }
+       public int CaseId {  get; set; }
+       public string CaseTitle {  get; set; }
+       public DateOnly StartDate {  get; set; }
+       public DateOnly ExEndDate { get; set; }
+       public int ExHours { get; set; }
+       public int HoursUsed { get; set; }
+       public int TransExpense {  get; set; }
+       public int ServiceId {  get; set; }
+       public int EmployeeId { get; set; }
+       public int ClientId { get; set; }
     }
 }
