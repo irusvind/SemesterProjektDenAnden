@@ -1,14 +1,14 @@
-﻿namespace SemesterProjektDenAnden
+﻿namespace SemesterProjektDenAnden.ClientFroms
 {
-    partial class HomePage
+    partial class ClientMDI
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,18 +23,18 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
-            button1 = new Button();
+            overviewbtn = new Button();
             panel2 = new Panel();
-            button2 = new Button();
+            myPagebtn = new Button();
             panel3 = new Panel();
-            button3 = new Button();
+            myCasesbtn = new Button();
             panel4 = new Panel();
             button4 = new Button();
             flowLayoutPanel1.SuspendLayout();
@@ -54,59 +54,61 @@
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(193, 653);
-            flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.TabIndex = 1;
             // 
             // panel1
             // 
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(overviewbtn);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(185, 58);
             panel1.TabIndex = 2;
             // 
-            // button1
+            // overviewbtn
             // 
-            button1.Location = new Point(-21, -17);
-            button1.Name = "button1";
-            button1.Size = new Size(234, 93);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            overviewbtn.Location = new Point(-21, -17);
+            overviewbtn.Name = "overviewbtn";
+            overviewbtn.Size = new Size(234, 93);
+            overviewbtn.TabIndex = 0;
+            overviewbtn.Text = "Overview";
+            overviewbtn.UseVisualStyleBackColor = true;
+            overviewbtn.Click += overviewbtn_Click;
             // 
             // panel2
             // 
-            panel2.Controls.Add(button2);
+            panel2.Controls.Add(myPagebtn);
             panel2.Location = new Point(3, 67);
             panel2.Name = "panel2";
             panel2.Size = new Size(185, 58);
             panel2.TabIndex = 3;
             // 
-            // button2
+            // myPagebtn
             // 
-            button2.Location = new Point(-25, -22);
-            button2.Name = "button2";
-            button2.Size = new Size(234, 97);
-            button2.TabIndex = 0;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            myPagebtn.Location = new Point(-25, -22);
+            myPagebtn.Name = "myPagebtn";
+            myPagebtn.Size = new Size(234, 97);
+            myPagebtn.TabIndex = 0;
+            myPagebtn.Text = "My Page";
+            myPagebtn.UseVisualStyleBackColor = true;
+            myPagebtn.Click += myPagebtn_Click;
             // 
             // panel3
             // 
-            panel3.Controls.Add(button3);
+            panel3.Controls.Add(myCasesbtn);
             panel3.Location = new Point(3, 131);
             panel3.Name = "panel3";
             panel3.Size = new Size(185, 58);
             panel3.TabIndex = 4;
             // 
-            // button3
+            // myCasesbtn
             // 
-            button3.Location = new Point(-25, -22);
-            button3.Name = "button3";
-            button3.Size = new Size(234, 97);
-            button3.TabIndex = 0;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            myCasesbtn.Location = new Point(-25, -22);
+            myCasesbtn.Name = "myCasesbtn";
+            myCasesbtn.Size = new Size(234, 97);
+            myCasesbtn.TabIndex = 0;
+            myCasesbtn.Text = "My Cases";
+            myCasesbtn.UseVisualStyleBackColor = true;
+            myCasesbtn.Click += myCasesbtn_Click;
             // 
             // panel4
             // 
@@ -125,14 +127,15 @@
             button4.Text = "button4";
             button4.UseVisualStyleBackColor = true;
             // 
-            // HomePage
+            // ClientOverview
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1182, 653);
             Controls.Add(flowLayoutPanel1);
-            Name = "HomePage";
-            Text = "Form1";
+            IsMdiContainer = true;
+            Name = "ClientOverview";
+            Text = " ";
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -145,11 +148,11 @@
 
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel1;
-        private Button button1;
+        private Button overviewbtn;
         private Panel panel2;
-        private Button button2;
+        private Button myPagebtn;
         private Panel panel3;
-        private Button button3;
+        private Button myCasesbtn;
         private Panel panel4;
         private Button button4;
     }
