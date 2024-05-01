@@ -132,7 +132,8 @@
             // 
             // ClientMDI
             // 
-            AutoScaleMode = AutoScaleMode.None;
+            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1182, 653);
             Controls.Add(flowLayoutPanel1);
             IsMdiContainer = true;
