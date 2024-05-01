@@ -9,14 +9,15 @@ namespace DataAcces
 {
     public interface ICourse
     {
-        List<Course> GetAll();
 
-        Course Get(int id);
+        Task<bool> CreateAsync(Course newCourse);
 
-        bool Create(Course newCourse);
+        Task<bool> DeleteAsync(int id);
 
-        bool Update(Course newCourse);
+        Task<List<Course>> GetAllAsync();
 
-        bool Delete(int id);
+        Task<Course> GetAsync(int id);
+
+        Task<bool> UpdateAsync(Course newCourse);
     }
 }

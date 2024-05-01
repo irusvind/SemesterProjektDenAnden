@@ -9,14 +9,14 @@ namespace DataAcces
 {
     public interface IService
     {
-        List<Service> GetAll();
+        Task<List<Service>> GetAllAsync();
 
-        Service Get(int id);
+        Task<Service> GetAsync(int id);
 
-        bool Create(Service newService);
+        Task<bool> CreateAsync(Service newService);
 
-        bool Update(Service newService);
+        Task<bool> UpdateAsync(Service newService);
 
-        bool Delete(int id);
+        Task<bool> DeleteAsync(int id);
     }
 }

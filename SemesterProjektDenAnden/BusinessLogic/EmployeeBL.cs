@@ -5,27 +5,27 @@ namespace BusinessLogic
 {
     public class EmployeeBL : IEmployee
     {
-        public bool CreateEmployee(Employee employee)
+        public async Task<bool> CreateAsync(Employee employee)
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteEmployee(Employee employee)
+        public async Task<bool> DeleteAsync(Employee employee)
         {
             throw new NotImplementedException();
         }
 
-        public List<Employee> GetAllEmployees()
+        public async Task<List<Employee>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Employee GetEmployee(int id)
+        public async Task<Employee> GetAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateEmployee(Employee employee)
+        public async Task<bool> UpdateAsync(Employee employee)
         {
             throw new NotImplementedException();
         }

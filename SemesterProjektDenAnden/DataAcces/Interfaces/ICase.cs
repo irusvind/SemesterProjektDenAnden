@@ -9,14 +9,14 @@ namespace DataAcces.Interfaces
 {
     public interface ICase
     {
-        List<Case> GetAll();
+        Task<bool> Create(Case newCase);
 
-        Case Get(int id);
+        Task<bool> Delete(int id);
 
-        bool Create(Case newCase);
+        Task<List<Case>> GetAll();
 
-        bool Update(Case newCase);
+        Task<Case> Get(int id);
 
-        bool Delete(int id);
+        Task<bool> Update(Case newCase);
     }
 }

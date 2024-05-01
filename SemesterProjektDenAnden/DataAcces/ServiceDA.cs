@@ -9,27 +9,27 @@ namespace DataAcces
 {
     public class ServiceDA : IService
     {
-        public bool Create(Service newService)
+        public Task<bool> CreateAsync(Service newService)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(int id)
+        public Task<bool> DeleteAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Service Get(int id)
+        public Task<List<Service>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public List<Service> GetAll()
+        public Task<Service> GetAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Service newService)
+        public Task<bool> UpdateAsync(Service newService)
         {
             throw new NotImplementedException();
         }

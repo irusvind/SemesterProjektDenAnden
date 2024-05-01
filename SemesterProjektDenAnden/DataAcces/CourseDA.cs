@@ -9,27 +9,27 @@ namespace DataAcces
 {
     public class CourseDA : ICourse
     {
-        public bool Create(Course newCourse)
+        public Task<bool> CreateAsync(Course newCourse)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(int id)
+        public Task<bool> DeleteAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Course Get(int id)
+        public Task<List<Course>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public List<Course> GetAll()
+        public Task<Course> GetAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Course newCourse)
+        public Task<bool> UpdateAsync(Course newCourse)
         {
             throw new NotImplementedException();
         }

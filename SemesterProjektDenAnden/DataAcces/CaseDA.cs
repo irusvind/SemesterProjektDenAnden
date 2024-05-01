@@ -10,27 +10,27 @@ namespace DataAcces
 {
     public class CaseDA : ICase
     {
-        public bool Create(Case newCase)
+        public Task<bool> Create(Case newCase)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(int id)
+        public Task<bool> Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Case Get(int id)
+        public Task<Case> Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Case> GetAll()
+        public Task<List<Case>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Case newCase)
+        public Task<bool> Update(Case newCase)
         {
             throw new NotImplementedException();
         }

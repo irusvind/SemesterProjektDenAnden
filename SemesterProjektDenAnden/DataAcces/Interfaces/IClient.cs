@@ -9,15 +9,15 @@ namespace DataAcces.Interfaces
 {
     public interface IClient
     {
-        List<Client> GetAll();
+        Task<bool> CreateAsync(Client newClient);
 
-        Client Get(int id);
+        Task<bool> DeleteAsync(int id);
 
-        bool Create(Client newClient);
+        Task<Client> GetAsync(int id);
 
-        bool Update(Client newClient);
+        Task<List<Client>> GetAllAsync();
 
-        bool Delete(int id);
+        Task<bool> UpdateAsync(Client newClient);
 
     }
 }

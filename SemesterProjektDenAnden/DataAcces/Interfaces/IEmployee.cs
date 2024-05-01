@@ -9,11 +9,16 @@ namespace DataAcces.Interfaces
 {
     public interface IEmployee
     {
-        List<Employee> GetAllEmployees();
-        Employee GetEmployee(int id);
-        bool CreateEmployee(Employee employee);
-        bool DeleteEmployee(Employee employee);
-        bool UpdateEmployee(Employee employee);
+        Task<bool> CreateAsync(Employee employee);
+
+        Task<bool> DeleteAsync(Employee employee);
+
+        Task<List<Employee>> GetAllAsync();
+
+        Task<Employee> GetAsync(int id);
+
+        Task<bool> UpdateAsync(Employee employee);
+
 
     }
 }
