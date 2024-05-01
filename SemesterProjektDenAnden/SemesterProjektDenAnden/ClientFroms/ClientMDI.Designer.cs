@@ -137,7 +137,9 @@
             Controls.Add(flowLayoutPanel1);
             IsMdiContainer = true;
             Name = "ClientMDI";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
+            FormClosing += ClientMDI_FormClosing;
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);

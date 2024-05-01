@@ -22,7 +22,8 @@ namespace SemesterProjektDenAnden.ClientFroms
         {
             InitializeComponent();
 
-
+            clientOverview = new ClientOverview();
+            this.FormOpener(clientOverview);
         }
 
 
@@ -72,6 +73,11 @@ namespace SemesterProjektDenAnden.ClientFroms
         {
             myCases = new MyCases();
             this.FormOpener(myCases);
+        }
+
+        private void ClientMDI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.OpenForms[0].Close();
         }
 
 

@@ -1,11 +1,12 @@
 using SemesterProjektDenAnden.ClientFroms;
+using SemesterProjektDenAnden.LogInForms;
 
 namespace SemesterProjektDenAnden
 {
     public partial class HomePage : Form
     {
 
-        ClientMDI CO = new ClientMDI();
+        ClientLogIn clientLogIn = new ClientLogIn();
         public HomePage()
         {
             InitializeComponent();
@@ -19,8 +20,10 @@ namespace SemesterProjektDenAnden
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CO.Show();
+            clientLogIn.Show();
             this.Hide();
         }
+
+
     }
 }
