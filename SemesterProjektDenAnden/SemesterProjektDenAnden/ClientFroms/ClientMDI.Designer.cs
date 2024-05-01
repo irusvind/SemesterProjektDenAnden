@@ -46,15 +46,18 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Controls.Add(panel1);
             flowLayoutPanel1.Controls.Add(panel2);
             flowLayoutPanel1.Controls.Add(panel3);
             flowLayoutPanel1.Controls.Add(panel4);
             flowLayoutPanel1.Dock = DockStyle.Left;
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(193, 653);
+            flowLayoutPanel1.Size = new Size(150, 653);
             flowLayoutPanel1.TabIndex = 1;
+            flowLayoutPanel1.WrapContents = false;
             // 
             // panel1
             // 
@@ -66,7 +69,7 @@
             // 
             // overviewbtn
             // 
-            overviewbtn.Location = new Point(-21, -17);
+            overviewbtn.Location = new Point(-45, -17);
             overviewbtn.Name = "overviewbtn";
             overviewbtn.Size = new Size(234, 93);
             overviewbtn.TabIndex = 0;
@@ -84,7 +87,7 @@
             // 
             // myPagebtn
             // 
-            myPagebtn.Location = new Point(-25, -22);
+            myPagebtn.Location = new Point(-45, -22);
             myPagebtn.Name = "myPagebtn";
             myPagebtn.Size = new Size(234, 97);
             myPagebtn.TabIndex = 0;
@@ -102,7 +105,7 @@
             // 
             // myCasesbtn
             // 
-            myCasesbtn.Location = new Point(-25, -22);
+            myCasesbtn.Location = new Point(-45, -22);
             myCasesbtn.Name = "myCasesbtn";
             myCasesbtn.Size = new Size(234, 97);
             myCasesbtn.TabIndex = 0;
@@ -120,21 +123,20 @@
             // 
             // button4
             // 
-            button4.Location = new Point(-25, -22);
+            button4.Location = new Point(-45, -20);
             button4.Name = "button4";
             button4.Size = new Size(234, 97);
             button4.TabIndex = 0;
             button4.Text = "button4";
             button4.UseVisualStyleBackColor = true;
             // 
-            // ClientOverview
+            // ClientMDI
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1182, 653);
             Controls.Add(flowLayoutPanel1);
             IsMdiContainer = true;
-            Name = "ClientOverview";
+            Name = "ClientMDI";
             Text = " ";
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
