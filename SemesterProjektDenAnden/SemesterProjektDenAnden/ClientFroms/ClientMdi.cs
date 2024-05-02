@@ -1,5 +1,4 @@
 ﻿using SemesterProjektDenAnden.EmployeeForms;
-using SemesterProjektDenAnden.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +24,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         {
             InitializeComponent();
 
-            clientOverview = new ClientOverview();
+            clientOverview = new ClientOverview(this);
             this.FormOpener(clientOverview);
         }
 
@@ -62,25 +61,30 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void overviewbtn_Click(object sender, EventArgs e)
         {
-            clientOverview = new ClientOverview();
+            clientOverview = new ClientOverview(this);
             this.FormOpener(clientOverview);
         }
 
         private void myPagebtn_Click(object sender, EventArgs e)
         {
-            myPage = new MyPage();
+            myPage = new MyPage(this);
             this.FormOpener(myPage);
         }
 
         private void myCasesbtn_Click(object sender, EventArgs e)
         {
-            myCases = new MyCases();
+            myCases = new MyCases(this);
             this.FormOpener(myCases);
         }
 
         private void ClientMDI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.OpenForms[0].Close();
+            Application.OpenForms[0].Show();
+        }
+
+        private void Logoutbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void Toolsbtn_Click(object sender, EventArgs e)

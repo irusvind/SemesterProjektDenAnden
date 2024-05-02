@@ -178,6 +178,7 @@
             Logoutbtn.TabIndex = 3;
             Logoutbtn.Text = "Log ud";
             Logoutbtn.UseVisualStyleBackColor = false;
+            Logoutbtn.Click += Logoutbtn_Click;
             // 
             // ClientMDI
             // 

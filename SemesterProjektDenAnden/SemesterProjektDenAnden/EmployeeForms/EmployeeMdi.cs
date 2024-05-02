@@ -1,4 +1,4 @@
-﻿using SemesterProjektDenAnden.ClientFroms;
+using SemesterProjektDenAnden.ClientFroms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,9 +24,14 @@ namespace SemesterProjektDenAnden.EmployeeForms
         {
             InitializeComponent();
 
+
             employeeOverview = new EmployeeOverview(this);
             this.FormOpener(employeeOverview);
         }   
+
+            this.FormOpener(clientOverview);
+        }
+
         private void FormCloser()
         {
             foreach (Form forms in this.MdiChildren)
@@ -59,6 +64,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private void overviewbtn_Click(object sender, EventArgs e)
         {
+
             employeeOverview = new EmployeeOverview(this);
             this.FormOpener(employeeOverview);
         }
@@ -67,18 +73,29 @@ namespace SemesterProjektDenAnden.EmployeeForms
         {
             cases = new Cases(this);
             this.FormOpener(cases);
+
+
+
         }
 
         private void Toolsbtn_Click(object sender, EventArgs e)
         {
+
             //tools = new Tools();
             //this.FormOpener(tools);
+
+
+
         }
 
         private void Employeesbtn_Click(object sender, EventArgs e)
         {
+
             employees = new Employees(this);
             this.FormOpener(employees);
+
+
+
         }
 
         private void Clientsbtn_Click(object sender, EventArgs e)

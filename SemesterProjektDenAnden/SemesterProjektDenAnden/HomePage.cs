@@ -6,8 +6,8 @@ namespace SemesterProjektDenAnden
     public partial class HomePage : Form
     {
 
-        ClientLogIn clientLogIn = new ClientLogIn();
-        EmployeeLogIn employeeLogIn = new EmployeeLogIn();
+        ClientLogIn clientLogIn;
+        EmployeeLogIn employeeLogIn;
         public HomePage()
         {
             InitializeComponent();
@@ -21,6 +21,7 @@ namespace SemesterProjektDenAnden
 
         private void button1_Click(object sender, EventArgs e)
         {
+            clientLogIn = new ClientLogIn();
             clientLogIn.Show();
             this.Hide();
         }
