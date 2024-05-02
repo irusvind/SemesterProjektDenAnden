@@ -32,9 +32,11 @@
             // 
             // ClientCaseSpec
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1049, 616);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
             Name = "ClientCaseSpec";
             Text = "ClientCaseSpec";
             ResumeLayout(false);
