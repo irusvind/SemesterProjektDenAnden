@@ -28,32 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            linkLabel1 = new LinkLabel();
+            calculator_Click = new Button();
+            Formular1 = new LinkLabel();
             linkLabel2 = new LinkLabel();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.BackColor = Color.Black;
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(382, 35);
-            button1.Name = "button1";
-            button1.Size = new Size(349, 113);
-            button1.TabIndex = 0;
-            button1.Text = "Værktøjer";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            calculator_Click.BackColor = Color.Black;
+            calculator_Click.ForeColor = Color.White;
+            calculator_Click.Location = new Point(382, 35);
+            calculator_Click.Name = "button1";
+            calculator_Click.Size = new Size(349, 113);
+            calculator_Click.TabIndex = 0;
+            calculator_Click.Text = "Værktøjer";
+            calculator_Click.UseVisualStyleBackColor = false;
+            calculator_Click.Click += Calculator_Click;
             // 
-            // linkLabel1
+            // Formular1
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(382, 186);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(61, 15);
-            linkLabel1.TabIndex = 1;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Formular1";
+            Formular1.AutoSize = true;
+            Formular1.Location = new Point(382, 186);
+            Formular1.Name = "Formular1";
+            Formular1.Size = new Size(61, 15);
+            Formular1.TabIndex = 1;
+            Formular1.TabStop = true;
+            Formular1.Text = "Formular1";
+            Formular1.LinkClicked += Formular1_Click;
             // 
             // linkLabel2
             // 
@@ -65,18 +66,18 @@
             linkLabel2.TabStop = true;
             linkLabel2.Text = "Formular2";
             // 
-            // Tools
+            // ClientTools
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.Black;
             ClientSize = new Size(1065, 655);
             Controls.Add(linkLabel2);
-            Controls.Add(linkLabel1);
-            Controls.Add(button1);
+            Controls.Add(Formular1);
+            Controls.Add(calculator_Click);
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Tools";
+            Name = "ClientTools";
             Text = "Tools";
             Load += Tools_Load;
             ResumeLayout(false);
@@ -85,8 +86,8 @@
 
         #endregion
 
-        private Button button1;
-        private LinkLabel linkLabel1;
+        private Button calculator_Click;
+        private LinkLabel Formular1;
         private LinkLabel linkLabel2;
     }
 }

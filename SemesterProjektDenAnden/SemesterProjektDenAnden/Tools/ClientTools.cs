@@ -22,13 +22,19 @@ namespace SemesterProjektDenAnden.Tools
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Calculator_Click(object sender, EventArgs e)
         {
             calculator = new Calculator(clientMDI);
             
             clientMDI.FormOpener(calculator);
             
             
+        }
+
+        private void Formular1_Click(object sender, EventArgs e)
+        {
+            CaseForm caseForm = new CaseForm();
+            clientMDI.FormOpener(caseForm);
         }
 
         private void Tools_Load(object sender, EventArgs e)
