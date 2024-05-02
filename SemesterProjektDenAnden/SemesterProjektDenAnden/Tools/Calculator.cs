@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SemesterProjektDenAnden.ClientFroms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,14 @@ namespace SemesterProjektDenAnden.Tools
 {
     public partial class Calculator : Form
     {
-        public Calculator()
+        public Calculator(ClientMDI clientMDI)
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
