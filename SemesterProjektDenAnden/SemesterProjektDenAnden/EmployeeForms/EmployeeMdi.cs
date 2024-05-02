@@ -21,7 +21,6 @@ namespace SemesterProjektDenAnden.EmployeeForms
         {
             InitializeComponent();
 
-            clientOverview = new ClientOverview();
             this.FormOpener(clientOverview);
         }
         private void FormCloser()
@@ -56,20 +55,17 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private void overviewbtn_Click(object sender, EventArgs e)
         {
-            clientOverview = new ClientOverview();
-            this.FormOpener(clientOverview);
+
         }
 
         private void myPagebtn_Click(object sender, EventArgs e)
         {
-            myPage = new MyPage();
-            this.FormOpener(myPage);
+
         }
 
         private void myCasesbtn_Click(object sender, EventArgs e)
         {
-            myCases = new MyCases();
-            this.FormOpener(myCases);
+
         }
 
         private void ClientMDI_FormClosing(object sender, FormClosingEventArgs e)

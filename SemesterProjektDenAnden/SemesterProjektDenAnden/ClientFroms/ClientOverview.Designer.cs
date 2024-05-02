@@ -29,59 +29,62 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
+            OverviewMyPagebtn = new Button();
+            OverviewMyCasesbtn = new Button();
+            overviewToolsbtn = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(998, 271);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(30, 25);
             label1.Name = "label1";
-            label1.Size = new Size(56, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Overview";
+            label1.Size = new Size(188, 54);
+            label1.TabIndex = 4;
+            label1.Text = "Start side";
             // 
-            // label2
+            // OverviewMyPagebtn
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(11, 271);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(56, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Overview";
+            OverviewMyPagebtn.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            OverviewMyPagebtn.Location = new Point(279, 165);
+            OverviewMyPagebtn.Name = "OverviewMyPagebtn";
+            OverviewMyPagebtn.Size = new Size(175, 123);
+            OverviewMyPagebtn.TabIndex = 5;
+            OverviewMyPagebtn.Text = "Min side";
+            OverviewMyPagebtn.UseVisualStyleBackColor = true;
+            OverviewMyPagebtn.Click += OverviewMyPagebtn_Click;
             // 
-            // label3
+            // OverviewMyCasesbtn
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(370, 9);
-            label3.Margin = new Padding(2, 0, 2, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(56, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Overview";
+            OverviewMyCasesbtn.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            OverviewMyCasesbtn.Location = new Point(645, 165);
+            OverviewMyCasesbtn.Name = "OverviewMyCasesbtn";
+            OverviewMyCasesbtn.Size = new Size(175, 123);
+            OverviewMyCasesbtn.TabIndex = 6;
+            OverviewMyCasesbtn.Text = "Mine sager";
+            OverviewMyCasesbtn.UseVisualStyleBackColor = true;
+            OverviewMyCasesbtn.Click += OverviewMyCasesbtn_Click;
             // 
-            // label4
+            // overviewToolsbtn
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(475, 631);
-            label4.Margin = new Padding(2, 0, 2, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(56, 15);
-            label4.TabIndex = 3;
-            label4.Text = "Overview";
+            overviewToolsbtn.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            overviewToolsbtn.Location = new Point(279, 418);
+            overviewToolsbtn.Name = "overviewToolsbtn";
+            overviewToolsbtn.Size = new Size(175, 123);
+            overviewToolsbtn.TabIndex = 7;
+            overviewToolsbtn.Text = "Værktøjer";
+            overviewToolsbtn.UseVisualStyleBackColor = true;
+            overviewToolsbtn.Click += overviewToolsbtn_Click;
             // 
             // ClientOverview
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1065, 655);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(overviewToolsbtn);
+            Controls.Add(OverviewMyCasesbtn);
+            Controls.Add(OverviewMyPagebtn);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
@@ -94,8 +97,8 @@
         #endregion
 
         private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
+        private Button OverviewMyPagebtn;
+        private Button OverviewMyCasesbtn;
+        private Button overviewToolsbtn;
     }
 }

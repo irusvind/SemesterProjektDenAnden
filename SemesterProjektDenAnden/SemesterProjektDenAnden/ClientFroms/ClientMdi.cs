@@ -1,4 +1,5 @@
 ﻿using SemesterProjektDenAnden.EmployeeForms;
+using SemesterProjektDenAnden.LogInForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         {
             InitializeComponent();
 
-            clientOverview = new ClientOverview();
+            clientOverview = new ClientOverview(this);
             this.FormOpener(clientOverview);
         }
 
@@ -36,7 +37,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         }
 
 
-        private void FormOpener(Form form)
+        public void FormOpener(Form form)
         {
             if (this.MdiChildren.Length == 0 || this.MdiChildren[0] != form)
             {
@@ -59,25 +60,30 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void overviewbtn_Click(object sender, EventArgs e)
         {
-            clientOverview = new ClientOverview();
+            clientOverview = new ClientOverview(this);
             this.FormOpener(clientOverview);
         }
 
         private void myPagebtn_Click(object sender, EventArgs e)
         {
-            myPage = new MyPage();
+            myPage = new MyPage(this);
             this.FormOpener(myPage);
         }
 
         private void myCasesbtn_Click(object sender, EventArgs e)
         {
-            myCases = new MyCases();
+            myCases = new MyCases(this);
             this.FormOpener(myCases);
         }
 
         private void ClientMDI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.OpenForms[0].Close();
+            Application.OpenForms[0].Show();
+        }
+
+        private void Logoutbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 

@@ -12,7 +12,7 @@ namespace SemesterProjektDenAnden.ClientFroms
 {
     public partial class MyCases : Form
     {
-        public MyCases()
+        public MyCases(ClientMDI clientMdi)
         {
             InitializeComponent();
         }
