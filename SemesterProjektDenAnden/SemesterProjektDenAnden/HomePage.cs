@@ -28,6 +28,7 @@ namespace SemesterProjektDenAnden
 
         private void Employeebtn_Click(object sender, EventArgs e)
         {
+            employeeLogIn = new EmployeeLogIn();
             employeeLogIn.Show();
             this.Hide();
 

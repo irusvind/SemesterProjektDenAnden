@@ -29,9 +29,6 @@ namespace SemesterProjektDenAnden.EmployeeForms
             this.FormOpener(employeeOverview);
         }   
 
-            this.FormOpener(clientOverview);
-        }
-
         private void FormCloser()
         {
             foreach (Form forms in this.MdiChildren)
