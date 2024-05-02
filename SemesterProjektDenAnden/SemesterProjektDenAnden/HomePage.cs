@@ -6,7 +6,8 @@ namespace SemesterProjektDenAnden
     public partial class HomePage : Form
     {
 
-        ClientLogIn clientLogIn = new ClientLogIn();
+        ClientLogIn clientLogIn;
+        EmployeeLogIn employeeLogIn;
         public HomePage()
         {
             InitializeComponent();
