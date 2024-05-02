@@ -1,4 +1,5 @@
 ﻿using SemesterProjektDenAnden.EmployeeForms;
+using SemesterProjektDenAnden.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,8 @@ namespace SemesterProjektDenAnden.ClientFroms
         ClientOverview clientOverview;
         MyPage myPage;
         MyCases myCases;
+        Tools.ClientTools tools;
+        
 
         public ClientMDI()
         {
@@ -36,7 +39,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         }
 
 
-        private void FormOpener(Form form)
+        public void FormOpener(Form form)
         {
             if (this.MdiChildren.Length == 0 || this.MdiChildren[0] != form)
             {
@@ -78,6 +81,12 @@ namespace SemesterProjektDenAnden.ClientFroms
         private void ClientMDI_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.OpenForms[0].Close();
+        }
+
+        private void Toolsbtn_Click(object sender, EventArgs e)
+        {
+            tools = new ClientTools(this);
+            this.FormOpener(tools);
         }
 
 
