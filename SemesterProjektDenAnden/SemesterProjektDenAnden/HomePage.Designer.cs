@@ -30,15 +30,15 @@
         {
             Clientbtn = new Button();
             Employeebtn = new Button();
-            label1 = new Label();
             SuspendLayout();
             // 
             // Clientbtn
             // 
-            Clientbtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Clientbtn.Location = new Point(314, 337);
+            Clientbtn.Font = new Font("SimSun", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            Clientbtn.Location = new Point(204, 180);
+            Clientbtn.Margin = new Padding(3, 2, 3, 2);
             Clientbtn.Name = "Clientbtn";
-            Clientbtn.Size = new Size(234, 97);
+            Clientbtn.Size = new Size(266, 159);
             Clientbtn.TabIndex = 0;
             Clientbtn.Text = "Klient";
             Clientbtn.UseVisualStyleBackColor = true;
@@ -46,37 +46,29 @@
             // 
             // Employeebtn
             // 
-            Employeebtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Employeebtn.Location = new Point(639, 337);
+            Employeebtn.Font = new Font("SimSun", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            Employeebtn.Location = new Point(543, 180);
+            Employeebtn.Margin = new Padding(3, 2, 3, 2);
             Employeebtn.Name = "Employeebtn";
-            Employeebtn.Size = new Size(234, 97);
+            Employeebtn.Size = new Size(266, 159);
             Employeebtn.TabIndex = 0;
             Employeebtn.Text = "Ansat";
             Employeebtn.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(461, 185);
-            label1.Name = "label1";
-            label1.Size = new Size(271, 46);
-            label1.TabIndex = 1;
-            label1.Text = "Klient eller Ansat";
-            // 
             // HomePage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1182, 653);
-            Controls.Add(label1);
+            BackColor = Color.Black;
+            ClientSize = new Size(1034, 490);
             Controls.Add(Employeebtn);
             Controls.Add(Clientbtn);
+            ForeColor = Color.Black;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "HomePage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -90,6 +82,5 @@
         private Button button3;
         private Panel panel4;
         private Button button4;
-        private Label label1;
     }
 }
