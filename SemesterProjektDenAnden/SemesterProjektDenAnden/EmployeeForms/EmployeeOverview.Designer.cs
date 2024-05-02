@@ -38,17 +38,17 @@
             // Startsidelbl
             // 
             Startsidelbl.AutoSize = true;
-            Startsidelbl.Font = new Font("SimSun", 25.875F, FontStyle.Regular, GraphicsUnit.Point);
-            Startsidelbl.Location = new Point(434, 54);
+            Startsidelbl.Font = new Font("High Tower Text", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            Startsidelbl.Location = new Point(426, 55);
             Startsidelbl.Name = "Startsidelbl";
-            Startsidelbl.Size = new Size(177, 35);
+            Startsidelbl.Size = new Size(199, 57);
             Startsidelbl.TabIndex = 0;
             Startsidelbl.Text = "Startside";
             // 
             // sagerBtn
             // 
             sagerBtn.BackColor = Color.Black;
-            sagerBtn.Font = new Font("SimSun", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
+            sagerBtn.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
             sagerBtn.ForeColor = Color.White;
             sagerBtn.Location = new Point(254, 167);
             sagerBtn.Name = "sagerBtn";
@@ -56,11 +56,12 @@
             sagerBtn.TabIndex = 1;
             sagerBtn.Text = "Sager";
             sagerBtn.UseVisualStyleBackColor = false;
+            sagerBtn.Click += sagerBtn_Click;
             // 
             // employeeBtn
             // 
             employeeBtn.BackColor = Color.Black;
-            employeeBtn.Font = new Font("SimSun", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
+            employeeBtn.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
             employeeBtn.ForeColor = Color.White;
             employeeBtn.Location = new Point(254, 356);
             employeeBtn.Name = "employeeBtn";
@@ -68,22 +69,25 @@
             employeeBtn.TabIndex = 2;
             employeeBtn.Text = "Medarbejdere";
             employeeBtn.UseVisualStyleBackColor = false;
+            employeeBtn.Click += employeeBtn_Click;
             // 
             // clientBtn
             // 
             clientBtn.BackColor = Color.Black;
+            clientBtn.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
             clientBtn.ForeColor = Color.White;
             clientBtn.Location = new Point(550, 356);
             clientBtn.Name = "clientBtn";
             clientBtn.Size = new Size(250, 150);
             clientBtn.TabIndex = 3;
-            clientBtn.Text = "button3";
+            clientBtn.Text = "Klienter";
             clientBtn.UseVisualStyleBackColor = false;
+            clientBtn.Click += clientBtn_Click;
             // 
             // toolsBtn
             // 
             toolsBtn.BackColor = Color.Black;
-            toolsBtn.Font = new Font("SimSun", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
+            toolsBtn.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
             toolsBtn.ForeColor = Color.White;
             toolsBtn.Location = new Point(550, 167);
             toolsBtn.Name = "toolsBtn";
@@ -91,6 +95,7 @@
             toolsBtn.TabIndex = 4;
             toolsBtn.Text = "Værktøjer";
             toolsBtn.UseVisualStyleBackColor = false;
+            toolsBtn.Click += toolsBtn_Click;
             // 
             // EmployeeOverview
             // 

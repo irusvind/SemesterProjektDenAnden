@@ -37,8 +37,8 @@
             Toolsbtn = new Button();
             panel4 = new Panel();
             Employeesbtn = new Button();
-            Clientsbtn = new Button();
             panel5 = new Panel();
+            Clientsbtn = new Button();
             panel6 = new Panel();
             LogOutbtn = new Button();
             flowLayoutPanel1.SuspendLayout();
@@ -53,6 +53,7 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.BackColor = Color.Black;
             flowLayoutPanel1.Controls.Add(panel1);
             flowLayoutPanel1.Controls.Add(panel2);
             flowLayoutPanel1.Controls.Add(panel3);
@@ -64,7 +65,7 @@
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Margin = new Padding(2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(120, 522);
+            flowLayoutPanel1.Size = new Size(120, 661);
             flowLayoutPanel1.TabIndex = 2;
             flowLayoutPanel1.WrapContents = false;
             // 
@@ -79,13 +80,17 @@
             // 
             // overviewbtn
             // 
+            overviewbtn.BackColor = Color.Black;
+            overviewbtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            overviewbtn.ForeColor = Color.White;
             overviewbtn.Location = new Point(-36, -14);
             overviewbtn.Margin = new Padding(2);
             overviewbtn.Name = "overviewbtn";
             overviewbtn.Size = new Size(187, 74);
             overviewbtn.TabIndex = 0;
             overviewbtn.Text = "Startside";
-            overviewbtn.UseVisualStyleBackColor = true;
+            overviewbtn.UseVisualStyleBackColor = false;
+            overviewbtn.Click += overviewbtn_Click;
             // 
             // panel2
             // 
@@ -98,13 +103,17 @@
             // 
             // Sagerbtn
             // 
+            Sagerbtn.BackColor = Color.Black;
+            Sagerbtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            Sagerbtn.ForeColor = Color.White;
             Sagerbtn.Location = new Point(-36, -18);
             Sagerbtn.Margin = new Padding(2);
             Sagerbtn.Name = "Sagerbtn";
             Sagerbtn.Size = new Size(187, 78);
             Sagerbtn.TabIndex = 0;
             Sagerbtn.Text = "Sager";
-            Sagerbtn.UseVisualStyleBackColor = true;
+            Sagerbtn.UseVisualStyleBackColor = false;
+            Sagerbtn.Click += Sagerbtn_Click;
             // 
             // panel3
             // 
@@ -117,13 +126,17 @@
             // 
             // Toolsbtn
             // 
+            Toolsbtn.BackColor = Color.Black;
+            Toolsbtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            Toolsbtn.ForeColor = Color.White;
             Toolsbtn.Location = new Point(-36, -18);
             Toolsbtn.Margin = new Padding(2);
             Toolsbtn.Name = "Toolsbtn";
             Toolsbtn.Size = new Size(187, 78);
             Toolsbtn.TabIndex = 0;
             Toolsbtn.Text = "Værktøjer";
-            Toolsbtn.UseVisualStyleBackColor = true;
+            Toolsbtn.UseVisualStyleBackColor = false;
+            Toolsbtn.Click += Toolsbtn_Click;
             // 
             // panel4
             // 
@@ -136,23 +149,17 @@
             // 
             // Employeesbtn
             // 
+            Employeesbtn.BackColor = Color.Black;
+            Employeesbtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            Employeesbtn.ForeColor = Color.White;
             Employeesbtn.Location = new Point(-36, -16);
             Employeesbtn.Margin = new Padding(2);
             Employeesbtn.Name = "Employeesbtn";
             Employeesbtn.Size = new Size(187, 78);
             Employeesbtn.TabIndex = 0;
             Employeesbtn.Text = "Medarbejdere";
-            Employeesbtn.UseVisualStyleBackColor = true;
-            // 
-            // Clientsbtn
-            // 
-            Clientsbtn.Location = new Point(-39, -15);
-            Clientsbtn.Margin = new Padding(2);
-            Clientsbtn.Name = "Clientsbtn";
-            Clientsbtn.Size = new Size(187, 78);
-            Clientsbtn.TabIndex = 1;
-            Clientsbtn.Text = "Klienter";
-            Clientsbtn.UseVisualStyleBackColor = true;
+            Employeesbtn.UseVisualStyleBackColor = false;
+            Employeesbtn.Click += Employeesbtn_Click;
             // 
             // panel5
             // 
@@ -162,6 +169,20 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(118, 46);
             panel5.TabIndex = 5;
+            // 
+            // Clientsbtn
+            // 
+            Clientsbtn.BackColor = Color.Black;
+            Clientsbtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            Clientsbtn.ForeColor = Color.White;
+            Clientsbtn.Location = new Point(-39, -15);
+            Clientsbtn.Margin = new Padding(2);
+            Clientsbtn.Name = "Clientsbtn";
+            Clientsbtn.Size = new Size(187, 78);
+            Clientsbtn.TabIndex = 1;
+            Clientsbtn.Text = "Klienter";
+            Clientsbtn.UseVisualStyleBackColor = false;
+            Clientsbtn.Click += Clientsbtn_Click;
             // 
             // panel6
             // 
@@ -174,24 +195,28 @@
             // 
             // LogOutbtn
             // 
+            LogOutbtn.BackColor = Color.Black;
+            LogOutbtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            LogOutbtn.ForeColor = Color.White;
             LogOutbtn.Location = new Point(-39, -17);
             LogOutbtn.Margin = new Padding(2);
             LogOutbtn.Name = "LogOutbtn";
             LogOutbtn.Size = new Size(187, 78);
             LogOutbtn.TabIndex = 4;
             LogOutbtn.Text = "Log ud";
-            LogOutbtn.UseVisualStyleBackColor = true;
+            LogOutbtn.UseVisualStyleBackColor = false;
             // 
             // EmployeeMdi
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(946, 522);
+            ClientSize = new Size(1184, 661);
             Controls.Add(flowLayoutPanel1);
             IsMdiContainer = true;
             Name = "EmployeeMdi";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeeMdi";
+            FormClosing += EmployeeMdi_FormClosing;
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);

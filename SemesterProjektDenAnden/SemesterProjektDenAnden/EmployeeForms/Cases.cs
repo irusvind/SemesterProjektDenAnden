@@ -12,9 +12,11 @@ namespace SemesterProjektDenAnden.EmployeeForms
 {
     public partial class Cases : Form
     {
-        public Cases()
+        EmployeeMdi employeeMdi;
+        public Cases(EmployeeMdi employeeMdi)
         {
             InitializeComponent();
+            this.employeeMdi = employeeMdi;
         }
     }
 }
