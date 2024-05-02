@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "EmployeeLogIn";
+            logInBtn = new Button();
+            SuspendLayout();
+            // 
+            // logInBtn
+            // 
+            logInBtn.Location = new Point(240, 262);
+            logInBtn.Name = "logInBtn";
+            logInBtn.Size = new Size(75, 23);
+            logInBtn.TabIndex = 0;
+            logInBtn.Text = "Login";
+            logInBtn.UseVisualStyleBackColor = true;
+            logInBtn.Click += logInBtn_Click;
+            // 
+            // EmployeeLogIn
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(logInBtn);
+            Name = "EmployeeLogIn";
+            Text = "EmployeeLogIn";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button logInBtn;
     }
 }

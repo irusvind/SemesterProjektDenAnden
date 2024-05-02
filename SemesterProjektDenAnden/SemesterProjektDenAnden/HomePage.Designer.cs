@@ -54,6 +54,7 @@
             Employeebtn.TabIndex = 0;
             Employeebtn.Text = "Ansat";
             Employeebtn.UseVisualStyleBackColor = true;
+            Employeebtn.Click += Employeebtn_Click;
             // 
             // HomePage
             // 

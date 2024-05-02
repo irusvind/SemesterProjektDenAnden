@@ -7,6 +7,7 @@ namespace SemesterProjektDenAnden
     {
 
         ClientLogIn clientLogIn = new ClientLogIn();
+        EmployeeLogIn employeeLogIn = new EmployeeLogIn();
         public HomePage()
         {
             InitializeComponent();
@@ -24,6 +25,12 @@ namespace SemesterProjektDenAnden
             this.Hide();
         }
 
+        private void Employeebtn_Click(object sender, EventArgs e)
+        {
+            employeeLogIn.Show();
+            this.Hide();
 
+
+        }
     }
 }
