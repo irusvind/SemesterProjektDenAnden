@@ -151,6 +151,7 @@
             Toolsbtn.TabIndex = 0;
             Toolsbtn.Text = "Værktøjer";
             Toolsbtn.UseVisualStyleBackColor = false;
+            Toolsbtn.Click += Toolsbtn_Click;
             // 
             // panel5
             // 
