@@ -1,4 +1,4 @@
-﻿using SemesterProjektDenAnden.ClientFroms;
+using SemesterProjektDenAnden.ClientFroms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,16 +13,25 @@ namespace SemesterProjektDenAnden.EmployeeForms
 {
     public partial class EmployeeMdi : Form
     {
-        ClientOverview clientOverview;
-        MyPage myPage;
-        MyCases myCases;
+        EmployeeOverview employeeOverview;
+        Cases cases;
+        //Tools tools;
+        Employees employees;
+        Clients clients;
+
 
         public EmployeeMdi()
         {
             InitializeComponent();
 
+
+            employeeOverview = new EmployeeOverview(this);
+            this.FormOpener(employeeOverview);
+        }   
+
             this.FormOpener(clientOverview);
         }
+
         private void FormCloser()
         {
             foreach (Form forms in this.MdiChildren)
@@ -32,7 +41,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
         }
 
 
-        private void FormOpener(Form form)
+        public void FormOpener(Form form)
         {
             if (this.MdiChildren.Length == 0 || this.MdiChildren[0] != form)
             {
@@ -56,21 +65,49 @@ namespace SemesterProjektDenAnden.EmployeeForms
         private void overviewbtn_Click(object sender, EventArgs e)
         {
 
+            employeeOverview = new EmployeeOverview(this);
+            this.FormOpener(employeeOverview);
         }
 
-        private void myPagebtn_Click(object sender, EventArgs e)
+        private void Sagerbtn_Click(object sender, EventArgs e)
+        {
+            cases = new Cases(this);
+            this.FormOpener(cases);
+
+
+
+        }
+
+        private void Toolsbtn_Click(object sender, EventArgs e)
         {
 
+            //tools = new Tools();
+            //this.FormOpener(tools);
+
+
+
         }
 
-        private void myCasesbtn_Click(object sender, EventArgs e)
+        private void Employeesbtn_Click(object sender, EventArgs e)
         {
 
+            employees = new Employees(this);
+            this.FormOpener(employees);
+
+
+
         }
 
-        private void ClientMDI_FormClosing(object sender, FormClosingEventArgs e)
+        private void Clientsbtn_Click(object sender, EventArgs e)
+        {
+            clients = new Clients(this);
+            this.FormOpener(clients);
+        }
+
+        private void EmployeeMdi_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.OpenForms[0].Close();
         }
+
     }
 }

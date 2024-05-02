@@ -13,7 +13,7 @@ namespace SemesterProjektDenAnden.LogInForms
 {
     public partial class EmployeeLogIn : Form
     {
-        EmployeeMdi EmployeeMdi = new EmployeeMdi();
+        EmployeeMdi employeeMdi = new EmployeeMdi();
         public EmployeeLogIn()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace SemesterProjektDenAnden.LogInForms
 
         private void logInBtn_Click(object sender, EventArgs e)
         {
-            EmployeeMdi.Show();
+            employeeMdi.Show();
             this.Hide();
         }
     }

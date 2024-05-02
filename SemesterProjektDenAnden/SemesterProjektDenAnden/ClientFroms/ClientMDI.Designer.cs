@@ -77,6 +77,7 @@
             // overviewbtn
             // 
             overviewbtn.BackColor = Color.Black;
+            overviewbtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             overviewbtn.ForeColor = Color.White;
             overviewbtn.Location = new Point(-36, -14);
             overviewbtn.Margin = new Padding(2);
@@ -99,6 +100,7 @@
             // myPagebtn
             // 
             myPagebtn.BackColor = Color.Black;
+            myPagebtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             myPagebtn.ForeColor = Color.White;
             myPagebtn.Location = new Point(-36, -18);
             myPagebtn.Margin = new Padding(2);
@@ -121,6 +123,7 @@
             // myCasesbtn
             // 
             myCasesbtn.BackColor = Color.Black;
+            myCasesbtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             myCasesbtn.ForeColor = Color.White;
             myCasesbtn.Location = new Point(-36, -18);
             myCasesbtn.Margin = new Padding(2);
@@ -143,6 +146,7 @@
             // Toolsbtn
             // 
             Toolsbtn.BackColor = Color.Black;
+            Toolsbtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             Toolsbtn.ForeColor = Color.White;
             Toolsbtn.Location = new Point(-36, -17);
             Toolsbtn.Margin = new Padding(2);
@@ -165,6 +169,7 @@
             // Logoutbtn
             // 
             Logoutbtn.BackColor = Color.Black;
+            Logoutbtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             Logoutbtn.ForeColor = Color.White;
             Logoutbtn.Location = new Point(-36, -18);
             Logoutbtn.Margin = new Padding(2);
