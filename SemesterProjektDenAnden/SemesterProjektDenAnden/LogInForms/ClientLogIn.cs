@@ -14,7 +14,7 @@ namespace SemesterProjektDenAnden.LogInForms
     public partial class ClientLogIn : Form
     {
         ClientMDI clientMDI = new ClientMDI();
-        
+        ClientSignUp clientSignUp;
 
         public ClientLogIn()
         {
@@ -29,6 +29,9 @@ namespace SemesterProjektDenAnden.LogInForms
 
         private void SignUpbtn_Click(object sender, EventArgs e)
         {
+            clientSignUp = new ClientSignUp();
+            clientSignUp.Show();
+            this.Close();
 
         }
     }
