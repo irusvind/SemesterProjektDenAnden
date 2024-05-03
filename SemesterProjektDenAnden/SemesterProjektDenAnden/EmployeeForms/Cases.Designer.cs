@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             sagerLbl = new Label();
             sagerDgv = new DataGridView();
             OpretSagBtn = new Button();
@@ -50,15 +51,23 @@
             // sagerDgv
             // 
             sagerDgv.BackgroundColor = Color.Black;
-            sagerDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
             dataGridViewCellStyle1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = Color.White;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            sagerDgv.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            sagerDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            sagerDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Black;
+            dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            sagerDgv.DefaultCellStyle = dataGridViewCellStyle2;
             sagerDgv.EditMode = DataGridViewEditMode.EditProgrammatically;
             sagerDgv.Enabled = false;
             sagerDgv.GridColor = Color.White;
@@ -67,6 +76,7 @@
             sagerDgv.RowTemplate.Height = 25;
             sagerDgv.Size = new Size(930, 370);
             sagerDgv.TabIndex = 1;
+            sagerDgv.CellContentClick += sagerDgv_CellContentClick;
             // 
             // OpretSagBtn
             // 
