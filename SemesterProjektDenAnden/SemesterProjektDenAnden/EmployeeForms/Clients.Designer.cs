@@ -28,19 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            clientsDgv = new DataGridView();
+            clientsLbl = new Label();
+            ((System.ComponentModel.ISupportInitialize)clientsDgv).BeginInit();
             SuspendLayout();
+            // 
+            // clientsDgv
+            // 
+            clientsDgv.BackgroundColor = Color.Black;
+            clientsDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Black;
+            dataGridViewCellStyle1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            clientsDgv.DefaultCellStyle = dataGridViewCellStyle1;
+            clientsDgv.EditMode = DataGridViewEditMode.EditProgrammatically;
+            clientsDgv.Enabled = false;
+            clientsDgv.GridColor = Color.White;
+            clientsDgv.Location = new Point(67, 145);
+            clientsDgv.Name = "clientsDgv";
+            clientsDgv.RowTemplate.Height = 25;
+            clientsDgv.Size = new Size(930, 370);
+            clientsDgv.TabIndex = 4;
+            // 
+            // clientsLbl
+            // 
+            clientsLbl.AutoSize = true;
+            clientsLbl.Font = new Font("High Tower Text", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            clientsLbl.ForeColor = Color.Black;
+            clientsLbl.Location = new Point(67, 61);
+            clientsLbl.Name = "clientsLbl";
+            clientsLbl.Size = new Size(187, 57);
+            clientsLbl.TabIndex = 3;
+            clientsLbl.Text = "Klienter";
             // 
             // Clients
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1065, 655);
+            Controls.Add(clientsDgv);
+            Controls.Add(clientsLbl);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Clients";
             Text = "Clients";
+            ((System.ComponentModel.ISupportInitialize)clientsDgv).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private DataGridView clientsDgv;
+        private Label clientsLbl;
     }
 }

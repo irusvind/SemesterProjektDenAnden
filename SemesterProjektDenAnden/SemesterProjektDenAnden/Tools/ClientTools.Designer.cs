@@ -33,12 +33,13 @@
             linkLabel2 = new LinkLabel();
             SuspendLayout();
             // 
-            // button1
+            // calculator_Click
             // 
             calculator_Click.BackColor = Color.Black;
+            calculator_Click.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             calculator_Click.ForeColor = Color.White;
             calculator_Click.Location = new Point(382, 35);
-            calculator_Click.Name = "button1";
+            calculator_Click.Name = "calculator_Click";
             calculator_Click.Size = new Size(349, 113);
             calculator_Click.TabIndex = 0;
             calculator_Click.Text = "Værktøjer";
@@ -48,9 +49,11 @@
             // Formular1
             // 
             Formular1.AutoSize = true;
+            Formular1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            Formular1.LinkColor = Color.Black;
             Formular1.Location = new Point(382, 186);
             Formular1.Name = "Formular1";
-            Formular1.Size = new Size(61, 15);
+            Formular1.Size = new Size(68, 18);
             Formular1.TabIndex = 1;
             Formular1.TabStop = true;
             Formular1.Text = "Formular1";
@@ -59,9 +62,11 @@
             // linkLabel2
             // 
             linkLabel2.AutoSize = true;
+            linkLabel2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            linkLabel2.LinkColor = Color.Black;
             linkLabel2.Location = new Point(382, 227);
             linkLabel2.Name = "linkLabel2";
-            linkLabel2.Size = new Size(61, 15);
+            linkLabel2.Size = new Size(69, 18);
             linkLabel2.TabIndex = 2;
             linkLabel2.TabStop = true;
             linkLabel2.Text = "Formular2";
@@ -70,7 +75,7 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.Black;
+            BackColor = Color.White;
             ClientSize = new Size(1065, 655);
             Controls.Add(linkLabel2);
             Controls.Add(Formular1);
