@@ -1,18 +1,23 @@
-﻿using DataAcces.Interfaces;
+﻿using DataAcces;
+using BusinessLogic.BLInterfaces;
 using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAcces.DAInterfaces;
 
 namespace BusinessLogic
 {
-    internal class ClientBL : IClient
+    internal class ClientBL : IClientBL
     {
-        public Task<bool> CreateAsync(Client newClient)
+        IClientDA clientDA = new ClientDA();
+
+        public async Task<bool> CreateAsync(Client newClient)
         {
-            throw new NotImplementedException();
+            await clientDA.CreateAsync(newClient);
+            return true;
         }
 
         public Task<bool> DeleteAsync(int id)

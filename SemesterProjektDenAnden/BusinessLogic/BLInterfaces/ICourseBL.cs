@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAcces
+namespace BusinessLogic.BLInterfaces
 {
-    public interface ICourse
+    internal interface ICourseBL
     {
-
         Task<bool> CreateAsync(Course newCourse);
 
         Task<bool> DeleteAsync(int id);

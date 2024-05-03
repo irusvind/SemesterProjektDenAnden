@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAcces
+namespace BusinessLogic.BLInterfaces
 {
-    public interface IService
+    internal interface IServiceBL
     {
         Task<List<Service>> GetAllAsync();
 

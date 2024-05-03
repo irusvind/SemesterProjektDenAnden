@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAcces.Interfaces
+namespace BusinessLogic.BLInterfaces
 {
-    public interface IClient
+    internal interface IClientBL
     {
         Task<bool> CreateAsync(Client newClient);
 
@@ -18,7 +18,5 @@ namespace DataAcces.Interfaces
         Task<List<Client>> GetAllAsync();
 
         Task<bool> UpdateAsync(Client newClient);
-
     }
 }
-

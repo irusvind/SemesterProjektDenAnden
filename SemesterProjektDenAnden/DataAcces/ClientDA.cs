@@ -5,12 +5,12 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataAcces.Interfaces;
+using DataAcces.DAInterfaces;
 using Models;
 
 namespace DataAcces
 {
-    public class ClientDA : IClient
+    public class ClientDA : IClientDA
     {
         string connString;
         public ClientDA()

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SemesterProjektDenAnden.ClientFroms
 {
-    public partial class MyCases : Form
+    public partial class MyCases : Form 
     {
         public MyCases(ClientMDI clientMdi)
         {

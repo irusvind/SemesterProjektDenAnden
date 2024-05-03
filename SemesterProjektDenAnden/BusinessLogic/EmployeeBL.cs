@@ -1,9 +1,9 @@
-﻿using DataAcces.Interfaces;
+﻿using BusinessLogic.BLInterfaces;
 using Models;
 
 namespace BusinessLogic
 {
-    public class EmployeeBL : IEmployee
+    public class EmployeeBL : IEmployeeBL
     {
         public async Task<bool> CreateAsync(Employee employee)
         {
