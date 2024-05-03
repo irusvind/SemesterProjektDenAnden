@@ -39,7 +39,7 @@
             // 
             Startsidelbl.AutoSize = true;
             Startsidelbl.Font = new Font("High Tower Text", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            Startsidelbl.Location = new Point(426, 55);
+            Startsidelbl.Location = new Point(42, 45);
             Startsidelbl.Name = "Startsidelbl";
             Startsidelbl.Size = new Size(199, 57);
             Startsidelbl.TabIndex = 0;
