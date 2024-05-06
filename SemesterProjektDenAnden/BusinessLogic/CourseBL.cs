@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    internal class CourseBL
+    public class CourseBL
     {
     }
 }
