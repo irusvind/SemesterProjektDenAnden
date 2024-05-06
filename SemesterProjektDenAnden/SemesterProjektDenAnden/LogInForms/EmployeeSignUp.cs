@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SemesterProjektDenAnden.EmployeeForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace SemesterProjektDenAnden.LogInForms
 {
     public partial class EmployeeSignUp : Form
     {
-        public EmployeeSignUp()
+        EmployeeMdi employeeMdi;
+        public EmployeeSignUp(EmployeeMdi employeeMdi)
         {
             InitializeComponent();
+            this.employeeMdi = employeeMdi;
         }
     }
 }

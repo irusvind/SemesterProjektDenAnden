@@ -38,19 +38,19 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("SimSun", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(441, 121);
+            label1.Location = new Point(327, 116);
             label1.Name = "label1";
-            label1.Size = new Size(110, 27);
+            label1.Size = new Size(96, 32);
             label1.TabIndex = 0;
             label1.Text = "Log ind";
             // 
             // SignUpbtn
             // 
             SignUpbtn.FlatStyle = FlatStyle.Flat;
-            SignUpbtn.Font = new Font("SimSun", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            SignUpbtn.Location = new Point(578, 165);
+            SignUpbtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            SignUpbtn.Location = new Point(464, 160);
             SignUpbtn.Margin = new Padding(3, 2, 3, 2);
             SignUpbtn.Name = "SignUpbtn";
             SignUpbtn.Size = new Size(82, 28);
@@ -62,20 +62,20 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("SimSun", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(444, 172);
+            label2.Location = new Point(330, 167);
             label2.Name = "label2";
-            label2.Size = new Size(70, 14);
+            label2.Size = new Size(73, 18);
             label2.TabIndex = 2;
             label2.Text = "Ny kunde?";
             // 
             // Loginbtn
             // 
             Loginbtn.BackColor = Color.White;
-            Loginbtn.Font = new Font("SimSun", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Loginbtn.Font = new Font("High Tower Text", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Loginbtn.ForeColor = Color.Black;
-            Loginbtn.Location = new Point(441, 263);
+            Loginbtn.Location = new Point(327, 258);
             Loginbtn.Margin = new Padding(3, 2, 3, 2);
             Loginbtn.Name = "Loginbtn";
             Loginbtn.Size = new Size(104, 33);
@@ -86,11 +86,11 @@
             // 
             // comboBox1
             // 
-            comboBox1.Font = new Font("SimSun", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBox1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(444, 215);
+            comboBox1.Location = new Point(330, 210);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 21);
+            comboBox1.Size = new Size(121, 24);
             comboBox1.TabIndex = 4;
             // 
             // ClientLogIn
@@ -98,7 +98,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1034, 490);
+            ClientSize = new Size(804, 451);
             Controls.Add(comboBox1);
             Controls.Add(Loginbtn);
             Controls.Add(label2);

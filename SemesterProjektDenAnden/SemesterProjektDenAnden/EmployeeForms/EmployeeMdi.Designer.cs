@@ -205,6 +205,7 @@
             LogOutbtn.TabIndex = 4;
             LogOutbtn.Text = "Log ud";
             LogOutbtn.UseVisualStyleBackColor = false;
+            LogOutbtn.Click += LogOutbtn_Click;
             // 
             // EmployeeMdi
             // 

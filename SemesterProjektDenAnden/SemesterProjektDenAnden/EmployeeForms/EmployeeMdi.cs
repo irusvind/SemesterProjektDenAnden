@@ -27,7 +27,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
             employeeOverview = new EmployeeOverview(this);
             this.FormOpener(employeeOverview);
-        }   
+        }
 
         private void FormCloser()
         {
@@ -103,8 +103,12 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private void EmployeeMdi_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.OpenForms[0].Close();
+            Application.OpenForms[0].Show();
         }
 
+        private void LogOutbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

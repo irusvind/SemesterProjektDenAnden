@@ -28,64 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             OverviewMyPagebtn = new Button();
             OverviewMyCasesbtn = new Button();
             overviewToolsbtn = new Button();
+            Startsidelbl = new Label();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(30, 25);
-            label1.Name = "label1";
-            label1.Size = new Size(188, 54);
-            label1.TabIndex = 4;
-            label1.Text = "Start side";
             // 
             // OverviewMyPagebtn
             // 
-            OverviewMyPagebtn.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            OverviewMyPagebtn.Location = new Point(279, 165);
+            OverviewMyPagebtn.BackColor = Color.Black;
+            OverviewMyPagebtn.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
+            OverviewMyPagebtn.ForeColor = Color.White;
+            OverviewMyPagebtn.Location = new Point(254, 167);
             OverviewMyPagebtn.Name = "OverviewMyPagebtn";
-            OverviewMyPagebtn.Size = new Size(175, 123);
+            OverviewMyPagebtn.Size = new Size(250, 150);
             OverviewMyPagebtn.TabIndex = 5;
             OverviewMyPagebtn.Text = "Min side";
-            OverviewMyPagebtn.UseVisualStyleBackColor = true;
+            OverviewMyPagebtn.UseVisualStyleBackColor = false;
             OverviewMyPagebtn.Click += OverviewMyPagebtn_Click;
             // 
             // OverviewMyCasesbtn
             // 
-            OverviewMyCasesbtn.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            OverviewMyCasesbtn.Location = new Point(645, 165);
+            OverviewMyCasesbtn.BackColor = Color.Black;
+            OverviewMyCasesbtn.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
+            OverviewMyCasesbtn.ForeColor = Color.White;
+            OverviewMyCasesbtn.Location = new Point(555, 167);
             OverviewMyCasesbtn.Name = "OverviewMyCasesbtn";
-            OverviewMyCasesbtn.Size = new Size(175, 123);
+            OverviewMyCasesbtn.Size = new Size(250, 150);
             OverviewMyCasesbtn.TabIndex = 6;
             OverviewMyCasesbtn.Text = "Mine sager";
-            OverviewMyCasesbtn.UseVisualStyleBackColor = true;
+            OverviewMyCasesbtn.UseVisualStyleBackColor = false;
             OverviewMyCasesbtn.Click += OverviewMyCasesbtn_Click;
             // 
             // overviewToolsbtn
             // 
-            overviewToolsbtn.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            overviewToolsbtn.Location = new Point(279, 418);
+            overviewToolsbtn.BackColor = Color.Black;
+            overviewToolsbtn.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
+            overviewToolsbtn.ForeColor = Color.White;
+            overviewToolsbtn.Location = new Point(254, 356);
             overviewToolsbtn.Name = "overviewToolsbtn";
-            overviewToolsbtn.Size = new Size(175, 123);
+            overviewToolsbtn.Size = new Size(250, 150);
             overviewToolsbtn.TabIndex = 7;
             overviewToolsbtn.Text = "Værktøjer";
-            overviewToolsbtn.UseVisualStyleBackColor = true;
+            overviewToolsbtn.UseVisualStyleBackColor = false;
             overviewToolsbtn.Click += overviewToolsbtn_Click;
+            // 
+            // Startsidelbl
+            // 
+            Startsidelbl.AutoSize = true;
+            Startsidelbl.Font = new Font("High Tower Text", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            Startsidelbl.Location = new Point(65, 67);
+            Startsidelbl.Name = "Startsidelbl";
+            Startsidelbl.Size = new Size(199, 57);
+            Startsidelbl.TabIndex = 9;
+            Startsidelbl.Text = "Startside";
             // 
             // ClientOverview
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1065, 655);
+            Controls.Add(Startsidelbl);
             Controls.Add(overviewToolsbtn);
             Controls.Add(OverviewMyCasesbtn);
             Controls.Add(OverviewMyPagebtn);
-            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "ClientOverview";
@@ -95,10 +101,9 @@
         }
 
         #endregion
-
-        private Label label1;
         private Button OverviewMyPagebtn;
         private Button OverviewMyCasesbtn;
         private Button overviewToolsbtn;
+        private Label Startsidelbl;
     }
 }
