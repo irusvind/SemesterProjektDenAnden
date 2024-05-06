@@ -13,8 +13,7 @@ namespace Models
        public DateOnly StartDate {  get; set; }
        public DateOnly ExEndDate { get; set; }
        public int ExHours { get; set; }
-       public int HoursUsed { get; set; }
-       public int TransExpense {  get; set; }
+       public bool IsClosed { get; set; }
        public int ServiceId {  get; set; }
        public int EmployeeId { get; set; }
        public int ClientId { get; set; }
