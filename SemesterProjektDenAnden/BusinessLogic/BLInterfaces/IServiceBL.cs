@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.BLInterfaces
 {
-    internal interface IServiceBL
+    public interface IServiceBL
     {
         Task<List<Service>> GetAllAsync();
 

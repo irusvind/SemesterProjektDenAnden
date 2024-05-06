@@ -109,6 +109,7 @@
             Name = "ClientLogIn";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ClientLogIn";
+            FormClosing += ClientLogIn_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

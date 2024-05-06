@@ -33,7 +33,7 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@Subscriber", newClient.Subscriber);
             try
             {
-                dbConn.OpenAsync();
+                await dbConn.OpenAsync();
                 rowsAffected = sqlCommand.ExecuteNonQuery();
 
             }
@@ -41,7 +41,7 @@ namespace DataAcces
             {
                 return false;
             }
-            finally { dbConn.Close(); }
+            finally { await dbConn.CloseAsync(); }
             if (rowsAffected > 0)
             {
                 return true;
