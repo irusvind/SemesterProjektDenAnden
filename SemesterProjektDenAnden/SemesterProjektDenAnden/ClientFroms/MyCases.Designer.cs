@@ -28,50 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            MycasesLbl = new Label();
+            casesDgv = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)casesDgv).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // MycasesLbl
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(30, 25);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(178, 54);
-            label1.TabIndex = 0;
-            label1.Text = "MyCases";
+            MycasesLbl.AutoSize = true;
+            MycasesLbl.Font = new Font("High Tower Text", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            MycasesLbl.Location = new Point(65, 67);
+            MycasesLbl.Margin = new Padding(2, 0, 2, 0);
+            MycasesLbl.Name = "MycasesLbl";
+            MycasesLbl.Size = new Size(245, 57);
+            MycasesLbl.TabIndex = 0;
+            MycasesLbl.Text = "Mine sager";
             // 
-            // dataGridView1
+            // casesDgv
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(100, 150);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(865, 450);
-            dataGridView1.TabIndex = 1;
+            casesDgv.BackgroundColor = Color.Black;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Black;
+            dataGridViewCellStyle1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            casesDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            casesDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Black;
+            dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            casesDgv.DefaultCellStyle = dataGridViewCellStyle2;
+            casesDgv.Location = new Point(65, 166);
+            casesDgv.Name = "casesDgv";
+            casesDgv.RowTemplate.Height = 25;
+            casesDgv.Size = new Size(932, 394);
+            casesDgv.TabIndex = 1;
             // 
             // MyCases
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1065, 655);
-            Controls.Add(dataGridView1);
-            Controls.Add(label1);
+            Controls.Add(casesDgv);
+            Controls.Add(MycasesLbl);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "MyCases";
             Text = "MyCases";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)casesDgv).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private DataGridView dataGridView1;
+        private Label MycasesLbl;
+        private DataGridView casesDgv;
     }
 }

@@ -28,12 +28,199 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "EmployeeSignUp";
+            CreateBtn = new Button();
+            AddressLbl = new Label();
+            MailLbl = new Label();
+            PhoneLbl = new Label();
+            Lnamelbl = new Label();
+            FnameLbl = new Label();
+            AddressTxt = new TextBox();
+            MailTxt = new TextBox();
+            PhoneTxt = new TextBox();
+            LnameTxt = new TextBox();
+            FnameTxt = new TextBox();
+            label1 = new Label();
+            jobtitlelbl = new Label();
+            jobtitletxtbox = new TextBox();
+            SuspendLayout();
+            // 
+            // CreateBtn
+            // 
+            CreateBtn.BackColor = Color.White;
+            CreateBtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            CreateBtn.ForeColor = Color.Black;
+            CreateBtn.Location = new Point(451, 476);
+            CreateBtn.Name = "CreateBtn";
+            CreateBtn.Size = new Size(255, 32);
+            CreateBtn.TabIndex = 31;
+            CreateBtn.Text = "Opret";
+            CreateBtn.UseVisualStyleBackColor = false;
+            // 
+            // AddressLbl
+            // 
+            AddressLbl.AutoSize = true;
+            AddressLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            AddressLbl.ForeColor = Color.White;
+            AddressLbl.Location = new Point(451, 381);
+            AddressLbl.Name = "AddressLbl";
+            AddressLbl.Size = new Size(58, 18);
+            AddressLbl.TabIndex = 29;
+            AddressLbl.Text = "Adresse";
+            // 
+            // MailLbl
+            // 
+            MailLbl.AutoSize = true;
+            MailLbl.BackColor = Color.Transparent;
+            MailLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            MailLbl.ForeColor = Color.White;
+            MailLbl.Location = new Point(451, 331);
+            MailLbl.Name = "MailLbl";
+            MailLbl.Size = new Size(35, 18);
+            MailLbl.TabIndex = 28;
+            MailLbl.Text = "Mail";
+            // 
+            // PhoneLbl
+            // 
+            PhoneLbl.AutoSize = true;
+            PhoneLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            PhoneLbl.ForeColor = Color.White;
+            PhoneLbl.Location = new Point(451, 278);
+            PhoneLbl.Name = "PhoneLbl";
+            PhoneLbl.Size = new Size(83, 18);
+            PhoneLbl.TabIndex = 27;
+            PhoneLbl.Text = "Telefon Nr.";
+            // 
+            // Lnamelbl
+            // 
+            Lnamelbl.AutoSize = true;
+            Lnamelbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            Lnamelbl.ForeColor = Color.White;
+            Lnamelbl.Location = new Point(451, 225);
+            Lnamelbl.Name = "Lnamelbl";
+            Lnamelbl.Size = new Size(66, 18);
+            Lnamelbl.TabIndex = 26;
+            Lnamelbl.Text = "Efternavn";
+            // 
+            // FnameLbl
+            // 
+            FnameLbl.AutoSize = true;
+            FnameLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            FnameLbl.ForeColor = Color.White;
+            FnameLbl.Location = new Point(451, 176);
+            FnameLbl.Name = "FnameLbl";
+            FnameLbl.Size = new Size(57, 18);
+            FnameLbl.TabIndex = 25;
+            FnameLbl.Text = "Fornavn";
+            // 
+            // AddressTxt
+            // 
+            AddressTxt.Location = new Point(545, 379);
+            AddressTxt.Name = "AddressTxt";
+            AddressTxt.Size = new Size(161, 23);
+            AddressTxt.TabIndex = 23;
+            // 
+            // MailTxt
+            // 
+            MailTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            MailTxt.Location = new Point(545, 328);
+            MailTxt.Name = "MailTxt";
+            MailTxt.Size = new Size(161, 24);
+            MailTxt.TabIndex = 22;
+            // 
+            // PhoneTxt
+            // 
+            PhoneTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            PhoneTxt.Location = new Point(545, 275);
+            PhoneTxt.Name = "PhoneTxt";
+            PhoneTxt.Size = new Size(161, 24);
+            PhoneTxt.TabIndex = 21;
+            // 
+            // LnameTxt
+            // 
+            LnameTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            LnameTxt.Location = new Point(545, 225);
+            LnameTxt.Name = "LnameTxt";
+            LnameTxt.Size = new Size(161, 24);
+            LnameTxt.TabIndex = 20;
+            // 
+            // FnameTxt
+            // 
+            FnameTxt.Location = new Point(545, 174);
+            FnameTxt.Name = "FnameTxt";
+            FnameTxt.Size = new Size(161, 23);
+            FnameTxt.TabIndex = 19;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(451, 123);
+            label1.Name = "label1";
+            label1.Size = new Size(223, 32);
+            label1.TabIndex = 16;
+            label1.Text = "Opret medarbejder";
+            // 
+            // jobtitlelbl
+            // 
+            jobtitlelbl.AutoSize = true;
+            jobtitlelbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            jobtitlelbl.ForeColor = Color.White;
+            jobtitlelbl.Location = new Point(451, 429);
+            jobtitlelbl.Name = "jobtitlelbl";
+            jobtitlelbl.Size = new Size(50, 18);
+            jobtitlelbl.TabIndex = 33;
+            jobtitlelbl.Text = "Jobtitel";
+            // 
+            // jobtitletxtbox
+            // 
+            jobtitletxtbox.Location = new Point(545, 427);
+            jobtitletxtbox.Name = "jobtitletxtbox";
+            jobtitletxtbox.Size = new Size(161, 23);
+            jobtitletxtbox.TabIndex = 32;
+            // 
+            // EmployeeSignUp
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Black;
+            ClientSize = new Size(1065, 655);
+            Controls.Add(jobtitlelbl);
+            Controls.Add(jobtitletxtbox);
+            Controls.Add(CreateBtn);
+            Controls.Add(AddressLbl);
+            Controls.Add(MailLbl);
+            Controls.Add(PhoneLbl);
+            Controls.Add(Lnamelbl);
+            Controls.Add(FnameLbl);
+            Controls.Add(AddressTxt);
+            Controls.Add(MailTxt);
+            Controls.Add(PhoneTxt);
+            Controls.Add(LnameTxt);
+            Controls.Add(FnameTxt);
+            Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "EmployeeSignUp";
+            Text = "EmployeeSignUp";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button CreateBtn;
+        private Label AddressLbl;
+        private Label MailLbl;
+        private Label PhoneLbl;
+        private Label Lnamelbl;
+        private Label FnameLbl;
+        private TextBox AddressTxt;
+        private TextBox MailTxt;
+        private TextBox PhoneTxt;
+        private TextBox LnameTxt;
+        private TextBox FnameTxt;
+        private Label label1;
+        private Label jobtitlelbl;
+        private TextBox jobtitletxtbox;
     }
 }
