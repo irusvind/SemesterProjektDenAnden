@@ -71,7 +71,7 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void myPagebtn_Click(object sender, EventArgs e)
         {
-            myPage = new MyPage(this);
+            myPage = new MyPage(this, clientId);
             this.FormOpener(myPage);
         }
 
