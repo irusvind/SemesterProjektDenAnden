@@ -36,11 +36,11 @@
             label6 = new Label();
             button1 = new Button();
             button2 = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            FNameTxt = new TextBox();
+            LNameTxt = new TextBox();
+            MailTxt = new TextBox();
+            PhoneTxt = new TextBox();
+            AddressTxt = new TextBox();
             label7 = new Label();
             label8 = new Label();
             SuspendLayout();
@@ -132,45 +132,45 @@
             button2.Text = "Gem ændringer";
             button2.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // FNameTxt
             // 
-            textBox1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(273, 181);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(200, 24);
-            textBox1.TabIndex = 8;
+            FNameTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            FNameTxt.Location = new Point(273, 181);
+            FNameTxt.Name = "FNameTxt";
+            FNameTxt.Size = new Size(200, 24);
+            FNameTxt.TabIndex = 8;
             // 
-            // textBox2
+            // LNameTxt
             // 
-            textBox2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(273, 221);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(200, 24);
-            textBox2.TabIndex = 9;
+            LNameTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            LNameTxt.Location = new Point(273, 221);
+            LNameTxt.Name = "LNameTxt";
+            LNameTxt.Size = new Size(200, 24);
+            LNameTxt.TabIndex = 9;
             // 
-            // textBox3
+            // MailTxt
             // 
-            textBox3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(273, 261);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(200, 24);
-            textBox3.TabIndex = 10;
+            MailTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            MailTxt.Location = new Point(273, 261);
+            MailTxt.Name = "MailTxt";
+            MailTxt.Size = new Size(200, 24);
+            MailTxt.TabIndex = 10;
             // 
-            // textBox4
+            // PhoneTxt
             // 
-            textBox4.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(273, 301);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(200, 24);
-            textBox4.TabIndex = 11;
+            PhoneTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            PhoneTxt.Location = new Point(273, 301);
+            PhoneTxt.Name = "PhoneTxt";
+            PhoneTxt.Size = new Size(200, 24);
+            PhoneTxt.TabIndex = 11;
             // 
-            // textBox5
+            // AddressTxt
             // 
-            textBox5.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox5.Location = new Point(273, 341);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(200, 24);
-            textBox5.TabIndex = 12;
+            AddressTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            AddressTxt.Location = new Point(273, 341);
+            AddressTxt.Name = "AddressTxt";
+            AddressTxt.Size = new Size(200, 24);
+            AddressTxt.TabIndex = 12;
             // 
             // label7
             // 
@@ -199,11 +199,11 @@
             ClientSize = new Size(1065, 655);
             Controls.Add(label8);
             Controls.Add(label7);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(AddressTxt);
+            Controls.Add(PhoneTxt);
+            Controls.Add(MailTxt);
+            Controls.Add(LNameTxt);
+            Controls.Add(FNameTxt);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label6);
@@ -230,11 +230,11 @@
         private Label label6;
         private Button button1;
         private Button button2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox FNameTxt;
+        private TextBox LNameTxt;
+        private TextBox MailTxt;
+        private TextBox PhoneTxt;
+        private TextBox AddressTxt;
         private Label label7;
         private Label label8;
     }

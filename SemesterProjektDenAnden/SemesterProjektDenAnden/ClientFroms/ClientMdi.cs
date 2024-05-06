@@ -19,14 +19,17 @@ namespace SemesterProjektDenAnden.ClientFroms
         MyPage myPage;
         MyCases myCases;
         Tools.ClientTools tools;
+        int clientId;
         
 
-        public ClientMDI()
+        public ClientMDI(int clientid)
         {
             InitializeComponent();
 
             clientOverview = new ClientOverview(this);
             this.FormOpener(clientOverview);
+
+            this.clientId = clientid;
         }
 
 
@@ -68,7 +71,7 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void myPagebtn_Click(object sender, EventArgs e)
         {
-            myPage = new MyPage(this);
+            myPage = new MyPage(this, clientId);
             this.FormOpener(myPage);
         }
 

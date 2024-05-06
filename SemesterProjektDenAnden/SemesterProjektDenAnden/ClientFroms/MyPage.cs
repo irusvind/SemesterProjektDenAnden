@@ -12,7 +12,7 @@ namespace SemesterProjektDenAnden.ClientFroms
 {
     public partial class MyPage : Form
     {
-        public MyPage(ClientMDI clientMdi)
+        public MyPage(ClientMDI clientMdi, int clientId)
         {
             InitializeComponent();
         }
