@@ -10,7 +10,7 @@ using DataAcces.DAInterfaces;
 
 namespace BusinessLogic
 {
-    internal class ClientBL : IClientBL
+    public class ClientBL : IClientBL
     {
         IClientDA clientDA = new ClientDA();
 

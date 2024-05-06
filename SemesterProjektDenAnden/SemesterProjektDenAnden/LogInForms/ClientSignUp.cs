@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BusinessLogic;
+using BusinessLogic.BLInterfaces;
+using Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +16,7 @@ namespace SemesterProjektDenAnden.LogInForms
     public partial class ClientSignUp : Form
     {
         ClientLogIn clientLogIn;
+        IClientBL ClientBL = new ClientBL();
         public ClientSignUp()
         {
             InitializeComponent();
@@ -28,6 +32,19 @@ namespace SemesterProjektDenAnden.LogInForms
         private void ClientSignUp_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.OpenForms[0].Show();
+        }
+
+        private void CreateBtn_Click(object sender, EventArgs e)
+        {
+            Client newClient = new Client();
+            newClient.FirstName = FnameTxt.Text;
+            newClient.LastName = LnameTxt.Text;
+            newClient.Phone = int.Parse(PhoneTxt.Text);
+            newClient.Mail = MailTxt.Text;
+            newClient.ClAddress = AddressTxt.Text;
+            newClient.Subscriber = SubscribeCB.Checked;
+            ClientBL.CreateAsync(newClient);
+
         }
     }
 }

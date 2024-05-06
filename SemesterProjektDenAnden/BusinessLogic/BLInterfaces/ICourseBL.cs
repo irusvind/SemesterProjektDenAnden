@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.BLInterfaces
 {
-    internal interface ICourseBL
+    public interface ICourseBL
     {
         Task<bool> CreateAsync(Course newCourse);
 
