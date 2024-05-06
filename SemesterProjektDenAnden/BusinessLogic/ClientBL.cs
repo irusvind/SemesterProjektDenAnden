@@ -7,17 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAcces.DAInterfaces;
+using System.Drawing.Text;
 
 namespace BusinessLogic
 {
-    internal class ClientBL : IClientBL
+    public class ClientBL : IClientBL
     {
         IClientDA clientDA = new ClientDA();
 
         public async Task<bool> CreateAsync(Client newClient)
         {
-            await clientDA.CreateAsync(newClient);
-            return true;
+            bool result = await clientDA.CreateAsync(newClient);
+            return result;
         }
 
         public Task<bool> DeleteAsync(int id)

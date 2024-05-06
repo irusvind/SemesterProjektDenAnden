@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.BLInterfaces
 {
-    internal interface ICaseBL
+    public interface ICaseBL
     {
         Task<bool> Create(Case newCase);
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.BLInterfaces
 {
-    internal interface IClientBL
+    public interface IClientBL
     {
         Task<bool> CreateAsync(Client newClient);
 
