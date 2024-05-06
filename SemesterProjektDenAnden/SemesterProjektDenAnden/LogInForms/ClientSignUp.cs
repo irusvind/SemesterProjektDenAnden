@@ -24,26 +24,42 @@ namespace SemesterProjektDenAnden.LogInForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            clientLogIn = new ClientLogIn();
-            clientLogIn.Show();
             this.Close();
         }
 
         private void ClientSignUp_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.OpenForms[0].Show();
+            clientLogIn = new ClientLogIn();
+            clientLogIn.Show();
         }
 
-        private void CreateBtn_Click(object sender, EventArgs e)
+        private async void CreateBtn_Click(object sender, EventArgs e)
         {
-            Client newClient = new Client();
-            newClient.FirstName = FnameTxt.Text;
-            newClient.LastName = LnameTxt.Text;
-            newClient.Phone = int.Parse(PhoneTxt.Text);
-            newClient.Mail = MailTxt.Text;
-            newClient.ClAddress = AddressTxt.Text;
-            newClient.Subscriber = SubscribeCB.Checked;
-            ClientBL.CreateAsync(newClient);
+            string message = "Er du sikker på du vil oprette en bruger med de indtastede værdier?";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, "Opret Bruger", buttons);
+            if(result == DialogResult.Yes)
+            {
+
+                Client newClient = new Client();
+                newClient.FirstName = FnameTxt.Text;
+                newClient.LastName = LnameTxt.Text;
+                newClient.Phone = int.Parse(PhoneTxt.Text);
+                newClient.Mail = MailTxt.Text;
+                newClient.ClAddress = AddressTxt.Text;
+                newClient.Subscriber = SubscribeCB.Checked;
+                bool createResult = await ClientBL.CreateAsync(newClient);
+                if(createResult == true)
+                {
+                    MessageBox.Show("Bruger oprettet", "Bruger oprettet");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Fejl: Bruger ikke oprettet", "Fejl");
+                }
+
+            }
 
         }
     }
