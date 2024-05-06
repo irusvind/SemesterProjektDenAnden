@@ -76,6 +76,7 @@
             Controls.Add(label1);
             Controls.Add(logInBtn);
             Name = "EmployeeLogIn";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeeLogIn";
             ResumeLayout(false);
             PerformLayout();
