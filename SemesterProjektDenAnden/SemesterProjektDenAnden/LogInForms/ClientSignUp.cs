@@ -12,9 +12,22 @@ namespace SemesterProjektDenAnden.LogInForms
 {
     public partial class ClientSignUp : Form
     {
+        ClientLogIn clientLogIn;
         public ClientSignUp()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            clientLogIn = new ClientLogIn();
+            clientLogIn.Show();
+            this.Close();
+        }
+
+        private void ClientSignUp_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.OpenForms[0].Show();
         }
     }
 }
