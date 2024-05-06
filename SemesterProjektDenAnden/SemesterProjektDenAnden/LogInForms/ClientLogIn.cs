@@ -37,9 +37,14 @@ namespace SemesterProjektDenAnden.LogInForms
 
         private void Loginbtn_Click(object sender, EventArgs e)
         {
-            clientMDI = new ClientMDI();
-            clientMDI.Show();
-            this.Close();
+            if(ClientCB.Text.Length > 0)
+            {
+                string[] idString = ClientCB.Items[ClientCB.SelectedIndex].ToString().Split(':');
+                int id = int.Parse(idString[0]);
+                clientMDI = new ClientMDI(id);
+                clientMDI.Show();
+                this.Close();
+            }
         }
 
         private void SignUpbtn_Click(object sender, EventArgs e)
