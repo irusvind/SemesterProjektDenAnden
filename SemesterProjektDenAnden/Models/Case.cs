@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,14 +9,32 @@ namespace Models
 {
     public class Case
     {
-       public int CaseId {  get; set; }
-       public string CaseTitle {  get; set; }
-       public DateOnly StartDate {  get; set; }
-       public DateOnly ExEndDate { get; set; }
-       public int ExHours { get; set; }
-       public bool IsClosed { get; set; }
-       public int ServiceId {  get; set; }
-       public int EmployeeId { get; set; }
-       public int ClientId { get; set; }
+
+
+        public int CaseId { get; set; }
+
+        [Required, StringLength(50)]
+        public string CaseTitle { get; set; }
+
+        [Required, DataType(DataType.Date)]
+        public DateOnly StartDate { get; set; }
+
+        [Required, DataType(DataType.Date)]
+        public DateOnly ExEndDate { get; set; }
+
+        [Required, DataType(DataType.Time)]
+        public int ExHours { get; set; }
+
+        [Required]
+        public bool IsClosed { get; set; }
+
+        [Required]
+        public int ServiceId { get; set; }
+
+        [Required]
+        public int EmployeeId { get; set; }
+
+        [Required]
+        public int ClientId { get; set; }
     }
 }
