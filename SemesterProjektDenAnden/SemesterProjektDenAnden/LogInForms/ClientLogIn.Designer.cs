@@ -90,7 +90,7 @@
             ClientCB.FormattingEnabled = true;
             ClientCB.Location = new Point(330, 210);
             ClientCB.Name = "ClientCB";
-            ClientCB.Size = new Size(121, 24);
+            ClientCB.Size = new Size(216, 24);
             ClientCB.TabIndex = 4;
             // 
             // ClientLogIn
