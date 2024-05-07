@@ -21,20 +21,20 @@ namespace DataAcces
         }
         public async Task<bool> CreateAsync(Client newClient)
         {
-            string command = "INSERT INTO CLIENT VALUES(@FirstName, @LastName, @Phone, @Mail, @ClAddress, @Subscriber)";
+            string command = "INSERT INTO CLIENT VALUES(@ClFirstName, @ClLastName, @ClPhone, @ClMail, @ClAddress, @Subscriber)";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
-            sqlCommand.Parameters.AddWithValue("@FirstName", newClient.FirstName);
-            sqlCommand.Parameters.AddWithValue("@LastName", newClient.LastName);
-            sqlCommand.Parameters.AddWithValue("@Phone", newClient.Phone);
-            sqlCommand.Parameters.AddWithValue("@Mail", newClient.Mail);
+            sqlCommand.Parameters.AddWithValue("@ClFirstName", newClient.FirstName);
+            sqlCommand.Parameters.AddWithValue("@ClLastName", newClient.LastName);
+            sqlCommand.Parameters.AddWithValue("@ClPhone", newClient.Phone);
+            sqlCommand.Parameters.AddWithValue("@ClMail", newClient.Mail);
             sqlCommand.Parameters.AddWithValue("@ClAddress", newClient.ClAddress);
             sqlCommand.Parameters.AddWithValue("@Subscriber", newClient.Subscriber);
             try
             {
                 await dbConn.OpenAsync();
-                rowsAffected = sqlCommand.ExecuteNonQuery();
+                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
 
             }
             catch (Exception e)
@@ -96,10 +96,10 @@ namespace DataAcces
                     if ((int)reader["ClientId"] == id)
                     {
                         newClient.ClientId = (int)reader["ClientId"];
-                        newClient.FirstName = (string)reader["FirstName"];
-                        newClient.LastName = (string)reader["LastName"];
-                        newClient.Phone = (int)reader["Phone"];
-                        newClient.Mail = (string)reader["Mail"];
+                        newClient.FirstName = (string)reader["ClFirstName"];
+                        newClient.LastName = (string)reader["ClLastName"];
+                        newClient.Phone = (int)reader["ClPhone"];
+                        newClient.Mail = (string)reader["ClMail"];
                         newClient.ClAddress = (string)reader["CLAddress"];
                         newClient.Subscriber = (bool)reader["Subscriber"];
 
@@ -132,10 +132,10 @@ namespace DataAcces
                 {
                     Client newClient = new Client();
                     newClient.ClientId = (int)reader["ClientId"];
-                    newClient.FirstName = (string)reader["FirstName"];
-                    newClient.LastName = (string)reader["LastName"];
-                    newClient.Phone = (int)reader["Phone"];
-                    newClient.Mail = (string)reader["Mail"];
+                    newClient.FirstName = (string)reader["ClFirstName"];
+                    newClient.LastName = (string)reader["ClLastName"];
+                    newClient.Phone = (int)reader["ClPhone"];
+                    newClient.Mail = (string)reader["ClMail"];
                     newClient.ClAddress = (string)reader["CLAddress"];
                     newClient.Subscriber = (bool)reader["Subscriber"];
                     newClientList.Add(newClient);
@@ -156,20 +156,20 @@ namespace DataAcces
         public async Task<bool> UpdateAsync(Client newClient)
         {
             string command = "UPDATE CLIENT SET" +
-                "FirstName = @FirstName" +
-                "LastName = @LastName" +
-                "Phone = @Phone" +
-                "Mail = @Mail" +
+                "ClFirstName = @ClFirstName" +
+                "ClLastName = @ClLastName" +
+                "ClPhone = @ClPhone" +
+                "ClMail = @ClMail" +
                 "CLAddress = @CLAddress" +
                 "Subscriber = @Subscriber" +
                 "WHERE ClientID = @ClientId";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
-            sqlCommand.Parameters.AddWithValue("@FirstName", newClient.FirstName);
-            sqlCommand.Parameters.AddWithValue("@LastName", newClient.LastName);
-            sqlCommand.Parameters.AddWithValue("@Phone", newClient.Phone);
-            sqlCommand.Parameters.AddWithValue("@Mail", newClient.Mail);
+            sqlCommand.Parameters.AddWithValue("@ClFirstName", newClient.FirstName);
+            sqlCommand.Parameters.AddWithValue("@ClLastName", newClient.LastName);
+            sqlCommand.Parameters.AddWithValue("@ClPhone", newClient.Phone);
+            sqlCommand.Parameters.AddWithValue("@ClMail", newClient.Mail);
             sqlCommand.Parameters.AddWithValue("@ClAddress", newClient.ClAddress);
             sqlCommand.Parameters.AddWithValue("@Subscriber", newClient.Subscriber);
             try
