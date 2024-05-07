@@ -42,7 +42,7 @@
             PhoneTxt = new TextBox();
             AddressTxt = new TextBox();
             label7 = new Label();
-            label8 = new Label();
+            SubscribtionStatusLbl = new Label();
             SuspendLayout();
             // 
             // label1
@@ -182,22 +182,22 @@
             label7.TabIndex = 13;
             label7.Text = "Abonnement Status:";
             // 
-            // label8
+            // SubscribtionStatusLbl
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("High Tower Text", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(767, 184);
-            label8.Name = "label8";
-            label8.Size = new Size(60, 22);
-            label8.TabIndex = 14;
-            label8.Text = "Status";
+            SubscribtionStatusLbl.AutoSize = true;
+            SubscribtionStatusLbl.Font = new Font("High Tower Text", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            SubscribtionStatusLbl.Location = new Point(767, 184);
+            SubscribtionStatusLbl.Name = "SubscribtionStatusLbl";
+            SubscribtionStatusLbl.Size = new Size(60, 22);
+            SubscribtionStatusLbl.TabIndex = 14;
+            SubscribtionStatusLbl.Text = "Status";
             // 
             // MyPage
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1065, 655);
-            Controls.Add(label8);
+            Controls.Add(SubscribtionStatusLbl);
             Controls.Add(label7);
             Controls.Add(AddressTxt);
             Controls.Add(PhoneTxt);
@@ -236,6 +236,6 @@
         private TextBox PhoneTxt;
         private TextBox AddressTxt;
         private Label label7;
-        private Label label8;
+        private Label SubscribtionStatusLbl;
     }
 }
