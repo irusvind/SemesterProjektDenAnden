@@ -172,6 +172,7 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@ClMail", newClient.Mail);
             sqlCommand.Parameters.AddWithValue("@ClAddress", newClient.ClAddress);
             sqlCommand.Parameters.AddWithValue("@Subscriber", newClient.Subscriber);
+            sqlCommand.Parameters.AddWithValue("@ClientId", newClient.ClientId);
             try
             {
                 await dbConn.OpenAsync();
