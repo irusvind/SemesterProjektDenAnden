@@ -79,7 +79,6 @@ namespace DataAcces
         {
             string command = "SELECT * FROM CLIENT WHERE ClientId = @ClientId";
             Client newClient = new Client();
-            List<Client> returnList = new List<Client>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@ClientId", id);

@@ -78,6 +78,7 @@
             Name = "EmployeeLogIn";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeeLogIn";
+            FormClosing += EmployeeLogIn_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

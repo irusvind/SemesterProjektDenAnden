@@ -47,5 +47,14 @@ namespace SemesterProjektDenAnden.LogInForms
                 this.Close();
             }
         }
+
+        private void EmployeeLogIn_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Application.OpenForms.Count == 2)
+            {
+                Application.OpenForms[0].Show();
+            }
+
+        }
     }
 }
