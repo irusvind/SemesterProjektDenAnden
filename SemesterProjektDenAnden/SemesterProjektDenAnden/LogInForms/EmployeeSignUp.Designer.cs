@@ -52,9 +52,10 @@
             CreateBtn.Location = new Point(451, 476);
             CreateBtn.Name = "CreateBtn";
             CreateBtn.Size = new Size(255, 32);
-            CreateBtn.TabIndex = 31;
+            CreateBtn.TabIndex = 7;
             CreateBtn.Text = "Opret";
             CreateBtn.UseVisualStyleBackColor = false;
+            CreateBtn.Click += CreateBtn_Click;
             // 
             // AddressLbl
             // 
@@ -117,7 +118,7 @@
             AddressTxt.Location = new Point(545, 379);
             AddressTxt.Name = "AddressTxt";
             AddressTxt.Size = new Size(161, 23);
-            AddressTxt.TabIndex = 23;
+            AddressTxt.TabIndex = 5;
             // 
             // MailTxt
             // 
@@ -125,7 +126,7 @@
             MailTxt.Location = new Point(545, 328);
             MailTxt.Name = "MailTxt";
             MailTxt.Size = new Size(161, 24);
-            MailTxt.TabIndex = 22;
+            MailTxt.TabIndex = 4;
             // 
             // PhoneTxt
             // 
@@ -133,7 +134,7 @@
             PhoneTxt.Location = new Point(545, 275);
             PhoneTxt.Name = "PhoneTxt";
             PhoneTxt.Size = new Size(161, 24);
-            PhoneTxt.TabIndex = 21;
+            PhoneTxt.TabIndex = 3;
             // 
             // LnameTxt
             // 
@@ -141,14 +142,14 @@
             LnameTxt.Location = new Point(545, 225);
             LnameTxt.Name = "LnameTxt";
             LnameTxt.Size = new Size(161, 24);
-            LnameTxt.TabIndex = 20;
+            LnameTxt.TabIndex = 2;
             // 
             // FnameTxt
             // 
             FnameTxt.Location = new Point(545, 174);
             FnameTxt.Name = "FnameTxt";
             FnameTxt.Size = new Size(161, 23);
-            FnameTxt.TabIndex = 19;
+            FnameTxt.TabIndex = 1;
             // 
             // label1
             // 
@@ -177,7 +178,7 @@
             jobtitletxtbox.Location = new Point(545, 427);
             jobtitletxtbox.Name = "jobtitletxtbox";
             jobtitletxtbox.Size = new Size(161, 23);
-            jobtitletxtbox.TabIndex = 32;
+            jobtitletxtbox.TabIndex = 6;
             // 
             // EmployeeSignUp
             // 

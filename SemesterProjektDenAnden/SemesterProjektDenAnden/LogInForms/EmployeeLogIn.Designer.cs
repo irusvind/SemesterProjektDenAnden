@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             logInBtn = new Button();
-            comboBox1 = new ComboBox();
+            EmployeeCB = new ComboBox();
             label1 = new Label();
             SuspendLayout();
             // 
@@ -46,14 +46,14 @@
             logInBtn.UseVisualStyleBackColor = false;
             logInBtn.Click += logInBtn_Click;
             // 
-            // comboBox1
+            // EmployeeCB
             // 
-            comboBox1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(322, 198);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(204, 24);
-            comboBox1.TabIndex = 9;
+            EmployeeCB.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            EmployeeCB.FormattingEnabled = true;
+            EmployeeCB.Location = new Point(322, 198);
+            EmployeeCB.Name = "EmployeeCB";
+            EmployeeCB.Size = new Size(204, 24);
+            EmployeeCB.TabIndex = 9;
             // 
             // label1
             // 
@@ -72,7 +72,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(804, 451);
-            Controls.Add(comboBox1);
+            Controls.Add(EmployeeCB);
             Controls.Add(label1);
             Controls.Add(logInBtn);
             Name = "EmployeeLogIn";
@@ -85,7 +85,7 @@
         #endregion
 
         private Button logInBtn;
-        private ComboBox comboBox1;
+        private ComboBox EmployeeCB;
         private Label label1;
     }
 }

@@ -2,7 +2,6 @@
 using Models;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Runtime.InteropServices;
 
 namespace DataAcces
 {
@@ -20,8 +19,8 @@ namespace DataAcces
         {
             string command = "INSERT INTO EMPLOYEE VALUES(@EmFirstName, @EmLastName, @EmPhone, @EmMail, @EmAddress, @JobTitle)";
             int rowsAffected;
-            using SqlConnection dbConn = new SqlConnection (connString);
-            SqlCommand sqlCommand = new SqlCommand (command, dbConn);
+            using SqlConnection dbConn = new SqlConnection(connString);
+            SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@EmFirstName", employee.FirstName);
             sqlCommand.Parameters.AddWithValue("@EmLastName", employee.LastName);
             sqlCommand.Parameters.AddWithValue("@EmPhone", employee.PhoneNumber);
@@ -38,8 +37,8 @@ namespace DataAcces
             {
                 throw;
             }
-            finally { await  dbConn.CloseAsync(); }
-            if (rowsAffected > 0) 
+            finally { await dbConn.CloseAsync(); }
+            if (rowsAffected > 0)
             {
                 return true;
             }
@@ -55,14 +54,14 @@ namespace DataAcces
             string command = "DELETE FROM CLIENT WHERE ClientId = @Id";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
-            SqlCommand sqlCommand = new SqlCommand ( command, dbConn);
+            SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@Id", id);
             try
             {
                 await dbConn.OpenAsync();
                 rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 return false;
             }
@@ -79,15 +78,15 @@ namespace DataAcces
 
         public async Task<List<Employee>> GetAllAsync()
         {
-            string command = "SELECT * FROM CLIENT";
+            string command = "SELECT * FROM EMPLOYEE";
             List<Employee> employees = new List<Employee>();
-            using SqlConnection dbConn = new SqlConnection( connString );
-            SqlCommand sqlCommand = new SqlCommand (command, dbConn);
+            using SqlConnection dbConn = new SqlConnection(connString);
+            SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             try
             {
                 await dbConn.OpenAsync();
                 SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while(await reader.ReadAsync())
+                while (await reader.ReadAsync())
                 {
                     Employee employee = new Employee();
                     employee.Id = (int)reader["EmployeeId"];
@@ -101,7 +100,7 @@ namespace DataAcces
                 }
                 return employees;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -113,31 +112,29 @@ namespace DataAcces
 
         public async Task<Employee> GetAsync(int id)
         {
-            string command = "SELECT * FROM EMPLOYEE";
+            string command = "SELECT * FROM EMPLOYEE WHERE EmployeeId = @EmployeeId";
             Employee employee = new Employee();
-            List<Employee> list = new List<Employee>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            sqlCommand.Parameters.AddWithValue("@EmployeeId", id);
             try
             {
                 await dbConn.OpenAsync();
                 SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    if ((int)reader["EmployeeId"] == id)
-                    {
-                        employee.Id = (int)reader["EmployeeId"];
-                        employee.FirstName = (string)reader["EmFirstName"];
-                        employee.LastName = (string)reader["EmLastName"];
-                        employee.PhoneNumber = (int)reader["EmPhone"];
-                        employee.Email = (string)reader["EmMail"];
-                        employee.Address = (string)reader["EmAddress"];
-                        employee.JobTitle = (string)reader["JobTitle"];
+
+                    employee.Id = (int)reader["EmployeeId"];
+                    employee.FirstName = (string)reader["EmFirstName"];
+                    employee.LastName = (string)reader["EmLastName"];
+                    employee.PhoneNumber = (int)reader["EmPhone"];
+                    employee.Email = (string)reader["EmMail"];
+                    employee.Address = (string)reader["EmAddress"];
+                    employee.JobTitle = (string)reader["JobTitle"];
 
 
-                        return employee;
+                    return employee;
 
-                    }
                 }
                 return new Employee();
             }
@@ -176,9 +173,9 @@ namespace DataAcces
                 await dbConn.CloseAsync();
                 rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
             }
-            catch (Exception e) 
-            { 
-                throw; 
+            catch (Exception e)
+            {
+                throw;
             }
             finally
             {

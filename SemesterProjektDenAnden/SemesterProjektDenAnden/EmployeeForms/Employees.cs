@@ -22,6 +22,8 @@ namespace SemesterProjektDenAnden.EmployeeForms
         {
             InitializeComponent();
             this.employeeMdi = employeeMdi;
+
+            //DGVData();
         }
 
         private async void employeesDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -49,6 +51,15 @@ namespace SemesterProjektDenAnden.EmployeeForms
         {
             employeeSignUp = new EmployeeSignUp(employeeMdi);
             employeeMdi.FormOpener(employeeSignUp);
+        }
+
+        private async void DGVData()
+        {
+            List<Employee> employees = await employeeBL.GetAllAsync();
+
+            BindingSource employeeSource = new BindingSource();
+            employeeSource.DataSource = employees;
+            employeesDgv.DataSource = employeeSource;
         }
     }
 }
