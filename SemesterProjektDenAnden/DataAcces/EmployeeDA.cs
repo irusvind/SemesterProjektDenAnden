@@ -17,14 +17,14 @@ namespace DataAcces
         }
         public async Task<bool> CreateAsync(Employee employee)
         {
-            string command = "INSERT INTO EMPLOYEE VALUES(@FirstName, @LastName, @Phone, @Mail, @EmAddress, @JobTitle)";
+            string command = "INSERT INTO EMPLOYEE VALUES(@EmFirstName, @EmLastName, @EmPhone, @EmMail, @EmAddress, @JobTitle)";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection (connString);
             SqlCommand sqlCommand = new SqlCommand (command, dbConn);
-            sqlCommand.Parameters.AddWithValue("@FirstName", employee.FirstName);
-            sqlCommand.Parameters.AddWithValue("@LastName", employee.LastName);
-            sqlCommand.Parameters.AddWithValue("@Phone", employee.PhoneNumber);
-            sqlCommand.Parameters.AddWithValue("@Mail", employee.Email);
+            sqlCommand.Parameters.AddWithValue("@EmFirstName", employee.FirstName);
+            sqlCommand.Parameters.AddWithValue("@EmLastName", employee.LastName);
+            sqlCommand.Parameters.AddWithValue("@EmPhone", employee.PhoneNumber);
+            sqlCommand.Parameters.AddWithValue("@EmMail", employee.Email);
             sqlCommand.Parameters.AddWithValue("@EmAddress", employee.Address);
             sqlCommand.Parameters.AddWithValue("@JobTitle", employee.JobTitle);
 
@@ -76,10 +76,10 @@ namespace DataAcces
             }
         }
 
-        public async Task<List<Employee>> GetAllAsync()
-        {
+        //public async Task<List<Employee>> GetAllAsync()
+        //{
             
-        }
+       // }
 
         public async Task<Employee> GetAsync(int id)
         {
@@ -97,10 +97,27 @@ namespace DataAcces
                     if ((int)reader["EmployeeId"] == id)
                     {
                         employee.Id = (int)reader["EmployeeId"];
-                        employee.FirstName = (string)reader["FirstName"];
+                        employee.FirstName = (string)reader["EmFirstName"];
+                        employee.LastName = (string)reader["EmLastName"];
+                        employee.PhoneNumber = (int)reader["EmPhone"];
+                        employee.Email = (string)reader["EmMail"];
+                        employee.Address = (string)reader["EmAddress"];
+                        employee.JobTitle = (string)reader["JobTitle"];
+
+
+                        return employee;
 
                     }
                 }
+                return new Employee();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            finally
+            {
+                await dbConn.CloseAsync();
             }
         }
 
