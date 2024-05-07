@@ -4,12 +4,16 @@ using Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
+
+
 
 namespace SemesterProjektDenAnden.LogInForms
 {
@@ -17,6 +21,7 @@ namespace SemesterProjektDenAnden.LogInForms
     {
         ClientLogIn clientLogIn;
         IClientBL ClientBL = new ClientBL();
+        
         public ClientSignUp()
         {
             InitializeComponent();
@@ -41,6 +46,7 @@ namespace SemesterProjektDenAnden.LogInForms
             if(result == DialogResult.Yes)
             {
 
+                
                 Client newClient = new Client();
                 newClient.FirstName = FnameTxt.Text;
                 newClient.LastName = LnameTxt.Text;
@@ -48,16 +54,26 @@ namespace SemesterProjektDenAnden.LogInForms
                 newClient.Mail = MailTxt.Text;
                 newClient.ClAddress = AddressTxt.Text;
                 newClient.Subscriber = SubscribeCB.Checked;
-                bool createResult = await ClientBL.CreateAsync(newClient);
-                if(createResult == true)
+                var context = new ValidationContext(newClient, serviceProvider: null, items: null);
+                bool isValid = Validator.TryValidateObject(newClient, context, null, true);
+
+                if (isValid)
                 {
-                    MessageBox.Show("Bruger oprettet", "Bruger oprettet");
-                    this.Close();
+                    bool createResult = await ClientBL.CreateAsync(newClient);
+                    if (createResult)
+                    {
+                        MessageBox.Show("Bruger oprettet", "Bruger oprettet");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fejl: Bruger ikke oprettet", "Fejl");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Fejl: Bruger ikke oprettet", "Fejl");
-                }
+                else { MessageBox.Show("Fejl: Bruger ikke oprettet", " info ikke valid"); };
+
+
+
 
             }
 

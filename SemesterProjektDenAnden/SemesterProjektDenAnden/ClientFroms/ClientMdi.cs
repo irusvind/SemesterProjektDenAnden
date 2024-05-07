@@ -22,14 +22,14 @@ namespace SemesterProjektDenAnden.ClientFroms
         int clientId;
         
 
-        public ClientMDI(int clientid)
+        public ClientMDI(int clientId)
         {
             InitializeComponent();
 
-            clientOverview = new ClientOverview(this);
+            clientOverview = new ClientOverview(this, clientId);
             this.FormOpener(clientOverview);
 
-            this.clientId = clientid;
+            this.clientId = clientId;
         }
 
 
@@ -65,7 +65,7 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void overviewbtn_Click(object sender, EventArgs e)
         {
-            clientOverview = new ClientOverview(this);
+            clientOverview = new ClientOverview(this, clientId);
             this.FormOpener(clientOverview);
         }
 
