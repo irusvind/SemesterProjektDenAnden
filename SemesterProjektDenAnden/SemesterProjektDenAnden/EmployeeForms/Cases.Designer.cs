@@ -40,11 +40,11 @@
             // sagerLbl
             // 
             sagerLbl.AutoSize = true;
-            sagerLbl.Font = new Font("High Tower Text", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            sagerLbl.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Regular, GraphicsUnit.Point);
             sagerLbl.ForeColor = Color.Black;
             sagerLbl.Location = new Point(65, 67);
             sagerLbl.Name = "sagerLbl";
-            sagerLbl.Size = new Size(136, 57);
+            sagerLbl.Size = new Size(153, 55);
             sagerLbl.TabIndex = 0;
             sagerLbl.Text = "Sager";
             // 
@@ -53,7 +53,7 @@
             sagerDgv.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
-            dataGridViewCellStyle1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = Color.White;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
@@ -62,7 +62,7 @@
             sagerDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.Black;
-            dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
@@ -81,7 +81,7 @@
             // OpretSagBtn
             // 
             OpretSagBtn.BackColor = Color.Black;
-            OpretSagBtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            OpretSagBtn.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             OpretSagBtn.ForeColor = Color.White;
             OpretSagBtn.Location = new Point(829, 560);
             OpretSagBtn.Name = "OpretSagBtn";
@@ -89,16 +89,17 @@
             OpretSagBtn.TabIndex = 2;
             OpretSagBtn.Text = "Opret ny sag";
             OpretSagBtn.UseVisualStyleBackColor = false;
+            OpretSagBtn.Click += OpretSagBtn_Click;
             // 
             // clientCB
             // 
             clientCB.BackColor = Color.White;
-            clientCB.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            clientCB.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             clientCB.ForeColor = Color.Black;
             clientCB.FormattingEnabled = true;
             clientCB.Location = new Point(666, 570);
             clientCB.Name = "clientCB";
-            clientCB.Size = new Size(138, 24);
+            clientCB.Size = new Size(138, 25);
             clientCB.TabIndex = 3;
             // 
             // Cases

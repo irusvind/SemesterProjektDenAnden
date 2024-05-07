@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "CreateCase";
+            SuspendLayout();
+            // 
+            // CreateCase
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1065, 655);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "CreateCase";
+            Text = "CreateCase";
+            ResumeLayout(false);
         }
 
         #endregion

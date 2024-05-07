@@ -27,12 +27,17 @@ namespace SemesterProjektDenAnden.EmployeeForms
             DataGridView dgv = (DataGridView)sender;
 
             int row = e.RowIndex;
-        
+
             DataGridViewRow temp = dgv.Rows[row];
             int caseId = (int)temp.Cells[nameof(Case.CaseId)].Value;
 
             caseSpec = new CaseSpec(employeeMdi, caseId);
             employeeMdi.FormOpener(caseSpec);
+        }
+
+        private void OpretSagBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
