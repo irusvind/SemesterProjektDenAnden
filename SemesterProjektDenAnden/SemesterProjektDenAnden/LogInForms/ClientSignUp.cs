@@ -54,19 +54,26 @@ namespace SemesterProjektDenAnden.LogInForms
                 newClient.Mail = MailTxt.Text;
                 newClient.ClAddress = AddressTxt.Text;
                 newClient.Subscriber = SubscribeCB.Checked;
-                Validator.ValidateObject(newClient, new ValidationContext(newClient), true);
+                var context = new ValidationContext(newClient, serviceProvider: null, items: null);
+                bool isValid = Validator.TryValidateObject(newClient, context, null, true);
 
-                
-                bool createResult = await ClientBL.CreateAsync(newClient);
-                if(createResult == true)
+                if (isValid)
                 {
-                    MessageBox.Show("Bruger oprettet", "Bruger oprettet");
-                    this.Close();
+                    bool createResult = await ClientBL.CreateAsync(newClient);
+                    if (createResult)
+                    {
+                        MessageBox.Show("Bruger oprettet", "Bruger oprettet");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fejl: Bruger ikke oprettet", "Fejl");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Fejl: Bruger ikke oprettet", "Fejl");
-                }
+                else { MessageBox.Show("Fejl: Bruger ikke oprettet", " info ikke valid"); };
+
+
+
 
             }
 
