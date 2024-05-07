@@ -38,7 +38,7 @@ namespace SemesterProjektDenAnden.LogInForms
                 newEmployee.PhoneNumber = int.Parse(PhoneTxt.Text);
                 newEmployee.Email = MailTxt.Text;
                 newEmployee.Address = AddressTxt.Text;
-                newEmployee.JobTitle = jobtitletxtbox.Text;
+                newEmployee.JobTitle = JobTitleCB.SelectedText;
                 ValidationContext context = new ValidationContext(newEmployee, serviceProvider: null, items: null);
                 bool isValid = Validator.TryValidateObject(newEmployee, context, null, true);
 

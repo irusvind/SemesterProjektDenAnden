@@ -41,7 +41,7 @@
             FnameTxt = new TextBox();
             label1 = new Label();
             jobtitlelbl = new Label();
-            jobtitletxtbox = new TextBox();
+            JobTitleCB = new ComboBox();
             SuspendLayout();
             // 
             // CreateBtn
@@ -173,12 +173,14 @@
             jobtitlelbl.TabIndex = 33;
             jobtitlelbl.Text = "Jobtitel";
             // 
-            // jobtitletxtbox
+            // JobTitleCB
             // 
-            jobtitletxtbox.Location = new Point(545, 427);
-            jobtitletxtbox.Name = "jobtitletxtbox";
-            jobtitletxtbox.Size = new Size(161, 23);
-            jobtitletxtbox.TabIndex = 6;
+            JobTitleCB.FormattingEnabled = true;
+            JobTitleCB.Items.AddRange(new object[] { "Advokat", "Advokatsekretær" });
+            JobTitleCB.Location = new Point(545, 424);
+            JobTitleCB.Name = "JobTitleCB";
+            JobTitleCB.Size = new Size(161, 23);
+            JobTitleCB.TabIndex = 6;
             // 
             // EmployeeSignUp
             // 
@@ -186,8 +188,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1065, 655);
+            Controls.Add(JobTitleCB);
             Controls.Add(jobtitlelbl);
-            Controls.Add(jobtitletxtbox);
             Controls.Add(CreateBtn);
             Controls.Add(AddressLbl);
             Controls.Add(MailLbl);
@@ -222,6 +224,6 @@
         private TextBox FnameTxt;
         private Label label1;
         private Label jobtitlelbl;
-        private TextBox jobtitletxtbox;
+        private ComboBox JobTitleCB;
     }
 }

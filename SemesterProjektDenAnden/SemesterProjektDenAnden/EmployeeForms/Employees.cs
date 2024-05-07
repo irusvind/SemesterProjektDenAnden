@@ -17,13 +17,13 @@ namespace SemesterProjektDenAnden.EmployeeForms
     {
         EmployeeMdi employeeMdi;
         EmployeeSignUp employeeSignUp;
-        EmployeeBL employeeBL;
+        EmployeeBL employeeBL = new EmployeeBL();
         public Employees(EmployeeMdi employeeMdi)
         {
             InitializeComponent();
             this.employeeMdi = employeeMdi;
 
-            //DGVData();
+            DGVData();
         }
 
         private async void employeesDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
