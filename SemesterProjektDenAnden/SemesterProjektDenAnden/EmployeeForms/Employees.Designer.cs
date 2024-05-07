@@ -50,8 +50,6 @@
             // 
             // employeesDgv
             // 
-            employeesDgv.AllowUserToAddRows = false;
-            employeesDgv.AllowUserToDeleteRows = false;
             employeesDgv.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
@@ -70,7 +68,6 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             employeesDgv.DefaultCellStyle = dataGridViewCellStyle2;
-            employeesDgv.Enabled = false;
             employeesDgv.Location = new Point(65, 151);
             employeesDgv.MultiSelect = false;
             employeesDgv.Name = "employeesDgv";
