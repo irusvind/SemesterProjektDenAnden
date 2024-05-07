@@ -76,9 +76,33 @@ namespace DataAcces
             finally { await dbConn.CloseAsync(); }  
         }
 
-        public Task<Service> GetAsync(int id)
+        public async Task<Service> GetAsync(int id)
         {
-            throw new NotImplementedException();
+            string command = "SELECT * FROM SERVICE_ WHERE ServiceId = @ServiceId";
+            Service service = new Service();
+            using SqlConnection dbConn = new SqlConnection(connString);
+            SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            sqlCommand.Parameters.AddWithValue("ServiceId", id);
+            try
+            {
+                await dbConn.OpenAsync();
+                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    service.ServiceId = (int)reader["ServiceId"];
+                    service.ServiceName = (string)reader["ServiceName"];
+                    service.Price = (float)reader["Price"];
+                    service.PriceHourly = (bool)reader["PriceHourly"];
+
+                    return service;
+                }
+                return new Service();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            finally { await dbConn.CloseAsync(); }
         }
     }
 }
