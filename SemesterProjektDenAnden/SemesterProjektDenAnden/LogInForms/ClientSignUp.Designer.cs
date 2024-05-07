@@ -82,9 +82,10 @@
             // 
             // FnameTxt
             // 
+            FnameTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             FnameTxt.Location = new Point(364, 142);
             FnameTxt.Name = "FnameTxt";
-            FnameTxt.Size = new Size(161, 23);
+            FnameTxt.Size = new Size(161, 24);
             FnameTxt.TabIndex = 3;
             // 
             // LnameTxt
@@ -113,9 +114,10 @@
             // 
             // AddressTxt
             // 
+            AddressTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             AddressTxt.Location = new Point(364, 347);
             AddressTxt.Name = "AddressTxt";
-            AddressTxt.Size = new Size(161, 23);
+            AddressTxt.Size = new Size(161, 24);
             AddressTxt.TabIndex = 7;
             // 
             // SubscribeCB
@@ -211,8 +213,8 @@
             // 
             // ClientSignUp
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.Black;
             ClientSize = new Size(804, 451);
             Controls.Add(CreateBtn);

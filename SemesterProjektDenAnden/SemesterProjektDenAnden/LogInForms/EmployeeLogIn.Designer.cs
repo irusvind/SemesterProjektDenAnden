@@ -38,7 +38,7 @@
             logInBtn.BackColor = Color.White;
             logInBtn.Font = new Font("High Tower Text", 12F, FontStyle.Regular, GraphicsUnit.Point);
             logInBtn.ForeColor = Color.Black;
-            logInBtn.Location = new Point(328, 242);
+            logInBtn.Location = new Point(322, 228);
             logInBtn.Name = "logInBtn";
             logInBtn.Size = new Size(106, 33);
             logInBtn.TabIndex = 0;
@@ -50,9 +50,9 @@
             // 
             comboBox1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(328, 199);
+            comboBox1.Location = new Point(322, 198);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 24);
+            comboBox1.Size = new Size(204, 24);
             comboBox1.TabIndex = 9;
             // 
             // label1
@@ -60,7 +60,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(328, 131);
+            label1.Location = new Point(322, 130);
             label1.Name = "label1";
             label1.Size = new Size(96, 32);
             label1.TabIndex = 5;
@@ -76,6 +76,7 @@
             Controls.Add(label1);
             Controls.Add(logInBtn);
             Name = "EmployeeLogIn";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeeLogIn";
             ResumeLayout(false);
             PerformLayout();

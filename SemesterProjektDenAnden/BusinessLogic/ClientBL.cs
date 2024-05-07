@@ -21,24 +21,28 @@ namespace BusinessLogic
             return result;
         }
 
-        public Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            bool result = await clientDA.DeleteAsync(id);
+            return result;
         }
 
-        public Task<List<Client>> GetAllAsync()
+        public async Task<List<Client>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            List<Client> clients = await clientDA.GetAllAsync();
+            return clients;
         }
 
-        public Task<Client> GetAsync(int id)
+        public async Task<Client> GetAsync(int id)
         {
-            throw new NotImplementedException();
+            Client client = await clientDA.GetAsync(id);
+            return client;
         }
 
-        public Task<bool> UpdateAsync(Client newClient)
+        public async Task<bool> UpdateAsync(Client newClient)
         {
-            throw new NotImplementedException();
+            bool result = await clientDA.UpdateAsync(newClient);
+            return result;
         }
     }
 }

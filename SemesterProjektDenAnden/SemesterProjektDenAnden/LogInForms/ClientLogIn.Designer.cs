@@ -32,7 +32,7 @@
             SignUpbtn = new Button();
             label2 = new Label();
             Loginbtn = new Button();
-            comboBox1 = new ComboBox();
+            ClientCB = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -84,14 +84,14 @@
             Loginbtn.UseVisualStyleBackColor = false;
             Loginbtn.Click += Loginbtn_Click;
             // 
-            // comboBox1
+            // ClientCB
             // 
-            comboBox1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(330, 210);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 24);
-            comboBox1.TabIndex = 4;
+            ClientCB.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            ClientCB.FormattingEnabled = true;
+            ClientCB.Location = new Point(330, 210);
+            ClientCB.Name = "ClientCB";
+            ClientCB.Size = new Size(216, 24);
+            ClientCB.TabIndex = 4;
             // 
             // ClientLogIn
             // 
@@ -99,7 +99,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(804, 451);
-            Controls.Add(comboBox1);
+            Controls.Add(ClientCB);
             Controls.Add(Loginbtn);
             Controls.Add(label2);
             Controls.Add(SignUpbtn);
@@ -120,6 +120,6 @@
         private Button SignUpbtn;
         private Label label2;
         private Button Loginbtn;
-        private ComboBox comboBox1;
+        private ComboBox ClientCB;
     }
 }

@@ -1,4 +1,6 @@
-﻿using SemesterProjektDenAnden.ClientFroms;
+﻿using BusinessLogic;
+using Models;
+using SemesterProjektDenAnden.ClientFroms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,17 +17,34 @@ namespace SemesterProjektDenAnden.LogInForms
     {
         ClientMDI clientMDI;
         ClientSignUp clientSignUp;
+        ClientBL clientBL = new ClientBL();
 
         public ClientLogIn()
         {
             InitializeComponent();
+
+            AddToCombobox();
+        }
+
+        private async void AddToCombobox()
+        {
+            List<Client> clients = await clientBL.GetAllAsync();
+            foreach (Client client in clients)
+            {
+                ClientCB.Items.Add(client.ClientId + ": " + client.FirstName + " " + client.LastName);
+            }
         }
 
         private void Loginbtn_Click(object sender, EventArgs e)
         {
-            clientMDI = new ClientMDI();
-            clientMDI.Show();
-            this.Close();
+            if(ClientCB.Text.Length > 0)
+            {
+                string[] idString = ClientCB.Items[ClientCB.SelectedIndex].ToString().Split(':');
+                int id = int.Parse(idString[0]);
+                clientMDI = new ClientMDI(id);
+                clientMDI.Show();
+                this.Close();
+            }
         }
 
         private void SignUpbtn_Click(object sender, EventArgs e)
