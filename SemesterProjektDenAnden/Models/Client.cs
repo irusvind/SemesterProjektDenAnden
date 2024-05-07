@@ -11,19 +11,19 @@ namespace Models
     {
         public int ClientId { get; set; }
 
-        [Required, StringLength(50), Display(Name = "First Name"), RegularExpression(@"^[a-zA-Z]+$")]
+        [Required, StringLength(50), Display(Name = "First Name"), RegularExpression(@"^[a-zA-Z]")]
         public string FirstName { get; set; }
 
-        [Required, StringLength(50), RegularExpression(@"^[a-zA-Z]+$")]
+        [Required, StringLength(50), RegularExpression(@"^[a-zA-Z]")]
         public string LastName { get; set; }
 
-        [Required, Display(Name = "Phone"), RegularExpression(@"^[0-9]{8}$")]
+        [Required, Display(Name = "Phone"), RegularExpression(@"^[0-9]")]
         public int Phone {  get; set; }
 
         [Required,StringLength(50), EmailAddress(ErrorMessage = "Invalid email format"),Display(Name = "Email")]
         public string Mail { get; set; }
 
-        [MaxLength(50)]
+        [MaxLength(50), RegularExpression(@"^[a-zA-Z]")]
         public string ClAddress { get; set; }
 
         [Required]
