@@ -76,10 +76,10 @@ namespace DataAcces
             }
         }
 
-        //public async Task<List<Employee>> GetAllAsync()
-        //{
-            
-       // }
+        public async Task<List<Employee>> GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task<Employee> GetAsync(int id)
         {
