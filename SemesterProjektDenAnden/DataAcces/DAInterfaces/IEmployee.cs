@@ -11,7 +11,7 @@ namespace DataAcces.DAInterfaces
     {
         Task<bool> CreateAsync(Employee employee);
 
-        Task<bool> DeleteAsync(Employee employee);
+        Task<bool> DeleteAsync(int id);
 
         Task<List<Employee>> GetAllAsync();
 
