@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using DataAcces.DAInterfaces;
@@ -128,9 +129,30 @@ namespace DataAcces
             }
         }
 
-        public Task<bool> UpdateAsync(Course newCourse)
+        public async Task<bool> UpdateAsync(Course newCourse)
         {
-            throw new NotImplementedException();
+            string command = "UPDATE CLIENT SET" +
+                             "CourseName = @CourseName" +
+                             "WEHERE CourseId = @CourseId";
+            int rowsAffected;
+            using SqlConnection dbConn = new SqlConnection(connString);
+            SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            sqlCommand.Parameters.AddWithValue("@CourseName", newCourse.CourseName);
+            try
+            {
+                await dbConn.OpenAsync();
+                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+            }
+            catch
+            {
+                throw;
+            }
+            finally { await dbConn.CloseAsync();}
+            if (rowsAffected > 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

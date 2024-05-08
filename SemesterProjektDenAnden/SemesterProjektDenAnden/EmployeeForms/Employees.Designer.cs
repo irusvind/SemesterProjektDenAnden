@@ -50,6 +50,9 @@
             // 
             // employeesDgv
             // 
+            employeesDgv.AllowUserToAddRows = false;
+            employeesDgv.AllowUserToDeleteRows = false;
+            employeesDgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             employeesDgv.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
@@ -59,7 +62,6 @@
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             employeesDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            employeesDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.Black;
             dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -71,12 +73,12 @@
             employeesDgv.Location = new Point(65, 151);
             employeesDgv.MultiSelect = false;
             employeesDgv.Name = "employeesDgv";
-            employeesDgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            employeesDgv.ReadOnly = true;
             employeesDgv.RowTemplate.Height = 25;
             employeesDgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             employeesDgv.Size = new Size(930, 370);
             employeesDgv.TabIndex = 1;
-            employeesDgv.CellContentDoubleClick += employeesDgv_CellContentDoubleClick;
+            employeesDgv.CellDoubleClick += employeesDgv_CellDoubleClick;
             // 
             // OpretEmployeeBtn
             // 
