@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             employeeNrLbl = new Label();
-            textBox1 = new TextBox();
+            employeeIdTxt = new TextBox();
             dataGridView1 = new DataGridView();
             employeesLbl = new Label();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            PhoneTxt = new TextBox();
+            FnameTxt = new TextBox();
+            LnameTxt = new TextBox();
             maillbl = new Label();
             casesLbl = new Label();
             coursesLbl = new Label();
@@ -46,7 +46,7 @@
             LnameLbl = new Label();
             nameLbl = new Label();
             dataGridView2 = new DataGridView();
-            textBox5 = new TextBox();
+            MailTxt = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -61,35 +61,35 @@
             employeeNrLbl.TabIndex = 0;
             employeeNrLbl.Text = "Medarbejder nr. ";
             // 
-            // textBox1
+            // employeeIdTxt
             // 
-            textBox1.BackColor = Color.White;
-            textBox1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(238, 154);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(203, 24);
-            textBox1.TabIndex = 1;
+            employeeIdTxt.BackColor = Color.White;
+            employeeIdTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            employeeIdTxt.Location = new Point(238, 154);
+            employeeIdTxt.Name = "employeeIdTxt";
+            employeeIdTxt.Size = new Size(203, 24);
+            employeeIdTxt.TabIndex = 1;
             // 
             // dataGridView1
             // 
             dataGridView1.BackgroundColor = Color.Black;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Black;
-            dataGridViewCellStyle1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.Black;
+            dataGridViewCellStyle5.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.Black;
-            dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.Black;
+            dataGridViewCellStyle6.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridView1.Location = new Point(108, 409);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(333, 150);
@@ -107,29 +107,29 @@
             employeesLbl.TabIndex = 3;
             employeesLbl.Text = "Medarbejdernavn";
             // 
-            // textBox2
+            // PhoneTxt
             // 
-            textBox2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(238, 241);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(203, 24);
-            textBox2.TabIndex = 4;
+            PhoneTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            PhoneTxt.Location = new Point(238, 241);
+            PhoneTxt.Name = "PhoneTxt";
+            PhoneTxt.Size = new Size(203, 24);
+            PhoneTxt.TabIndex = 4;
             // 
-            // textBox3
+            // FnameTxt
             // 
-            textBox3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(238, 183);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(203, 24);
-            textBox3.TabIndex = 5;
+            FnameTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            FnameTxt.Location = new Point(238, 183);
+            FnameTxt.Name = "FnameTxt";
+            FnameTxt.Size = new Size(203, 24);
+            FnameTxt.TabIndex = 5;
             // 
-            // textBox4
+            // LnameTxt
             // 
-            textBox4.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(238, 212);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(203, 24);
-            textBox4.TabIndex = 6;
+            LnameTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            LnameTxt.Location = new Point(238, 212);
+            LnameTxt.Name = "LnameTxt";
+            LnameTxt.Size = new Size(203, 24);
+            LnameTxt.TabIndex = 6;
             // 
             // maillbl
             // 
@@ -195,42 +195,42 @@
             // dataGridView2
             // 
             dataGridView2.BackgroundColor = Color.Black;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Black;
-            dataGridViewCellStyle3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.Black;
+            dataGridViewCellStyle7.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.Black;
-            dataGridViewCellStyle4.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dataGridView2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.Black;
+            dataGridViewCellStyle8.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dataGridView2.DefaultCellStyle = dataGridViewCellStyle8;
             dataGridView2.Location = new Point(618, 409);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.Size = new Size(333, 150);
             dataGridView2.TabIndex = 13;
             // 
-            // textBox5
+            // MailTxt
             // 
-            textBox5.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox5.Location = new Point(238, 270);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(203, 24);
-            textBox5.TabIndex = 14;
+            MailTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            MailTxt.Location = new Point(238, 270);
+            MailTxt.Name = "MailTxt";
+            MailTxt.Size = new Size(203, 24);
+            MailTxt.TabIndex = 14;
             // 
             // EmployeeSpec
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1065, 655);
-            Controls.Add(textBox5);
+            Controls.Add(MailTxt);
             Controls.Add(dataGridView2);
             Controls.Add(nameLbl);
             Controls.Add(LnameLbl);
@@ -238,12 +238,12 @@
             Controls.Add(coursesLbl);
             Controls.Add(casesLbl);
             Controls.Add(maillbl);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
+            Controls.Add(LnameTxt);
+            Controls.Add(FnameTxt);
+            Controls.Add(PhoneTxt);
             Controls.Add(employeesLbl);
             Controls.Add(dataGridView1);
-            Controls.Add(textBox1);
+            Controls.Add(employeeIdTxt);
             Controls.Add(employeeNrLbl);
             FormBorderStyle = FormBorderStyle.None;
             Name = "EmployeeSpec";
@@ -257,12 +257,12 @@
         #endregion
 
         private Label employeeNrLbl;
-        private TextBox textBox1;
+        private TextBox employeeIdTxt;
         private DataGridView dataGridView1;
         private Label employeesLbl;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox PhoneTxt;
+        private TextBox FnameTxt;
+        private TextBox LnameTxt;
         private Label maillbl;
         private Label casesLbl;
         private Label coursesLbl;
@@ -270,6 +270,6 @@
         private Label LnameLbl;
         private Label nameLbl;
         private DataGridView dataGridView2;
-        private TextBox textBox5;
+        private TextBox MailTxt;
     }
 }

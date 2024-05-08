@@ -37,6 +37,7 @@
             // 
             // clientsDgv
             // 
+            clientsDgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             clientsDgv.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
@@ -56,13 +57,15 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             clientsDgv.DefaultCellStyle = dataGridViewCellStyle2;
             clientsDgv.EditMode = DataGridViewEditMode.EditProgrammatically;
-            clientsDgv.Enabled = false;
             clientsDgv.GridColor = Color.White;
             clientsDgv.Location = new Point(67, 145);
             clientsDgv.Name = "clientsDgv";
+            clientsDgv.ReadOnly = true;
             clientsDgv.RowTemplate.Height = 25;
+            clientsDgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             clientsDgv.Size = new Size(930, 370);
             clientsDgv.TabIndex = 4;
+            clientsDgv.CellDoubleClick += clientsDgv_CellDoubleClick;
             // 
             // clientsLbl
             // 

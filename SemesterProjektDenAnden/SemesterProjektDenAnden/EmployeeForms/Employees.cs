@@ -26,7 +26,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             DGVData();
         }
 
-        private async void employeesDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void employeesDgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = (DataGridView)sender;
 
@@ -37,6 +37,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
                 int id = (int)temp.Cells[0].Value;
 
+<<<<<<< HEAD
                 employeeBL = new EmployeeBL();
                 Employee employee = await employeeBL.GetAsync(id);
 
@@ -44,6 +45,10 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 employeeMdi.FormOpener(employeeSpec);
 
 
+=======
+                EmployeeSpec employeeSpec = new EmployeeSpec(id);
+                employeeMdi.FormOpener(employeeSpec);
+>>>>>>> main
             }
             catch (Exception ex)
             {

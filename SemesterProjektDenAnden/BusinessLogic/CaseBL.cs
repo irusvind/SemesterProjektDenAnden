@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.BLInterfaces;
+using DataAcces;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace BusinessLogic
 {
     public class CaseBL : ICaseBL
     {
-        public Task<bool> Create(Case newCase)
+        CaseDA CaseDA = new CaseDA();
+
+        public async Task<bool> CreateAsync(Case newCase)
         {
-            throw new NotImplementedException();
+            bool result = await CaseDA.CreateAsync(newCase);
+            return result;
         }
 
-        public Task<bool> Delete(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            bool result = await CaseDA.DeleteAsync(id);
+            return result;
         }
 
-        public Task<Case> Get(int id)
+        public async Task<List<Case>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            List<Case> cases = await CaseDA.GetAllAsync();
+            return cases;
         }
 
-        public Task<List<Case>> GetAll()
+        public async Task<Case> GetAsync(int id)
         {
-            throw new NotImplementedException();
+            Case selectedCase = await CaseDA.GetAsync(id);
+            return selectedCase;
         }
 
-        public Task<bool> Update(Case newCase)
+        public async Task<bool> UpdateAsync(Case newCase)
         {
-            throw new NotImplementedException();
+            bool result = await CaseDA.UpdateAsync(newCase);
+            return result;
         }
     }
 }

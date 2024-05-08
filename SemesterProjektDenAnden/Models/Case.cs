@@ -20,10 +20,10 @@ namespace Models
         public DateOnly StartDate { get; set; }
 
         [Required, DataType(DataType.Date)]
-        public DateOnly ExEndDate { get; set; }
+        public DateOnly EstEndDate { get; set; }
 
         [Required, DataType(DataType.Time)]
-        public int ExHours { get; set; }
+        public int EstHours { get; set; }
 
         [Required]
         public bool IsClosed { get; set; }
