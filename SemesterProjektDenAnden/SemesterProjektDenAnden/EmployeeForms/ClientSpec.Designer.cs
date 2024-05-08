@@ -28,31 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            textBox5 = new TextBox();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            clientMailTxt = new TextBox();
             nameLbl = new Label();
             LnameLbl = new Label();
             label5 = new Label();
             casesLbl = new Label();
             maillbl = new Label();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
+            clientLnameTxt = new TextBox();
+            clientFnameTxt = new TextBox();
+            clientPhoneTxt = new TextBox();
             clientLbl = new Label();
-            dataGridView1 = new DataGridView();
-            textBox1 = new TextBox();
+            clientCasesDGV = new DataGridView();
+            clientIdTxt = new TextBox();
             ClientNrLbl = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            clientDeleteBtn = new Button();
+            ((System.ComponentModel.ISupportInitialize)clientCasesDGV).BeginInit();
             SuspendLayout();
             // 
-            // textBox5
+            // clientMailTxt
             // 
-            textBox5.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox5.Location = new Point(211, 324);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(203, 24);
-            textBox5.TabIndex = 27;
+            clientMailTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            clientMailTxt.Location = new Point(211, 324);
+            clientMailTxt.Name = "clientMailTxt";
+            clientMailTxt.Size = new Size(203, 24);
+            clientMailTxt.TabIndex = 27;
             // 
             // nameLbl
             // 
@@ -105,29 +106,29 @@
             maillbl.TabIndex = 22;
             maillbl.Text = "Mail";
             // 
-            // textBox4
+            // clientLnameTxt
             // 
-            textBox4.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(211, 266);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(203, 24);
-            textBox4.TabIndex = 21;
+            clientLnameTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            clientLnameTxt.Location = new Point(211, 266);
+            clientLnameTxt.Name = "clientLnameTxt";
+            clientLnameTxt.Size = new Size(203, 24);
+            clientLnameTxt.TabIndex = 21;
             // 
-            // textBox3
+            // clientFnameTxt
             // 
-            textBox3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(211, 237);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(203, 24);
-            textBox3.TabIndex = 20;
+            clientFnameTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            clientFnameTxt.Location = new Point(211, 237);
+            clientFnameTxt.Name = "clientFnameTxt";
+            clientFnameTxt.Size = new Size(203, 24);
+            clientFnameTxt.TabIndex = 20;
             // 
-            // textBox2
+            // clientPhoneTxt
             // 
-            textBox2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(211, 295);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(203, 24);
-            textBox2.TabIndex = 19;
+            clientPhoneTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            clientPhoneTxt.Location = new Point(211, 295);
+            clientPhoneTxt.Name = "clientPhoneTxt";
+            clientPhoneTxt.Size = new Size(203, 24);
+            clientPhoneTxt.TabIndex = 19;
             // 
             // clientLbl
             // 
@@ -141,39 +142,40 @@
             clientLbl.TabIndex = 18;
             clientLbl.Text = "Klientnavn nr.";
             // 
-            // dataGridView1
+            // clientCasesDGV
             // 
-            dataGridView1.BackgroundColor = Color.Black;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Black;
-            dataGridViewCellStyle1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.Black;
-            dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.Location = new Point(557, 208);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(412, 150);
-            dataGridView1.TabIndex = 17;
+            clientCasesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            clientCasesDGV.BackgroundColor = Color.Black;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Black;
+            dataGridViewCellStyle3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            clientCasesDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            clientCasesDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.Black;
+            dataGridViewCellStyle4.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            clientCasesDGV.DefaultCellStyle = dataGridViewCellStyle4;
+            clientCasesDGV.Location = new Point(557, 208);
+            clientCasesDGV.Name = "clientCasesDGV";
+            clientCasesDGV.Size = new Size(412, 150);
+            clientCasesDGV.TabIndex = 17;
             // 
-            // textBox1
+            // clientIdTxt
             // 
-            textBox1.BackColor = Color.White;
-            textBox1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(211, 208);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(203, 24);
-            textBox1.TabIndex = 16;
+            clientIdTxt.BackColor = Color.White;
+            clientIdTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            clientIdTxt.Location = new Point(211, 208);
+            clientIdTxt.Name = "clientIdTxt";
+            clientIdTxt.Size = new Size(203, 24);
+            clientIdTxt.TabIndex = 16;
             // 
             // ClientNrLbl
             // 
@@ -185,46 +187,61 @@
             ClientNrLbl.TabIndex = 15;
             ClientNrLbl.Text = "Klient nr. ";
             // 
+            // clientDeleteBtn
+            // 
+            clientDeleteBtn.BackColor = Color.Black;
+            clientDeleteBtn.Font = new Font("High Tower Text", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            clientDeleteBtn.ForeColor = Color.White;
+            clientDeleteBtn.Location = new Point(339, 411);
+            clientDeleteBtn.Name = "clientDeleteBtn";
+            clientDeleteBtn.Size = new Size(75, 23);
+            clientDeleteBtn.TabIndex = 28;
+            clientDeleteBtn.Text = "Slet klient";
+            clientDeleteBtn.UseVisualStyleBackColor = false;
+            clientDeleteBtn.Click += clientDeleteBtn_Click;
+            // 
             // ClientSpec
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1065, 655);
-            Controls.Add(textBox5);
+            Controls.Add(clientDeleteBtn);
+            Controls.Add(clientMailTxt);
             Controls.Add(nameLbl);
             Controls.Add(LnameLbl);
             Controls.Add(label5);
             Controls.Add(casesLbl);
             Controls.Add(maillbl);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
+            Controls.Add(clientLnameTxt);
+            Controls.Add(clientFnameTxt);
+            Controls.Add(clientPhoneTxt);
             Controls.Add(clientLbl);
-            Controls.Add(dataGridView1);
-            Controls.Add(textBox1);
+            Controls.Add(clientCasesDGV);
+            Controls.Add(clientIdTxt);
             Controls.Add(ClientNrLbl);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ClientSpec";
             Text = "ClientSpec";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)clientCasesDGV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox textBox5;
+        private TextBox clientMailTxt;
         private Label nameLbl;
         private Label LnameLbl;
         private Label label5;
         private Label casesLbl;
         private Label maillbl;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private TextBox clientLnameTxt;
+        private TextBox clientFnameTxt;
+        private TextBox clientPhoneTxt;
         private Label clientLbl;
-        private DataGridView dataGridView1;
-        private TextBox textBox1;
+        private DataGridView clientCasesDGV;
+        private TextBox clientIdTxt;
         private Label ClientNrLbl;
+        private Button clientDeleteBtn;
     }
 }

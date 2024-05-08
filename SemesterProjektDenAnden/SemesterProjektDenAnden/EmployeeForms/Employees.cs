@@ -26,7 +26,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             DGVData();
         }
 
-        private async void employeesDgv_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void employeesDgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = (DataGridView)sender;
 
