@@ -44,16 +44,16 @@ namespace SemesterProjektDenAnden.LogInForms
 
                 if (isValid)
                 {
-                    bool createResult = await employeeBL.CreateAsync(newEmployee);
-                    if (createResult)
-                    {
-                        MessageBox.Show("Ansat oprettet", "Ansat oprettet");
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Fejl: Ansat ikke oprettet", "Fejl");
-                    }
+                    //bool createResult = await employeeBL.CreateAsync(newEmployee);
+                    //if (createResult)
+                    //{
+                    //    MessageBox.Show("Ansat oprettet", "Ansat oprettet");
+                    //    this.Close();
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Fejl: Ansat ikke oprettet", "Fejl");
+                    //}
                 }
                 else { MessageBox.Show("Fejl: Ansat ikke oprettet", " info ikke valid"); };
 
