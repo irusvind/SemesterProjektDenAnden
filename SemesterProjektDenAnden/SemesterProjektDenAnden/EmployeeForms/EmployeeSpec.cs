@@ -67,7 +67,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 updatedEmployee.Email = MailTxt.Text;
                 updatedEmployee.Address = addressTxt.Text;
 
-                var context = new ValidationContext(updatedEmployee, serviceProvider: null, items: null);
+                ValidationContext context = new ValidationContext(updatedEmployee, serviceProvider: null, items: null);
                 bool isValid = Validator.TryValidateObject(updatedEmployee, context, null, true);
                 if (isValid)
                 {

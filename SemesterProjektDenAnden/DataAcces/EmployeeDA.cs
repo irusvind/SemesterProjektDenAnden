@@ -51,7 +51,7 @@ namespace DataAcces
 
         public async Task<bool> DeleteAsync(int id)
         {
-            string command = "DELETE FROM CLIENT WHERE ClientId = @Id";
+            string command = "DELETE FROM EMPLOYEE WHERE EmployeeId = @Id";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);

@@ -38,22 +38,23 @@ namespace SemesterProjektDenAnden.LogInForms
                 newEmployee.PhoneNumber = int.Parse(PhoneTxt.Text);
                 newEmployee.Email = MailTxt.Text;
                 newEmployee.Address = AddressTxt.Text;
-                newEmployee.JobTitle = JobTitleCB.SelectedText;
+                newEmployee.JobTitle = JobTitleCB.Text;
                 ValidationContext context = new ValidationContext(newEmployee, serviceProvider: null, items: null);
                 bool isValid = Validator.TryValidateObject(newEmployee, context, null, true);
 
                 if (isValid)
                 {
-                    //bool createResult = await employeeBL.CreateAsync(newEmployee);
-                    //if (createResult)
-                    //{
-                    //    MessageBox.Show("Ansat oprettet", "Ansat oprettet");
-                    //    this.Close();
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Fejl: Ansat ikke oprettet", "Fejl");
-                    //}
+                    bool createResult = await employeeBL.CreateAsync(newEmployee);
+                    if (createResult)
+                    {
+                        MessageBox.Show("Ansat oprettet", "Ansat oprettet");
+                        Employees employees = new Employees(employeeMdi);
+                        employeeMdi.FormOpener(employees);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fejl: Ansat ikke oprettet", "Fejl");
+                    }
                 }
                 else { MessageBox.Show("Fejl: Ansat ikke oprettet", " info ikke valid"); };
 

@@ -23,7 +23,7 @@ namespace Models
         [StringLength(50)]
         public string Address { get; set; }
 
-        //[Required]
+        [Required, RegularExpression(@"^[a-zA-Z''-'\s]{1,50}$")]
         public string JobTitle { get; set; }
     }
 }
