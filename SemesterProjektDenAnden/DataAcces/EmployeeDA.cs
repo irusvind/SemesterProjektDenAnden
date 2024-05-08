@@ -150,13 +150,13 @@ namespace DataAcces
 
         public async Task<bool> UpdateAsync(Employee employee)
         {
-            string command = "UPDATE CLIENT SET" +
-                "EmFirstName = @EmFirstName" +
-                "EmLastName = @EmLastName" +
-                "EmPhone = @EmPhone" +
-                "EmMail = @EmMail" +
-                "EmAddress = @EmAddress" +
-                "JobTitle = @Jobtitle" +
+            string command = "UPDATE EMPLOYEE SET " +
+                "EmFirstName = @EmFirstName, " +
+                "EmLastName = @EmLastName, " +
+                "EmPhone = @EmPhone, " +
+                "EmMail = @EmMail, " +
+                "EmAddress = @EmAddress, " +
+                "JobTitle = @JobTitle " +
                 "WHERE EmployeeId = @EmployeeId";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
@@ -170,7 +170,7 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@EmployeeId", employee.Id);
             try
             {
-                await dbConn.CloseAsync();
+                await dbConn.OpenAsync();
                 rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
             }
             catch (Exception e)
