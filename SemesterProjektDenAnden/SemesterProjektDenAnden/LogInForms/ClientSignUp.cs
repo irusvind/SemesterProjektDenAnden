@@ -59,16 +59,16 @@ namespace SemesterProjektDenAnden.LogInForms
 
                 if (isValid)
                 {
-                    //bool createResult = await ClientBL.CreateAsync(newClient);
-                    //if (createResult)
-                    //{
-                    //    MessageBox.Show("Bruger oprettet", "Bruger oprettet");
-                    //    this.Close();
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Fejl: Bruger ikke oprettet", "Fejl");
-                    //}
+                    bool createResult = await ClientBL.CreateAsync(newClient);
+                    if (createResult)
+                    {
+                        MessageBox.Show("Bruger oprettet", "Bruger oprettet");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fejl: Bruger ikke oprettet", "Fejl");
+                    }
                 }
                 else { MessageBox.Show("Fejl: Bruger ikke oprettet", " info ikke valid"); };
 
