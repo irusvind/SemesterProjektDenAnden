@@ -22,8 +22,9 @@ namespace Models
         [Required, DataType(DataType.Date)]
         public DateTime ExEndDate { get; set; }
 
+
         [Required, DataType(DataType.Time)]
-        public int ExHours { get; set; }
+        public int EstHours { get; set; }
 
         [Required]
         public bool IsClosed { get; set; }

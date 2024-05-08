@@ -20,7 +20,7 @@ namespace SemesterProjektDenAnden.LogInForms
     public partial class ClientSignUp : Form
     {
         ClientLogIn clientLogIn;
-        IClientBL ClientBL = new ClientBL();
+        ClientBL ClientBL = new ClientBL();
         
         public ClientSignUp()
         {

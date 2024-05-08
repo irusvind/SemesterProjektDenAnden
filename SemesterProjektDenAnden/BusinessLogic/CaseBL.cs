@@ -14,30 +14,31 @@ namespace BusinessLogic
     {
         ICase caseDA = new CaseDA();
 
-        public async Task<bool> Create(Case newCase)
+        public async Task<bool> CreateAsync(Case newCase)
         {
-            bool result = await caseDA.Create(newCase);
+            bool result = await caseDA.CreateAsync(newCase);
             return result;
         }
 
-        public Task<bool> Delete(int id)
+        public Task<bool> DeleteAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Case> Get(int id)
+        public Task<Case> GetAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Case>> GetAll()
+        public Task<List<Case>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> Update(Case newCase)
+        public Task<bool> UpdateAsync(Case newCase)
         {
             throw new NotImplementedException();
+
         }
     }
 }

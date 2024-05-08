@@ -13,7 +13,7 @@ namespace BusinessLogic
 {
     public class ClientBL : IClientBL
     {
-        IClientDA clientDA = new ClientDA();
+        ClientDA clientDA = new ClientDA();
 
         public async Task<bool> CreateAsync(Client newClient)
         {

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DataAcces.DAInterfaces;
+using Models;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAcces.DAInterfaces;
-using Models;
 
 namespace DataAcces
 {
@@ -82,29 +77,27 @@ namespace DataAcces
 
         public async Task<Client> GetAsync(int id)
         {
-            string command = "SELECT * FROM CLIENT";
+            string command = "SELECT * FROM CLIENT WHERE ClientId = @ClientId";
             Client newClient = new Client();
-            List<Client> returnList = new List<Client>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            sqlCommand.Parameters.AddWithValue("@ClientId", id);
             try
             {
                 await dbConn.OpenAsync();
                 SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    if ((int)reader["ClientId"] == id)
-                    {
-                        newClient.ClientId = (int)reader["ClientId"];
-                        newClient.FirstName = (string)reader["ClFirstName"];
-                        newClient.LastName = (string)reader["ClLastName"];
-                        newClient.Phone = (int)reader["ClPhone"];
-                        newClient.Mail = (string)reader["ClMail"];
-                        newClient.ClAddress = (string)reader["CLAddress"];
-                        newClient.Subscriber = (bool)reader["Subscriber"];
+                    newClient.ClientId = (int)reader["ClientId"];
+                    newClient.FirstName = (string)reader["ClFirstName"];
+                    newClient.LastName = (string)reader["ClLastName"];
+                    newClient.Phone = (int)reader["ClPhone"];
+                    newClient.Mail = (string)reader["ClMail"];
+                    newClient.ClAddress = (string)reader["CLAddress"];
+                    newClient.Subscriber = (bool)reader["Subscriber"];
 
-                        return newClient;
-                    }
+                    return newClient;
+
                 }
                 return new Client();
             }
@@ -172,6 +165,7 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@ClMail", newClient.Mail);
             sqlCommand.Parameters.AddWithValue("@ClAddress", newClient.ClAddress);
             sqlCommand.Parameters.AddWithValue("@Subscriber", newClient.Subscriber);
+            sqlCommand.Parameters.AddWithValue("@ClientId", newClient.ClientId);
             try
             {
                 await dbConn.OpenAsync();

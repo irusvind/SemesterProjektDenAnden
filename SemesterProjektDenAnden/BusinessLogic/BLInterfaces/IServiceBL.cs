@@ -13,10 +13,6 @@ namespace BusinessLogic.BLInterfaces
 
         Task<Service> GetAsync(int id);
 
-        Task<bool> CreateAsync(Service newService);
-
-        Task<bool> UpdateAsync(Service newService);
-
         Task<bool> DeleteAsync(int id);
     }
 }

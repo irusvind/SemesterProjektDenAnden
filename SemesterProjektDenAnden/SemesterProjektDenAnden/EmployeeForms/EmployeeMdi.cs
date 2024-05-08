@@ -20,7 +20,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
         Clients clients;
 
 
-        public EmployeeMdi()
+        public EmployeeMdi(int employeeId)
         {
             InitializeComponent();
 

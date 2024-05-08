@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,29 +12,97 @@ namespace DataAcces
 {
     public class ServiceDA : IService
     {
-        public Task<bool> CreateAsync(Service newService)
+        string connString;
+
+        public ServiceDA()
         {
-            throw new NotImplementedException();
+            connString = ConfigurationManager
+                        .ConnectionStrings["dbConn"]
+                        .ToString();
+        }
+        public async Task<bool> DeleteAsync(int id)
+        {
+            string command = "DELETE FROM SERVICE_ WHERE ServiceId = @ServiceId";
+            int rowAffected;
+            using SqlConnection dbConn = new SqlConnection(connString);
+            SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            sqlCommand.Parameters.AddWithValue("@ServiceId", id);
+            try
+            {
+                await dbConn.OpenAsync();
+                rowAffected = await sqlCommand.ExecuteNonQueryAsync();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                await dbConn.CloseAsync();
+            }
+            if (rowAffected > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        
+
+        public async Task<List<Service>> GetAllAsync()
+        {
+            string command = "SELECT * FROM SERVICE_";
+            List<Service> services = new List<Service>();
+            using SqlConnection dbConn = new SqlConnection(connString);
+            SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            try
+            {
+                await dbConn.OpenAsync();
+                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    Service newService = new Service();
+                    newService.ServiceId = (int)reader["ServiceId"];
+                    newService.ServiceName = (string)reader["ServiceName"];
+                    newService.Price = (float)reader["Price"];
+                    newService.PriceHourly = (bool)reader["PriceHourly"];
+                    services.Add(newService);
+                }
+                return services;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally { await dbConn.CloseAsync(); }  
         }
 
-        public Task<bool> DeleteAsync(int id)
+        public async Task<Service> GetAsync(int id)
         {
-            throw new NotImplementedException();
-        }
+            string command = "SELECT * FROM SERVICE_ WHERE ServiceId = @ServiceId";
+            Service service = new Service();
+            using SqlConnection dbConn = new SqlConnection(connString);
+            SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            sqlCommand.Parameters.AddWithValue("ServiceId", id);
+            try
+            {
+                await dbConn.OpenAsync();
+                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    service.ServiceId = (int)reader["ServiceId"];
+                    service.ServiceName = (string)reader["ServiceName"];
+                    service.Price = (float)reader["Price"];
+                    service.PriceHourly = (bool)reader["PriceHourly"];
 
-        public Task<List<Service>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Service> GetAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> UpdateAsync(Service newService)
-        {
-            throw new NotImplementedException();
+                    return service;
+                }
+                return new Service();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            finally { await dbConn.CloseAsync(); }
         }
     }
 }
