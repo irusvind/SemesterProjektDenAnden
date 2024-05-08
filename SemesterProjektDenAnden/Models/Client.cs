@@ -24,7 +24,7 @@ namespace Models
         [Required,StringLength(50), EmailAddress(ErrorMessage = "Invalid email format"),Display(Name = "Email")]
         public string Mail { get; set; }
 
-        [MaxLength(50), RegularExpression(@"^[a-zA-Z''-'\s]{1,50}$")]
+        [MaxLength(50)]
         public string ClAddress { get; set; }
 
         [Required]
