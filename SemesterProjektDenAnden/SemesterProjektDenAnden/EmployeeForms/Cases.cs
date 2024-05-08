@@ -37,7 +37,8 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private void OpretSagBtn_Click(object sender, EventArgs e)
         {
-
+            CreateCase createCase = new CreateCase();
+            this.employeeMdi.FormOpener(createCase);
         }
     }
 }

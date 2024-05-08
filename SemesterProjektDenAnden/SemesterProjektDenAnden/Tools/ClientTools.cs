@@ -13,6 +13,7 @@ namespace SemesterProjektDenAnden.Tools
 {
     public partial class ClientTools : Form
     {
+        
         ClientMDI clientMDI;
         Calculator calculator;
         public ClientTools(ClientMDI clientMDI)
