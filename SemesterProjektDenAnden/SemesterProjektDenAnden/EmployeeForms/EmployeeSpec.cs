@@ -14,13 +14,11 @@ namespace SemesterProjektDenAnden.EmployeeForms
 {
     public partial class EmployeeSpec : Form
     {
-<<<<<<< HEAD
-        public EmployeeSpec(int id)
-=======
+
         EmployeeBL employeeBL = new EmployeeBL();
         int employeeId;
         public EmployeeSpec(int employeeId)
->>>>>>> main
+
         {
             InitializeComponent();
 
