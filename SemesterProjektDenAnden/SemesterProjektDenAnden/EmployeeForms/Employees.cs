@@ -39,6 +39,11 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
                 employeeBL = new EmployeeBL();
                 Employee employee = await employeeBL.GetAsync(id);
+
+                EmployeeSpec employeeSpec = new EmployeeSpec(id);
+                employeeMdi.FormOpener(employeeSpec);
+
+
             }
             catch (Exception ex)
             {

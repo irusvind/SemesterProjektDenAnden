@@ -12,7 +12,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
 {
     public partial class EmployeeSpec : Form
     {
-        public EmployeeSpec()
+        public EmployeeSpec(int id)
         {
             InitializeComponent();
         }
