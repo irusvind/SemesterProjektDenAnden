@@ -41,7 +41,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                     newCase.CaseTitle = workTitel.Text;
                     newCase.StartDate = startDateCal.SelectionStart;
                     newCase.ExEndDate = endDateCal.SelectionStart;
-                    newCase.ExHours = Convert.ToInt32(estimated_hours.Text);
+                    newCase.EstHours = Convert.ToInt32(estimated_hours.Text);
                     newCase.ServiceId = serviceBox.s,; //find sign up for service id
                     newCase.ServiceId = serviceBox.SelectedIndex + 1;
                     newCase.EmployeeId = serviceBox.SelectedIndex + 1;
