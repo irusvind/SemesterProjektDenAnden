@@ -1,5 +1,6 @@
 ﻿using BusinessLogic;
 using BusinessLogic.BLInterfaces;
+using DataAcces;
 using Models;
 using SemesterProjektDenAnden.ClientFroms;
 using SemesterProjektDenAnden.Tools;
@@ -21,10 +22,48 @@ namespace SemesterProjektDenAnden.EmployeeForms
         EmployeeMdi employeeMdi;
         CreateCase createCase;
         ICaseBL CaseBL = new CaseBL();
-        public CreateCase()
+        IClientBL ClientBL = new ClientBL();
+        IEmployeeBL EmployeeBL = new EmployeeBL();
+        IServiceBL ServiceBL = new ServiceBL();
+
+
+        public CreateCase(EmployeeMdi employeeMdi)
         {
             InitializeComponent();
 
+            AddToClientCombobox();
+
+            AddToemployeeCombobox();
+
+            AddToServiceCombobox();
+
+        }
+
+        private async void AddToClientCombobox()
+        {
+            List<Client> clients = await ClientBL.GetAllAsync();
+            foreach (Client client in clients)
+            {
+                clientBox.Items.Add(client.ClientId);
+            }
+        }
+
+        private async void AddToemployeeCombobox()
+        {
+            List<Employee> employees = await EmployeeBL.GetAllAsync();
+            foreach (Employee employee in employees)
+            {
+                employeeBox.Items.Add(employee.Id);
+            }
+        }
+
+        private async void AddToServiceCombobox()
+        {
+            List<Service> services = await ServiceBL.GetAllAsync();
+            foreach (Service service in services)
+            {
+                serviceBox.Items.Add(service.ServiceId);
+            }
         }
 
         private async void createCaseBtn_Click(object sender, EventArgs e)
@@ -42,18 +81,20 @@ namespace SemesterProjektDenAnden.EmployeeForms
                     newCase.StartDate = startDateCal.SelectionStart;
                     newCase.ExEndDate = endDateCal.SelectionStart;
                     newCase.EstHours = Convert.ToInt32(estimated_hours.Text);
-                    newCase.ServiceId = serviceBox.s,; //find sign up for service id
-                    newCase.ServiceId = serviceBox.SelectedIndex + 1;
-                    newCase.EmployeeId = serviceBox.SelectedIndex + 1;
-                    newCase.ClientId = serviceBox.SelectedIndex + 1;
+                    string client = clientBox.Text;
+                    newCase.ClientId = int.Parse(client);
+                    string serviceid = serviceBox.Text;
+                     newCase.ServiceId = int.Parse(serviceid);
+                    string employeeId = employeeBox.Text;
+                    newCase.EmployeeId = int.Parse(employeeId);
                     newCase.IsClosed = false;
-                    
+
                     var context = new ValidationContext(newCase, serviceProvider: null, items: null);
                     bool isValid = Validator.TryValidateObject(newCase, context, null, true);
 
                     if (isValid)
                     {
-                        bool createResult = await CaseBL.Create(newCase);
+                        bool createResult = await CaseBL.CreateAsync(newCase);
                         if (createResult)
                         {
                             MessageBox.Show("Bruger oprettet", "Bruger oprettet");
@@ -73,5 +114,5 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
             }
         }
-    }
+    } 
 }

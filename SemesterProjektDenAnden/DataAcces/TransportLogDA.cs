@@ -21,7 +21,7 @@ namespace DataAcces
         }
         public async Task<bool> CreateAsync(TransportLog transport)
         {
-            string command = "INSERT INTO TRANSPORTLOG VALUES (@KmDriven, @LogDescription, @CaseId, @ServiceId)";
+            string command = "INSERT INTO TRANSPORT_LOG VALUES (@KmDriven, @LogDescription, @CaseId, @ServiceId)";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection (connString);
             SqlCommand sqlCommand = new SqlCommand (command, dbConn);
@@ -48,7 +48,7 @@ namespace DataAcces
 
         public async Task<bool> DeleteAsync(int id)
         {
-            string command = "DELETE FROM TRANSPORTLOG WHERE TransportLogId = @TransportLogId";
+            string command = "DELETE FROM TRANSPORT_LOG WHERE TransportLogId = @TransportLogId";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand (command,dbConn);
@@ -72,7 +72,7 @@ namespace DataAcces
 
         public async Task<TransportLog> GetAsync(int id)
         {
-            string command = "SELECT * FROM TRANSPORTLOG WHERE TransportLogId = @TransportLogId";
+            string command = "SELECT * FROM TRANSPORT_LOG WHERE TransportLogId = @TransportLogId";
             TransportLog transportLog = new TransportLog();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand (command, dbConn);
@@ -101,7 +101,7 @@ namespace DataAcces
 
         public async Task<List<TransportLog>> GetAllAsync()
         {
-            string command = "SELECT * FROM TRANSPORTLOG";
+            string command = "SELECT * FROM TRANSPORT_LOG";
             List<TransportLog> transportLogs = new List<TransportLog>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand (command,dbConn);
@@ -130,7 +130,7 @@ namespace DataAcces
 
         public async Task<bool> UpdateAsync(TransportLog transportLog)
         {
-            string command = "UPDATE TRANSPORTLOG SET" + 
+            string command = "UPDATE TRANSPORT_LOG SET" + 
                              "LogDescription = @LogDescription";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);

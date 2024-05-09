@@ -23,7 +23,7 @@ namespace DataAcces
         public async Task<bool> CreateAsync(Case newCase)
         {
             {
-                string command = "INSERT INTO CASE_ VALUES(@CaseTitle, @CaseStartDate, @EstEndDate, @EstHours, @Done, @ServiceId, @EmployeeId, ClientId)";
+                string command = "INSERT INTO CASE_ VALUES(@CaseTitle, @CaseStartDate, @EstEndDate, @EstHours, @Done, @ServiceId, @EmployeeId, @ClientId)";
                 int rowsAffected;
                 using SqlConnection dbConn = new SqlConnection(connString);
                 SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -61,7 +61,7 @@ namespace DataAcces
 
         public async Task<bool> DeleteAsync(int id)
         {
-            string command = "DELETE FROM CASE WHERE CaseId = @Id";
+            string command = "DELETE FROM CASE_ WHERE CaseId = @Id";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -89,7 +89,7 @@ namespace DataAcces
 
         public async Task<Case> GetAsync(int id)
         {
-            string command = "SELECT * FROM CASE WHERE CaseId = @CaseId";
+            string command = "SELECT * FROM CASE_ WHERE CaseId = @CaseId";
             Case newCase = new Case();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -101,10 +101,11 @@ namespace DataAcces
                 while (await reader.ReadAsync())
                 {
                     newCase.CaseId = (int)reader["CaseId"];
-                    newCase.StartDate = (DateTime)reader["StartDate"];
+                    newCase.CaseTitle = (string)reader["CaseTitle"];
+                    newCase.StartDate = (DateTime)reader["CaseStartDate"];
                     newCase.ExEndDate = (DateTime)reader["EstEndDate"];
                     newCase.EstHours = (int)reader["EstHours"];
-                    newCase.IsClosed = (bool)reader["IsClosed"];
+                    newCase.IsClosed = (bool)reader["Done"];
                     newCase.ServiceId = (int)reader["ServiceId"];
                     newCase.EmployeeId = (int)reader["EmployeeId"];
                     newCase.ClientId = (int)reader["ClientId"];
@@ -126,7 +127,7 @@ namespace DataAcces
 
         public async Task<List<Case>> GetAllAsync()
         {
-            string command = "SELECT * FROM CASE";
+            string command = "SELECT * FROM CASE_";
             List<Case> newCaseList = new List<Case>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -138,10 +139,11 @@ namespace DataAcces
                 {
                     Case newCase = new Case();
                     newCase.CaseId = (int)reader["CaseId"];
-                    newCase.StartDate = (DateTime)reader["StartDate"];
+                    newCase.CaseTitle = (string)reader["CaseTitle"];
+                    newCase.StartDate = (DateTime)reader["CaseStartDate"];
                     newCase.ExEndDate = (DateTime)reader["EstEndDate"];
                     newCase.EstHours = (int)reader["EstHours"];
-                    newCase.IsClosed = (bool)reader["IsClosed"];
+                    newCase.IsClosed = (bool)reader["Done"];
                     newCase.ServiceId = (int)reader["ServiceId"];
                     newCase.EmployeeId = (int)reader["EmployeeId"];
                     newCase.ClientId = (int)reader["ClientId"];

@@ -50,6 +50,8 @@
             // 
             // sagerDgv
             // 
+            sagerDgv.AllowUserToAddRows = false;
+            sagerDgv.AllowUserToDeleteRows = false;
             sagerDgv.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
@@ -59,7 +61,6 @@
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             sagerDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            sagerDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.Black;
             dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -68,12 +69,13 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             sagerDgv.DefaultCellStyle = dataGridViewCellStyle2;
-            sagerDgv.EditMode = DataGridViewEditMode.EditProgrammatically;
-            sagerDgv.Enabled = false;
             sagerDgv.GridColor = Color.White;
             sagerDgv.Location = new Point(65, 151);
+            sagerDgv.MultiSelect = false;
             sagerDgv.Name = "sagerDgv";
+            sagerDgv.ReadOnly = true;
             sagerDgv.RowTemplate.Height = 25;
+            sagerDgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             sagerDgv.Size = new Size(930, 370);
             sagerDgv.TabIndex = 1;
             sagerDgv.CellContentClick += sagerDgv_CellContentClick;
