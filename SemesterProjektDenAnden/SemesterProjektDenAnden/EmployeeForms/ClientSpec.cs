@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,13 +26,12 @@ namespace SemesterProjektDenAnden.EmployeeForms
             this.clientId = clientId;
             this.employeeMdi = employeeMdi;
             SetData();
-            //DGVData();
+            DGVData();
         }
 
         private async void SetData()
         {
-            Client client = new Client();
-            client = await clientBl.GetAsync(this.clientId);
+            Client client = await clientBl.GetAsync(this.clientId);
 
             clientLbl.Text = client.FirstName + " " + client.LastName + " " + clientId;
             clientIdTxt.Text = client.ClientId.ToString();
@@ -63,9 +63,16 @@ namespace SemesterProjektDenAnden.EmployeeForms
             DialogResult result = MessageBox.Show("Er du sikker på du vil slette denne klient?", "Slet klient", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                await clientBl.DeleteAsync(clientId);
-                Employees employees = new Employees(employeeMdi);
-                employeeMdi.FormOpener(employees);
+                if(await clientBl.DeleteAsync(clientId))
+                {
+                    MessageBox.Show("Klient slettet", "Klient slettet");
+                    Clients clients = new Clients(employeeMdi);
+                    employeeMdi.FormOpener(clients);
+                }
+                else
+                {
+                    MessageBox.Show("Ukendt fejl: Klient ikke slettet", "Fejl");
+                }
             }
         }
     }

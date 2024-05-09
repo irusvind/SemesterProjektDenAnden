@@ -34,7 +34,7 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             employeeNrLbl = new Label();
             employeeIdTxt = new TextBox();
-            dataGridView1 = new DataGridView();
+            coursesDGV = new DataGridView();
             employeesLbl = new Label();
             PhoneTxt = new TextBox();
             FnameTxt = new TextBox();
@@ -45,14 +45,14 @@
             label5 = new Label();
             LnameLbl = new Label();
             nameLbl = new Label();
-            dataGridView2 = new DataGridView();
+            CasesDGV = new DataGridView();
             MailTxt = new TextBox();
             DeleteEmployeeBtn = new Button();
             UpdateEmployeeBtn = new Button();
             addressTxt = new TextBox();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)coursesDGV).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CasesDGV).BeginInit();
             SuspendLayout();
             // 
             // employeeNrLbl
@@ -74,9 +74,10 @@
             employeeIdTxt.Size = new Size(203, 24);
             employeeIdTxt.TabIndex = 1;
             // 
-            // dataGridView1
+            // coursesDGV
             // 
-            dataGridView1.BackgroundColor = Color.Black;
+            coursesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            coursesDGV.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
             dataGridViewCellStyle1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -84,8 +85,8 @@
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            coursesDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            coursesDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.Black;
             dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -93,11 +94,11 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.Location = new Point(108, 409);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(333, 150);
-            dataGridView1.TabIndex = 2;
+            coursesDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            coursesDGV.Location = new Point(108, 409);
+            coursesDGV.Name = "coursesDGV";
+            coursesDGV.Size = new Size(333, 150);
+            coursesDGV.TabIndex = 2;
             // 
             // employeesLbl
             // 
@@ -196,9 +197,10 @@
             nameLbl.TabIndex = 12;
             nameLbl.Text = "Fornavn";
             // 
-            // dataGridView2
+            // CasesDGV
             // 
-            dataGridView2.BackgroundColor = Color.Black;
+            CasesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            CasesDGV.BackgroundColor = Color.Black;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.Black;
             dataGridViewCellStyle3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -206,8 +208,8 @@
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            CasesDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            CasesDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.Black;
             dataGridViewCellStyle4.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -215,11 +217,11 @@
             dataGridViewCellStyle4.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle4.SelectionForeColor = Color.Black;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dataGridView2.DefaultCellStyle = dataGridViewCellStyle4;
-            dataGridView2.Location = new Point(618, 409);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(333, 150);
-            dataGridView2.TabIndex = 13;
+            CasesDGV.DefaultCellStyle = dataGridViewCellStyle4;
+            CasesDGV.Location = new Point(618, 409);
+            CasesDGV.Name = "CasesDGV";
+            CasesDGV.Size = new Size(333, 150);
+            CasesDGV.TabIndex = 13;
             // 
             // MailTxt
             // 
@@ -283,7 +285,7 @@
             Controls.Add(UpdateEmployeeBtn);
             Controls.Add(DeleteEmployeeBtn);
             Controls.Add(MailTxt);
-            Controls.Add(dataGridView2);
+            Controls.Add(CasesDGV);
             Controls.Add(nameLbl);
             Controls.Add(LnameLbl);
             Controls.Add(label5);
@@ -294,14 +296,14 @@
             Controls.Add(FnameTxt);
             Controls.Add(PhoneTxt);
             Controls.Add(employeesLbl);
-            Controls.Add(dataGridView1);
+            Controls.Add(coursesDGV);
             Controls.Add(employeeIdTxt);
             Controls.Add(employeeNrLbl);
             FormBorderStyle = FormBorderStyle.None;
             Name = "EmployeeSpec";
             Text = "EmployeeSpec";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)coursesDGV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CasesDGV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -310,7 +312,7 @@
 
         private Label employeeNrLbl;
         private TextBox employeeIdTxt;
-        private DataGridView dataGridView1;
+        private DataGridView coursesDGV;
         private Label employeesLbl;
         private TextBox PhoneTxt;
         private TextBox FnameTxt;
@@ -321,7 +323,7 @@
         private Label label5;
         private Label LnameLbl;
         private Label nameLbl;
-        private DataGridView dataGridView2;
+        private DataGridView CasesDGV;
         private TextBox MailTxt;
         private Button DeleteEmployeeBtn;
         private Button UpdateEmployeeBtn;
