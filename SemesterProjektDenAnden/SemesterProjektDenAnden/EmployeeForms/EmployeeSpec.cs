@@ -1,6 +1,8 @@
 ﻿using BusinessLogic;
+using BusinessLogic.BLInterfaces;
 using DataAcces;
 using Models;
+using SemesterProjektDenAnden.ClientFroms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +21,8 @@ namespace SemesterProjektDenAnden.EmployeeForms
     {
 
         EmployeeBL employeeBL = new EmployeeBL();
+        CaseBL caseBL = new CaseBL();
+        CourseBL courseBL = new CourseBL();
         EmployeeMdi employeeMdi;
         int employeeId;
         public EmployeeSpec(EmployeeMdi employeeMdi, int employeeId)
@@ -41,6 +45,40 @@ namespace SemesterProjektDenAnden.EmployeeForms
             PhoneTxt.Text = employee.PhoneNumber.ToString();
             MailTxt.Text = employee.Email;
             addressTxt.Text = employee.Address;
+
+            CasesDGVData();
+        }
+
+        //private async void CoursesDGVData()
+        //{
+        //    List<Course> allCourses = await courseBL.GetAllAsync();
+        //    List<Course> employeeCourses = new List<Course>();
+        //    foreach (Course Course in allCourses)
+        //    {
+        //        if (Course.EmployeeId == employeeId)
+        //        {
+        //            employeeCourses.Add(Course);
+        //        }
+        //    }
+        //    BindingSource caseSource = new BindingSource();
+        //    caseSource.DataSource = employeeCourses;
+        //    coursesDGV.DataSource = caseSource;
+        //}
+
+        private async void CasesDGVData()
+        {
+            List<Case> allCases = await caseBL.GetAllAsync();
+            List<Case> employeeCases = new List<Case>();
+            foreach (Case Case in allCases)
+            {
+                if (Case.EmployeeId == employeeId)
+                {
+                    employeeCases.Add(Case);
+                }
+            }
+            BindingSource caseSource = new BindingSource();
+            caseSource.DataSource = employeeCases;
+            CasesDGV.DataSource = caseSource;
         }
 
         private async void DeleteEmployeeBtn_Click(object sender, EventArgs e)
