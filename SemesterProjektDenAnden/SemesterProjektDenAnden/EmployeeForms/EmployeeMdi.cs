@@ -110,5 +110,10 @@ namespace SemesterProjektDenAnden.EmployeeForms
         {
             this.Close();
         }
+
+        private void employeeHelpBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

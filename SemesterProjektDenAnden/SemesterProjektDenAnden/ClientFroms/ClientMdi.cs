@@ -20,7 +20,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         MyCases myCases;
         Tools.ClientTools tools;
         int clientId;
-        
+
 
         public ClientMDI(int clientId)
         {
@@ -97,79 +97,9 @@ namespace SemesterProjektDenAnden.ClientFroms
             this.FormOpener(tools);
         }
 
+        private void clientHelpBtn_Click(object sender, EventArgs e)
+        {
 
-
-        //private void overviewbtn_Click(object sender, EventArgs e)
-        //{
-
-
-        //    if (clientOverview == null)
-        //    {
-        //        this.FormCloser();
-        //        clientOverview = new ClientOverview();
-        //        clientOverview.FormClosed += clientOverview_FormClosed;
-        //        clientOverview.MdiParent = this;
-        //        clientOverview.Show();
-        //    }
-        //    else
-        //    {
-        //        clientOverview.Activate();
-        //    }
-
-        //}
-
-        //private void clientOverview_FormClosed(object sender, FormClosedEventArgs e)
-        //{
-        //    clientOverview = null;
-        //}
-
-        //private void myPagebtn_Click(object sender, EventArgs e)
-        //{
-
-
-        //    if (myPage == null)
-        //    {
-        //        this.FormCloser();
-        //        myPage = new MyPage();
-        //        myPage.FormClosed += myPage_FormClosed;
-        //        myPage.MdiParent = this;
-        //        myPage.Show();
-        //    }
-        //    else
-        //    {
-        //        myPage.Activate();
-        //    }
-
-        //}
-
-        //private void myPage_FormClosed(object sender, FormClosedEventArgs e)
-        //{
-        //    myPage = null;
-        //}
-
-        //private void myCasesbtn_Click(object sender, EventArgs e)
-        //{
-
-
-        //    if (myCases == null)
-        //    {
-        //        this.FormCloser();
-        //        myCases = new MyCases();
-        //        myCases.FormClosed += myCases_FormClosed;
-        //        myCases.MdiParent = this;
-        //        myCases.Show();
-        //    }
-        //    else
-        //    {
-        //        myCases.Activate();
-        //    }
-        //}
-
-
-
-        //private void myCases_FormClosed(object sender, FormClosedEventArgs e)
-        //{
-        //    myCases = null;
-        //}
+        }
     }
 }
