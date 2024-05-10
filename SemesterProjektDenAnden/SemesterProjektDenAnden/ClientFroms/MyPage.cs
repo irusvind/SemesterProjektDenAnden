@@ -65,16 +65,17 @@ namespace SemesterProjektDenAnden.ClientFroms
                 updateClient.Phone = int.Parse(PhoneTxt.Text);
                 updateClient.Mail = MailTxt.Text;
                 updateClient.ClAddress = AddressTxt.Text;
+
                 var context = new ValidationContext(updateClient, serviceProvider: null, items: null);
                 bool isValid = Validator.TryValidateObject(updateClient, context, null, true);
 
                 if (isValid)
                 {
-                    bool createResult = await clientBL.UpdateAsync(updateClient);
-                    if (createResult)
+                    bool updateResult = await clientBL.UpdateAsync(updateClient);
+                    if (updateResult)
                     {
                         MessageBox.Show("Klient opdateret", "Klient opdateret");
-                        this.Close();
+                        
                     }
                     else
                     {
