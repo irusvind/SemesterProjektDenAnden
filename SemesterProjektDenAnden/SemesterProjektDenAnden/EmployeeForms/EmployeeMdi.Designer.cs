@@ -41,6 +41,8 @@
             Clientsbtn = new Button();
             panel6 = new Panel();
             LogOutbtn = new Button();
+            panel7 = new Panel();
+            employeeHelpBtn = new Button();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -48,6 +50,7 @@
             panel4.SuspendLayout();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
+            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -60,6 +63,7 @@
             flowLayoutPanel1.Controls.Add(panel4);
             flowLayoutPanel1.Controls.Add(panel5);
             flowLayoutPanel1.Controls.Add(panel6);
+            flowLayoutPanel1.Controls.Add(panel7);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(0, 0);
@@ -198,7 +202,7 @@
             LogOutbtn.BackColor = Color.Black;
             LogOutbtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             LogOutbtn.ForeColor = Color.White;
-            LogOutbtn.Location = new Point(-39, -17);
+            LogOutbtn.Location = new Point(-39, -20);
             LogOutbtn.Margin = new Padding(2);
             LogOutbtn.Name = "LogOutbtn";
             LogOutbtn.Size = new Size(187, 78);
@@ -206,6 +210,29 @@
             LogOutbtn.Text = "Log ud";
             LogOutbtn.UseVisualStyleBackColor = false;
             LogOutbtn.Click += LogOutbtn_Click;
+            // 
+            // panel7
+            // 
+            panel7.Controls.Add(employeeHelpBtn);
+            panel7.Location = new Point(2, 302);
+            panel7.Margin = new Padding(2);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(118, 46);
+            panel7.TabIndex = 6;
+            // 
+            // employeeHelpBtn
+            // 
+            employeeHelpBtn.BackColor = Color.Black;
+            employeeHelpBtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            employeeHelpBtn.ForeColor = Color.White;
+            employeeHelpBtn.Location = new Point(-39, -22);
+            employeeHelpBtn.Margin = new Padding(2);
+            employeeHelpBtn.Name = "employeeHelpBtn";
+            employeeHelpBtn.Size = new Size(187, 78);
+            employeeHelpBtn.TabIndex = 5;
+            employeeHelpBtn.Text = "Hjælp";
+            employeeHelpBtn.UseVisualStyleBackColor = false;
+            employeeHelpBtn.Click += employeeHelpBtn_Click;
             // 
             // EmployeeMdi
             // 
@@ -225,6 +252,7 @@
             panel4.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel6.ResumeLayout(false);
+            panel7.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -243,5 +271,7 @@
         private Button Clientsbtn;
         private Panel panel6;
         private Button LogOutbtn;
+        private Panel panel7;
+        private Button employeeHelpBtn;
     }
 }

@@ -187,5 +187,37 @@ namespace DataAcces
             }
             return false;
         }
+
+
+        public async Task<List<Course>> GetSpecificCoursesAsync(int employeeId)
+        {
+            List<Course> courses = new List<Course>();
+            string command = "SELECT COURSE.CourseId, COURSE.CourseName FROM COURSE " +
+                "INNER JOIN COMPLETEDCOURSE ON EmployeeId = @EmployeeId;";
+            using SqlConnection dbConn = new SqlConnection(connString);
+            SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            sqlCommand.Parameters.AddWithValue("@EmployeeId", employeeId);
+            try
+            {
+                await dbConn.OpenAsync();
+                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    Course course = new Course();
+                    course.CourseId = (int)reader["CourseId"];
+                    course.CourseName = (string)reader["CourseName"];
+                    courses.Add(course);
+                }
+                return courses;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                await dbConn.CloseAsync();
+            }
+        }
     }
 }

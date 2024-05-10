@@ -39,12 +39,15 @@
             Toolsbtn = new Button();
             panel5 = new Panel();
             Logoutbtn = new Button();
+            panel6 = new Panel();
+            clientHelpBtn = new Button();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -56,6 +59,7 @@
             flowLayoutPanel1.Controls.Add(panel3);
             flowLayoutPanel1.Controls.Add(panel4);
             flowLayoutPanel1.Controls.Add(panel5);
+            flowLayoutPanel1.Controls.Add(panel6);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(0, 0);
@@ -171,7 +175,7 @@
             Logoutbtn.BackColor = Color.Black;
             Logoutbtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             Logoutbtn.ForeColor = Color.White;
-            Logoutbtn.Location = new Point(-36, -18);
+            Logoutbtn.Location = new Point(-36, -15);
             Logoutbtn.Margin = new Padding(2);
             Logoutbtn.Name = "Logoutbtn";
             Logoutbtn.Size = new Size(187, 78);
@@ -179,6 +183,29 @@
             Logoutbtn.Text = "Log ud";
             Logoutbtn.UseVisualStyleBackColor = false;
             Logoutbtn.Click += Logoutbtn_Click;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(clientHelpBtn);
+            panel6.Location = new Point(2, 252);
+            panel6.Margin = new Padding(2);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(148, 46);
+            panel6.TabIndex = 6;
+            // 
+            // clientHelpBtn
+            // 
+            clientHelpBtn.BackColor = Color.Black;
+            clientHelpBtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            clientHelpBtn.ForeColor = Color.White;
+            clientHelpBtn.Location = new Point(-36, -15);
+            clientHelpBtn.Margin = new Padding(2);
+            clientHelpBtn.Name = "clientHelpBtn";
+            clientHelpBtn.Size = new Size(187, 78);
+            clientHelpBtn.TabIndex = 4;
+            clientHelpBtn.Text = "Hjælp";
+            clientHelpBtn.UseVisualStyleBackColor = false;
+            clientHelpBtn.Click += clientHelpBtn_Click;
             // 
             // ClientMDI
             // 
@@ -198,6 +225,7 @@
             panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel5.ResumeLayout(false);
+            panel6.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -214,5 +242,7 @@
         private Button Toolsbtn;
         private Panel panel5;
         private Button Logoutbtn;
+        private Panel panel6;
+        private Button clientHelpBtn;
     }
 }

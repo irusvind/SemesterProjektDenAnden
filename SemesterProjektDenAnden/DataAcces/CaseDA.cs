@@ -134,10 +134,11 @@ namespace DataAcces
                 {
                     Case newCase = new Case();
                     newCase.CaseId = (int)reader["CaseId"];
-                    newCase.StartDate = (DateOnly)reader["StartDate"];
-                    newCase.EstEndDate = (DateOnly)reader["EstEndDate"];
+                    newCase.CaseTitle = (string)reader["CaseTitle"];
+                    newCase.StartDate = DateOnly.FromDateTime((DateTime)reader["CaseStartDate"]);
+                    newCase.EstEndDate = DateOnly.FromDateTime((DateTime)reader["EstEndDate"]);
                     newCase.EstHours = (int)reader["EstHours"];
-                    newCase.IsClosed = (bool)reader["IsClosed"];
+                    newCase.IsClosed = (bool)reader["Done"];
                     newCase.ServiceId = (int)reader["ServiceId"];
                     newCase.EmployeeId = (int)reader["EmployeeId"];
                     newCase.ClientId = (int)reader["ClientId"];
