@@ -38,5 +38,11 @@ namespace BusinessLogic
            bool result = await employeeDA.UpdateAsync(employee);
            return result;
         }
+
+        public async Task<List<Course>> GetSpecificCoursesAsync(int employeeId)
+        {
+            List<Course> courses = await employeeDA.GetSpecificCoursesAsync(employeeId);
+            return courses;
+        }
     }
 }

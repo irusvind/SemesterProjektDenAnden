@@ -76,12 +76,16 @@
             // 
             // coursesDGV
             // 
+            coursesDGV.AllowUserToAddRows = false;
+            coursesDGV.AllowUserToDeleteRows = false;
+            coursesDGV.AllowUserToResizeColumns = false;
+            coursesDGV.AllowUserToResizeRows = false;
             coursesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             coursesDGV.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
             dataGridViewCellStyle1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.ForeColor = Color.White;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
@@ -90,14 +94,15 @@
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.Black;
             dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             coursesDGV.DefaultCellStyle = dataGridViewCellStyle2;
-            coursesDGV.Location = new Point(33, 409);
+            coursesDGV.Location = new Point(107, 409);
             coursesDGV.Name = "coursesDGV";
-            coursesDGV.Size = new Size(450, 200);
+            coursesDGV.ReadOnly = true;
+            coursesDGV.Size = new Size(300, 200);
             coursesDGV.TabIndex = 2;
             // 
             // employeesLbl
@@ -150,7 +155,7 @@
             // 
             casesLbl.AutoSize = true;
             casesLbl.Font = new Font("High Tower Text", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            casesLbl.Location = new Point(557, 370);
+            casesLbl.Location = new Point(473, 370);
             casesLbl.Name = "casesLbl";
             casesLbl.Size = new Size(54, 22);
             casesLbl.TabIndex = 8;
@@ -160,7 +165,7 @@
             // 
             coursesLbl.AutoSize = true;
             coursesLbl.Font = new Font("High Tower Text", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            coursesLbl.Location = new Point(33, 370);
+            coursesLbl.Location = new Point(107, 370);
             coursesLbl.Name = "coursesLbl";
             coursesLbl.Size = new Size(64, 22);
             coursesLbl.TabIndex = 9;
@@ -199,6 +204,10 @@
             // 
             // CasesDGV
             // 
+            CasesDGV.AllowUserToAddRows = false;
+            CasesDGV.AllowUserToDeleteRows = false;
+            CasesDGV.AllowUserToResizeColumns = false;
+            CasesDGV.AllowUserToResizeRows = false;
             CasesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             CasesDGV.BackgroundColor = Color.Black;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -218,9 +227,10 @@
             dataGridViewCellStyle4.SelectionForeColor = Color.Black;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
             CasesDGV.DefaultCellStyle = dataGridViewCellStyle4;
-            CasesDGV.Location = new Point(557, 409);
+            CasesDGV.Location = new Point(473, 409);
             CasesDGV.Name = "CasesDGV";
-            CasesDGV.Size = new Size(450, 200);
+            CasesDGV.ReadOnly = true;
+            CasesDGV.Size = new Size(525, 200);
             CasesDGV.TabIndex = 13;
             // 
             // MailTxt
