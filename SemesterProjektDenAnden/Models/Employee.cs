@@ -8,22 +8,22 @@ namespace Models
 
         public int Id { get; set; }
 
-        [Required, StringLength(50)]
+        [Required, StringLength(50), Display(Name = "First Name"), RegularExpression(@"^[a-zA-Z''-'\s]{1,50}$")]
         public string FirstName { get; set; }
 
-        [Required, StringLength(50)]
+        [Required, StringLength(50), Display(Name = "Last Name"), RegularExpression(@"^[a-zA-Z''-'\s]{1,50}$")]
         public string LastName { get; set; }
 
-        [Required, DataType(DataType.PhoneNumber)]
+        [Required, Display(Name = "Phone")]
         public int PhoneNumber { get; set; }
 
-        [Required, StringLength(50), DataType(DataType.EmailAddress)]
+        [Required, StringLength(50), EmailAddress(ErrorMessage = "Invalid email format"), Display(Name = "Email")]
         public string Email { get; set; }
 
-        [StringLength(50), AllowNull]
+        [StringLength(50)]
         public string Address { get; set; }
 
-        [Required, StringLength(25)]
+        [Required, RegularExpression(@"^[a-zA-Z''-'\s]{1,50}$")]
         public string JobTitle { get; set; }
     }
 }

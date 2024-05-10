@@ -37,7 +37,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
                 int id = (int)temp.Cells[0].Value;
 
-                EmployeeSpec employeeSpec = new EmployeeSpec(id);
+                EmployeeSpec employeeSpec = new EmployeeSpec(employeeMdi, id);
                 employeeMdi.FormOpener(employeeSpec);
             }
             catch (Exception ex)
