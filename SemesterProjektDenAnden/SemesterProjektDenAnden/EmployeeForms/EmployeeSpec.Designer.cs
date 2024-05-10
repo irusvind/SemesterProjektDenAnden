@@ -95,9 +95,9 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             coursesDGV.DefaultCellStyle = dataGridViewCellStyle2;
-            coursesDGV.Location = new Point(108, 409);
+            coursesDGV.Location = new Point(33, 409);
             coursesDGV.Name = "coursesDGV";
-            coursesDGV.Size = new Size(333, 150);
+            coursesDGV.Size = new Size(450, 200);
             coursesDGV.TabIndex = 2;
             // 
             // employeesLbl
@@ -150,7 +150,7 @@
             // 
             casesLbl.AutoSize = true;
             casesLbl.Font = new Font("High Tower Text", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            casesLbl.Location = new Point(618, 370);
+            casesLbl.Location = new Point(557, 370);
             casesLbl.Name = "casesLbl";
             casesLbl.Size = new Size(54, 22);
             casesLbl.TabIndex = 8;
@@ -160,7 +160,7 @@
             // 
             coursesLbl.AutoSize = true;
             coursesLbl.Font = new Font("High Tower Text", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            coursesLbl.Location = new Point(108, 370);
+            coursesLbl.Location = new Point(33, 370);
             coursesLbl.Name = "coursesLbl";
             coursesLbl.Size = new Size(64, 22);
             coursesLbl.TabIndex = 9;
@@ -218,9 +218,9 @@
             dataGridViewCellStyle4.SelectionForeColor = Color.Black;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
             CasesDGV.DefaultCellStyle = dataGridViewCellStyle4;
-            CasesDGV.Location = new Point(618, 409);
+            CasesDGV.Location = new Point(557, 409);
             CasesDGV.Name = "CasesDGV";
-            CasesDGV.Size = new Size(333, 150);
+            CasesDGV.Size = new Size(450, 200);
             CasesDGV.TabIndex = 13;
             // 
             // MailTxt
