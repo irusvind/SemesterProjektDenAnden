@@ -42,5 +42,11 @@ namespace BusinessLogic
             bool result = await CaseDA.UpdateAsync(newCase);
             return result;
         }
+
+        public async Task<List<Case>> GetCaseWithClientIdAsync(int id)
+        {
+            List<Case> clientCases = await CaseDA.GetCaseWithClientIdAsync(id);
+            return clientCases;
+        }
     }
 }

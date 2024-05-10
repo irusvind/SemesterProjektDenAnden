@@ -22,7 +22,7 @@ namespace DataAcces
         }
         public async Task<bool> CreateAsync(Case newCase)
         {
-            string command = "INSERT INTO CASE VALUES(@CaseTitle, @StartDate, @EstEndDate, @EstHours, @IsClosed, @ServiceId, @EmployeeId, @ClientId)";
+            string command = "INSERT INTO CASE_ VALUES(@CaseTitle, @StartDate, @EstEndDate, @EstHours, @IsClosed, @ServiceId, @EmployeeId, @ClientId)";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -57,7 +57,7 @@ namespace DataAcces
 
         public async Task<bool> DeleteAsync(int id)
         {
-            string command = "DELETE FROM CASE WHERE CaseId = @Id";
+            string command = "DELETE FROM CASE_ WHERE CaseId = @Id";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -85,7 +85,7 @@ namespace DataAcces
 
         public async Task<Case> GetAsync(int id)
         {
-            string command = "SELECT * FROM CASE WHERE CaseId = @CaseId";
+            string command = "SELECT * FROM CASE_ WHERE CaseId = @CaseId";
             Case newCase = new Case();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -122,7 +122,7 @@ namespace DataAcces
 
         public async Task<List<Case>> GetAllAsync()
         {
-            string command = "SELECT * FROM CASE";
+            string command = "SELECT * FROM CASE_";
             List<Case> newCaseList = new List<Case>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -158,7 +158,7 @@ namespace DataAcces
 
         public async Task<bool> UpdateAsync(Case newCase)
         {
-            string command = "UPDATE CASE SET" +
+            string command = "UPDATE CASE_ SET" +
                 "CaseTitle = @CaseTitle" +
                 "StartDate = @StartDate" +
                 "EstEndDate = @EstEndDate" +
@@ -200,5 +200,42 @@ namespace DataAcces
                 return false;
             }
         }
+
+        public async Task<List<Case>> GetCaseWithClientIdAsync(int id)
+        {
+            string command = "SELECT * FROM CASE_ WHERE ClientId = @ClientId";
+            List<Case> caseListClient = new List<Case>();
+            using SqlConnection dbConn = new SqlConnection(connString);
+            SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            try
+            {
+                await dbConn.OpenAsync();
+                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    Case newCaseClient = new Case();
+                    newCaseClient.CaseId = (int)reader["CaseId"];
+                    newCaseClient.StartDate = (DateOnly)reader["StartDate"];
+                    newCaseClient.EstEndDate = (DateOnly)reader["EstEndDate"];
+                    newCaseClient.EstHours = (int)reader["EstHours"];
+                    newCaseClient.IsClosed = (bool)reader["IsClosed"];
+                    newCaseClient.ServiceId = (int)reader["ServiceId"];
+                    newCaseClient.EmployeeId = (int)reader["EmployeeId"];
+                    newCaseClient.ClientId = (int)reader["ClientId"];
+                    caseListClient.Add(newCaseClient);
+
+                }
+                return caseListClient;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            finally
+            {
+                await dbConn.CloseAsync();
+            }
+        }
+    }
     }
 }

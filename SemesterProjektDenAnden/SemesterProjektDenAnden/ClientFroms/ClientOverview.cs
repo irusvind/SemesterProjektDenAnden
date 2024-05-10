@@ -33,7 +33,7 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void OverviewMyCasesbtn_Click(object sender, EventArgs e)
         {
-            myCases = new MyCases(clientMdi);
+            myCases = new MyCases(clientMdi, clientId);
             clientMdi.FormOpener(myCases);
         }
 
