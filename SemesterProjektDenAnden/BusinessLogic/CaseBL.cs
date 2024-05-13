@@ -45,7 +45,7 @@ namespace BusinessLogic
 
         public async Task<List<Case>> GetCaseWithClientIdAsync(int id)
         {
-            List<Case> clientCases = await CaseDA.GetCaseWithClientIdAsync(id);
+            List<Case> clientCases = await caseDA.GetCaseWithClientIdAsync(id);
             return clientCases;
         }
     }
