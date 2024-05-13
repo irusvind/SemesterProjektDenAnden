@@ -22,36 +22,41 @@ namespace DataAcces
         }
         public async Task<bool> CreateAsync(Case newCase)
         {
-            string command = "INSERT INTO CASE_ VALUES(@CaseTitle, @StartDate, @EstEndDate, @EstHours, @IsClosed, @ServiceId, @EmployeeId, @ClientId)";
-            int rowsAffected;
-            using SqlConnection dbConn = new SqlConnection(connString);
-            SqlCommand sqlCommand = new SqlCommand(command, dbConn);
-            sqlCommand.Parameters.AddWithValue("@CaseTitle", newCase.CaseTitle);
-            sqlCommand.Parameters.AddWithValue("@StartDate", newCase.StartDate);
-            sqlCommand.Parameters.AddWithValue("@EstEndDate", newCase.EstEndDate);
-            sqlCommand.Parameters.AddWithValue("@EstHours", newCase.EstHours);
-            sqlCommand.Parameters.AddWithValue("@IsClosed", newCase.IsClosed);
-            sqlCommand.Parameters.AddWithValue("@ServiceId", newCase.ServiceId);
-            sqlCommand.Parameters.AddWithValue("@EmployeeId", newCase.EmployeeId);
-            sqlCommand.Parameters.AddWithValue("@ClientId", newCase.ClientId);
-            try
-            {
-                await dbConn.OpenAsync();
-                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
 
-            }
-            catch (Exception e)
             {
-                throw;
-            }
-            finally { await dbConn.CloseAsync(); }
-            if (rowsAffected > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
+                string command = "INSERT INTO CASE_ VALUES(@CaseTitle, @CaseStartDate, @EstEndDate, @EstHours, @Done, @ServiceId, @EmployeeId, @ClientId)";
+                int rowsAffected;
+                using SqlConnection dbConn = new SqlConnection(connString);
+                SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+                sqlCommand.Parameters.AddWithValue("@CaseTitle", newCase.CaseTitle);
+                sqlCommand.Parameters.AddWithValue("@CaseStartDate", newCase.StartDate);
+                sqlCommand.Parameters.AddWithValue("@EstEndDate", newCase.ExEndDate);
+                sqlCommand.Parameters.AddWithValue("@EstHours", newCase.EstHours);
+                sqlCommand.Parameters.AddWithValue("@Done", newCase.IsClosed);
+                sqlCommand.Parameters.AddWithValue("@ServiceId", newCase.ServiceId);
+                sqlCommand.Parameters.AddWithValue("@EmployeeId", newCase.EmployeeId);
+                sqlCommand.Parameters.AddWithValue("@ClientId", newCase.ClientId);
+
+                try
+                {
+                    await dbConn.OpenAsync();
+                    rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+
+                }
+                catch (Exception e)
+                {
+                    throw;
+                }
+                finally { await dbConn.CloseAsync(); }
+                if (rowsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
             }
         }
 
@@ -97,10 +102,11 @@ namespace DataAcces
                 while (await reader.ReadAsync())
                 {
                     newCase.CaseId = (int)reader["CaseId"];
-                    newCase.StartDate = (DateOnly)reader["StartDate"];
-                    newCase.EstEndDate = (DateOnly)reader["EstEndDate"];
+                    newCase.CaseTitle = (string)reader["CaseTitle"];
+                    newCase.StartDate = (DateTime)reader["CaseStartDate"];
+                    newCase.ExEndDate = (DateTime)reader["EstEndDate"];
                     newCase.EstHours = (int)reader["EstHours"];
-                    newCase.IsClosed = (bool)reader["IsClosed"];
+                    newCase.IsClosed = (bool)reader["Done"];
                     newCase.ServiceId = (int)reader["ServiceId"];
                     newCase.EmployeeId = (int)reader["EmployeeId"];
                     newCase.ClientId = (int)reader["ClientId"];
@@ -135,8 +141,10 @@ namespace DataAcces
                     Case newCase = new Case();
                     newCase.CaseId = (int)reader["CaseId"];
                     newCase.CaseTitle = (string)reader["CaseTitle"];
-                    newCase.StartDate = DateOnly.FromDateTime((DateTime)reader["CaseStartDate"]);
-                    newCase.EstEndDate = DateOnly.FromDateTime((DateTime)reader["EstEndDate"]);
+
+                    newCase.StartDate = (DateTime)reader["CaseStartDate"];
+                    newCase.ExEndDate = (DateTime)reader["EstEndDate"];
+
                     newCase.EstHours = (int)reader["EstHours"];
                     newCase.IsClosed = (bool)reader["Done"];
                     newCase.ServiceId = (int)reader["ServiceId"];
@@ -174,7 +182,7 @@ namespace DataAcces
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@CaseTitle", newCase.CaseTitle);
             sqlCommand.Parameters.AddWithValue("@StartDate", newCase.StartDate);
-            sqlCommand.Parameters.AddWithValue("@EstEndDate", newCase.EstEndDate);
+            sqlCommand.Parameters.AddWithValue("@EstEndDate", newCase.EstHours);
             sqlCommand.Parameters.AddWithValue("@EstHours", newCase.EstHours);
             sqlCommand.Parameters.AddWithValue("@IsClosed", newCase.IsClosed);
             sqlCommand.Parameters.AddWithValue("@ServiceId", newCase.ServiceId);
@@ -216,8 +224,8 @@ namespace DataAcces
                 {
                     Case newCaseClient = new Case();
                     newCaseClient.CaseId = (int)reader["CaseId"];
-                    newCaseClient.StartDate = (DateOnly)reader["StartDate"];
-                    newCaseClient.EstEndDate = (DateOnly)reader["EstEndDate"];
+                    newCaseClient.StartDate = (DateTime)reader["StartDate"];
+                    newCaseClient.ExEndDate = (DateTime)reader["EstEndDate"];
                     newCaseClient.EstHours = (int)reader["EstHours"];
                     newCaseClient.IsClosed = (bool)reader["IsClosed"];
                     newCaseClient.ServiceId = (int)reader["ServiceId"];

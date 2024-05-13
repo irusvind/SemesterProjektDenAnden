@@ -44,7 +44,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             {
                 this.Show();
             }
-            
+
         }
 
         private void OpretEmployeeBtn_Click(object sender, EventArgs e)

@@ -43,16 +43,16 @@
             clientInfolbl = new Label();
             caseInfoLbl = new Label();
             editCB = new ComboBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            textBox7 = new TextBox();
-            textBox8 = new TextBox();
-            textBox10 = new TextBox();
-            textBox11 = new TextBox();
+            startDataBox = new TextBox();
+            clientPhoneBox = new TextBox();
+            clientNamebox = new TextBox();
+            exhourBox = new TextBox();
+            kmBox = new TextBox();
+            usedHoursbox = new TextBox();
+            endDateBox = new TextBox();
+            clientMailbox = new TextBox();
+            employeeNameBox = new TextBox();
+            employeeIdBox = new TextBox();
             EmployeeInfolbl = new Label();
             EmployeeNrLbl = new Label();
             advocatNameLbl = new Label();
@@ -209,75 +209,75 @@
             editCB.TabIndex = 13;
             editCB.Text = "Rediger";
             // 
-            // textBox1
+            // startDataBox
             // 
-            textBox1.Location = new Point(259, 385);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(196, 24);
-            textBox1.TabIndex = 14;
+            startDataBox.Location = new Point(259, 385);
+            startDataBox.Name = "startDataBox";
+            startDataBox.Size = new Size(196, 24);
+            startDataBox.TabIndex = 14;
             // 
-            // textBox2
+            // clientPhoneBox
             // 
-            textBox2.Location = new Point(743, 191);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(196, 24);
-            textBox2.TabIndex = 15;
+            clientPhoneBox.Location = new Point(743, 191);
+            clientPhoneBox.Name = "clientPhoneBox";
+            clientPhoneBox.Size = new Size(196, 24);
+            clientPhoneBox.TabIndex = 15;
             // 
-            // textBox3
+            // clientNamebox
             // 
-            textBox3.Location = new Point(743, 161);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(196, 24);
-            textBox3.TabIndex = 16;
+            clientNamebox.Location = new Point(743, 161);
+            clientNamebox.Name = "clientNamebox";
+            clientNamebox.Size = new Size(196, 24);
+            clientNamebox.TabIndex = 16;
             // 
-            // textBox4
+            // exhourBox
             // 
-            textBox4.Location = new Point(259, 415);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(196, 24);
-            textBox4.TabIndex = 17;
+            exhourBox.Location = new Point(259, 415);
+            exhourBox.Name = "exhourBox";
+            exhourBox.Size = new Size(196, 24);
+            exhourBox.TabIndex = 17;
             // 
-            // textBox5
+            // kmBox
             // 
-            textBox5.Location = new Point(259, 505);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(196, 24);
-            textBox5.TabIndex = 18;
+            kmBox.Location = new Point(259, 505);
+            kmBox.Name = "kmBox";
+            kmBox.Size = new Size(196, 24);
+            kmBox.TabIndex = 18;
             // 
-            // textBox6
+            // usedHoursbox
             // 
-            textBox6.Location = new Point(259, 475);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(196, 24);
-            textBox6.TabIndex = 19;
+            usedHoursbox.Location = new Point(259, 475);
+            usedHoursbox.Name = "usedHoursbox";
+            usedHoursbox.Size = new Size(196, 24);
+            usedHoursbox.TabIndex = 19;
             // 
-            // textBox7
+            // endDateBox
             // 
-            textBox7.Location = new Point(259, 445);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(196, 24);
-            textBox7.TabIndex = 20;
+            endDateBox.Location = new Point(259, 445);
+            endDateBox.Name = "endDateBox";
+            endDateBox.Size = new Size(196, 24);
+            endDateBox.TabIndex = 20;
             // 
-            // textBox8
+            // clientMailbox
             // 
-            textBox8.Location = new Point(743, 221);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(196, 24);
-            textBox8.TabIndex = 21;
+            clientMailbox.Location = new Point(743, 221);
+            clientMailbox.Name = "clientMailbox";
+            clientMailbox.Size = new Size(196, 24);
+            clientMailbox.TabIndex = 21;
             // 
-            // textBox10
+            // employeeNameBox
             // 
-            textBox10.Location = new Point(743, 385);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(196, 24);
-            textBox10.TabIndex = 27;
+            employeeNameBox.Location = new Point(743, 385);
+            employeeNameBox.Name = "employeeNameBox";
+            employeeNameBox.Size = new Size(196, 24);
+            employeeNameBox.TabIndex = 27;
             // 
-            // textBox11
+            // employeeIdBox
             // 
-            textBox11.Location = new Point(743, 415);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(196, 24);
-            textBox11.TabIndex = 26;
+            employeeIdBox.Location = new Point(743, 415);
+            employeeIdBox.Name = "employeeIdBox";
+            employeeIdBox.Size = new Size(196, 24);
+            employeeIdBox.TabIndex = 26;
             // 
             // EmployeeInfolbl
             // 
@@ -315,19 +315,19 @@
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
             ClientSize = new Size(1065, 655);
-            Controls.Add(textBox10);
-            Controls.Add(textBox11);
+            Controls.Add(employeeNameBox);
+            Controls.Add(employeeIdBox);
             Controls.Add(EmployeeInfolbl);
             Controls.Add(EmployeeNrLbl);
             Controls.Add(advocatNameLbl);
-            Controls.Add(textBox8);
-            Controls.Add(textBox7);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(clientMailbox);
+            Controls.Add(endDateBox);
+            Controls.Add(usedHoursbox);
+            Controls.Add(kmBox);
+            Controls.Add(exhourBox);
+            Controls.Add(clientNamebox);
+            Controls.Add(clientPhoneBox);
+            Controls.Add(startDataBox);
             Controls.Add(editCB);
             Controls.Add(caseInfoLbl);
             Controls.Add(clientInfolbl);
@@ -367,17 +367,17 @@
         private Label clientInfolbl;
         private Label caseInfoLbl;
         private ComboBox editCB;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private TextBox textBox7;
-        private TextBox textBox8;
+        private TextBox startDataBox;
+        private TextBox clientPhoneBox;
+        private TextBox clientNamebox;
+        private TextBox exhourBox;
+        private TextBox kmBox;
+        private TextBox usedHoursbox;
+        private TextBox endDateBox;
+        private TextBox clientMailbox;
         private TextBox textBox9;
-        private TextBox textBox10;
-        private TextBox textBox11;
+        private TextBox employeeNameBox;
+        private TextBox employeeIdBox;
         private Label EmployeeInfolbl;
         private Label label2;
         private Label EmployeeNrLbl;

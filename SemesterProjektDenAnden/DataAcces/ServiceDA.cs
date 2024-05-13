@@ -63,7 +63,7 @@ namespace DataAcces
                     Service newService = new Service();
                     newService.ServiceId = (int)reader["ServiceId"];
                     newService.ServiceName = (string)reader["ServiceName"];
-                    newService.Price = (float)reader["Price"];
+                    newService.Price = (double)reader["Price"];
                     newService.PriceHourly = (bool)reader["PriceHourly"];
                     services.Add(newService);
                 }
