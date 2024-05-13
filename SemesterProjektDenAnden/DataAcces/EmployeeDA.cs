@@ -193,7 +193,7 @@ namespace DataAcces
         {
             List<Course> courses = new List<Course>();
             string command = "SELECT COURSE.CourseId, COURSE.CourseName FROM COURSE " +
-                "INNER JOIN COMPLETEDCOURSE ON EmployeeId = @EmployeeId;";
+                "INNER JOIN COMPLETEDCOURSE ON EmployeeId = @EmployeeId AND COMPLETEDCOURSE.CourseId = COURSE.CourseId;";
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@EmployeeId", employeeId);

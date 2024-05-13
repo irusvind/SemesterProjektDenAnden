@@ -155,6 +155,8 @@ namespace DataAcces
                     else newCase.UsedHours = 0;
                     newCase.EstHours = (int)reader["EstHours"];
                     newCase.Done = (bool)reader["Done"];
+                    newCase.ServiceId = (int)reader["ServiceId"];
+                    newCase.ServiceId = (int)reader["ServiceId"];
                     newCase.EmployeeId = (int)reader["EmployeeId"];
                     newCase.ClientId = (int)reader["ClientId"];
                     newCaseList.Add(newCase);
@@ -189,10 +191,10 @@ namespace DataAcces
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@CaseTitle", newCase.CaseTitle);
             sqlCommand.Parameters.AddWithValue("@CaseStartDate", newCase.StartDate);
-            sqlCommand.Parameters.AddWithValue("@EstEndDate", newCase.ExEndDate);
-            sqlCommand.Parameters.AddWithValue("@EstHours", newCase.EstHours);
             sqlCommand.Parameters.AddWithValue("@UsedHours", newCase.UsedHours);
             sqlCommand.Parameters.AddWithValue("@Done", newCase.Done);
+            sqlCommand.Parameters.AddWithValue("@ServiceId", newCase.ServiceId);
+            sqlCommand.Parameters.AddWithValue("@ServiceId", newCase.ServiceId);
             sqlCommand.Parameters.AddWithValue("@EmployeeId", newCase.EmployeeId);
             sqlCommand.Parameters.AddWithValue("@ClientId", newCase.ClientId);
             sqlCommand.Parameters.AddWithValue("@CaseId", newCase.CaseId);
@@ -223,12 +225,11 @@ namespace DataAcces
             List<Case> caseListClient = new List<Case>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            sqlCommand.Parameters.AddWithValue("@ClientId", id);
             try
             {
                 await dbConn.OpenAsync();
                 SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
                     Case newCaseClient = new Case();
                     newCaseClient.CaseId = (int)reader["CaseId"];
                     newCaseClient.StartDate = (DateTime)reader["CaseStartDate"];
@@ -238,6 +239,8 @@ namespace DataAcces
                     newCaseClient.Done = (bool)reader["IsClosed"];
                     newCaseClient.EmployeeId = (int)reader["EmployeeId"];
                     newCaseClient.ClientId = (int)reader["ClientId"];
+                    caseListClient.Add(newCaseClient);
+                    caseListClient.Add(newCaseClient);
                     caseListClient.Add(newCaseClient);
 
                 }

@@ -27,7 +27,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             CasesDGVData();
         }
 
-        private void sagerDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void sagerDgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = (DataGridView)sender;
 

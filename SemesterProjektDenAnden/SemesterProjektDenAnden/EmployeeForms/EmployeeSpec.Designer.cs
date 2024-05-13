@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             employeeNrLbl = new Label();
             employeeIdTxt = new TextBox();
             coursesDGV = new DataGridView();
@@ -51,6 +51,7 @@
             UpdateEmployeeBtn = new Button();
             addressTxt = new TextBox();
             label1 = new Label();
+            changeCoursesBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)coursesDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CasesDGV).BeginInit();
             SuspendLayout();
@@ -82,23 +83,23 @@
             coursesDGV.AllowUserToResizeRows = false;
             coursesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             coursesDGV.BackgroundColor = Color.Black;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Black;
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            coursesDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.Black;
+            dataGridViewCellStyle5.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            coursesDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             coursesDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.Black;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            coursesDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.Black;
+            dataGridViewCellStyle6.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            coursesDGV.DefaultCellStyle = dataGridViewCellStyle6;
             coursesDGV.Location = new Point(107, 409);
             coursesDGV.Name = "coursesDGV";
             coursesDGV.ReadOnly = true;
@@ -210,23 +211,23 @@
             CasesDGV.AllowUserToResizeRows = false;
             CasesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             CasesDGV.BackgroundColor = Color.Black;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Black;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            CasesDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.Black;
+            dataGridViewCellStyle7.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            CasesDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             CasesDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.Black;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            CasesDGV.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.Black;
+            dataGridViewCellStyle8.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            CasesDGV.DefaultCellStyle = dataGridViewCellStyle8;
             CasesDGV.Location = new Point(473, 409);
             CasesDGV.Name = "CasesDGV";
             CasesDGV.ReadOnly = true;
@@ -285,12 +286,26 @@
             label1.TabIndex = 18;
             label1.Text = "Address";
             // 
+            // changeCoursesBtn
+            // 
+            changeCoursesBtn.BackColor = Color.Black;
+            changeCoursesBtn.Font = new Font("High Tower Text", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            changeCoursesBtn.ForeColor = Color.White;
+            changeCoursesBtn.Location = new Point(796, 266);
+            changeCoursesBtn.Name = "changeCoursesBtn";
+            changeCoursesBtn.Size = new Size(155, 30);
+            changeCoursesBtn.TabIndex = 19;
+            changeCoursesBtn.Text = "Ændre kurser";
+            changeCoursesBtn.UseVisualStyleBackColor = false;
+            changeCoursesBtn.Click += changeCoursesBtn_Click;
+            // 
             // EmployeeSpec
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
             ClientSize = new Size(1065, 655);
+            Controls.Add(changeCoursesBtn);
             Controls.Add(label1);
             Controls.Add(addressTxt);
             Controls.Add(UpdateEmployeeBtn);
@@ -340,5 +355,6 @@
         private Button UpdateEmployeeBtn;
         private TextBox addressTxt;
         private Label label1;
+        private Button changeCoursesBtn;
     }
 }

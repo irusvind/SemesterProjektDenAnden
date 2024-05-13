@@ -117,5 +117,11 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 else { MessageBox.Show("Fejl: Medarbejder ikke opdateret, info ikke valid", "Info ikke valid"); };
             }
         }
+
+        private void changeCoursesBtn_Click(object sender, EventArgs e)
+        {
+            EmployeeCoursesEdit employeeCoursesEdit = new EmployeeCoursesEdit(employeeMdi, employeeId);
+            employeeMdi.FormOpener(employeeCoursesEdit);
+        }
     }
 }
