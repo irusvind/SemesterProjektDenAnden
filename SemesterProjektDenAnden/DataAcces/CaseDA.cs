@@ -33,7 +33,6 @@ namespace DataAcces
                 sqlCommand.Parameters.AddWithValue("@EstEndDate", newCase.ExEndDate);
                 sqlCommand.Parameters.AddWithValue("@EstHours", newCase.EstHours);
                 sqlCommand.Parameters.AddWithValue("@Done", newCase.IsClosed);
-                sqlCommand.Parameters.AddWithValue("@ServiceId", newCase.ServiceId);
                 sqlCommand.Parameters.AddWithValue("@EmployeeId", newCase.EmployeeId);
                 sqlCommand.Parameters.AddWithValue("@ClientId", newCase.ClientId);
 
@@ -107,7 +106,6 @@ namespace DataAcces
                     newCase.ExEndDate = (DateTime)reader["EstEndDate"];
                     newCase.EstHours = (int)reader["EstHours"];
                     newCase.IsClosed = (bool)reader["Done"];
-                    newCase.ServiceId = (int)reader["ServiceId"];
                     newCase.EmployeeId = (int)reader["EmployeeId"];
                     newCase.ClientId = (int)reader["ClientId"];
 
@@ -147,7 +145,6 @@ namespace DataAcces
 
                     newCase.EstHours = (int)reader["EstHours"];
                     newCase.IsClosed = (bool)reader["Done"];
-                    newCase.ServiceId = (int)reader["ServiceId"];
                     newCase.EmployeeId = (int)reader["EmployeeId"];
                     newCase.ClientId = (int)reader["ClientId"];
                     newCaseList.Add(newCase);
@@ -185,7 +182,6 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@EstEndDate", newCase.EstHours);
             sqlCommand.Parameters.AddWithValue("@EstHours", newCase.EstHours);
             sqlCommand.Parameters.AddWithValue("@IsClosed", newCase.IsClosed);
-            sqlCommand.Parameters.AddWithValue("@ServiceId", newCase.ServiceId);
             sqlCommand.Parameters.AddWithValue("@EmployeeId", newCase.EmployeeId);
             sqlCommand.Parameters.AddWithValue("@ClientId", newCase.ClientId);
             sqlCommand.Parameters.AddWithValue("@CaseId", newCase.CaseId);
@@ -230,7 +226,6 @@ namespace DataAcces
                     newCase.ExEndDate = (DateTime)reader["EstEndDate"];
                     newCase.EstHours = (int)reader["EstHours"];
                     newCase.IsClosed = (bool)reader["Done"];
-                    newCase.ServiceId = (int)reader["ServiceId"];
                     newCase.EmployeeId = (int)reader["EmployeeId"];
                     newCase.ClientId = (int)reader["ClientId"];
                     caseListClient.Add(newCase);

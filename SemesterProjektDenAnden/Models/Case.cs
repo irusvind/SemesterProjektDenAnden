@@ -29,8 +29,6 @@ namespace Models
         [Required]
         public bool IsClosed { get; set; }
 
-        [Required]
-        public int ServiceId { get; set; }
 
         [Required]
         public int EmployeeId { get; set; }

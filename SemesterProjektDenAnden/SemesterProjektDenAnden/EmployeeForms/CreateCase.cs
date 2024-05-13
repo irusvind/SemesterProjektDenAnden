@@ -83,8 +83,6 @@ namespace SemesterProjektDenAnden.EmployeeForms
                     newCase.EstHours = Convert.ToInt32(estimated_hours.Text);
                     string client = clientBox.Text;
                     newCase.ClientId = int.Parse(client);
-                    string serviceid = serviceBox.Text;
-                     newCase.ServiceId = int.Parse(serviceid);
                     string employeeId = employeeBox.Text;
                     newCase.EmployeeId = int.Parse(employeeId);
                     newCase.IsClosed = false;
