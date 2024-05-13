@@ -22,7 +22,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         Tools.ClientTools tools;
         int clientId;
 
-        string path = "C: \\Users\\hyldg\\OneDrive\\Skrivebord\\Spot\\lejlighedstilladelse.pdf";
+        string path = "Spot logo.pdf"; //Path.GetTempPath("Spot logo.pdf");
 
 
         public ClientMDI(int clientId)
@@ -104,15 +104,6 @@ namespace SemesterProjektDenAnden.ClientFroms
         {
             System.Diagnostics.Process.Start(path);
 
-            /*if (!File.Exists(path))
-            {  
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-
-                }
-            }
-*/
         }
     }
 }
