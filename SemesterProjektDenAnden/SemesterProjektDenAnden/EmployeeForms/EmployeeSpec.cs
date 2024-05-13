@@ -120,7 +120,8 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private void changeCoursesBtn_Click(object sender, EventArgs e)
         {
-
+            EmployeeCoursesEdit employeeCoursesEdit = new EmployeeCoursesEdit(employeeMdi, employeeId);
+            employeeMdi.FormOpener(employeeCoursesEdit);
         }
     }
 }
