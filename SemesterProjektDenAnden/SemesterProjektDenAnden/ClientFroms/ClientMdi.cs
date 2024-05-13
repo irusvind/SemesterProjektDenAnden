@@ -99,7 +99,11 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void clientHelpBtn_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //***.src = openFileDialog.FileName;
+            }
         }
     }
 }
