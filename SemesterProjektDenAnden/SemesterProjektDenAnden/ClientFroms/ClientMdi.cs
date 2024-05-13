@@ -77,7 +77,7 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void myCasesbtn_Click(object sender, EventArgs e)
         {
-            myCases = new MyCases(this);
+            myCases = new MyCases(this,clientId);
             this.FormOpener(myCases);
         }
 

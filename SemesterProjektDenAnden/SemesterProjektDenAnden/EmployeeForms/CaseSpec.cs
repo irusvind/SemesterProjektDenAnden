@@ -55,7 +55,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             startDataBox.Text = @case.StartDate.ToString();
             exhourBox.Text = @case.EstHours.ToString();
             endDateBox.Text = @case.ExEndDate.ToString();
-            //usedHoursbox.Text = 
+            //usedHoursbox.Text = toDO 
             kmBox.Text = transport.KmDriven.ToString();
 
         }
