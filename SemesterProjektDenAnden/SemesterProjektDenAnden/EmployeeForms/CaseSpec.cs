@@ -37,10 +37,10 @@ namespace SemesterProjektDenAnden.EmployeeForms
             @case = await caseBL.GetAsync(this.caseId);
 
             Client client = new Client();
-            client = await clientBL.GetAsync(this.caseId);
+            client = await clientBL.GetAsync(@case.ClientId);
 
             Employee employee = new Employee();
-            employee = await employeeBL.GetAsync(this.caseId);
+            employee = await employeeBL.GetAsync(@case.EmployeeId);
 
             TransportLog transport = new TransportLog();
             transport = await transportLogBL.GetAsync(this.caseId);
@@ -68,17 +68,16 @@ namespace SemesterProjektDenAnden.EmployeeForms
             newcase.UsedHours = int.Parse(usedHoursbox.Text);
             newcase.ExEndDate = DateTime.Parse(endDateBox.Text);
 
-            await caseBL.UpdateAsync(newcase);
+            
 
             Employee employee = new Employee();
             employee = await employeeBL.GetAsync(this.caseId);
             employee.Id = int.Parse(employeeIdBox.Text);
-            
-
             employee = await employeeBL.GetAsync(int.Parse(employeeIdBox.Text));
             employeeNameBox.Text = employee.FirstName + " " + employee.LastName;
+            newcase.EmployeeId = int.Parse(employeeIdBox.Text);
+            await caseBL.UpdateAsync(newcase);
             MessageBox.Show("Case Updated");
-
         }
 
         private void addServiceBtn_Click(object sender, EventArgs e)

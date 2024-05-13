@@ -24,7 +24,7 @@ namespace DataAcces
         {
 
             {
-                string command = "INSERT INTO CASE_ VALUES(@CaseTitle, @CaseStartDate, @EstEndDate, @EstHours,@UsedHours, @Done, @ServiceId, @EmployeeId, @ClientId)";
+                string command = "INSERT INTO CASE_ VALUES(@CaseTitle, @CaseStartDate, @EstEndDate, @EstHours,@UsedHours, @Done, @EmployeeId, @ClientId)";
                 int rowsAffected;
                 using SqlConnection dbConn = new SqlConnection(connString);
                 SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -34,7 +34,6 @@ namespace DataAcces
                 sqlCommand.Parameters.AddWithValue("@EstHours", newCase.EstHours);
                 sqlCommand.Parameters.AddWithValue("@UsedHours", newCase.UsedHours);
                 sqlCommand.Parameters.AddWithValue("@Done", newCase.Done);
-                sqlCommand.Parameters.AddWithValue("@ServiceId", newCase.ServiceId);
                 sqlCommand.Parameters.AddWithValue("@EmployeeId", newCase.EmployeeId);
                 sqlCommand.Parameters.AddWithValue("@ClientId", newCase.ClientId);
 
@@ -113,7 +112,6 @@ namespace DataAcces
                     }
                     else newCase.UsedHours = 0;
                     newCase.Done = (bool)reader["Done"];
-                    newCase.ServiceId = (int)reader["ServiceId"];
                     newCase.EmployeeId = (int)reader["EmployeeId"];
                     newCase.ClientId = (int)reader["ClientId"];
 
@@ -157,7 +155,6 @@ namespace DataAcces
                     else newCase.UsedHours = 0;
                     newCase.EstHours = (int)reader["EstHours"];
                     newCase.Done = (bool)reader["Done"];
-                    newCase.ServiceId = (int)reader["ServiceId"];
                     newCase.EmployeeId = (int)reader["EmployeeId"];
                     newCase.ClientId = (int)reader["ClientId"];
                     newCaseList.Add(newCase);
@@ -184,7 +181,6 @@ namespace DataAcces
                 "EstHours = @EstHours, " +
                 "UsedHours = @UsedHours, " +
                 "Done = @Done, " +
-                "ServiceId = @ServiceId, " +
                 "EmployeeId = @EmployeeId, " +
                 "ClientId = @ClientId " +
                 "WHERE CaseID = @CaseId ";
@@ -197,7 +193,6 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@EstHours", newCase.EstHours);
             sqlCommand.Parameters.AddWithValue("@UsedHours", newCase.UsedHours);
             sqlCommand.Parameters.AddWithValue("@Done", newCase.Done);
-            sqlCommand.Parameters.AddWithValue("@ServiceId", newCase.ServiceId);
             sqlCommand.Parameters.AddWithValue("@EmployeeId", newCase.EmployeeId);
             sqlCommand.Parameters.AddWithValue("@ClientId", newCase.ClientId);
             sqlCommand.Parameters.AddWithValue("@CaseId", newCase.CaseId);
@@ -241,7 +236,6 @@ namespace DataAcces
                     newCaseClient.EstHours = (int)reader["EstHours"];
                     newCaseClient.UsedHours = (int)reader["UsedHours"];
                     newCaseClient.Done = (bool)reader["IsClosed"];
-                    newCaseClient.ServiceId = (int)reader["ServiceId"];
                     newCaseClient.EmployeeId = (int)reader["EmployeeId"];
                     newCaseClient.ClientId = (int)reader["ClientId"];
                     caseListClient.Add(newCaseClient);
