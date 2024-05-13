@@ -15,8 +15,8 @@ namespace Models
         [Required, StringLength(50)]
         public string ServiceName { get; set; }
 
-        [Required, DataType(DataType.Currency)]
-        public float Price {  get; set; }
+        [Required]
+        public double Price {  get; set; }
 
         [Required]
         public bool PriceHourly { get; set; }

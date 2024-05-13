@@ -17,10 +17,11 @@ namespace Models
         public string CaseTitle { get; set; }
 
         [Required, DataType(DataType.Date)]
-        public DateOnly StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         [Required, DataType(DataType.Date)]
-        public DateOnly EstEndDate { get; set; }
+        public DateTime ExEndDate { get; set; }
+
 
         [Required, DataType(DataType.Time)]
         public int EstHours { get; set; }
