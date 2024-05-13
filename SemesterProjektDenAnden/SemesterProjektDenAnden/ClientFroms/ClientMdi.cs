@@ -1,4 +1,5 @@
-﻿using SemesterProjektDenAnden.EmployeeForms;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using SemesterProjektDenAnden.EmployeeForms;
 using SemesterProjektDenAnden.Tools;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace SemesterProjektDenAnden.ClientFroms
         MyCases myCases;
         Tools.ClientTools tools;
         int clientId;
+
+        string path = "C: \\Users\\hyldg\\OneDrive\\Skrivebord\\Spot\\lejlighedstilladelse.pdf";
 
 
         public ClientMDI(int clientId)
@@ -99,11 +102,17 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void clientHelpBtn_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                //***.src = openFileDialog.FileName;
+            System.Diagnostics.Process.Start(path);
+
+            /*if (!File.Exists(path))
+            {  
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+
+                }
             }
+*/
         }
     }
 }
