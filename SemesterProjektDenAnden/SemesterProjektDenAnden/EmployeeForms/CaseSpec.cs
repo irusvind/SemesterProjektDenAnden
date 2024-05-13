@@ -92,6 +92,13 @@ namespace SemesterProjektDenAnden.EmployeeForms
             employeeNameBox.Text = employee.FirstName + " " + employee.LastName;
             newcase.EmployeeId = int.Parse(employeeIdBox.Text);
             await caseBL.UpdateAsync(newcase);
+            TransportLog transportLog = new TransportLog();
+            transportLog.KmDriven = int.Parse(kmBox.Text);
+            transportLog.LogDescription = trandDisc.Text;
+            transportLog.CaseId = caseId;
+            transportLog.ServiceId = caseId; // todo lav getServiceID
+            await transportLogBL.CreateAsync(transportLog);
+
             MessageBox.Show("Case Updated");
         }
 
