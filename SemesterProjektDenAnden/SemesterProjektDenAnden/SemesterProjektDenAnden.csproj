@@ -10,11 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Dok\Spot logo.pdf" />
+    <None Remove="Åbne liste.pdf" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Dok\Spot logo.pdf">
+    <Content Include="Åbne liste.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

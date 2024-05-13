@@ -22,8 +22,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         Tools.ClientTools tools;
         int clientId;
 
-        string path = "Spot logo.pdf"; //Path.GetTempPath("Spot logo.pdf");
-
+        string path = "Åbne liste.pdf"; 
 
         public ClientMDI(int clientId)
         {
@@ -102,7 +101,9 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void clientHelpBtn_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(path);
+            //File.Open(path, FileMode.Open);
+
+            //System.Diagnostics.Process.Start(path);
 
         }
     }

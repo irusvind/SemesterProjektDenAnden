@@ -43,11 +43,20 @@ namespace SemesterProjektDenAnden.ClientFroms
             {
                 SubscribtionStatusLbl.Text = "Abonnent";
                 SubscribeBtn.Text = "Opsig abonnement";
+                lblDato.Visible = true;
+                lblDatoen.Visible = true;
+                lblPris.Visible = true;
+                lblPrisen.Visible = true;
             }
             else
             {
                 SubscribtionStatusLbl.Text = "Ikke abonnent";
                 SubscribeBtn.Text = "Start abonnement";
+                lblDato.Visible = false;
+                lblDatoen.Visible = false;
+                
+                lblPris.Visible = false;
+                lblPrisen.Visible = false;
             }
         }
 
@@ -114,7 +123,28 @@ namespace SemesterProjektDenAnden.ClientFroms
                     clientMdi.FormOpener(newMyPage);
                 }
             }
+        }
 
+        private async void AddMonthsToDate()
+        { 
+            DateOnly date = DateOnly.FromDateTime(DateTime.Now);
+            if ()
+            {
+                date.AddMonths(1);
+            }
+            else if ()
+            {
+                date.AddMonths(3);
+            }
+            else if()
+            {
+                date.AddMonths(6);
+            }
+            else if ()
+            {
+                date.AddMonths(12);
+            }
+                
 
         }
     }
