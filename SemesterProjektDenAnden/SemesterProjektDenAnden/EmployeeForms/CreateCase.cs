@@ -87,7 +87,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                      newCase.ServiceId = int.Parse(serviceid);
                     string employeeId = employeeBox.Text;
                     newCase.EmployeeId = int.Parse(employeeId);
-                    newCase.IsClosed = false;
+                    newCase.Done = false;
 
                     var context = new ValidationContext(newCase, serviceProvider: null, items: null);
                     bool isValid = Validator.TryValidateObject(newCase, context, null, true);

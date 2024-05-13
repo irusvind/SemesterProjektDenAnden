@@ -39,7 +39,8 @@ namespace BusinessLogic
 
         public async Task<bool> UpdateAsync(Case newCase)
         {
-            throw new NotImplementedException();
+            bool result = await caseDA.UpdateAsync(newCase);
+            return result;
 
         }
 
