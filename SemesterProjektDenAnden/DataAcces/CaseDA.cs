@@ -216,22 +216,24 @@ namespace DataAcces
             List<Case> caseListClient = new List<Case>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            sqlCommand.Parameters.AddWithValue("@ClientId", id);
             try
             {
                 await dbConn.OpenAsync();
                 SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    Case newCaseClient = new Case();
-                    newCaseClient.CaseId = (int)reader["CaseId"];
-                    newCaseClient.StartDate = (DateTime)reader["StartDate"];
-                    newCaseClient.ExEndDate = (DateTime)reader["EstEndDate"];
-                    newCaseClient.EstHours = (int)reader["EstHours"];
-                    newCaseClient.IsClosed = (bool)reader["IsClosed"];
-                    newCaseClient.ServiceId = (int)reader["ServiceId"];
-                    newCaseClient.EmployeeId = (int)reader["EmployeeId"];
-                    newCaseClient.ClientId = (int)reader["ClientId"];
-                    caseListClient.Add(newCaseClient);
+                    Case newCase = new Case();
+                    newCase.CaseId = (int)reader["CaseId"];
+                    newCase.CaseTitle = (string)reader["CaseTitle"];
+                    newCase.StartDate = (DateTime)reader["CaseStartDate"];
+                    newCase.ExEndDate = (DateTime)reader["EstEndDate"];
+                    newCase.EstHours = (int)reader["EstHours"];
+                    newCase.IsClosed = (bool)reader["Done"];
+                    newCase.ServiceId = (int)reader["ServiceId"];
+                    newCase.EmployeeId = (int)reader["EmployeeId"];
+                    newCase.ClientId = (int)reader["ClientId"];
+                    caseListClient.Add(newCase);
 
                 }
                 return caseListClient;

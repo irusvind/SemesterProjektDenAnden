@@ -144,6 +144,8 @@
             // 
             // clientCasesDGV
             // 
+            clientCasesDGV.AllowUserToAddRows = false;
+            clientCasesDGV.AllowUserToDeleteRows = false;
             clientCasesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             clientCasesDGV.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
