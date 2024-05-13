@@ -29,10 +29,10 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private async void ClientsData()
         {
-            List<Client> employees = await clientBL.GetAllAsync();
+            List<Client> clients = await clientBL.GetAllAsync();
 
             BindingSource clientSource = new BindingSource();
-            clientSource.DataSource = employees;
+            clientSource.DataSource = clients;
             clientsDgv.DataSource = clientSource;
         }
 

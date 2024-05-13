@@ -34,8 +34,8 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            SubscribeBtn = new Button();
+            safeChangesbtn = new Button();
             FNameTxt = new TextBox();
             LNameTxt = new TextBox();
             MailTxt = new TextBox();
@@ -105,32 +105,34 @@
             label6.TabIndex = 5;
             label6.Text = "Addresse";
             // 
-            // button1
+            // SubscribeBtn
             // 
-            button1.AutoSize = true;
-            button1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button1.BackColor = Color.Black;
-            button1.Font = new Font("High Tower Text", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(552, 215);
-            button1.Name = "button1";
-            button1.Size = new Size(110, 29);
-            button1.TabIndex = 6;
-            button1.Text = "abonner/stop";
-            button1.UseVisualStyleBackColor = false;
+            SubscribeBtn.AutoSize = true;
+            SubscribeBtn.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            SubscribeBtn.BackColor = Color.Black;
+            SubscribeBtn.Font = new Font("High Tower Text", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            SubscribeBtn.ForeColor = Color.White;
+            SubscribeBtn.Location = new Point(552, 215);
+            SubscribeBtn.Name = "SubscribeBtn";
+            SubscribeBtn.Size = new Size(101, 29);
+            SubscribeBtn.TabIndex = 6;
+            SubscribeBtn.Text = "PlaceHolder";
+            SubscribeBtn.UseVisualStyleBackColor = false;
+            SubscribeBtn.Click += SubscribeBtn_Click;
             // 
-            // button2
+            // safeChangesbtn
             // 
-            button2.AutoSize = true;
-            button2.BackColor = Color.Black;
-            button2.Font = new Font("High Tower Text", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(771, 547);
-            button2.Name = "button2";
-            button2.Size = new Size(160, 38);
-            button2.TabIndex = 7;
-            button2.Text = "Gem ændringer";
-            button2.UseVisualStyleBackColor = false;
+            safeChangesbtn.AutoSize = true;
+            safeChangesbtn.BackColor = Color.Black;
+            safeChangesbtn.Font = new Font("High Tower Text", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            safeChangesbtn.ForeColor = Color.White;
+            safeChangesbtn.Location = new Point(771, 547);
+            safeChangesbtn.Name = "safeChangesbtn";
+            safeChangesbtn.Size = new Size(160, 38);
+            safeChangesbtn.TabIndex = 7;
+            safeChangesbtn.Text = "Gem ændringer";
+            safeChangesbtn.UseVisualStyleBackColor = false;
+            safeChangesbtn.Click += safeChangesbtn_Click;
             // 
             // FNameTxt
             // 
@@ -204,8 +206,8 @@
             Controls.Add(MailTxt);
             Controls.Add(LNameTxt);
             Controls.Add(FNameTxt);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(safeChangesbtn);
+            Controls.Add(SubscribeBtn);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -228,8 +230,8 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private Button button1;
-        private Button button2;
+        private Button SubscribeBtn;
+        private Button safeChangesbtn;
         private TextBox FNameTxt;
         private TextBox LNameTxt;
         private TextBox MailTxt;

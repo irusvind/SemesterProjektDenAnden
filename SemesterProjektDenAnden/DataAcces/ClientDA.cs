@@ -2,6 +2,7 @@
 using Models;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Net;
 
 namespace DataAcces
 {
@@ -148,14 +149,14 @@ namespace DataAcces
 
         public async Task<bool> UpdateAsync(Client newClient)
         {
-            string command = "UPDATE CLIENT SET" +
-                "ClFirstName = @ClFirstName" +
-                "ClLastName = @ClLastName" +
-                "ClPhone = @ClPhone" +
-                "ClMail = @ClMail" +
-                "CLAddress = @CLAddress" +
-                "Subscriber = @Subscriber" +
-                "WHERE ClientID = @ClientId";
+            string command = "UPDATE CLIENT SET " +
+                "ClFirstName = @ClFirstName, " +
+                "ClLastName = @ClLastName, " +
+                "ClPhone = @ClPhone, " +
+                "ClMail = @ClMail, " +
+                "CLAddress = @CLAddress, " +
+                "Subscriber = @Subscriber " +
+                "WHERE ClientID = @ClientId ";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);

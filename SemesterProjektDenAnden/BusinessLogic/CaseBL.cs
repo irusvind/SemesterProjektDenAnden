@@ -42,5 +42,11 @@ namespace BusinessLogic
             throw new NotImplementedException();
 
         }
+
+        public async Task<List<Case>> GetCaseWithClientIdAsync(int id)
+        {
+            List<Case> clientCases = await CaseDA.GetCaseWithClientIdAsync(id);
+            return clientCases;
+        }
     }
 }

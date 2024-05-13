@@ -22,6 +22,7 @@ namespace DataAcces
         }
         public async Task<bool> CreateAsync(Case newCase)
         {
+
             {
                 string command = "INSERT INTO CASE_ VALUES(@CaseTitle, @CaseStartDate, @EstEndDate, @EstHours, @Done, @ServiceId, @EmployeeId, @ClientId)";
                 int rowsAffected;
@@ -140,8 +141,10 @@ namespace DataAcces
                     Case newCase = new Case();
                     newCase.CaseId = (int)reader["CaseId"];
                     newCase.CaseTitle = (string)reader["CaseTitle"];
+
                     newCase.StartDate = (DateTime)reader["CaseStartDate"];
                     newCase.ExEndDate = (DateTime)reader["EstEndDate"];
+
                     newCase.EstHours = (int)reader["EstHours"];
                     newCase.IsClosed = (bool)reader["Done"];
                     newCase.ServiceId = (int)reader["ServiceId"];
@@ -164,7 +167,7 @@ namespace DataAcces
 
         public async Task<bool> UpdateAsync(Case newCase)
         {
-            string command = "UPDATE CASE SET" +
+            string command = "UPDATE CASE_ SET" +
                 "CaseTitle = @CaseTitle" +
                 "StartDate = @StartDate" +
                 "EstEndDate = @EstEndDate" +
@@ -206,5 +209,42 @@ namespace DataAcces
                 return false;
             }
         }
+
+        public async Task<List<Case>> GetCaseWithClientIdAsync(int id)
+        {
+            string command = "SELECT * FROM CASE_ WHERE ClientId = @ClientId";
+            List<Case> caseListClient = new List<Case>();
+            using SqlConnection dbConn = new SqlConnection(connString);
+            SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            try
+            {
+                await dbConn.OpenAsync();
+                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    Case newCaseClient = new Case();
+                    newCaseClient.CaseId = (int)reader["CaseId"];
+                    newCaseClient.StartDate = (DateTime)reader["StartDate"];
+                    newCaseClient.ExEndDate = (DateTime)reader["EstEndDate"];
+                    newCaseClient.EstHours = (int)reader["EstHours"];
+                    newCaseClient.IsClosed = (bool)reader["IsClosed"];
+                    newCaseClient.ServiceId = (int)reader["ServiceId"];
+                    newCaseClient.EmployeeId = (int)reader["EmployeeId"];
+                    newCaseClient.ClientId = (int)reader["ClientId"];
+                    caseListClient.Add(newCaseClient);
+
+                }
+                return caseListClient;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            finally
+            {
+                await dbConn.CloseAsync();
+            }
+        }
+    }
     }
 }

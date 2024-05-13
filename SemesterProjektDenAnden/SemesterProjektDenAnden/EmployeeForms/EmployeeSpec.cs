@@ -33,6 +33,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             this.employeeMdi = employeeMdi;
             this.employeeId = employeeId;
             EmployeeData();
+            CoursesDGVData();
         }
 
         public async void EmployeeData()
@@ -49,21 +50,13 @@ namespace SemesterProjektDenAnden.EmployeeForms
             CasesDGVData();
         }
 
-        //private async void CoursesDGVData()
-        //{
-        //    List<Course> allCourses = await courseBL.GetAllAsync();
-        //    List<Course> employeeCourses = new List<Course>();
-        //    foreach (Course Course in allCourses)
-        //    {
-        //        if (Course.EmployeeId == employeeId)
-        //        {
-        //            employeeCourses.Add(Course);
-        //        }
-        //    }
-        //    BindingSource caseSource = new BindingSource();
-        //    caseSource.DataSource = employeeCourses;
-        //    coursesDGV.DataSource = caseSource;
-        //}
+        private async void CoursesDGVData()
+        {
+            List<Course> employeeCourses = await employeeBL.GetSpecificCoursesAsync(employeeId);
+            BindingSource caseSource = new BindingSource();
+            caseSource.DataSource = employeeCourses;
+            coursesDGV.DataSource = caseSource;
+        }
 
         private async void CasesDGVData()
         {

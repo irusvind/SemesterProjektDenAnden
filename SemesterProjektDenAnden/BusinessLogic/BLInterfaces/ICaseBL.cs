@@ -18,5 +18,7 @@ namespace BusinessLogic.BLInterfaces
         Task<Case> GetAsync(int id);
 
         Task<bool> UpdateAsync(Case newCase);
+
+        Task<List<Case>> GetCaseWithClientIdAsync(int id);
     }
 }
