@@ -17,7 +17,7 @@ namespace DataAcces
         }
         public async Task<bool> CreateAsync(Client newClient)
         {
-            string command = "INSERT INTO CLIENT VALUES(@ClFirstName, @ClLastName, @ClPhone, @ClMail, @ClAddress, @Subscriber)";
+            string command = "INSERT INTO CLIENT VALUES(@ClFirstName, @ClLastName, @ClPhone, @ClMail, @ClAddress, @Subscriber, @SubEndDate)";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -27,6 +27,7 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@ClMail", newClient.Mail);
             sqlCommand.Parameters.AddWithValue("@ClAddress", newClient.ClAddress);
             sqlCommand.Parameters.AddWithValue("@Subscriber", newClient.Subscriber);
+            sqlCommand.Parameters.AddWithValue("@SubEndDate", newClient.SubEndDate);
             try
             {
                 await dbConn.OpenAsync();
@@ -96,6 +97,7 @@ namespace DataAcces
                     newClient.Mail = (string)reader["ClMail"];
                     newClient.ClAddress = (string)reader["CLAddress"];
                     newClient.Subscriber = (bool)reader["Subscriber"];
+                    //newClient.SubEndDate = (DateTime)reader["SubEndDate"];
 
                     return newClient;
 
@@ -132,6 +134,7 @@ namespace DataAcces
                     newClient.Mail = (string)reader["ClMail"];
                     newClient.ClAddress = (string)reader["CLAddress"];
                     newClient.Subscriber = (bool)reader["Subscriber"];
+                    //newClient.SubEndDate = (DateTime)reader["SubEndDate"];
                     newClientList.Add(newClient);
 
                 }
@@ -166,6 +169,7 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@ClMail", newClient.Mail);
             sqlCommand.Parameters.AddWithValue("@ClAddress", newClient.ClAddress);
             sqlCommand.Parameters.AddWithValue("@Subscriber", newClient.Subscriber);
+            sqlCommand.Parameters.AddWithValue("@SubEndDate", newClient.SubEndDate);
             sqlCommand.Parameters.AddWithValue("@ClientId", newClient.ClientId);
             try
             {

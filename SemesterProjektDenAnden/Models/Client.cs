@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -29,6 +30,9 @@ namespace Models
 
         [Required]
         public bool Subscriber {  get; set; }
+
+        [Required, DataType(DataType.Date)]
+        public DateTime SubEndDate { get; set; }
 
     }
 }

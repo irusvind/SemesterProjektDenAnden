@@ -19,6 +19,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         ClientBL clientBL;
         Client client;
         ClientMDI clientMdi;
+        SubscribeForm subscribeForm;
         int clientId;
         public MyPage(ClientMDI clientMdi, int clientId)
         {
@@ -28,6 +29,7 @@ namespace SemesterProjektDenAnden.ClientFroms
             GetClientData(clientId);
             this.clientMdi = clientMdi;
             this.clientId = clientId;
+            
 
         }
 
@@ -106,6 +108,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 if (result == DialogResult.Yes)
                 {
                     updateClient.Subscriber = false;
+                    updateClient.SubEndDate = DateTime.Now;
                     await clientBL.UpdateAsync(updateClient);
                     MyPage newMyPage = new MyPage(clientMdi, clientId);
                     clientMdi.FormOpener(newMyPage);
@@ -114,19 +117,18 @@ namespace SemesterProjektDenAnden.ClientFroms
             }
             else
             {
-                DialogResult result = MessageBox.Show("Velkommen til LawHouse!\nTryk ja for at acceptere dit abonnement?", "Start Abonnement", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    updateClient.Subscriber = true;
-                    await clientBL.UpdateAsync(updateClient);
-                    MyPage newMyPage = new MyPage(clientMdi, clientId);
-                    clientMdi.FormOpener(newMyPage);
-                }
+                subscribeForm = new SubscribeForm(this, clientId);
+                subscribeForm.ShowDialog();
+
+                
             }
         }
 
         /*private async void AddMonthsToDate()
         { 
+            Form SubcribeForm = new Form();
+            SubcribeForm.showdialog();
+            
             DateOnly date = DateOnly.FromDateTime(DateTime.Now);
             if ()
             {
