@@ -91,6 +91,8 @@
             overviewbtn.Text = "Startside";
             overviewbtn.UseVisualStyleBackColor = false;
             overviewbtn.Click += overviewbtn_Click;
+            overviewbtn.MouseEnter += Button_MouseEnter;
+            overviewbtn.MouseLeave += Button_MouseLeave;
             // 
             // panel2
             // 
@@ -114,6 +116,8 @@
             myPagebtn.Text = "Min Side";
             myPagebtn.UseVisualStyleBackColor = false;
             myPagebtn.Click += myPagebtn_Click;
+            myPagebtn.MouseEnter += Button_MouseEnter;
+            myPagebtn.MouseLeave += Button_MouseLeave;
             // 
             // panel3
             // 
@@ -137,6 +141,8 @@
             myCasesbtn.Text = "Mine sager";
             myCasesbtn.UseVisualStyleBackColor = false;
             myCasesbtn.Click += myCasesbtn_Click;
+            myCasesbtn.MouseEnter += Button_MouseEnter;
+            myCasesbtn.MouseLeave += Button_MouseLeave;
             // 
             // panel4
             // 
@@ -160,6 +166,8 @@
             Toolsbtn.Text = "Værktøjer";
             Toolsbtn.UseVisualStyleBackColor = false;
             Toolsbtn.Click += Toolsbtn_Click;
+            Toolsbtn.MouseEnter += Button_MouseEnter;
+            Toolsbtn.MouseLeave += Button_MouseLeave;
             // 
             // panel5
             // 
@@ -183,6 +191,8 @@
             Logoutbtn.Text = "Log ud";
             Logoutbtn.UseVisualStyleBackColor = false;
             Logoutbtn.Click += Logoutbtn_Click;
+            Logoutbtn.MouseEnter += Button_MouseEnter;
+            Logoutbtn.MouseLeave += Button_MouseLeave;
             // 
             // panel6
             // 
@@ -206,6 +216,8 @@
             clientHelpBtn.Text = "Hjælp";
             clientHelpBtn.UseVisualStyleBackColor = false;
             clientHelpBtn.Click += clientHelpBtn_Click;
+            clientHelpBtn.MouseEnter += Button_MouseEnter;
+            clientHelpBtn.MouseLeave += Button_MouseLeave;
             // 
             // ClientMDI
             // 

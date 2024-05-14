@@ -45,7 +45,8 @@
             OverviewMyPagebtn.TabIndex = 5;
             OverviewMyPagebtn.Text = "Min side";
             OverviewMyPagebtn.UseVisualStyleBackColor = false;
-            OverviewMyPagebtn.Click += OverviewMyPagebtn_Click;
+            OverviewMyPagebtn.MouseEnter += Button_MouseEnter;
+            OverviewMyPagebtn.MouseLeave += Button_MouseLeave;
             // 
             // OverviewMyCasesbtn
             // 
@@ -58,7 +59,8 @@
             OverviewMyCasesbtn.TabIndex = 6;
             OverviewMyCasesbtn.Text = "Mine sager";
             OverviewMyCasesbtn.UseVisualStyleBackColor = false;
-            OverviewMyCasesbtn.Click += OverviewMyCasesbtn_Click;
+            OverviewMyCasesbtn.MouseEnter += Button_MouseEnter;
+            OverviewMyCasesbtn.MouseLeave += Button_MouseLeave;
             // 
             // overviewToolsbtn
             // 
@@ -71,7 +73,8 @@
             overviewToolsbtn.TabIndex = 7;
             overviewToolsbtn.Text = "Værktøjer";
             overviewToolsbtn.UseVisualStyleBackColor = false;
-            overviewToolsbtn.Click += overviewToolsbtn_Click;
+            overviewToolsbtn.MouseEnter += Button_MouseEnter;
+            overviewToolsbtn.MouseLeave += Button_MouseLeave;
             // 
             // Startsidelbl
             // 
