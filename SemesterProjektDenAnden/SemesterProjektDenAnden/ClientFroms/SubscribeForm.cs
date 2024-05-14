@@ -29,19 +29,14 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private async void btnPay_Click(object sender, EventArgs e)
         {
-            Client updateClient = await clientBL.GetAsync(clientId);
+           
             if (CB12mdr.Checked)
             {
                 DialogResult result = MessageBox.Show("Velkommen til LawHouse!\nTryk ja for at acceptere dit abonnement på 12 måneder.", "Start Abonnement", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     //Kunne godt være en metode for sig selv, det samme med alle dem nedenunder
-                    DateTime date = DateTime.Now;
-                    updateClient.Subscriber = true;
-                    updateClient.SubEndDate = date.AddMonths(12);
-                    await clientBL.UpdateAsync(updateClient);
-                    MyPage myPage = new MyPage(clientMdi, clientId);
-                    clientMdi.FormOpener(myPage);
+                    UpdateSubscriber(12);
                     this.Close();
                 }
                 
@@ -52,12 +47,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 if (result == DialogResult.Yes)
                 {
 
-                    DateTime date = DateTime.Now;
-                    updateClient.Subscriber = true;
-                    updateClient.SubEndDate = date.AddMonths(6);
-                    await clientBL.UpdateAsync(updateClient);
-                    MyPage myPage = new MyPage(clientMdi, clientId);
-                    clientMdi.FormOpener(myPage);
+                    UpdateSubscriber(6);
                     this.Close();
                 }
             }
@@ -67,27 +57,17 @@ namespace SemesterProjektDenAnden.ClientFroms
                 if (result == DialogResult.Yes)
                 {
 
-                    DateTime date = DateTime.Now;
-                    updateClient.Subscriber = true;
-                    updateClient.SubEndDate = date.AddMonths(3);
-                    await clientBL.UpdateAsync(updateClient);
-                    MyPage myPage = new MyPage(clientMdi, clientId);
-                    clientMdi.FormOpener(myPage);
+                    UpdateSubscriber(3);
                     this.Close();
                 }
             }
             else if (CB1mdr.Checked)
             {
-                DialogResult result = MessageBox.Show("Velkommen til LawHouse!\nTryk ja for at acceptere dit abonnement på 3 måneder.", "Start Abonnement", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Velkommen til LawHouse!\nTryk ja for at acceptere dit abonnement på 1 måneder.", "Start Abonnement", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
 
-                    DateTime date = DateTime.Now;
-                    updateClient.Subscriber = true;
-                    updateClient.SubEndDate = date.AddMonths(1);
-                    await clientBL.UpdateAsync(updateClient);
-                    MyPage myPage = new MyPage(clientMdi, clientId);
-                    clientMdi.FormOpener(myPage);
+                    UpdateSubscriber(1);
                     this.Close();
                 }
             }
@@ -95,6 +75,17 @@ namespace SemesterProjektDenAnden.ClientFroms
             {
                 btnPay.Enabled = false;
             }
+        }
+
+        private async void UpdateSubscriber(int months)
+        {
+            Client updateClient = await clientBL.GetAsync(clientId);
+            DateTime date = DateTime.Now;
+            updateClient.Subscriber = true;
+            updateClient.SubEndDate = date.AddMonths(12);
+            await clientBL.UpdateAsync(updateClient);
+            MyPage myPage = new MyPage(clientMdi, clientId);
+            clientMdi.FormOpener(myPage);
         }
     }
 }

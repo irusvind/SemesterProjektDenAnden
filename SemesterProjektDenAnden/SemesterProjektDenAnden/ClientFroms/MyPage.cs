@@ -47,6 +47,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 SubscribeBtn.Text = "Opsig abonnement";
                 lblDato.Visible = true;
                 lblDatoen.Visible = true;
+                lblDatoen.Text = client.SubEndDate.ToString();
                 lblPris.Visible = true;
                 lblPrisen.Visible = true;
             }
@@ -108,7 +109,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 if (result == DialogResult.Yes)
                 {
                     updateClient.Subscriber = false;
-                    updateClient.SubEndDate = DateTime.Now;
+                    updateClient.SubEndDate = null;
                     await clientBL.UpdateAsync(updateClient);
                     MyPage newMyPage = new MyPage(clientMdi, clientId);
                     clientMdi.FormOpener(newMyPage);
@@ -120,34 +121,8 @@ namespace SemesterProjektDenAnden.ClientFroms
                 subscribeForm = new SubscribeForm(clientMdi, clientId);
                 subscribeForm.ShowDialog();
 
-                
+
             }
         }
-
-        /*private async void AddMonthsToDate()
-        { 
-            Form SubcribeForm = new Form();
-            SubcribeForm.showdialog();
-            
-            DateOnly date = DateOnly.FromDateTime(DateTime.Now);
-            if ()
-            {
-                date.AddMonths(1);
-            }
-            else if ()
-            {
-                date.AddMonths(3);
-            }
-            else if()
-            {
-                date.AddMonths(6);
-            }
-            else if ()
-            {
-                date.AddMonths(12);
-            }
-                
-
-        }*/
     }
 }

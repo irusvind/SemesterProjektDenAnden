@@ -172,6 +172,7 @@ namespace DataAcces
                 "ClMail = @ClMail, " +
                 "CLAddress = @CLAddress, " +
                 "Subscriber = @Subscriber " +
+                "SubEndDate = @SubEndDate " +
                 "WHERE ClientID = @ClientId ";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
