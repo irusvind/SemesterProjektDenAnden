@@ -44,5 +44,9 @@ namespace BusinessLogic
             List<Course> courses = await employeeDA.GetSpecificCoursesAsync(employeeId);
             return courses;
         }
+        public async Task UpdateCoursesAsync(List<Course> courses, int employeeId)
+        {
+            await employeeDA.UpdateCoursesAsync(courses, employeeId);
+        }
     }
 }
