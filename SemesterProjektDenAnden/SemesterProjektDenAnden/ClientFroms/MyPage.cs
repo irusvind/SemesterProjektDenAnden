@@ -117,7 +117,7 @@ namespace SemesterProjektDenAnden.ClientFroms
             }
             else
             {
-                subscribeForm = new SubscribeForm(this, clientId);
+                subscribeForm = new SubscribeForm(clientMdi, clientId);
                 subscribeForm.ShowDialog();
 
                 

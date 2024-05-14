@@ -97,7 +97,13 @@ namespace DataAcces
                     newClient.Mail = (string)reader["ClMail"];
                     newClient.ClAddress = (string)reader["CLAddress"];
                     newClient.Subscriber = (bool)reader["Subscriber"];
-                    //newClient.SubEndDate = (DateTime)reader["SubEndDate"];
+                    string? date = (string?)reader["SubEndDate"].ToString();
+                    if (string.IsNullOrEmpty(date))
+                    {
+                        date = "";
+                    }
+                    else
+                    { newClient.SubEndDate = DateTime.Parse(date); }
 
                     return newClient;
 
@@ -134,7 +140,13 @@ namespace DataAcces
                     newClient.Mail = (string)reader["ClMail"];
                     newClient.ClAddress = (string)reader["CLAddress"];
                     newClient.Subscriber = (bool)reader["Subscriber"];
-                    //newClient.SubEndDate = (DateTime)reader["SubEndDate"];
+                    string? date = (string?)reader["SubEndDate"].ToString();
+                    if (string.IsNullOrEmpty(date))
+                    {
+                        date = "";
+                    }
+                    else
+                    { newClient.SubEndDate = DateTime.Parse(date); }
                     newClientList.Add(newClient);
 
                 }
@@ -149,6 +161,7 @@ namespace DataAcces
                 await dbConn.CloseAsync();
             }
         }
+
 
         public async Task<bool> UpdateAsync(Client newClient)
         {

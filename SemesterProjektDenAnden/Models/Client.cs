@@ -31,8 +31,8 @@ namespace Models
         [Required]
         public bool Subscriber {  get; set; }
 
-        [Required, DataType(DataType.Date)]
-        public DateTime SubEndDate { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime? SubEndDate { get; set; }
 
     }
 }
