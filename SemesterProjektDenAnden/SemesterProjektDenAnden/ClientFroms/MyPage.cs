@@ -125,7 +125,7 @@ namespace SemesterProjektDenAnden.ClientFroms
             }
         }
 
-        private async void AddMonthsToDate()
+        /*private async void AddMonthsToDate()
         { 
             DateOnly date = DateOnly.FromDateTime(DateTime.Now);
             if ()
@@ -146,6 +146,6 @@ namespace SemesterProjektDenAnden.ClientFroms
             }
                 
 
-        }
+        }*/
     }
 }
