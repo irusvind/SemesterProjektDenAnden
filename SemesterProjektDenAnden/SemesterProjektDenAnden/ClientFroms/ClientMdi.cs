@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SemesterProjektDenAnden.ClientFroms
 {
@@ -30,6 +29,7 @@ namespace SemesterProjektDenAnden.ClientFroms
             this.FormOpener(clientOverview);
 
             this.clientId = clientId;
+            ButtonClickColor(overviewbtn);
         }
 
 
@@ -65,18 +65,21 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void overviewbtn_Click(object sender, EventArgs e)
         {
+            ButtonClickColor(overviewbtn);
             clientOverview = new ClientOverview(this, clientId);
             this.FormOpener(clientOverview);
         }
 
-        private void myPagebtn_Click(object sender, EventArgs e)
+        public void myPagebtn_Click(object sender, EventArgs e)
         {
+            ButtonClickColor(myPagebtn);
             myPage = new MyPage(this, clientId);
             this.FormOpener(myPage);
         }
 
-        private void myCasesbtn_Click(object sender, EventArgs e)
+        public void myCasesbtn_Click(object sender, EventArgs e)
         {
+            ButtonClickColor(myCasesbtn);
             myCases = new MyCases(this,clientId);
             this.FormOpener(myCases);
         }
@@ -91,8 +94,9 @@ namespace SemesterProjektDenAnden.ClientFroms
             this.Close();
         }
 
-        private void Toolsbtn_Click(object sender, EventArgs e)
+        public void Toolsbtn_Click(object sender, EventArgs e)
         {
+            ButtonClickColor(Toolsbtn);
             tools = new ClientTools(this);
             this.FormOpener(tools);
         }
@@ -100,6 +104,33 @@ namespace SemesterProjektDenAnden.ClientFroms
         private void clientHelpBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Button_MouseEnter(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn.BackColor == Color.Black)
+            {
+                btn.BackColor = Color.DimGray;
+            }
+        }
+
+        private void Button_MouseLeave(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn.BackColor == Color.DimGray)
+            {
+                btn.BackColor = Color.Black;
+            }
+        }
+
+        public void ButtonClickColor(Button btn)
+        {
+            overviewbtn.BackColor = Color.Black;
+            myPagebtn.BackColor = Color.Black;
+            myCasesbtn.BackColor = Color.Black;
+            Toolsbtn.BackColor = Color.Black;
+            btn.BackColor = Color.Gray;
         }
     }
 }

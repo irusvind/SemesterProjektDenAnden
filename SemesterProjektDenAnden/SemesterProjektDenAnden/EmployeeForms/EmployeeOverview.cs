@@ -12,38 +12,33 @@ namespace SemesterProjektDenAnden.EmployeeForms
 {
     public partial class EmployeeOverview : Form
     {
-        Cases cases;
-        //Tools tools;
-        Employees employees;
-        Clients clients;
-        EmployeeMdi employeeMdi;
         public EmployeeOverview(EmployeeMdi employeeMdi)
         {
             InitializeComponent();
-            this.employeeMdi = employeeMdi;
-        }
 
-        private void sagerBtn_Click(object sender, EventArgs e)
-        {
-            cases = new Cases(employeeMdi);
-            employeeMdi.FormOpener(cases);
-        }
-
-        private void toolsBtn_Click(object sender, EventArgs e)
-        {
+            sagerBtn.Click += employeeMdi.Sagerbtn_Click;
+            toolsBtn.Click += employeeMdi.Toolsbtn_Click;
+            employeeBtn.Click += employeeMdi.Employeesbtn_Click;
+            clientBtn.Click += employeeMdi.Clientsbtn_Click;
 
         }
 
-        private void employeeBtn_Click(object sender, EventArgs e)
+        private void Button_MouseEnter(object sender, EventArgs e)
         {
-            employees = new Employees(employeeMdi);
-            employeeMdi.FormOpener(employees);
+            Button btn = sender as Button;
+            if (btn.BackColor == Color.Black)
+            {
+                btn.BackColor = Color.DimGray;
+            }
         }
 
-        private void clientBtn_Click(object sender, EventArgs e)
+        private void Button_MouseLeave(object sender, EventArgs e)
         {
-            clients = new Clients(employeeMdi);
-            employeeMdi.FormOpener(clients);
+            Button btn = sender as Button;
+            if (btn.BackColor == Color.DimGray)
+            {
+                btn.BackColor = Color.Black;
+            }
         }
     }
 }
