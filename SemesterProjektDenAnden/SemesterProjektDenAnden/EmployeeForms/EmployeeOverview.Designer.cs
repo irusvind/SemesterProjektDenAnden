@@ -56,7 +56,8 @@
             sagerBtn.TabIndex = 1;
             sagerBtn.Text = "Sager";
             sagerBtn.UseVisualStyleBackColor = false;
-            sagerBtn.Click += sagerBtn_Click;
+            sagerBtn.MouseEnter += Button_MouseEnter;
+            sagerBtn.MouseLeave += Button_MouseLeave;
             // 
             // employeeBtn
             // 
@@ -69,7 +70,8 @@
             employeeBtn.TabIndex = 2;
             employeeBtn.Text = "Medarbejdere";
             employeeBtn.UseVisualStyleBackColor = false;
-            employeeBtn.Click += employeeBtn_Click;
+            employeeBtn.MouseEnter += Button_MouseEnter;
+            employeeBtn.MouseLeave += Button_MouseLeave;
             // 
             // clientBtn
             // 
@@ -82,7 +84,8 @@
             clientBtn.TabIndex = 3;
             clientBtn.Text = "Klienter";
             clientBtn.UseVisualStyleBackColor = false;
-            clientBtn.Click += clientBtn_Click;
+            clientBtn.MouseEnter += Button_MouseEnter;
+            clientBtn.MouseLeave += Button_MouseLeave;
             // 
             // toolsBtn
             // 
@@ -95,7 +98,8 @@
             toolsBtn.TabIndex = 4;
             toolsBtn.Text = "Værktøjer";
             toolsBtn.UseVisualStyleBackColor = false;
-            toolsBtn.Click += toolsBtn_Click;
+            toolsBtn.MouseEnter += Button_MouseEnter;
+            toolsBtn.MouseLeave += Button_MouseLeave;
             // 
             // EmployeeOverview
             // 

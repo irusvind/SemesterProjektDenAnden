@@ -67,8 +67,9 @@ namespace SemesterProjektDenAnden.EmployeeForms
             possibleCoursesDGV.DataSource = possibleSource;
         }
 
-        private void OKBtn_Click(object sender, EventArgs e)
+        private async void OKBtn_Click(object sender, EventArgs e)
         {
+            await employeeBL.UpdateCoursesAsync(selectedCourses, employeeId);
             EmployeeSpec employeeSpec = new EmployeeSpec(employeeMdi, employeeId);
             employeeMdi.FormOpener(employeeSpec);
         }

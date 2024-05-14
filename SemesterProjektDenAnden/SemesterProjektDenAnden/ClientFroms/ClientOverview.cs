@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic;
+using SemesterProjektDenAnden.EmployeeForms;
 using SemesterProjektDenAnden.Tools;
 
 namespace SemesterProjektDenAnden.ClientFroms
@@ -23,23 +25,29 @@ namespace SemesterProjektDenAnden.ClientFroms
 
             this.clientMdi = clientMdi;
             this.clientId = clientId;
+
+            OverviewMyPagebtn.Click += clientMdi.myPagebtn_Click;
+            OverviewMyCasesbtn.Click += clientMdi.myCasesbtn_Click;
+            overviewToolsbtn.Click += clientMdi.Toolsbtn_Click;
+
         }
 
-        private void OverviewMyPagebtn_Click(object sender, EventArgs e)
+        private void Button_MouseEnter(object sender, EventArgs e)
         {
-            myPage = new MyPage(clientMdi, clientId);
-            clientMdi.FormOpener(myPage);
+            Button btn = sender as Button;
+            if (btn.BackColor == Color.Black)
+            {
+                btn.BackColor = Color.DimGray;
+            }
         }
 
-        private void OverviewMyCasesbtn_Click(object sender, EventArgs e)
+        private void Button_MouseLeave(object sender, EventArgs e)
         {
-            myCases = new MyCases(clientMdi, clientId);
-            clientMdi.FormOpener(myCases);
-        }
-
-        private void overviewToolsbtn_Click(object sender, EventArgs e)
-        {
-            
+            Button btn = sender as Button;
+            if (btn.BackColor == Color.DimGray)
+            {
+                btn.BackColor = Color.Black;
+            }
         }
     }
 }
