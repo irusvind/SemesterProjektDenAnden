@@ -1,14 +1,5 @@
 ﻿using BusinessLogic;
 using Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SemesterProjektDenAnden.EmployeeForms
 {
@@ -19,7 +10,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
         EmployeeBL employeeBL = new EmployeeBL();
         CourseBL courseBL = new CourseBL();
         List<Course> possibleCourses;
-        List<Course> selectedCourses; 
+        List<Course> selectedCourses;
         public EmployeeCoursesEdit(EmployeeMdi employeeMdi, int employeeId)
         {
             InitializeComponent();
@@ -34,37 +25,45 @@ namespace SemesterProjektDenAnden.EmployeeForms
         private async void DGVData()
         {
             selectedCourses = await employeeBL.GetSpecificCoursesAsync(employeeId);
-            List<Course> courses = await courseBL.GetAllAsync();
             possibleCourses = await courseBL.GetAllAsync();
 
-            foreach (Course p in courses)
+
+            foreach (Course s in selectedCourses)
             {
-                foreach(Course s in selectedCourses)
-                {
-                    if(p.CourseId == s.CourseId)
-                    {
-                        possibleCourses.Remove(p);
-                    }
-                }
+                possibleCourses.RemoveAll(p => p.CourseId == s.CourseId);
+
             }
 
-            BindingSource selectedSource = new BindingSource();
-            selectedSource.DataSource = selectedCourses;
-            chosenCoursesDGV.DataSource = selectedSource;
-
-            BindingSource possibleSource = new BindingSource();
-            possibleSource.DataSource = possibleCourses;
-            possibleCoursesDGV.DataSource = possibleSource;
+            UpdateDGV();
         }
 
         private void PossibleCoursesDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            Course changedCourse = possibleCourses[e.RowIndex];
+            possibleCourses.RemoveAt(e.RowIndex);
+            selectedCourses.Add(changedCourse);
+            UpdateDGV();
         }
 
         private void ChosenCoursesDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            Course changedCourse = selectedCourses[e.RowIndex];
+            selectedCourses.RemoveAt(e.RowIndex);
+            possibleCourses.Add(changedCourse);
+            UpdateDGV();
+        }
 
+        private void UpdateDGV() 
+        {
+            BindingSource selectedSource = new BindingSource();
+            List<Course> sortetSelected = selectedCourses.OrderBy(s => s.CourseId).ToList();
+            selectedSource.DataSource = sortetSelected;
+            chosenCoursesDGV.DataSource = selectedSource;
+
+            BindingSource possibleSource = new BindingSource();
+            List<Course> sortetPossible = possibleCourses.OrderBy(p => p.CourseId).ToList();
+            possibleSource.DataSource = sortetPossible;
+            possibleCoursesDGV.DataSource = possibleSource;
         }
 
         private void OKBtn_Click(object sender, EventArgs e)
