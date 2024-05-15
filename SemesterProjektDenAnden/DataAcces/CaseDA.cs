@@ -256,10 +256,11 @@ namespace DataAcces
                 await dbConn.CloseAsync();
             }
         }
-        public Task<bool> addServiceToCase(int caseId, int serviceId)
-        {
-            
-        }
+        //    public Task<bool> addServiceToCase(int caseId, int serviceId)
+        //    {
+
+        //    }
+        //}
     }
 }
 
