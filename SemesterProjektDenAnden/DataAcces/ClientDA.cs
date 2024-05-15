@@ -27,7 +27,14 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@ClMail", newClient.Mail);
             sqlCommand.Parameters.AddWithValue("@ClAddress", newClient.ClAddress);
             sqlCommand.Parameters.AddWithValue("@Subscriber", newClient.Subscriber);
-            sqlCommand.Parameters.AddWithValue("@SubEndDate", newClient.SubEndDate);
+            if (newClient.SubEndDate == null)
+            {
+                sqlCommand.Parameters.AddWithValue("@SubEndDate", DBNull.Value);
+            }
+            else
+            {
+                sqlCommand.Parameters.AddWithValue("@SubEndDate", newClient.SubEndDate);
+            }
             try
             {
                 await dbConn.OpenAsync();
@@ -183,7 +190,14 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@ClMail", newClient.Mail);
             sqlCommand.Parameters.AddWithValue("@ClAddress", newClient.ClAddress);
             sqlCommand.Parameters.AddWithValue("@Subscriber", newClient.Subscriber);
-            sqlCommand.Parameters.AddWithValue("@SubEndDate", newClient.SubEndDate);
+            if(newClient.SubEndDate == null)
+            {
+                sqlCommand.Parameters.AddWithValue("@SubEndDate", DBNull.Value);
+            } 
+            else 
+            { 
+                sqlCommand.Parameters.AddWithValue("@SubEndDate", newClient.SubEndDate); 
+            }
             sqlCommand.Parameters.AddWithValue("@ClientId", newClient.ClientId);
             try
             {
