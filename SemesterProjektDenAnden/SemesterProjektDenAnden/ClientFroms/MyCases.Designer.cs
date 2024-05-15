@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             MycasesLbl = new Label();
             casesDgv = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)casesDgv).BeginInit();
@@ -48,6 +49,11 @@
             // 
             // casesDgv
             // 
+            casesDgv.AllowUserToAddRows = false;
+            casesDgv.AllowUserToDeleteRows = false;
+            casesDgv.AllowUserToResizeColumns = false;
+            casesDgv.AllowUserToResizeRows = false;
+            casesDgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             casesDgv.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
@@ -66,8 +72,19 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             casesDgv.DefaultCellStyle = dataGridViewCellStyle2;
+            casesDgv.Enabled = false;
+            casesDgv.EnableHeadersVisualStyles = false;
+            casesDgv.GridColor = Color.DimGray;
             casesDgv.Location = new Point(65, 166);
             casesDgv.Name = "casesDgv";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Black;
+            dataGridViewCellStyle3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            casesDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             casesDgv.RowTemplate.Height = 25;
             casesDgv.Size = new Size(932, 394);
             casesDgv.TabIndex = 1;
@@ -76,6 +93,7 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.White;
             ClientSize = new Size(1065, 655);
             Controls.Add(casesDgv);
             Controls.Add(MycasesLbl);
