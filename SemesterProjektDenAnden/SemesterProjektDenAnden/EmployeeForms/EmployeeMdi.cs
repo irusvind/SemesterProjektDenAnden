@@ -1,8 +1,12 @@
+using Microsoft.VisualBasic.ApplicationServices;
+using Models;
 using SemesterProjektDenAnden.ClientFroms;
+using SemesterProjektDenAnden.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -108,7 +112,11 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private void employeeHelpBtn_Click(object sender, EventArgs e)
         {
-
+            ProcessStartInfo psi = new ProcessStartInfo(@"..\..\..\Resources\LawHouse-DMVE231-v1.pdf");
+            {
+                psi.UseShellExecute = true;
+            }
+            Process.Start(psi);
         }
 
         private void Button_MouseEnter(object sender, EventArgs e)
