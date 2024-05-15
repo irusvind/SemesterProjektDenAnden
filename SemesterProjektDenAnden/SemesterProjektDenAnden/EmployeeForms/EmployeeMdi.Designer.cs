@@ -95,6 +95,8 @@
             overviewbtn.Text = "Startside";
             overviewbtn.UseVisualStyleBackColor = false;
             overviewbtn.Click += overviewbtn_Click;
+            overviewbtn.MouseEnter += Button_MouseEnter;
+            overviewbtn.MouseLeave += Button_MouseLeave;
             // 
             // panel2
             // 
@@ -118,6 +120,8 @@
             Sagerbtn.Text = "Sager";
             Sagerbtn.UseVisualStyleBackColor = false;
             Sagerbtn.Click += Sagerbtn_Click;
+            Sagerbtn.MouseEnter += Button_MouseEnter;
+            Sagerbtn.MouseLeave += Button_MouseLeave;
             // 
             // panel3
             // 
@@ -141,6 +145,8 @@
             Toolsbtn.Text = "Værktøjer";
             Toolsbtn.UseVisualStyleBackColor = false;
             Toolsbtn.Click += Toolsbtn_Click;
+            Toolsbtn.MouseEnter += Button_MouseEnter;
+            Toolsbtn.MouseLeave += Button_MouseLeave;
             // 
             // panel4
             // 
@@ -164,6 +170,8 @@
             Employeesbtn.Text = "Medarbejdere";
             Employeesbtn.UseVisualStyleBackColor = false;
             Employeesbtn.Click += Employeesbtn_Click;
+            Employeesbtn.MouseEnter += Button_MouseEnter;
+            Employeesbtn.MouseLeave += Button_MouseLeave;
             // 
             // panel5
             // 
@@ -187,6 +195,8 @@
             Clientsbtn.Text = "Klienter";
             Clientsbtn.UseVisualStyleBackColor = false;
             Clientsbtn.Click += Clientsbtn_Click;
+            Clientsbtn.MouseEnter += Button_MouseEnter;
+            Clientsbtn.MouseLeave += Button_MouseLeave;
             // 
             // panel6
             // 
@@ -210,6 +220,8 @@
             LogOutbtn.Text = "Log ud";
             LogOutbtn.UseVisualStyleBackColor = false;
             LogOutbtn.Click += LogOutbtn_Click;
+            LogOutbtn.MouseEnter += Button_MouseEnter;
+            LogOutbtn.MouseLeave += Button_MouseLeave;
             // 
             // panel7
             // 
@@ -233,6 +245,8 @@
             employeeHelpBtn.Text = "Hjælp";
             employeeHelpBtn.UseVisualStyleBackColor = false;
             employeeHelpBtn.Click += employeeHelpBtn_Click;
+            employeeHelpBtn.MouseEnter += Button_MouseEnter;
+            employeeHelpBtn.MouseLeave += Button_MouseLeave;
             // 
             // EmployeeMdi
             // 

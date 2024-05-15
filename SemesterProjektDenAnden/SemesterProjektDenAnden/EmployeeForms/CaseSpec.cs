@@ -22,6 +22,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
         ClientBL clientBL = new ClientBL();
         TransportLogBL transportLogBL = new TransportLogBL();
         EmployeeBL employeeBL = new EmployeeBL();
+        ServiceBL serviceBL = new ServiceBL();
 
 
         public CaseSpec(EmployeeMdi employeeMdi, int CaseId)
@@ -30,6 +31,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             this.employeeMdi = employeeMdi;
             this.caseId = CaseId;
             SetData();
+            AddToServiceCombobox();
         }
         private async void SetData()
         {
@@ -45,6 +47,8 @@ namespace SemesterProjektDenAnden.EmployeeForms
             TransportLog transport = new TransportLog();
             transport = await transportLogBL.GetAsync(this.caseId);
 
+          
+
 
 
             clientNamebox.Text = client.FirstName + " " + client.LastName;
@@ -58,6 +62,17 @@ namespace SemesterProjektDenAnden.EmployeeForms
             usedHoursbox.Text = @case.UsedHours.ToString();
             kmBox.Text = transport.KmDriven.ToString();
 
+            
+
+        }
+
+        private async void AddToServiceCombobox()
+        {
+            List<Service> services = await serviceBL.GetAllAsync();
+            foreach (Service service in services)
+            {
+                    comboCaseYdelse.Items.Add(service.ServiceId + " : "+ service.ServiceName);
+            }
         }
 
         private async void updateBtn_Click(object sender, EventArgs e)
@@ -77,11 +92,21 @@ namespace SemesterProjektDenAnden.EmployeeForms
             employeeNameBox.Text = employee.FirstName + " " + employee.LastName;
             newcase.EmployeeId = int.Parse(employeeIdBox.Text);
             await caseBL.UpdateAsync(newcase);
+            TransportLog transportLog = new TransportLog();
+            transportLog.KmDriven = int.Parse(kmBox.Text);
+            transportLog.LogDescription = trandDisc.Text;
+            transportLog.CaseId = caseId;
+            transportLog.ServiceId = caseId; // todo lav getServiceID
+            await transportLogBL.CreateAsync(transportLog);
+
             MessageBox.Show("Case Updated");
         }
 
+        
         private void addServiceBtn_Click(object sender, EventArgs e)
         {
+            string[] idString = comboCaseYdelse.Items[comboCaseYdelse.SelectedIndex].ToString().Split(':');
+            int id = int.Parse(idString[0]);
             
         }
     }

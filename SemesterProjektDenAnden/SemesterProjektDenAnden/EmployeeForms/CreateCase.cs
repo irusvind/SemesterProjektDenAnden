@@ -75,7 +75,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 if (result == DialogResult.Yes)
                 {
 
-
+                    
                     Case newCase = new Case();
                     newCase.CaseTitle = workTitel.Text;
                     newCase.StartDate = startDateCal.SelectionStart;
@@ -83,11 +83,10 @@ namespace SemesterProjektDenAnden.EmployeeForms
                     newCase.EstHours = Convert.ToInt32(estimated_hours.Text);
                     string client = clientBox.Text;
                     newCase.ClientId = int.Parse(client);
-                    string serviceid = serviceBox.Text;
-                     newCase.ServiceId = int.Parse(serviceid);
                     string employeeId = employeeBox.Text;
                     newCase.EmployeeId = int.Parse(employeeId);
                     newCase.Done = false;
+                    
 
                     var context = new ValidationContext(newCase, serviceProvider: null, items: null);
                     bool isValid = Validator.TryValidateObject(newCase, context, null, true);
@@ -107,6 +106,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                     }
                     else { MessageBox.Show("Fejl: Bruger ikke oprettet", " info ikke valid"); };
 
+                    
 
 
 

@@ -58,6 +58,8 @@
             updateBtn = new Button();
             comboCaseYdelse = new ComboBox();
             addServiceBtn = new Button();
+            trandDisc = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)ydelserDgv).BeginInit();
             SuspendLayout();
             // 
@@ -304,9 +306,9 @@
             // 
             // updateBtn
             // 
-            updateBtn.Location = new Point(259, 553);
+            updateBtn.Location = new Point(259, 576);
             updateBtn.Name = "updateBtn";
-            updateBtn.Size = new Size(75, 23);
+            updateBtn.Size = new Size(75, 28);
             updateBtn.TabIndex = 28;
             updateBtn.Text = "Opdater";
             updateBtn.UseVisualStyleBackColor = true;
@@ -330,12 +332,30 @@
             addServiceBtn.UseVisualStyleBackColor = true;
             addServiceBtn.Click += addServiceBtn_Click;
             // 
+            // trandDisc
+            // 
+            trandDisc.Location = new Point(259, 535);
+            trandDisc.Name = "trandDisc";
+            trandDisc.Size = new Size(196, 24);
+            trandDisc.TabIndex = 31;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(84, 538);
+            label1.Name = "label1";
+            label1.Size = new Size(137, 18);
+            label1.TabIndex = 32;
+            label1.Text = "Kørsels beskrivelse";
+            // 
             // CaseSpec
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
             ClientSize = new Size(1065, 655);
+            Controls.Add(label1);
+            Controls.Add(trandDisc);
             Controls.Add(addServiceBtn);
             Controls.Add(comboCaseYdelse);
             Controls.Add(updateBtn);
@@ -407,5 +427,7 @@
         private Button updateBtn;
         private ComboBox comboCaseYdelse;
         private Button addServiceBtn;
+        private TextBox trandDisc;
+        private Label label1;
     }
 }

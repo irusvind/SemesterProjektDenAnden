@@ -193,7 +193,7 @@ namespace DataAcces
         {
             List<Course> courses = new List<Course>();
             string command = "SELECT COURSE.CourseId, COURSE.CourseName FROM COURSE " +
-                "INNER JOIN COMPLETEDCOURSE ON EmployeeId = @EmployeeId;";
+                "INNER JOIN COMPLETEDCOURSE ON EmployeeId = @EmployeeId AND COMPLETEDCOURSE.CourseId = COURSE.CourseId;";
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@EmployeeId", employeeId);
@@ -218,6 +218,40 @@ namespace DataAcces
             {
                 await dbConn.CloseAsync();
             }
+        }
+
+        public async Task UpdateCoursesAsync(List<Course> courses, int employeeId)
+        {
+
+            string deleteCommand = "DELETE FROM COMPLETEDCOURSE WHERE EmployeeId = @employeeId";
+            string createCommand = "INSERT INTO COMPLETEDCOURSE (EmployeeId, CourseId) VALUES (@employeeId, @courseId)";
+            int rowsAffected;
+            using SqlConnection dbConn = new SqlConnection(connString);
+            SqlCommand sqlDeleteCommand = new SqlCommand(deleteCommand, dbConn);
+            sqlDeleteCommand.Parameters.AddWithValue("@employeeId", employeeId);
+
+            try
+            {
+                await dbConn.OpenAsync();
+                await sqlDeleteCommand.ExecuteNonQueryAsync();
+                foreach (Course course in courses) 
+                {
+                    SqlCommand sqlCreateCommand = new SqlCommand(createCommand, dbConn);
+                    sqlCreateCommand.Parameters.AddWithValue("@employeeId", employeeId);
+                    sqlCreateCommand.Parameters.AddWithValue("@courseId", course.CourseId);
+                    await sqlCreateCommand.ExecuteNonQueryAsync();
+                    
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            finally
+            {
+                await dbConn.CloseAsync();
+            }
+
         }
     }
 }

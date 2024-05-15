@@ -223,28 +223,32 @@ namespace DataAcces
             List<Case> caseListClient = new List<Case>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            sqlCommand.Parameters.AddWithValue("@ClientId", id);
             try
             {
                 await dbConn.OpenAsync();
                 SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    Case newCaseClient = new Case();
-                    newCaseClient.CaseId = (int)reader["CaseId"];
-                    newCaseClient.StartDate = (DateTime)reader["CaseStartDate"];
-                    newCaseClient.ExEndDate = (DateTime)reader["EstEndDate"];
-                    newCaseClient.EstHours = (int)reader["EstHours"];
-                    newCaseClient.UsedHours = (int)reader["UsedHours"];
-                    newCaseClient.Done = (bool)reader["IsClosed"];
-                    newCaseClient.EmployeeId = (int)reader["EmployeeId"];
-                    newCaseClient.ClientId = (int)reader["ClientId"];
-                    caseListClient.Add(newCaseClient);
-
-                }
+                Case newCaseClient = new Case();
+                newCaseClient.CaseId = (int)reader["CaseId"];
+                newCaseClient.StartDate = (DateTime)reader["CaseStartDate"];
+                newCaseClient.ExEndDate = (DateTime)reader["EstEndDate"];
+                newCaseClient.EstHours = (int)reader["EstHours"];
+                newCaseClient.UsedHours = (int)reader["UsedHours"];
+                newCaseClient.Done = (bool)reader["IsClosed"];
+                newCaseClient.EmployeeId = (int)reader["EmployeeId"];
+                newCaseClient.ClientId = (int)reader["ClientId"];
+                caseListClient.Add(newCaseClient);
+                caseListClient.Add(newCaseClient);
+                caseListClient.Add(newCaseClient);
                 return caseListClient;
+
             }
+
+
             catch (Exception e)
+
             {
+
                 throw;
             }
             finally
@@ -257,5 +261,9 @@ namespace DataAcces
             
         }
     }
-    }
+}
+
+
+    
+
 

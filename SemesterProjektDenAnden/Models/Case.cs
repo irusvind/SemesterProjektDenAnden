@@ -32,8 +32,6 @@ namespace Models
         [Required]
         public bool Done { get; set; }
 
-        [Required]
-        public int ServiceId { get; set; }
 
         [Required]
         public int EmployeeId { get; set; }

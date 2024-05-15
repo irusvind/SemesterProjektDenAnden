@@ -78,7 +78,7 @@
             sagerDgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             sagerDgv.Size = new Size(930, 370);
             sagerDgv.TabIndex = 1;
-            sagerDgv.CellContentClick += sagerDgv_CellContentClick;
+            sagerDgv.CellDoubleClick += sagerDgv_CellDoubleClick;
             // 
             // OpretSagBtn
             // 
