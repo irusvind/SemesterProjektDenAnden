@@ -86,6 +86,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             casesDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             casesDgv.RowTemplate.Height = 25;
+            casesDgv.SelectionMode = DataGridViewSelectionMode.CellSelect;
             casesDgv.Size = new Size(932, 394);
             casesDgv.TabIndex = 1;
             // 

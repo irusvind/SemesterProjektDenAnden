@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             employeesLbl = new Label();
             employeesDgv = new DataGridView();
             OpretEmployeeBtn = new Button();
@@ -52,7 +53,10 @@
             // 
             employeesDgv.AllowUserToAddRows = false;
             employeesDgv.AllowUserToDeleteRows = false;
+            employeesDgv.AllowUserToResizeColumns = false;
+            employeesDgv.AllowUserToResizeRows = false;
             employeesDgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            employeesDgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             employeesDgv.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
@@ -70,12 +74,22 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             employeesDgv.DefaultCellStyle = dataGridViewCellStyle2;
+            employeesDgv.EditMode = DataGridViewEditMode.EditProgrammatically;
+            employeesDgv.EnableHeadersVisualStyles = false;
+            employeesDgv.GridColor = Color.DimGray;
             employeesDgv.Location = new Point(65, 151);
             employeesDgv.MultiSelect = false;
             employeesDgv.Name = "employeesDgv";
-            employeesDgv.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Black;
+            dataGridViewCellStyle3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            employeesDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             employeesDgv.RowTemplate.Height = 25;
-            employeesDgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            employeesDgv.SelectionMode = DataGridViewSelectionMode.CellSelect;
             employeesDgv.Size = new Size(930, 370);
             employeesDgv.TabIndex = 1;
             employeesDgv.CellDoubleClick += employeesDgv_CellDoubleClick;
@@ -97,6 +111,7 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.White;
             ClientSize = new Size(1065, 655);
             Controls.Add(OpretEmployeeBtn);
             Controls.Add(employeesDgv);
