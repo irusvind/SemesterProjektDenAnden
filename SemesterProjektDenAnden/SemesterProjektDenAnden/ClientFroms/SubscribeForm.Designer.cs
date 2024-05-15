@@ -59,6 +59,7 @@
             btnCancel.TabIndex = 1;
             btnCancel.Text = "Annuller";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // CB1mdr
             // 
@@ -140,7 +141,7 @@
             label2.Size = new Size(0, 18);
             label2.TabIndex = 8;
             // 
-            // SubcribeForm
+            // SubscribeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -155,7 +156,7 @@
             Controls.Add(CB1mdr);
             Controls.Add(btnCancel);
             Controls.Add(btnPay);
-            Name = "SubcribeForm";
+            Name = "SubscribeForm";
             Text = "SubcribeForm";
             ResumeLayout(false);
             PerformLayout();

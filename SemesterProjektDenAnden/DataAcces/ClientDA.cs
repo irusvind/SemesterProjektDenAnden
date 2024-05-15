@@ -171,7 +171,7 @@ namespace DataAcces
                 "ClPhone = @ClPhone, " +
                 "ClMail = @ClMail, " +
                 "CLAddress = @CLAddress, " +
-                "Subscriber = @Subscriber " +
+                "Subscriber = @Subscriber, " +
                 "SubEndDate = @SubEndDate " +
                 "WHERE ClientID = @ClientId ";
             int rowsAffected;

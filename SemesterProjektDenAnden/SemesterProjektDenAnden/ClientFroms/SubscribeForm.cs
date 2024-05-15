@@ -29,7 +29,7 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private async void btnPay_Click(object sender, EventArgs e)
         {
-           
+
             if (CB12mdr.Checked)
             {
                 DialogResult result = MessageBox.Show("Velkommen til LawHouse!\nTryk ja for at acceptere dit abonnement på 12 måneder.", "Start Abonnement", MessageBoxButtons.YesNo);
@@ -39,7 +39,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                     UpdateSubscriber(12);
                     this.Close();
                 }
-                
+
             }
             else if (CB6mdr.Checked)
             {
@@ -86,6 +86,11 @@ namespace SemesterProjektDenAnden.ClientFroms
             await clientBL.UpdateAsync(updateClient);
             MyPage myPage = new MyPage(clientMdi, clientId);
             clientMdi.FormOpener(myPage);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
