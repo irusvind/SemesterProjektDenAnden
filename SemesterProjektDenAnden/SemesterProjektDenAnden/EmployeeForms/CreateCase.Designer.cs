@@ -102,6 +102,7 @@
             // createCaseBtn
             // 
             createCaseBtn.BackColor = Color.Black;
+            createCaseBtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             createCaseBtn.ForeColor = Color.White;
             createCaseBtn.Location = new Point(789, 467);
             createCaseBtn.Name = "createCaseBtn";

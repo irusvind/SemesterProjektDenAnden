@@ -89,6 +89,7 @@
             // 
             // BuyForm1Btn
             // 
+            BuyForm1Btn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             BuyForm1Btn.Location = new Point(301, 223);
             BuyForm1Btn.Name = "BuyForm1Btn";
             BuyForm1Btn.Size = new Size(75, 23);
@@ -99,6 +100,7 @@
             // 
             // BuyForm2Btn
             // 
+            BuyForm2Btn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             BuyForm2Btn.Location = new Point(301, 285);
             BuyForm2Btn.Name = "BuyForm2Btn";
             BuyForm2Btn.Size = new Size(75, 23);
@@ -110,10 +112,11 @@
             // CalculatorLabel
             // 
             CalculatorLabel.AutoSize = true;
+            CalculatorLabel.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             CalculatorLabel.ForeColor = Color.Red;
             CalculatorLabel.Location = new Point(688, 279);
             CalculatorLabel.Name = "CalculatorLabel";
-            CalculatorLabel.Size = new Size(278, 15);
+            CalculatorLabel.Size = new Size(307, 18);
             CalculatorLabel.TabIndex = 6;
             CalculatorLabel.Text = "Køb abonnement for at få adgang til lånberegneren";
             // 

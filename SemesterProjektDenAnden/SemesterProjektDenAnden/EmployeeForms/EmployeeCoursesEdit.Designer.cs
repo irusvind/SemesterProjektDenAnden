@@ -152,11 +152,11 @@
             OKBtn.BackColor = Color.Black;
             OKBtn.Font = new Font("High Tower Text", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             OKBtn.ForeColor = Color.White;
-            OKBtn.Location = new Point(770, 464);
+            OKBtn.Location = new Point(706, 451);
             OKBtn.Name = "OKBtn";
-            OKBtn.Size = new Size(111, 30);
+            OKBtn.Size = new Size(175, 41);
             OKBtn.TabIndex = 4;
-            OKBtn.Text = "OK";
+            OKBtn.Text = "Godkend ændringer";
             OKBtn.UseVisualStyleBackColor = false;
             OKBtn.Click += OKBtn_Click;
             // 

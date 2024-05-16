@@ -34,7 +34,7 @@
             // 
             // Clientbtn
             // 
-            Clientbtn.Font = new Font("SimSun", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            Clientbtn.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
             Clientbtn.Location = new Point(204, 180);
             Clientbtn.Margin = new Padding(3, 2, 3, 2);
             Clientbtn.Name = "Clientbtn";
@@ -46,7 +46,7 @@
             // 
             // Employeebtn
             // 
-            Employeebtn.Font = new Font("SimSun", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            Employeebtn.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
             Employeebtn.Location = new Point(543, 180);
             Employeebtn.Margin = new Padding(3, 2, 3, 2);
             Employeebtn.Name = "Employeebtn";
