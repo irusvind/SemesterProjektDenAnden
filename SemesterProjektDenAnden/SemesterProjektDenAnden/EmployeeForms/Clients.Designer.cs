@@ -63,7 +63,6 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             clientsDgv.DefaultCellStyle = dataGridViewCellStyle2;
             clientsDgv.EditMode = DataGridViewEditMode.EditProgrammatically;
-            clientsDgv.Enabled = false;
             clientsDgv.EnableHeadersVisualStyles = false;
             clientsDgv.GridColor = Color.DimGray;
             clientsDgv.Location = new Point(67, 145);
