@@ -19,6 +19,8 @@ namespace SemesterProjektDenAnden.ClientFroms
         MyCases myCases;
         Tools.ClientTools tools;
         int clientId;
+        public bool Formular1Bought = false;
+        public bool Formular2Bought = false;
 
 
         public ClientMDI(int clientId)
@@ -97,7 +99,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         public void Toolsbtn_Click(object sender, EventArgs e)
         {
             ButtonClickColor(Toolsbtn);
-            tools = new ClientTools(this);
+            tools = new ClientTools(this, clientId);
             this.FormOpener(tools);
         }
 

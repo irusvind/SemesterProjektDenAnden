@@ -2,6 +2,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using Models;
 using SemesterProjektDenAnden.ClientFroms;
 using SemesterProjektDenAnden.Properties;
+using SemesterProjektDenAnden.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
     {
         EmployeeOverview employeeOverview;
         Cases cases;
-        //Tools tools;
+        EmployeeTools employeeTools;
         Employees employees;
         Clients clients;
 
@@ -81,9 +82,9 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         public void Toolsbtn_Click(object sender, EventArgs e)
         {
-            //ButtonClickColor(Toolsbtn);
-            //tools = new Tools();
-            //this.FormOpener(tools);
+            ButtonClickColor(Toolsbtn);
+            EmployeeTools employeeTools = new EmployeeTools(this);
+            this.FormOpener(employeeTools);
         }
 
         public void Employeesbtn_Click(object sender, EventArgs e)
