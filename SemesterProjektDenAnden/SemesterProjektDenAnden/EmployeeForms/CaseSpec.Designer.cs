@@ -70,7 +70,7 @@
             sagsNavnNrLbl.AutoSize = true;
             sagsNavnNrLbl.Font = new Font("High Tower Text", 36F, FontStyle.Regular, GraphicsUnit.Point);
             sagsNavnNrLbl.ForeColor = Color.Black;
-            sagsNavnNrLbl.Location = new Point(65, 67);
+            sagsNavnNrLbl.Location = new Point(76, 67);
             sagsNavnNrLbl.Name = "sagsNavnNrLbl";
             sagsNavnNrLbl.Size = new Size(277, 57);
             sagsNavnNrLbl.TabIndex = 0;
@@ -105,7 +105,7 @@
             ydelserDgv.EditMode = DataGridViewEditMode.EditProgrammatically;
             ydelserDgv.EnableHeadersVisualStyles = false;
             ydelserDgv.GridColor = Color.DimGray;
-            ydelserDgv.Location = new Point(83, 164);
+            ydelserDgv.Location = new Point(84, 164);
             ydelserDgv.Name = "ydelserDgv";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.Black;
@@ -126,7 +126,7 @@
             ydelserlbl.BackColor = Color.Transparent;
             ydelserlbl.Font = new Font("High Tower Text", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
             ydelserlbl.ForeColor = Color.Black;
-            ydelserlbl.Location = new Point(83, 133);
+            ydelserlbl.Location = new Point(84, 133);
             ydelserlbl.Name = "ydelserlbl";
             ydelserlbl.Size = new Size(72, 22);
             ydelserlbl.TabIndex = 2;
@@ -146,7 +146,7 @@
             // 
             clientNrLbl.AutoSize = true;
             clientNrLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            clientNrLbl.Location = new Point(612, 194);
+            clientNrLbl.Location = new Point(612, 195);
             clientNrLbl.Name = "clientNrLbl";
             clientNrLbl.Size = new Size(59, 18);
             clientNrLbl.TabIndex = 4;
@@ -156,7 +156,7 @@
             // 
             clientMailLbl.AutoSize = true;
             clientMailLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            clientMailLbl.Location = new Point(612, 224);
+            clientMailLbl.Location = new Point(612, 225);
             clientMailLbl.Name = "clientMailLbl";
             clientMailLbl.Size = new Size(70, 18);
             clientMailLbl.TabIndex = 5;
@@ -176,7 +176,7 @@
             // 
             expectedHoursLbl.AutoSize = true;
             expectedHoursLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            expectedHoursLbl.Location = new Point(84, 418);
+            expectedHoursLbl.Location = new Point(84, 421);
             expectedHoursLbl.Name = "expectedHoursLbl";
             expectedHoursLbl.Size = new Size(141, 18);
             expectedHoursLbl.TabIndex = 7;
@@ -196,7 +196,7 @@
             // 
             UsedHoursLbl.AutoSize = true;
             UsedHoursLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            UsedHoursLbl.Location = new Point(83, 478);
+            UsedHoursLbl.Location = new Point(84, 478);
             UsedHoursLbl.Name = "UsedHoursLbl";
             UsedHoursLbl.Size = new Size(160, 18);
             UsedHoursLbl.TabIndex = 9;
@@ -226,7 +226,7 @@
             // 
             caseInfoLbl.AutoSize = true;
             caseInfoLbl.Font = new Font("High Tower Text", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            caseInfoLbl.Location = new Point(83, 357);
+            caseInfoLbl.Location = new Point(84, 357);
             caseInfoLbl.Name = "caseInfoLbl";
             caseInfoLbl.Size = new Size(85, 22);
             caseInfoLbl.TabIndex = 12;
@@ -235,7 +235,7 @@
             // startDataBox
             // 
             startDataBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            startDataBox.Location = new Point(259, 385);
+            startDataBox.Location = new Point(260, 385);
             startDataBox.Name = "startDataBox";
             startDataBox.Size = new Size(196, 24);
             startDataBox.TabIndex = 14;
@@ -243,7 +243,7 @@
             // clientPhoneBox
             // 
             clientPhoneBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            clientPhoneBox.Location = new Point(743, 191);
+            clientPhoneBox.Location = new Point(764, 191);
             clientPhoneBox.Name = "clientPhoneBox";
             clientPhoneBox.Size = new Size(196, 24);
             clientPhoneBox.TabIndex = 15;
@@ -251,7 +251,7 @@
             // clientNamebox
             // 
             clientNamebox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            clientNamebox.Location = new Point(743, 161);
+            clientNamebox.Location = new Point(764, 160);
             clientNamebox.Name = "clientNamebox";
             clientNamebox.Size = new Size(196, 24);
             clientNamebox.TabIndex = 16;
@@ -259,7 +259,7 @@
             // exhourBox
             // 
             exhourBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            exhourBox.Location = new Point(259, 415);
+            exhourBox.Location = new Point(260, 415);
             exhourBox.Name = "exhourBox";
             exhourBox.Size = new Size(196, 24);
             exhourBox.TabIndex = 17;
@@ -267,7 +267,7 @@
             // kmBox
             // 
             kmBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            kmBox.Location = new Point(259, 505);
+            kmBox.Location = new Point(260, 505);
             kmBox.Name = "kmBox";
             kmBox.Size = new Size(196, 24);
             kmBox.TabIndex = 18;
@@ -275,7 +275,7 @@
             // usedHoursbox
             // 
             usedHoursbox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            usedHoursbox.Location = new Point(259, 475);
+            usedHoursbox.Location = new Point(260, 475);
             usedHoursbox.Name = "usedHoursbox";
             usedHoursbox.Size = new Size(196, 24);
             usedHoursbox.TabIndex = 19;
@@ -283,7 +283,7 @@
             // endDateBox
             // 
             endDateBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            endDateBox.Location = new Point(259, 445);
+            endDateBox.Location = new Point(260, 445);
             endDateBox.Name = "endDateBox";
             endDateBox.Size = new Size(196, 24);
             endDateBox.TabIndex = 20;
@@ -291,7 +291,7 @@
             // clientMailbox
             // 
             clientMailbox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            clientMailbox.Location = new Point(743, 221);
+            clientMailbox.Location = new Point(764, 221);
             clientMailbox.Name = "clientMailbox";
             clientMailbox.Size = new Size(196, 24);
             clientMailbox.TabIndex = 21;
@@ -299,7 +299,7 @@
             // employeeNameBox
             // 
             employeeNameBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            employeeNameBox.Location = new Point(743, 385);
+            employeeNameBox.Location = new Point(764, 387);
             employeeNameBox.Name = "employeeNameBox";
             employeeNameBox.Size = new Size(196, 24);
             employeeNameBox.TabIndex = 27;
@@ -307,7 +307,7 @@
             // employeeIdBox
             // 
             employeeIdBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            employeeIdBox.Location = new Point(743, 415);
+            employeeIdBox.Location = new Point(764, 417);
             employeeIdBox.Name = "employeeIdBox";
             employeeIdBox.Size = new Size(196, 24);
             employeeIdBox.TabIndex = 26;
@@ -326,7 +326,7 @@
             // 
             EmployeeNrLbl.AutoSize = true;
             EmployeeNrLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            EmployeeNrLbl.Location = new Point(612, 418);
+            EmployeeNrLbl.Location = new Point(612, 421);
             EmployeeNrLbl.Name = "EmployeeNrLbl";
             EmployeeNrLbl.Size = new Size(107, 18);
             EmployeeNrLbl.TabIndex = 23;
@@ -336,7 +336,7 @@
             // 
             advocatNameLbl.AutoSize = true;
             advocatNameLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            advocatNameLbl.Location = new Point(612, 388);
+            advocatNameLbl.Location = new Point(613, 388);
             advocatNameLbl.Name = "advocatNameLbl";
             advocatNameLbl.Size = new Size(58, 18);
             advocatNameLbl.TabIndex = 22;
@@ -345,9 +345,9 @@
             // updateBtn
             // 
             updateBtn.BackColor = Color.Black;
-            updateBtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            updateBtn.Font = new Font("High Tower Text", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             updateBtn.ForeColor = Color.White;
-            updateBtn.Location = new Point(350, 565);
+            updateBtn.Location = new Point(351, 565);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(105, 28);
             updateBtn.TabIndex = 28;
@@ -367,7 +367,7 @@
             // addServiceBtn
             // 
             addServiceBtn.BackColor = Color.Black;
-            addServiceBtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            addServiceBtn.Font = new Font("High Tower Text", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             addServiceBtn.ForeColor = Color.White;
             addServiceBtn.Location = new Point(359, 320);
             addServiceBtn.Name = "addServiceBtn";
@@ -380,7 +380,7 @@
             // trandDisc
             // 
             trandDisc.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            trandDisc.Location = new Point(259, 535);
+            trandDisc.Location = new Point(260, 535);
             trandDisc.Name = "trandDisc";
             trandDisc.Size = new Size(196, 24);
             trandDisc.TabIndex = 31;
