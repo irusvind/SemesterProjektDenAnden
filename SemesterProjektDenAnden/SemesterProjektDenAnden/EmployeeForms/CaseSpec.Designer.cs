@@ -30,7 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             sagsNavnNrLbl = new Label();
-            ydelserDgv = new DataGridView();
+            servicesDgv = new DataGridView();
             ydelserlbl = new Label();
             clientNamelbl = new Label();
             clientNrLbl = new Label();
@@ -60,7 +60,7 @@
             addServiceBtn = new Button();
             trandDisc = new TextBox();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)ydelserDgv).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)servicesDgv).BeginInit();
             SuspendLayout();
             // 
             // sagsNavnNrLbl
@@ -76,7 +76,7 @@
             // 
             // ydelserDgv
             // 
-            ydelserDgv.BackgroundColor = Color.Black;
+            servicesDgv.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
             dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -84,13 +84,13 @@
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            ydelserDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            ydelserDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ydelserDgv.Location = new Point(83, 164);
-            ydelserDgv.Name = "ydelserDgv";
-            ydelserDgv.RowTemplate.Height = 25;
-            ydelserDgv.Size = new Size(372, 150);
-            ydelserDgv.TabIndex = 1;
+            servicesDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            servicesDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            servicesDgv.Location = new Point(83, 164);
+            servicesDgv.Name = "ydelserDgv";
+            servicesDgv.RowTemplate.Height = 25;
+            servicesDgv.Size = new Size(372, 150);
+            servicesDgv.TabIndex = 1;
             // 
             // ydelserlbl
             // 
@@ -330,7 +330,7 @@
             addServiceBtn.TabIndex = 30;
             addServiceBtn.Text = "Tiltøj";
             addServiceBtn.UseVisualStyleBackColor = true;
-            addServiceBtn.Click += addServiceBtn_Click;
+            addServiceBtn.Click += AddServiceBtn_Click;
             // 
             // trandDisc
             // 
@@ -383,13 +383,13 @@
             Controls.Add(clientNrLbl);
             Controls.Add(clientNamelbl);
             Controls.Add(ydelserlbl);
-            Controls.Add(ydelserDgv);
+            Controls.Add(servicesDgv);
             Controls.Add(sagsNavnNrLbl);
             Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
             Name = "CaseSpec";
             Text = "CaseSpec";
-            ((System.ComponentModel.ISupportInitialize)ydelserDgv).EndInit();
+            ((System.ComponentModel.ISupportInitialize)servicesDgv).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -397,7 +397,7 @@
         #endregion
 
         private Label sagsNavnNrLbl;
-        private DataGridView ydelserDgv;
+        private DataGridView servicesDgv;
         private Label ydelserlbl;
         private Label clientNamelbl;
         private Label clientNrLbl;
