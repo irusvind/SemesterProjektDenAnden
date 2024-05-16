@@ -157,6 +157,7 @@
             Controls.Add(btnCancel);
             Controls.Add(btnPay);
             Name = "SubscribeForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "SubcribeForm";
             ResumeLayout(false);
             PerformLayout();
