@@ -29,7 +29,6 @@ namespace SemesterProjektDenAnden.ClientFroms
             GetClientData(clientId);
             this.clientMdi = clientMdi;
             this.clientId = clientId;
-            
 
         }
 
@@ -41,14 +40,16 @@ namespace SemesterProjektDenAnden.ClientFroms
             MailTxt.Text = client.Mail;
             PhoneTxt.Text = client.Phone.ToString();
             AddressTxt.Text = client.ClAddress;
+            
             if (client.Subscriber)
             {
                 SubscribtionStatusLbl.Text = "Abonnent";
                 SubscribeBtn.Text = "Opsig abonnement";
                 lblDato.Visible = true;
                 lblDatoen.Visible = true;
-                lblDatoen.Text = client.SubEndDate.ToString();
+                lblDatoen.Text = DateOnly.FromDateTime((DateTime)client.SubEndDate).ToString();
                 lblPris.Visible = true;
+                lblPrisen.Text = client.SubPrice.ToString() + " kr.";
                 lblPrisen.Visible = true;
             }
             else
@@ -57,7 +58,6 @@ namespace SemesterProjektDenAnden.ClientFroms
                 SubscribeBtn.Text = "Start abonnement";
                 lblDato.Visible = false;
                 lblDatoen.Visible = false;
-                
                 lblPris.Visible = false;
                 lblPrisen.Visible = false;
             }

@@ -31,17 +31,9 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            textBox10 = new TextBox();
-            textBox11 = new TextBox();
             EmployeeInfolbl = new Label();
             EmployeeNrLbl = new Label();
             advocatNameLbl = new Label();
-            textBox8 = new TextBox();
-            textBox7 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
             caseInfoLbl = new Label();
             clientInfolbl = new Label();
             endDateLbl = new Label();
@@ -53,22 +45,16 @@
             ydelserlbl = new Label();
             ydelserDgv = new DataGridView();
             sagsNavnNrLbl = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)ydelserDgv).BeginInit();
             SuspendLayout();
-            // 
-            // textBox10
-            // 
-            textBox10.Location = new Point(764, 379);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(196, 23);
-            textBox10.TabIndex = 54;
-            // 
-            // textBox11
-            // 
-            textBox11.Location = new Point(764, 409);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(196, 23);
-            textBox11.TabIndex = 53;
             // 
             // EmployeeInfolbl
             // 
@@ -94,53 +80,11 @@
             // 
             advocatNameLbl.AutoSize = true;
             advocatNameLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            advocatNameLbl.Location = new Point(633, 382);
+            advocatNameLbl.Location = new Point(633, 385);
             advocatNameLbl.Name = "advocatNameLbl";
             advocatNameLbl.Size = new Size(58, 18);
             advocatNameLbl.TabIndex = 50;
             advocatNameLbl.Text = "Advokat";
-            // 
-            // textBox8
-            // 
-            textBox8.Location = new Point(764, 215);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(196, 23);
-            textBox8.TabIndex = 49;
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(280, 439);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(196, 23);
-            textBox7.TabIndex = 48;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(280, 409);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(196, 23);
-            textBox4.TabIndex = 45;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(764, 155);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(196, 23);
-            textBox3.TabIndex = 44;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(764, 185);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(196, 23);
-            textBox2.TabIndex = 43;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(280, 379);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(196, 23);
-            textBox1.TabIndex = 42;
             // 
             // caseInfoLbl
             // 
@@ -280,22 +224,110 @@
             sagsNavnNrLbl.TabIndex = 28;
             sagsNavnNrLbl.Text = "Sagsnavn nr.";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(764, 415);
+            label1.Name = "label1";
+            label1.Size = new Size(39, 18);
+            label1.TabIndex = 55;
+            label1.Text = "label1";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(764, 388);
+            label2.Name = "label2";
+            label2.Size = new Size(40, 18);
+            label2.TabIndex = 56;
+            label2.Text = "label2";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(281, 445);
+            label3.Name = "label3";
+            label3.Size = new Size(40, 18);
+            label3.TabIndex = 57;
+            label3.Text = "label3";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(764, 161);
+            label4.Name = "label4";
+            label4.Size = new Size(41, 18);
+            label4.TabIndex = 58;
+            label4.Text = "label4";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(764, 191);
+            label5.Name = "label5";
+            label5.Size = new Size(40, 18);
+            label5.TabIndex = 59;
+            label5.Text = "label5";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.ForeColor = Color.Black;
+            label6.Location = new Point(764, 219);
+            label6.Name = "label6";
+            label6.Size = new Size(41, 18);
+            label6.TabIndex = 60;
+            label6.Text = "label6";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(281, 386);
+            label7.Name = "label7";
+            label7.Size = new Size(41, 18);
+            label7.TabIndex = 61;
+            label7.Text = "label7";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = Color.Black;
+            label8.Location = new Point(281, 415);
+            label8.Name = "label8";
+            label8.Size = new Size(41, 18);
+            label8.TabIndex = 62;
+            label8.Text = "label8";
+            // 
             // ClientCaseSpec
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1049, 616);
-            Controls.Add(textBox10);
-            Controls.Add(textBox11);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(EmployeeInfolbl);
             Controls.Add(EmployeeNrLbl);
             Controls.Add(advocatNameLbl);
-            Controls.Add(textBox8);
-            Controls.Add(textBox7);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
             Controls.Add(caseInfoLbl);
             Controls.Add(clientInfolbl);
             Controls.Add(endDateLbl);
@@ -317,18 +349,9 @@
         }
 
         #endregion
-
-        private TextBox textBox10;
-        private TextBox textBox11;
         private Label EmployeeInfolbl;
         private Label EmployeeNrLbl;
         private Label advocatNameLbl;
-        private TextBox textBox8;
-        private TextBox textBox7;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
         private Label caseInfoLbl;
         private Label clientInfolbl;
         private Label endDateLbl;
@@ -340,5 +363,13 @@
         private Label ydelserlbl;
         private DataGridView ydelserDgv;
         private Label sagsNavnNrLbl;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
     }
 }
