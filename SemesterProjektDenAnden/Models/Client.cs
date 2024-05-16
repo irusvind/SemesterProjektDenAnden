@@ -34,5 +34,9 @@ namespace Models
         [DataType(DataType.Date)]
         public DateTime? SubEndDate { get; set; }
 
+
+        [DataType(DataType.Currency)]
+        public int? SubPrice { get; set; }
+
     }
 }
