@@ -2,7 +2,6 @@
 using Models;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Net;
 
 namespace DataAcces
 {
@@ -17,7 +16,7 @@ namespace DataAcces
         }
         public async Task<bool> CreateAsync(Client newClient)
         {
-            string command = "INSERT INTO CLIENT VALUES(@ClFirstName, @ClLastName, @ClPhone, @ClMail, @ClAddress, @Subscriber, @SubEndDate)";
+            string command = "INSERT INTO CLIENT VALUES(@ClFirstName, @ClLastName, @ClPhone, @ClMail, @ClAddress, @Subscriber, @SubEndDate, @SubPrice)";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -35,6 +34,16 @@ namespace DataAcces
             {
                 sqlCommand.Parameters.AddWithValue("@SubEndDate", newClient.SubEndDate);
             }
+
+            if (newClient.SubPrice == null)
+            {
+                sqlCommand.Parameters.AddWithValue("@SubPrice", DBNull.Value);
+            }
+            else
+            {
+                sqlCommand.Parameters.AddWithValue("@SubPrice", newClient.SubPrice);
+            }
+
             try
             {
                 await dbConn.OpenAsync();
@@ -105,13 +114,23 @@ namespace DataAcces
                     newClient.ClAddress = (string)reader["CLAddress"];
                     newClient.Subscriber = (bool)reader["Subscriber"];
                     string? date = (string?)reader["SubEndDate"].ToString();
-                    newClient.SubPrice = (int?)reader["SubPrice"];
                     if (string.IsNullOrEmpty(date))
                     {
                         date = "";
                     }
                     else
-                    { newClient.SubEndDate = DateTime.Parse(date); }
+                    {
+                        newClient.SubEndDate = DateTime.Parse(date);
+                    }
+                    string? price = (string?)reader["SubPrice"].ToString();
+                    if (string.IsNullOrEmpty(price))
+                    {
+                        price = "";
+                    }
+                    else
+                    {
+                        newClient.SubPrice = int.Parse(price);
+                    }
 
                     return newClient;
 
@@ -149,21 +168,26 @@ namespace DataAcces
                     newClient.ClAddress = (string)reader["CLAddress"];
                     newClient.Subscriber = (bool)reader["Subscriber"];
                     string? date = (string?)reader["SubEndDate"].ToString();
-                    int? price = newClient.SubPrice = (int?)reader["SubPrice"];
                     if (string.IsNullOrEmpty(date))
                     {
                         date = "";
                     }
                     else
-                    { newClient.SubEndDate = DateTime.Parse(date); }
-                    newClientList.Add(newClient);
-
-                    if (price = null)
                     {
-
-
+                        newClient.SubEndDate = DateTime.Parse(date);
                     }
 
+                    string? price = (string?)reader["SubPrice"].ToString();
+                    if (string.IsNullOrEmpty(price))
+                    {
+                        price = "";
+                    }
+                    else
+                    {
+                        newClient.SubPrice = int.Parse(price);
+                    }
+
+                    newClientList.Add(newClient);
                 }
                 return newClientList;
             }
@@ -188,7 +212,7 @@ namespace DataAcces
                 "CLAddress = @CLAddress, " +
                 "Subscriber = @Subscriber, " +
                 "SubEndDate = @SubEndDate, " +
-                "SubPrice = @SubPrice"  +
+                "SubPrice = @SubPrice " +
                 "WHERE ClientID = @ClientId ";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
@@ -199,15 +223,26 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@ClMail", newClient.Mail);
             sqlCommand.Parameters.AddWithValue("@ClAddress", newClient.ClAddress);
             sqlCommand.Parameters.AddWithValue("@Subscriber", newClient.Subscriber);
-            if(newClient.SubEndDate == null)
+            if (newClient.SubEndDate == null)
             {
                 sqlCommand.Parameters.AddWithValue("@SubEndDate", DBNull.Value);
-            } 
-            else 
-            { 
+            }
+            else
+            {
                 sqlCommand.Parameters.AddWithValue("@SubEndDate", newClient.SubEndDate);
+
+            }
+
+            if (newClient.SubPrice == null)
+            {
+                sqlCommand.Parameters.AddWithValue("@SubPrice", DBNull.Value);
+            }
+            else
+            {
                 sqlCommand.Parameters.AddWithValue("@SubPrice", newClient.SubPrice);
             }
+
+
             sqlCommand.Parameters.AddWithValue("@ClientId", newClient.ClientId);
             try
             {

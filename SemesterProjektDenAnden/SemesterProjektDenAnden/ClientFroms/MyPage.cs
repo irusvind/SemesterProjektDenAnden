@@ -49,6 +49,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 lblDatoen.Visible = true;
                 lblDatoen.Text = DateOnly.FromDateTime((DateTime)client.SubEndDate).ToString();
                 lblPris.Visible = true;
+                lblPrisen.Text = client.SubPrice.ToString() + " kr.";
                 lblPrisen.Visible = true;
             }
             else

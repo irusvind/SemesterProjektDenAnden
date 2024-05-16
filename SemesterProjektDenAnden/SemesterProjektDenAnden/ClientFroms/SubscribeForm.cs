@@ -36,7 +36,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 if (result == DialogResult.Yes)
                 {
                     
-                    await UpdateSubscriber(12);
+                    await UpdateSubscriber(12, 5555);
                     this.Close();
                 }
 
@@ -47,7 +47,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 if (result == DialogResult.Yes)
                 {
 
-                    await UpdateSubscriber(6);
+                    await UpdateSubscriber(6, 3299);
                     this.Close();
                 }
             }
@@ -57,7 +57,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 if (result == DialogResult.Yes)
                 {
 
-                    await UpdateSubscriber(3);
+                    await UpdateSubscriber(3, 1749);
                     this.Close();
                 }
             }
@@ -67,7 +67,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 if (result == DialogResult.Yes)
                 {
 
-                    await UpdateSubscriber(1);
+                    await UpdateSubscriber(1, 999);
                     this.Close();
                 }
             }
@@ -77,40 +77,19 @@ namespace SemesterProjektDenAnden.ClientFroms
             }
         }
 
-        private async Task<bool> UpdateSubscriber(int months)
+        private async Task<bool> UpdateSubscriber(int months, int price)
         {
             Client updateClient = await clientBL.GetAsync(clientId);
             DateTime date = DateTime.Now.AddMonths(months);
             updateClient.Subscriber = true;
-            SubscriptionPrice();
             updateClient.SubEndDate = date;
+            updateClient.SubPrice = price;
             await clientBL.UpdateAsync(updateClient);
             MyPage myPage = new MyPage(clientMdi, clientId);
             clientMdi.FormOpener(myPage);
             return true;
         }
 
-        private async void SubscriptionPrice()
-        {
-            Client client = await clientBL.GetAsync(clientId);
-            if (CB1mdr.Checked)
-            {
-                client.SubPrice = 999;
-
-            }
-            else if (CB3mdr.Checked)
-            {
-                client.SubPrice = 1749;
-            }
-            else if (CB6mdr.Checked)
-            {
-                client.SubPrice = 3299;
-            }
-            else if (CB12mdr.Checked)
-            {
-                client.SubPrice = 5555;
-            }
-        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
