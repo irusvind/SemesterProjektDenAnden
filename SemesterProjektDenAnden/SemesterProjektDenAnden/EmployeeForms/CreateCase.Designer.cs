@@ -147,9 +147,9 @@
             label1.ForeColor = Color.Black;
             label1.Location = new Point(141, 189);
             label1.Name = "label1";
-            label1.Size = new Size(39, 18);
+            label1.Size = new Size(36, 18);
             label1.TabIndex = 15;
-            label1.Text = "label1";
+            label1.Text = "Titel";
             // 
             // label2
             // 
@@ -158,9 +158,9 @@
             label2.ForeColor = Color.Black;
             label2.Location = new Point(141, 228);
             label2.Name = "label2";
-            label2.Size = new Size(40, 18);
+            label2.Size = new Size(67, 18);
             label2.TabIndex = 16;
-            label2.Text = "label2";
+            label2.Text = "Employee";
             // 
             // label3
             // 
@@ -169,9 +169,10 @@
             label3.ForeColor = Color.Black;
             label3.Location = new Point(141, 340);
             label3.Name = "label3";
-            label3.Size = new Size(40, 18);
+            label3.Size = new Size(103, 18);
             label3.TabIndex = 17;
-            label3.Text = "label3";
+            label3.Text = "Forventer timer";
+            label3.Click += label3_Click;
             // 
             // label4
             // 
@@ -180,9 +181,9 @@
             label4.ForeColor = Color.Black;
             label4.Location = new Point(141, 380);
             label4.Name = "label4";
-            label4.Size = new Size(41, 18);
+            label4.Size = new Size(43, 18);
             label4.TabIndex = 18;
-            label4.Text = "label4";
+            label4.Text = "Klient";
             // 
             // label5
             // 
@@ -191,9 +192,9 @@
             label5.ForeColor = Color.Black;
             label5.Location = new Point(141, 421);
             label5.Name = "label5";
-            label5.Size = new Size(40, 18);
+            label5.Size = new Size(52, 18);
             label5.TabIndex = 19;
-            label5.Text = "label5";
+            label5.Text = "Service";
             // 
             // CreateCase
             // 
