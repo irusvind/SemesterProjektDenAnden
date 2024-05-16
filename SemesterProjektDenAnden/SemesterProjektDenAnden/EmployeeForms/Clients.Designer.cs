@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             clientsDgv = new DataGridView();
             clientsLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)clientsDgv).BeginInit();
@@ -37,7 +38,12 @@
             // 
             // clientsDgv
             // 
+            clientsDgv.AllowUserToAddRows = false;
+            clientsDgv.AllowUserToDeleteRows = false;
+            clientsDgv.AllowUserToResizeColumns = false;
+            clientsDgv.AllowUserToResizeRows = false;
             clientsDgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            clientsDgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             clientsDgv.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
@@ -57,12 +63,22 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             clientsDgv.DefaultCellStyle = dataGridViewCellStyle2;
             clientsDgv.EditMode = DataGridViewEditMode.EditProgrammatically;
-            clientsDgv.GridColor = Color.White;
+            clientsDgv.Enabled = false;
+            clientsDgv.EnableHeadersVisualStyles = false;
+            clientsDgv.GridColor = Color.DimGray;
             clientsDgv.Location = new Point(67, 145);
             clientsDgv.Name = "clientsDgv";
             clientsDgv.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Black;
+            dataGridViewCellStyle3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            clientsDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             clientsDgv.RowTemplate.Height = 25;
-            clientsDgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            clientsDgv.SelectionMode = DataGridViewSelectionMode.CellSelect;
             clientsDgv.Size = new Size(930, 370);
             clientsDgv.TabIndex = 4;
             clientsDgv.CellDoubleClick += clientsDgv_CellDoubleClick;
@@ -82,6 +98,7 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.White;
             ClientSize = new Size(1065, 655);
             Controls.Add(clientsDgv);
             Controls.Add(clientsLbl);

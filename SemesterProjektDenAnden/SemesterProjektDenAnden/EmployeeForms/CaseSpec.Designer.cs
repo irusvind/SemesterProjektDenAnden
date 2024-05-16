@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             sagsNavnNrLbl = new Label();
             ydelserDgv = new DataGridView();
             ydelserlbl = new Label();
@@ -42,7 +42,6 @@
             kmlbl = new Label();
             clientInfolbl = new Label();
             caseInfoLbl = new Label();
-            editCB = new ComboBox();
             startDataBox = new TextBox();
             clientPhoneBox = new TextBox();
             clientNamebox = new TextBox();
@@ -56,31 +55,36 @@
             EmployeeInfolbl = new Label();
             EmployeeNrLbl = new Label();
             advocatNameLbl = new Label();
+            updateBtn = new Button();
+            comboCaseYdelse = new ComboBox();
+            addServiceBtn = new Button();
+            trandDisc = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)ydelserDgv).BeginInit();
             SuspendLayout();
             // 
             // sagsNavnNrLbl
             // 
             sagsNavnNrLbl.AutoSize = true;
-            sagsNavnNrLbl.Font = new Font("High Tower Text", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            sagsNavnNrLbl.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Regular, GraphicsUnit.Point);
             sagsNavnNrLbl.ForeColor = Color.Black;
             sagsNavnNrLbl.Location = new Point(67, 61);
             sagsNavnNrLbl.Name = "sagsNavnNrLbl";
-            sagsNavnNrLbl.Size = new Size(277, 57);
+            sagsNavnNrLbl.Size = new Size(308, 55);
             sagsNavnNrLbl.TabIndex = 0;
             sagsNavnNrLbl.Text = "Sagsnavn nr.";
             // 
             // ydelserDgv
             // 
             ydelserDgv.BackgroundColor = Color.Black;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.Black;
-            dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            ydelserDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Black;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            ydelserDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             ydelserDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ydelserDgv.Location = new Point(83, 164);
             ydelserDgv.Name = "ydelserDgv";
@@ -92,28 +96,28 @@
             // 
             ydelserlbl.AutoSize = true;
             ydelserlbl.BackColor = Color.Transparent;
-            ydelserlbl.Font = new Font("High Tower Text", 16.125F, FontStyle.Regular, GraphicsUnit.Point);
+            ydelserlbl.Font = new Font("Microsoft Sans Serif", 16.125F, FontStyle.Regular, GraphicsUnit.Point);
             ydelserlbl.ForeColor = Color.Black;
             ydelserlbl.Location = new Point(83, 133);
             ydelserlbl.Name = "ydelserlbl";
-            ydelserlbl.Size = new Size(84, 26);
+            ydelserlbl.Size = new Size(87, 26);
             ydelserlbl.TabIndex = 2;
             ydelserlbl.Text = "Ydelser";
             // 
             // clientNamelbl
             // 
             clientNamelbl.AutoSize = true;
-            clientNamelbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            clientNamelbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             clientNamelbl.Location = new Point(612, 164);
             clientNamelbl.Name = "clientNamelbl";
-            clientNamelbl.Size = new Size(43, 18);
+            clientNamelbl.Size = new Size(44, 18);
             clientNamelbl.TabIndex = 3;
             clientNamelbl.Text = "Klient";
             // 
             // clientNrLbl
             // 
             clientNrLbl.AutoSize = true;
-            clientNrLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            clientNrLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             clientNrLbl.Location = new Point(612, 194);
             clientNrLbl.Name = "clientNrLbl";
             clientNrLbl.Size = new Size(59, 18);
@@ -123,91 +127,82 @@
             // clientMailLbl
             // 
             clientMailLbl.AutoSize = true;
-            clientMailLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            clientMailLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             clientMailLbl.Location = new Point(612, 224);
             clientMailLbl.Name = "clientMailLbl";
-            clientMailLbl.Size = new Size(70, 18);
+            clientMailLbl.Size = new Size(75, 18);
             clientMailLbl.TabIndex = 5;
             clientMailLbl.Text = "Klient mail";
             // 
             // StartDateLbl
             // 
             StartDateLbl.AutoSize = true;
-            StartDateLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            StartDateLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             StartDateLbl.Location = new Point(84, 391);
             StartDateLbl.Name = "StartDateLbl";
-            StartDateLbl.Size = new Size(65, 18);
+            StartDateLbl.Size = new Size(72, 18);
             StartDateLbl.TabIndex = 6;
             StartDateLbl.Text = "Start dato";
             // 
             // expectedHoursLbl
             // 
             expectedHoursLbl.AutoSize = true;
-            expectedHoursLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            expectedHoursLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             expectedHoursLbl.Location = new Point(84, 418);
             expectedHoursLbl.Name = "expectedHoursLbl";
-            expectedHoursLbl.Size = new Size(141, 18);
+            expectedHoursLbl.Size = new Size(149, 18);
             expectedHoursLbl.TabIndex = 7;
             expectedHoursLbl.Text = "Forventet timeforbrug";
             // 
             // endDateLbl
             // 
             endDateLbl.AutoSize = true;
-            endDateLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            endDateLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             endDateLbl.Location = new Point(84, 448);
             endDateLbl.Name = "endDateLbl";
-            endDateLbl.Size = new Size(59, 18);
+            endDateLbl.Size = new Size(66, 18);
             endDateLbl.TabIndex = 8;
             endDateLbl.Text = "Slut dato";
             // 
             // UsedHoursLbl
             // 
             UsedHoursLbl.AutoSize = true;
-            UsedHoursLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            UsedHoursLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             UsedHoursLbl.Location = new Point(83, 478);
             UsedHoursLbl.Name = "UsedHoursLbl";
-            UsedHoursLbl.Size = new Size(160, 18);
+            UsedHoursLbl.Size = new Size(169, 18);
             UsedHoursLbl.TabIndex = 9;
             UsedHoursLbl.Text = "Akkumuleret timeforbrug";
             // 
             // kmlbl
             // 
             kmlbl.AutoSize = true;
-            kmlbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            kmlbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             kmlbl.Location = new Point(84, 508);
             kmlbl.Name = "kmlbl";
-            kmlbl.Size = new Size(104, 18);
+            kmlbl.Size = new Size(109, 18);
             kmlbl.TabIndex = 10;
             kmlbl.Text = "Kørte kilometer";
             // 
             // clientInfolbl
             // 
             clientInfolbl.AutoSize = true;
-            clientInfolbl.Font = new Font("High Tower Text", 16.125F, FontStyle.Regular, GraphicsUnit.Point);
+            clientInfolbl.Font = new Font("Microsoft Sans Serif", 16.125F, FontStyle.Regular, GraphicsUnit.Point);
             clientInfolbl.Location = new Point(612, 131);
             clientInfolbl.Name = "clientInfolbl";
-            clientInfolbl.Size = new Size(111, 26);
+            clientInfolbl.Size = new Size(108, 26);
             clientInfolbl.TabIndex = 11;
             clientInfolbl.Text = "Klient info";
             // 
             // caseInfoLbl
             // 
             caseInfoLbl.AutoSize = true;
-            caseInfoLbl.Font = new Font("High Tower Text", 16.125F, FontStyle.Regular, GraphicsUnit.Point);
+            caseInfoLbl.Font = new Font("Microsoft Sans Serif", 16.125F, FontStyle.Regular, GraphicsUnit.Point);
             caseInfoLbl.Location = new Point(83, 357);
             caseInfoLbl.Name = "caseInfoLbl";
-            caseInfoLbl.Size = new Size(97, 26);
+            caseInfoLbl.Size = new Size(103, 26);
             caseInfoLbl.TabIndex = 12;
             caseInfoLbl.Text = "Sags info";
-            // 
-            // editCB
-            // 
-            editCB.FormattingEnabled = true;
-            editCB.Location = new Point(259, 544);
-            editCB.Name = "editCB";
-            editCB.Size = new Size(196, 24);
-            editCB.TabIndex = 13;
-            editCB.Text = "Rediger";
             // 
             // startDataBox
             // 
@@ -282,7 +277,7 @@
             // EmployeeInfolbl
             // 
             EmployeeInfolbl.AutoSize = true;
-            EmployeeInfolbl.Font = new Font("High Tower Text", 16.125F, FontStyle.Regular, GraphicsUnit.Point);
+            EmployeeInfolbl.Font = new Font("Microsoft Sans Serif", 16.125F, FontStyle.Regular, GraphicsUnit.Point);
             EmployeeInfolbl.Location = new Point(612, 357);
             EmployeeInfolbl.Name = "EmployeeInfolbl";
             EmployeeInfolbl.Size = new Size(132, 26);
@@ -292,22 +287,66 @@
             // EmployeeNrLbl
             // 
             EmployeeNrLbl.AutoSize = true;
-            EmployeeNrLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            EmployeeNrLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             EmployeeNrLbl.Location = new Point(612, 418);
             EmployeeNrLbl.Name = "EmployeeNrLbl";
-            EmployeeNrLbl.Size = new Size(107, 18);
+            EmployeeNrLbl.Size = new Size(111, 18);
             EmployeeNrLbl.TabIndex = 23;
             EmployeeNrLbl.Text = "Medarbejder nr.";
             // 
             // advocatNameLbl
             // 
             advocatNameLbl.AutoSize = true;
-            advocatNameLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            advocatNameLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             advocatNameLbl.Location = new Point(612, 388);
             advocatNameLbl.Name = "advocatNameLbl";
-            advocatNameLbl.Size = new Size(58, 18);
+            advocatNameLbl.Size = new Size(61, 18);
             advocatNameLbl.TabIndex = 22;
             advocatNameLbl.Text = "Advokat";
+            // 
+            // updateBtn
+            // 
+            updateBtn.Location = new Point(259, 576);
+            updateBtn.Name = "updateBtn";
+            updateBtn.Size = new Size(75, 28);
+            updateBtn.TabIndex = 28;
+            updateBtn.Text = "Opdater";
+            updateBtn.UseVisualStyleBackColor = true;
+            updateBtn.Click += updateBtn_Click;
+            // 
+            // comboCaseYdelse
+            // 
+            comboCaseYdelse.FormattingEnabled = true;
+            comboCaseYdelse.Location = new Point(259, 320);
+            comboCaseYdelse.Name = "comboCaseYdelse";
+            comboCaseYdelse.Size = new Size(121, 25);
+            comboCaseYdelse.TabIndex = 29;
+            // 
+            // addServiceBtn
+            // 
+            addServiceBtn.Location = new Point(386, 322);
+            addServiceBtn.Name = "addServiceBtn";
+            addServiceBtn.Size = new Size(75, 23);
+            addServiceBtn.TabIndex = 30;
+            addServiceBtn.Text = "Tiltøj";
+            addServiceBtn.UseVisualStyleBackColor = true;
+            addServiceBtn.Click += addServiceBtn_Click;
+            // 
+            // trandDisc
+            // 
+            trandDisc.Location = new Point(259, 535);
+            trandDisc.Name = "trandDisc";
+            trandDisc.Size = new Size(196, 24);
+            trandDisc.TabIndex = 31;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(84, 538);
+            label1.Name = "label1";
+            label1.Size = new Size(137, 18);
+            label1.TabIndex = 32;
+            label1.Text = "Kørsels beskrivelse";
             // 
             // CaseSpec
             // 
@@ -315,6 +354,11 @@
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
             ClientSize = new Size(1065, 655);
+            Controls.Add(label1);
+            Controls.Add(trandDisc);
+            Controls.Add(addServiceBtn);
+            Controls.Add(comboCaseYdelse);
+            Controls.Add(updateBtn);
             Controls.Add(employeeNameBox);
             Controls.Add(employeeIdBox);
             Controls.Add(EmployeeInfolbl);
@@ -328,7 +372,6 @@
             Controls.Add(clientNamebox);
             Controls.Add(clientPhoneBox);
             Controls.Add(startDataBox);
-            Controls.Add(editCB);
             Controls.Add(caseInfoLbl);
             Controls.Add(clientInfolbl);
             Controls.Add(kmlbl);
@@ -342,7 +385,7 @@
             Controls.Add(ydelserlbl);
             Controls.Add(ydelserDgv);
             Controls.Add(sagsNavnNrLbl);
-            Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
             Name = "CaseSpec";
             Text = "CaseSpec";
@@ -366,7 +409,6 @@
         private Label kmlbl;
         private Label clientInfolbl;
         private Label caseInfoLbl;
-        private ComboBox editCB;
         private TextBox startDataBox;
         private TextBox clientPhoneBox;
         private TextBox clientNamebox;
@@ -382,5 +424,10 @@
         private Label label2;
         private Label EmployeeNrLbl;
         private Label advocatNameLbl;
+        private Button updateBtn;
+        private ComboBox comboCaseYdelse;
+        private Button addServiceBtn;
+        private TextBox trandDisc;
+        private Label label1;
     }
 }

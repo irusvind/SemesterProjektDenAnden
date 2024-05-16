@@ -1,4 +1,5 @@
-﻿using SemesterProjektDenAnden.EmployeeForms;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using SemesterProjektDenAnden.EmployeeForms;
 using SemesterProjektDenAnden.Tools;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         public bool Formular1Bought = false;
         public bool Formular2Bought = false;
 
+        string path = "Åbne liste.pdf"; 
 
         public ClientMDI(int clientId)
         {
@@ -105,6 +107,9 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void clientHelpBtn_Click(object sender, EventArgs e)
         {
+            //File.Open(path, FileMode.Open);
+
+            //System.Diagnostics.Process.Start(path);
 
         }
 

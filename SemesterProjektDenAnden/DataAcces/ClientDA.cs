@@ -17,7 +17,7 @@ namespace DataAcces
         }
         public async Task<bool> CreateAsync(Client newClient)
         {
-            string command = "INSERT INTO CLIENT VALUES(@ClFirstName, @ClLastName, @ClPhone, @ClMail, @ClAddress, @Subscriber)";
+            string command = "INSERT INTO CLIENT VALUES(@ClFirstName, @ClLastName, @ClPhone, @ClMail, @ClAddress, @Subscriber, @SubEndDate)";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -27,6 +27,14 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@ClMail", newClient.Mail);
             sqlCommand.Parameters.AddWithValue("@ClAddress", newClient.ClAddress);
             sqlCommand.Parameters.AddWithValue("@Subscriber", newClient.Subscriber);
+            if (newClient.SubEndDate == null)
+            {
+                sqlCommand.Parameters.AddWithValue("@SubEndDate", DBNull.Value);
+            }
+            else
+            {
+                sqlCommand.Parameters.AddWithValue("@SubEndDate", newClient.SubEndDate);
+            }
             try
             {
                 await dbConn.OpenAsync();
@@ -96,6 +104,13 @@ namespace DataAcces
                     newClient.Mail = (string)reader["ClMail"];
                     newClient.ClAddress = (string)reader["CLAddress"];
                     newClient.Subscriber = (bool)reader["Subscriber"];
+                    string? date = (string?)reader["SubEndDate"].ToString();
+                    if (string.IsNullOrEmpty(date))
+                    {
+                        date = "";
+                    }
+                    else
+                    { newClient.SubEndDate = DateTime.Parse(date); }
 
                     return newClient;
 
@@ -132,6 +147,13 @@ namespace DataAcces
                     newClient.Mail = (string)reader["ClMail"];
                     newClient.ClAddress = (string)reader["CLAddress"];
                     newClient.Subscriber = (bool)reader["Subscriber"];
+                    string? date = (string?)reader["SubEndDate"].ToString();
+                    if (string.IsNullOrEmpty(date))
+                    {
+                        date = "";
+                    }
+                    else
+                    { newClient.SubEndDate = DateTime.Parse(date); }
                     newClientList.Add(newClient);
 
                 }
@@ -147,6 +169,7 @@ namespace DataAcces
             }
         }
 
+
         public async Task<bool> UpdateAsync(Client newClient)
         {
             string command = "UPDATE CLIENT SET " +
@@ -155,7 +178,8 @@ namespace DataAcces
                 "ClPhone = @ClPhone, " +
                 "ClMail = @ClMail, " +
                 "CLAddress = @CLAddress, " +
-                "Subscriber = @Subscriber " +
+                "Subscriber = @Subscriber, " +
+                "SubEndDate = @SubEndDate " +
                 "WHERE ClientID = @ClientId ";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
@@ -166,6 +190,14 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@ClMail", newClient.Mail);
             sqlCommand.Parameters.AddWithValue("@ClAddress", newClient.ClAddress);
             sqlCommand.Parameters.AddWithValue("@Subscriber", newClient.Subscriber);
+            if(newClient.SubEndDate == null)
+            {
+                sqlCommand.Parameters.AddWithValue("@SubEndDate", DBNull.Value);
+            } 
+            else 
+            { 
+                sqlCommand.Parameters.AddWithValue("@SubEndDate", newClient.SubEndDate); 
+            }
             sqlCommand.Parameters.AddWithValue("@ClientId", newClient.ClientId);
             try
             {

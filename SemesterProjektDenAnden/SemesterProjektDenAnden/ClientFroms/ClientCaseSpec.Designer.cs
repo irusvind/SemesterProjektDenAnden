@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             textBox10 = new TextBox();
             textBox11 = new TextBox();
             EmployeeInfolbl = new Label();
@@ -244,8 +246,25 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             ydelserDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             ydelserDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Black;
+            dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            ydelserDgv.DefaultCellStyle = dataGridViewCellStyle2;
             ydelserDgv.Location = new Point(104, 158);
             ydelserDgv.Name = "ydelserDgv";
+            ydelserDgv.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Black;
+            dataGridViewCellStyle3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            ydelserDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             ydelserDgv.RowTemplate.Height = 25;
             ydelserDgv.Size = new Size(372, 150);
             ydelserDgv.TabIndex = 29;

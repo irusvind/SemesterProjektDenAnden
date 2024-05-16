@@ -133,7 +133,7 @@ namespace DataAcces
         {
             string command = "UPDATE CLIENT SET" +
                              "CourseName = @CourseName" +
-                             "WEHERE CourseId = @CourseId";
+                             "WHERE CourseId = @CourseId";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);

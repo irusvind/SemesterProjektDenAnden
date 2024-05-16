@@ -27,7 +27,10 @@ namespace Models
         public int EstHours { get; set; }
 
         [Required]
-        public bool IsClosed { get; set; }
+        public int UsedHours { get; set; }
+
+        [Required]
+        public bool Done { get; set; }
 
 
         [Required]

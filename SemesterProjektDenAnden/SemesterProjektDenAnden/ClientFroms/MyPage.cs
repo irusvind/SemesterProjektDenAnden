@@ -19,6 +19,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         ClientBL clientBL;
         Client client;
         ClientMDI clientMdi;
+        SubscribeForm subscribeForm;
         int clientId;
         public MyPage(ClientMDI clientMdi, int clientId)
         {
@@ -28,6 +29,7 @@ namespace SemesterProjektDenAnden.ClientFroms
             GetClientData(clientId);
             this.clientMdi = clientMdi;
             this.clientId = clientId;
+            
 
         }
 
@@ -43,11 +45,21 @@ namespace SemesterProjektDenAnden.ClientFroms
             {
                 SubscribtionStatusLbl.Text = "Abonnent";
                 SubscribeBtn.Text = "Opsig abonnement";
+                lblDato.Visible = true;
+                lblDatoen.Visible = true;
+                lblDatoen.Text = client.SubEndDate.ToString();
+                lblPris.Visible = true;
+                lblPrisen.Visible = true;
             }
             else
             {
                 SubscribtionStatusLbl.Text = "Ikke abonnent";
                 SubscribeBtn.Text = "Start abonnement";
+                lblDato.Visible = false;
+                lblDatoen.Visible = false;
+                
+                lblPris.Visible = false;
+                lblPrisen.Visible = false;
             }
         }
 
@@ -97,6 +109,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 if (result == DialogResult.Yes)
                 {
                     updateClient.Subscriber = false;
+                    updateClient.SubEndDate = null;
                     await clientBL.UpdateAsync(updateClient);
                     MyPage newMyPage = new MyPage(clientMdi, clientId);
                     clientMdi.FormOpener(newMyPage);
@@ -105,17 +118,11 @@ namespace SemesterProjektDenAnden.ClientFroms
             }
             else
             {
-                DialogResult result = MessageBox.Show("Velkommen til LawHouse!\nTryk ja for at acceptere dit abonnement?", "Start Abonnement", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    updateClient.Subscriber = true;
-                    await clientBL.UpdateAsync(updateClient);
-                    MyPage newMyPage = new MyPage(clientMdi, clientId);
-                    clientMdi.FormOpener(newMyPage);
-                }
+                subscribeForm = new SubscribeForm(clientMdi, clientId);
+                subscribeForm.ShowDialog();
+
+
             }
-
-
         }
     }
 }

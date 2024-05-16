@@ -43,6 +43,10 @@
             AddressTxt = new TextBox();
             label7 = new Label();
             SubscribtionStatusLbl = new Label();
+            lblPris = new Label();
+            lblDato = new Label();
+            lblDatoen = new Label();
+            lblPrisen = new Label();
             SuspendLayout();
             // 
             // label1
@@ -107,14 +111,13 @@
             // 
             // SubscribeBtn
             // 
-            SubscribeBtn.AutoSize = true;
             SubscribeBtn.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             SubscribeBtn.BackColor = Color.Black;
             SubscribeBtn.Font = new Font("High Tower Text", 12F, FontStyle.Regular, GraphicsUnit.Point);
             SubscribeBtn.ForeColor = Color.White;
-            SubscribeBtn.Location = new Point(552, 215);
+            SubscribeBtn.Location = new Point(771, 496);
             SubscribeBtn.Name = "SubscribeBtn";
-            SubscribeBtn.Size = new Size(101, 29);
+            SubscribeBtn.Size = new Size(160, 38);
             SubscribeBtn.TabIndex = 6;
             SubscribeBtn.Text = "PlaceHolder";
             SubscribeBtn.UseVisualStyleBackColor = false;
@@ -194,11 +197,55 @@
             SubscribtionStatusLbl.TabIndex = 14;
             SubscribtionStatusLbl.Text = "Status";
             // 
+            // lblPris
+            // 
+            lblPris.AutoSize = true;
+            lblPris.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPris.Location = new Point(552, 224);
+            lblPris.Name = "lblPris";
+            lblPris.Size = new Size(112, 18);
+            lblPris.TabIndex = 15;
+            lblPris.Text = "Abonnementspris";
+            // 
+            // lblDato
+            // 
+            lblDato.AutoSize = true;
+            lblDato.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDato.Location = new Point(552, 264);
+            lblDato.Name = "lblDato";
+            lblDato.Size = new Size(76, 18);
+            lblDato.TabIndex = 16;
+            lblDato.Text = "Udløbsdato";
+            // 
+            // lblDatoen
+            // 
+            lblDatoen.AutoSize = true;
+            lblDatoen.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDatoen.Location = new Point(698, 267);
+            lblDatoen.Name = "lblDatoen";
+            lblDatoen.Size = new Size(106, 18);
+            lblDatoen.TabIndex = 17;
+            lblDatoen.Text = "YYYY.MM.DD";
+            // 
+            // lblPrisen
+            // 
+            lblPrisen.AutoSize = true;
+            lblPrisen.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPrisen.Location = new Point(698, 224);
+            lblPrisen.Name = "lblPrisen";
+            lblPrisen.Size = new Size(33, 18);
+            lblPrisen.TabIndex = 18;
+            lblPrisen.Text = " kr. ";
+            // 
             // MyPage
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1065, 655);
+            Controls.Add(lblPrisen);
+            Controls.Add(lblDatoen);
+            Controls.Add(lblDato);
+            Controls.Add(lblPris);
             Controls.Add(SubscribtionStatusLbl);
             Controls.Add(label7);
             Controls.Add(AddressTxt);
@@ -239,5 +286,9 @@
         private TextBox AddressTxt;
         private Label label7;
         private Label SubscribtionStatusLbl;
+        private Label lblPris;
+        private Label lblDato;
+        private Label lblDatoen;
+        private Label lblPrisen;
     }
 }
