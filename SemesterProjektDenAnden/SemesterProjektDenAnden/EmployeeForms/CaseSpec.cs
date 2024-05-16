@@ -109,6 +109,8 @@ namespace SemesterProjektDenAnden.EmployeeForms
             string[] idString = comboCaseYdelse.Items[comboCaseYdelse.SelectedIndex].ToString().Split(':');
             int id = int.Parse(idString[0]);
             serviceBL.UpdateAsync(id, caseId);
+            ServincesDGVData();
+
         }
 
         private async void ServincesDGVData()
