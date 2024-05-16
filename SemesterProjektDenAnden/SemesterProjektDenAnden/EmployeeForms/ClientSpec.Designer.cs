@@ -45,6 +45,7 @@
             clientIdTxt = new TextBox();
             ClientNrLbl = new Label();
             clientDeleteBtn = new Button();
+            updateClientbtn = new Button();
             ((System.ComponentModel.ISupportInitialize)clientCasesDGV).BeginInit();
             SuspendLayout();
             // 
@@ -210,7 +211,7 @@
             clientDeleteBtn.BackColor = Color.Black;
             clientDeleteBtn.Font = new Font("High Tower Text", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             clientDeleteBtn.ForeColor = Color.White;
-            clientDeleteBtn.Location = new Point(283, 381);
+            clientDeleteBtn.Location = new Point(283, 415);
             clientDeleteBtn.Name = "clientDeleteBtn";
             clientDeleteBtn.Size = new Size(131, 30);
             clientDeleteBtn.TabIndex = 28;
@@ -218,12 +219,25 @@
             clientDeleteBtn.UseVisualStyleBackColor = false;
             clientDeleteBtn.Click += clientDeleteBtn_Click;
             // 
+            // updateClientbtn
+            // 
+            updateClientbtn.BackColor = Color.Black;
+            updateClientbtn.Font = new Font("High Tower Text", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            updateClientbtn.ForeColor = Color.White;
+            updateClientbtn.Location = new Point(283, 379);
+            updateClientbtn.Name = "updateClientbtn";
+            updateClientbtn.Size = new Size(131, 30);
+            updateClientbtn.TabIndex = 29;
+            updateClientbtn.Text = "Opdater klient";
+            updateClientbtn.UseVisualStyleBackColor = false;
+            // 
             // ClientSpec
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
             ClientSize = new Size(1065, 655);
+            Controls.Add(updateClientbtn);
             Controls.Add(clientDeleteBtn);
             Controls.Add(clientMailTxt);
             Controls.Add(nameLbl);
@@ -262,5 +276,6 @@
         private TextBox clientIdTxt;
         private Label ClientNrLbl;
         private Button clientDeleteBtn;
+        private Button updateClientbtn;
     }
 }
