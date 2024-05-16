@@ -35,8 +35,8 @@ namespace SemesterProjektDenAnden.ClientFroms
                 DialogResult result = MessageBox.Show("Velkommen til LawHouse!\nTryk ja for at acceptere dit abonnement på 12 måneder.", "Start Abonnement", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    //Kunne godt være en metode for sig selv, det samme med alle dem nedenunder
-                    UpdateSubscriber(12);
+                    
+                    await UpdateSubscriber(12);
                     this.Close();
                 }
 
@@ -47,7 +47,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 if (result == DialogResult.Yes)
                 {
 
-                    UpdateSubscriber(6);
+                    await UpdateSubscriber(6);
                     this.Close();
                 }
             }
@@ -57,7 +57,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 if (result == DialogResult.Yes)
                 {
 
-                    UpdateSubscriber(3);
+                    await UpdateSubscriber(3);
                     this.Close();
                 }
             }
@@ -67,7 +67,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 if (result == DialogResult.Yes)
                 {
 
-                    UpdateSubscriber(1);
+                    await UpdateSubscriber(1);
                     this.Close();
                 }
             }
@@ -77,15 +77,39 @@ namespace SemesterProjektDenAnden.ClientFroms
             }
         }
 
-        private async void UpdateSubscriber(int months)
+        private async Task<bool> UpdateSubscriber(int months)
         {
             Client updateClient = await clientBL.GetAsync(clientId);
-            DateTime date = DateTime.Now;
+            DateTime date = DateTime.Now.AddMonths(months);
             updateClient.Subscriber = true;
-            updateClient.SubEndDate = date.AddMonths(12);
+            SubscriptionPrice();
+            updateClient.SubEndDate = date;
             await clientBL.UpdateAsync(updateClient);
             MyPage myPage = new MyPage(clientMdi, clientId);
             clientMdi.FormOpener(myPage);
+            return true;
+        }
+
+        private async void SubscriptionPrice()
+        {
+            Client client = await clientBL.GetAsync(clientId);
+            if (CB1mdr.Checked)
+            {
+                client.SubPrice = 999;
+
+            }
+            else if (CB3mdr.Checked)
+            {
+                client.SubPrice = 1749;
+            }
+            else if (CB6mdr.Checked)
+            {
+                client.SubPrice = 3299;
+            }
+            else if (CB12mdr.Checked)
+            {
+                client.SubPrice = 5555;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

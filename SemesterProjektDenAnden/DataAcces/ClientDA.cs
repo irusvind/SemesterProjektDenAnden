@@ -105,6 +105,7 @@ namespace DataAcces
                     newClient.ClAddress = (string)reader["CLAddress"];
                     newClient.Subscriber = (bool)reader["Subscriber"];
                     string? date = (string?)reader["SubEndDate"].ToString();
+                    newClient.SubPrice = (int?)reader["SubPrice"];
                     if (string.IsNullOrEmpty(date))
                     {
                         date = "";
@@ -148,6 +149,7 @@ namespace DataAcces
                     newClient.ClAddress = (string)reader["CLAddress"];
                     newClient.Subscriber = (bool)reader["Subscriber"];
                     string? date = (string?)reader["SubEndDate"].ToString();
+                    int? price = newClient.SubPrice = (int?)reader["SubPrice"];
                     if (string.IsNullOrEmpty(date))
                     {
                         date = "";
@@ -155,6 +157,8 @@ namespace DataAcces
                     else
                     { newClient.SubEndDate = DateTime.Parse(date); }
                     newClientList.Add(newClient);
+
+                    if ()
 
                 }
                 return newClientList;
@@ -179,7 +183,8 @@ namespace DataAcces
                 "ClMail = @ClMail, " +
                 "CLAddress = @CLAddress, " +
                 "Subscriber = @Subscriber, " +
-                "SubEndDate = @SubEndDate " +
+                "SubEndDate = @SubEndDate, " +
+                "SubPrice = @SubPrice"  +
                 "WHERE ClientID = @ClientId ";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
@@ -196,7 +201,8 @@ namespace DataAcces
             } 
             else 
             { 
-                sqlCommand.Parameters.AddWithValue("@SubEndDate", newClient.SubEndDate); 
+                sqlCommand.Parameters.AddWithValue("@SubEndDate", newClient.SubEndDate);
+                sqlCommand.Parameters.AddWithValue("@SubPrice", newClient.SubPrice);
             }
             sqlCommand.Parameters.AddWithValue("@ClientId", newClient.ClientId);
             try
