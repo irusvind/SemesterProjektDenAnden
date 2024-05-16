@@ -87,7 +87,7 @@
             clientsLbl.AutoSize = true;
             clientsLbl.Font = new Font("High Tower Text", 36F, FontStyle.Regular, GraphicsUnit.Point);
             clientsLbl.ForeColor = Color.Black;
-            clientsLbl.Location = new Point(67, 61);
+            clientsLbl.Location = new Point(65, 67);
             clientsLbl.Name = "clientsLbl";
             clientsLbl.Size = new Size(187, 57);
             clientsLbl.TabIndex = 3;

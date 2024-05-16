@@ -48,7 +48,7 @@
             // 
             lblCourses.AutoSize = true;
             lblCourses.Font = new Font("High Tower Text", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            lblCourses.Location = new Point(86, 56);
+            lblCourses.Location = new Point(65, 67);
             lblCourses.Name = "lblCourses";
             lblCourses.Size = new Size(160, 57);
             lblCourses.TabIndex = 0;

@@ -53,6 +53,7 @@
             casesDgv.AllowUserToDeleteRows = false;
             casesDgv.AllowUserToResizeColumns = false;
             casesDgv.AllowUserToResizeRows = false;
+            casesDgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             casesDgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             casesDgv.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -72,7 +73,7 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             casesDgv.DefaultCellStyle = dataGridViewCellStyle2;
-            casesDgv.Enabled = false;
+            casesDgv.EditMode = DataGridViewEditMode.EditProgrammatically;
             casesDgv.EnableHeadersVisualStyles = false;
             casesDgv.GridColor = Color.DimGray;
             casesDgv.Location = new Point(65, 166);

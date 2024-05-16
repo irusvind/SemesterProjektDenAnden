@@ -210,9 +210,9 @@
             clientDeleteBtn.BackColor = Color.Black;
             clientDeleteBtn.Font = new Font("High Tower Text", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             clientDeleteBtn.ForeColor = Color.White;
-            clientDeleteBtn.Location = new Point(315, 405);
+            clientDeleteBtn.Location = new Point(283, 381);
             clientDeleteBtn.Name = "clientDeleteBtn";
-            clientDeleteBtn.Size = new Size(99, 29);
+            clientDeleteBtn.Size = new Size(131, 30);
             clientDeleteBtn.TabIndex = 28;
             clientDeleteBtn.Text = "Slet klient";
             clientDeleteBtn.UseVisualStyleBackColor = false;
