@@ -34,7 +34,6 @@
             paymentPYearBox = new TextBox();
             calBtn = new Button();
             yearsBox = new TextBox();
-            clearBtn = new Button();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -104,15 +103,6 @@
             yearsBox.Size = new Size(100, 23);
             yearsBox.TabIndex = 5;
             // 
-            // clearBtn
-            // 
-            clearBtn.Location = new Point(372, 329);
-            clearBtn.Name = "clearBtn";
-            clearBtn.Size = new Size(75, 23);
-            clearBtn.TabIndex = 6;
-            clearBtn.Text = "button2";
-            clearBtn.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -173,18 +163,17 @@
             paymentAmount.AutoSize = true;
             paymentAmount.Location = new Point(383, 379);
             paymentAmount.Name = "paymentAmount";
-            paymentAmount.Size = new Size(38, 15);
+            paymentAmount.Size = new Size(0, 15);
             paymentAmount.TabIndex = 13;
-            paymentAmount.Text = "label8";
+            paymentAmount.Click += paymentAmount_Click;
             // 
             // paymentPYear
             // 
             paymentPYear.AutoSize = true;
             paymentPYear.Location = new Point(383, 414);
             paymentPYear.Name = "paymentPYear";
-            paymentPYear.Size = new Size(38, 15);
+            paymentPYear.Size = new Size(0, 15);
             paymentPYear.TabIndex = 14;
-            paymentPYear.Text = "label9";
             // 
             // Calculator
             // 
@@ -200,7 +189,6 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(clearBtn);
             Controls.Add(yearsBox);
             Controls.Add(calBtn);
             Controls.Add(paymentPYearBox);
@@ -223,7 +211,6 @@
         private TextBox paymentPYearBox;
         private Button calBtn;
         private TextBox yearsBox;
-        private Button clearBtn;
         private Label label2;
         private Label label3;
         private Label label4;

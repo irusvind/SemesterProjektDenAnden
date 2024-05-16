@@ -21,7 +21,7 @@ namespace SemesterProjektDenAnden.Tools
         private void button1_Click(object sender, EventArgs e)
         {
             int G = int.Parse(sizeBox.Text);
-            double r = Convert.ToDouble(rateBox.Text)/100;
+            double r = Convert.ToDouble(rateBox.Text) / 100;
             int perYear = int.Parse(paymentPYearBox.Text);
             int amountYear = int.Parse(yearsBox.Text);
             double n = perYear * amountYear;
@@ -33,14 +33,19 @@ namespace SemesterProjektDenAnden.Tools
 
             //temp = G * r / (1 - (1 + r));
 
-            temp = Math.Pow(temp2,  n);
+            temp = Math.Pow(temp2, n);
 
-            amountpyear = G * (r / (1+temp));
+            amountpyear = G * (r / (1 + temp));
 
             paymentAmount.Text = amountpyear.ToString();
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void paymentAmount_Click(object sender, EventArgs e)
         {
 
         }

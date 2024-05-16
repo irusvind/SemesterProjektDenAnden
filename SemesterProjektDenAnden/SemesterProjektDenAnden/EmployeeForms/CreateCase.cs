@@ -1,6 +1,7 @@
 ﻿using BusinessLogic;
 using BusinessLogic.BLInterfaces;
 using DataAcces;
+using DataAcces.DAInterfaces;
 using Models;
 using SemesterProjektDenAnden.ClientFroms;
 using SemesterProjektDenAnden.Tools;
@@ -44,7 +45,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             List<Client> clients = await ClientBL.GetAllAsync();
             foreach (Client client in clients)
             {
-                clientBox.Items.Add(client.ClientId);
+                clientBox.Items.Add(client.ClientId + "" + client.FirstName);
             }
         }
 
@@ -53,7 +54,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             List<Employee> employees = await EmployeeBL.GetAllAsync();
             foreach (Employee employee in employees)
             {
-                employeeBox.Items.Add(employee.Id);
+                employeeBox.Items.Add(employee.Id + "" + employee.FirstName);
             }
         }
 
@@ -62,7 +63,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             List<Service> services = await ServiceBL.GetAllAsync();
             foreach (Service service in services)
             {
-                serviceBox.Items.Add(service.ServiceId);
+                serviceBox.Items.Add(service.ServiceId + "" + service.ServiceName);
             }
         }
 
@@ -75,7 +76,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 if (result == DialogResult.Yes)
                 {
 
-                    
+
                     Case newCase = new Case();
                     newCase.CaseTitle = workTitel.Text;
                     newCase.StartDate = startDateCal.SelectionStart;
@@ -86,7 +87,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                     string employeeId = employeeBox.Text;
                     newCase.EmployeeId = int.Parse(employeeId);
                     newCase.Done = false;
-                    
+
 
                     var context = new ValidationContext(newCase, serviceProvider: null, items: null);
                     bool isValid = Validator.TryValidateObject(newCase, context, null, true);
@@ -106,7 +107,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                     }
                     else { MessageBox.Show("Fejl: Bruger ikke oprettet", " info ikke valid"); };
 
-                    
+
 
 
 
@@ -114,5 +115,10 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
             }
         }
-    } 
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
