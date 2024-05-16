@@ -78,13 +78,7 @@
             // 
             // ydelserDgv
             // 
-            ydelserDgv.AllowUserToAddRows = false;
-            ydelserDgv.AllowUserToDeleteRows = false;
-            ydelserDgv.AllowUserToResizeColumns = false;
-            ydelserDgv.AllowUserToResizeRows = false;
-            ydelserDgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            ydelserDgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            ydelserDgv.BackgroundColor = Color.Black;
+
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
             dataGridViewCellStyle1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -92,8 +86,7 @@
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            ydelserDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            ydelserDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.Black;
             dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -101,12 +94,7 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            ydelserDgv.DefaultCellStyle = dataGridViewCellStyle2;
-            ydelserDgv.EditMode = DataGridViewEditMode.EditProgrammatically;
-            ydelserDgv.EnableHeadersVisualStyles = false;
-            ydelserDgv.GridColor = Color.DimGray;
-            ydelserDgv.Location = new Point(83, 164);
-            ydelserDgv.Name = "ydelserDgv";
+
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.Black;
             dataGridViewCellStyle3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -114,11 +102,7 @@
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            ydelserDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            ydelserDgv.RowTemplate.Height = 25;
-            ydelserDgv.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            ydelserDgv.Size = new Size(372, 150);
-            ydelserDgv.TabIndex = 1;
+
             // 
             // ydelserlbl
             // 
@@ -375,7 +359,7 @@
             addServiceBtn.TabIndex = 30;
             addServiceBtn.Text = "Tilføj";
             addServiceBtn.UseVisualStyleBackColor = false;
-            addServiceBtn.Click += addServiceBtn_Click;
+            addServiceBtn.Click += AddServiceBtn_Click;
             // 
             // trandDisc
             // 
