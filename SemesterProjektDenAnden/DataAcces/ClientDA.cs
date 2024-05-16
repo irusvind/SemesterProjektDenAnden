@@ -158,7 +158,11 @@ namespace DataAcces
                     { newClient.SubEndDate = DateTime.Parse(date); }
                     newClientList.Add(newClient);
 
-                    if ()
+                    if (price = null)
+                    {
+
+
+                    }
 
                 }
                 return newClientList;
