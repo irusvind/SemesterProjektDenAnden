@@ -37,5 +37,24 @@ namespace SemesterProjektDenAnden.ClientFroms
             caseSource.DataSource = clientCases;
             casesDgv.DataSource = caseSource;
         }
+
+        private void casesDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            {
+                DataGridView dgv = (DataGridView)sender;
+
+                int row = e.RowIndex;
+                if (row >= 0)
+                {
+                    DataGridViewRow temp = dgv.Rows[row];
+
+                    int id = (int)temp.Cells[0].Value;
+
+                    ClientCaseSpec caseSpec = new ClientCaseSpec(clientMdi, id);
+                    clientMdi.FormOpener(caseSpec);
+                }
+
+            }
+        }
     }
 }
