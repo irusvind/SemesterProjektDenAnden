@@ -185,9 +185,9 @@
             sagerLbl.ForeColor = Color.Black;
             sagerLbl.Location = new Point(65, 67);
             sagerLbl.Name = "sagerLbl";
-            sagerLbl.Size = new Size(136, 57);
+            sagerLbl.Size = new Size(295, 57);
             sagerLbl.TabIndex = 15;
-            sagerLbl.Text = "Sager";
+            sagerLbl.Text = "Låneberegner";
             // 
             // descrptLbl
             // 
