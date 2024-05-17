@@ -234,6 +234,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "ClientSignUp";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ClientSignUp";
             FormClosing += ClientSignUp_FormClosing;
             ResumeLayout(false);

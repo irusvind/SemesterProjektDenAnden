@@ -19,7 +19,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
         ClientBL clientBl = new ClientBL();
         CaseBL caseBL = new CaseBL();
         EmployeeMdi employeeMdi;
-        public ClientSpec(EmployeeMdi employeeMdi,int clientId)
+        public ClientSpec(EmployeeMdi employeeMdi, int clientId)
         {
             InitializeComponent();
 
@@ -63,7 +63,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             DialogResult result = MessageBox.Show("Er du sikker på du vil slette denne klient?", "Slet klient", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                if(await clientBl.DeleteAsync(clientId))
+                if (await clientBl.DeleteAsync(clientId))
                 {
                     MessageBox.Show("Klient slettet", "Klient slettet");
                     Clients clients = new Clients(employeeMdi);
@@ -74,6 +74,18 @@ namespace SemesterProjektDenAnden.EmployeeForms
                     MessageBox.Show("Ukendt fejl: Klient ikke slettet", "Fejl");
                 }
             }
+        }
+
+        private void clientCasesDGV_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            int row = e.RowIndex;
+
+            DataGridViewRow temp = dgv.Rows[row];
+            int id = (int)temp.Cells[0].Value;
+
+            CaseSpec caseSpec = new CaseSpec(employeeMdi, id);
+            employeeMdi.FormOpener(caseSpec);
         }
     }
 }

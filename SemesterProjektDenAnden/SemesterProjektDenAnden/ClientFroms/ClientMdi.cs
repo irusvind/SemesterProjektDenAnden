@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -107,9 +108,11 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void clientHelpBtn_Click(object sender, EventArgs e)
         {
-            //File.Open(path, FileMode.Open);
-
-            //System.Diagnostics.Process.Start(path);
+            ProcessStartInfo process = new ProcessStartInfo(@"..\..\..\Resources\LawHouse-DMVE231-v1.pdf");
+            {
+                process.UseShellExecute = true;
+            }
+            Process.Start(process);
 
         }
 

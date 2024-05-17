@@ -1,6 +1,4 @@
 ﻿using BusinessLogic;
-using BusinessLogic.BLInterfaces;
-using DataAcces;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -24,7 +22,6 @@ namespace SemesterProjektDenAnden.EmployeeForms
         EmployeeBL employeeBL = new EmployeeBL();
         ServiceBL serviceBL = new ServiceBL();
 
-
         public CaseSpec(EmployeeMdi employeeMdi, int CaseId)
         {
             InitializeComponent();
@@ -34,6 +31,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             AddToServiceCombobox();
             ServincesDGVData();
         }
+
         private async void SetData()
         {
             Case @case = new Case();
@@ -48,9 +46,6 @@ namespace SemesterProjektDenAnden.EmployeeForms
             TransportLog transport = new TransportLog();
             transport = await transportLogBL.GetAsync(this.caseId);
 
-          
-
-
 
             clientNamebox.Text = client.FirstName + " " + client.LastName;
             clientMailbox.Text = client.Mail;
@@ -62,9 +57,6 @@ namespace SemesterProjektDenAnden.EmployeeForms
             endDateBox.Text = @case.ExEndDate.ToString();
             usedHoursbox.Text = @case.UsedHours.ToString();
             kmBox.Text = transport.KmDriven.ToString();
-
-            
-
         }
 
         private async void AddToServiceCombobox()
@@ -72,7 +64,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             List<Service> services = await serviceBL.GetAllAsync();
             foreach (Service service in services)
             {
-                    comboCaseYdelse.Items.Add(service.ServiceId + " : "+ service.ServiceName);
+                comboCaseYdelse.Items.Add(service.ServiceId + " : " + service.ServiceName);
             }
         }
 
@@ -84,7 +76,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             newcase.UsedHours = int.Parse(usedHoursbox.Text);
             newcase.ExEndDate = DateTime.Parse(endDateBox.Text);
 
-            
+
 
             Employee employee = new Employee();
             employee = await employeeBL.GetAsync(this.caseId);
@@ -123,5 +115,4 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         }
     }
-
 }
