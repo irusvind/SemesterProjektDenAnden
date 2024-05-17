@@ -36,13 +36,11 @@
             PhoneTxt = new TextBox();
             MailTxt = new TextBox();
             AddressTxt = new TextBox();
-            SubscribeCB = new CheckBox();
             FnameLbl = new Label();
             Lnamelbl = new Label();
             PhoneLbl = new Label();
             MailLbl = new Label();
             AddressLbl = new Label();
-            SubscribeLbl = new Label();
             CreateBtn = new Button();
             SuspendLayout();
             // 
@@ -120,16 +118,6 @@
             AddressTxt.Size = new Size(161, 24);
             AddressTxt.TabIndex = 7;
             // 
-            // SubscribeCB
-            // 
-            SubscribeCB.AutoSize = true;
-            SubscribeCB.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            SubscribeCB.Location = new Point(510, 396);
-            SubscribeCB.Name = "SubscribeCB";
-            SubscribeCB.Size = new Size(15, 14);
-            SubscribeCB.TabIndex = 8;
-            SubscribeCB.UseVisualStyleBackColor = true;
-            // 
             // FnameLbl
             // 
             FnameLbl.AutoSize = true;
@@ -186,18 +174,6 @@
             AddressLbl.TabIndex = 13;
             AddressLbl.Text = "Adresse";
             // 
-            // SubscribeLbl
-            // 
-            SubscribeLbl.AutoSize = true;
-            SubscribeLbl.BackColor = Color.Transparent;
-            SubscribeLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            SubscribeLbl.ForeColor = Color.White;
-            SubscribeLbl.Location = new Point(269, 396);
-            SubscribeLbl.Name = "SubscribeLbl";
-            SubscribeLbl.Size = new Size(67, 18);
-            SubscribeLbl.TabIndex = 14;
-            SubscribeLbl.Text = "Abonnér?";
-            // 
             // CreateBtn
             // 
             CreateBtn.BackColor = Color.White;
@@ -218,13 +194,11 @@
             BackColor = Color.Black;
             ClientSize = new Size(804, 451);
             Controls.Add(CreateBtn);
-            Controls.Add(SubscribeLbl);
             Controls.Add(AddressLbl);
             Controls.Add(MailLbl);
             Controls.Add(PhoneLbl);
             Controls.Add(Lnamelbl);
             Controls.Add(FnameLbl);
-            Controls.Add(SubscribeCB);
             Controls.Add(AddressTxt);
             Controls.Add(MailTxt);
             Controls.Add(PhoneTxt);
@@ -251,13 +225,11 @@
         private TextBox PhoneTxt;
         private TextBox MailTxt;
         private TextBox AddressTxt;
-        private CheckBox SubscribeCB;
         private Label FnameLbl;
         private Label Lnamelbl;
         private Label PhoneLbl;
         private Label MailLbl;
         private Label AddressLbl;
-        private Label SubscribeLbl;
         private Button CreateBtn;
     }
 }
