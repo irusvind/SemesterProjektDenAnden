@@ -111,7 +111,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
             BindingSource servinceSource = new BindingSource();
             servinceSource.DataSource = services;
-            servicesDgv.DataSource = servinceSource;
+            ydelserDgv.DataSource = servinceSource;
 
         }
     }

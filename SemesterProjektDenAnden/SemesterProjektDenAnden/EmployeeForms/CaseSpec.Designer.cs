@@ -94,7 +94,7 @@
             addServiceBtn.TabIndex = 61;
             addServiceBtn.Text = "Tilføj";
             addServiceBtn.UseVisualStyleBackColor = false;
-            addServiceBtn.Click += addServiceBtn_Click;
+            addServiceBtn.Click += AddServiceBtn_Click;
             // 
             // comboCaseYdelse
             // 
@@ -429,12 +429,12 @@
             Controls.Add(clientNrLbl);
             Controls.Add(clientNamelbl);
             Controls.Add(ydelserlbl);
-            Controls.Add(servicesDgv);
+            Controls.Add(ydelserDgv);
             Controls.Add(sagsNavnNrLbl);
             FormBorderStyle = FormBorderStyle.None;
             Name = "CaseSpec";
             Text = "CaseSpec";
-            ((System.ComponentModel.ISupportInitialize)servicesDgv).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ydelserDgv).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
