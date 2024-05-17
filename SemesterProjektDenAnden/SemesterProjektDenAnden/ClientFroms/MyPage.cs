@@ -1,16 +1,7 @@
 ﻿using BusinessLogic;
 using Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace SemesterProjektDenAnden.ClientFroms
 {
@@ -34,13 +25,25 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private async void GetClientData(int clientId)
         {
-            client = await clientBL.GetAsync(clientId);
+            try
+            {
+                client = await clientBL.GetAsync(clientId);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke hente fra Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             FNameTxt.Text = client.FirstName;
             LNameTxt.Text = client.LastName;
             MailTxt.Text = client.Mail;
             PhoneTxt.Text = client.Phone.ToString();
             AddressTxt.Text = client.ClAddress;
-            
+
             if (client.Subscriber)
             {
                 SubscribtionStatusLbl.Text = "Abonnent";
@@ -69,59 +72,75 @@ namespace SemesterProjektDenAnden.ClientFroms
             DialogResult result = MessageBox.Show("Er du sikker på du vil opdatere denne klients oplysnigner?", "Opdater klient", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-
-
-                Client updateClient = await clientBL.GetAsync(clientId);
-                updateClient.FirstName = FNameTxt.Text;
-                updateClient.LastName = LNameTxt.Text;
-                updateClient.Phone = int.Parse(PhoneTxt.Text);
-                updateClient.Mail = MailTxt.Text;
-                updateClient.ClAddress = AddressTxt.Text;
-
-                var context = new ValidationContext(updateClient, serviceProvider: null, items: null);
-                bool isValid = Validator.TryValidateObject(updateClient, context, null, true);
-
-                if (isValid)
+                try
                 {
-                    bool updateResult = await clientBL.UpdateAsync(updateClient);
-                    if (updateResult)
+                    Client updateClient = await clientBL.GetAsync(clientId);
+                    updateClient.FirstName = FNameTxt.Text;
+                    updateClient.LastName = LNameTxt.Text;
+                    updateClient.Phone = int.Parse(PhoneTxt.Text);
+                    updateClient.Mail = MailTxt.Text;
+                    updateClient.ClAddress = AddressTxt.Text;
+
+                    var context = new ValidationContext(updateClient, serviceProvider: null, items: null);
+                    bool isValid = Validator.TryValidateObject(updateClient, context, null, true);
+
+                    if (isValid)
                     {
-                        MessageBox.Show("Klient opdateret", "Klient opdateret");
-                        
+                        bool updateResult = await clientBL.UpdateAsync(updateClient);
+                        if (updateResult)
+                        {
+                            MessageBox.Show("Klient opdateret", "Klient opdateret");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Fejl: Klient ikke opdateret", "Fejl");
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Fejl: Klient ikke opdateret", "Fejl");
-                    }
+                    else { MessageBox.Show("Fejl: Klient ikke opdateret", " info ikke valid"); };
                 }
-                else { MessageBox.Show("Fejl: Klient ikke opdateret", " info ikke valid"); };
+                catch (SqlException)
+                {
+                    MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
 
         }
 
         private async void SubscribeBtn_Click(object sender, EventArgs e)
         {
-            
-            Client updateClient = await clientBL.GetAsync(clientId);
-            if (updateClient.Subscriber)
+            try
             {
-                DialogResult result = MessageBox.Show("Er du sikker på du vil opsige dit abonnement?", "Opsig Abonnement", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
+                Client updateClient = await clientBL.GetAsync(clientId);
+                if (updateClient.Subscriber)
                 {
-                    updateClient.Subscriber = false;
-                    updateClient.SubEndDate = null;
-                    await clientBL.UpdateAsync(updateClient);
-                    MyPage newMyPage = new MyPage(clientMdi, clientId);
-                    clientMdi.FormOpener(newMyPage);
-                    
+                    DialogResult result = MessageBox.Show("Er du sikker på du vil opsige dit abonnement?", "Opsig Abonnement", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        updateClient.Subscriber = false;
+                        updateClient.SubEndDate = null;
+                        await clientBL.UpdateAsync(updateClient);
+                        MyPage newMyPage = new MyPage(clientMdi, clientId);
+                        clientMdi.FormOpener(newMyPage);
+                    }
+                }
+                else
+                {
+                    subscribeForm = new SubscribeForm(clientMdi, clientId);
+                    subscribeForm.ShowDialog();
                 }
             }
-            else
+            catch (SqlException)
             {
-                subscribeForm = new SubscribeForm(clientMdi, clientId);
-                subscribeForm.ShowDialog();
-
-
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

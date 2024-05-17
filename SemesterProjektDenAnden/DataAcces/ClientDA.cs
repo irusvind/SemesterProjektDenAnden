@@ -44,17 +44,10 @@ namespace DataAcces
                 sqlCommand.Parameters.AddWithValue("@SubPrice", newClient.SubPrice);
             }
 
-            try
-            {
-                await dbConn.OpenAsync();
-                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
 
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally { await dbConn.CloseAsync(); }
+            await dbConn.OpenAsync();
+            rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+            await dbConn.CloseAsync();
             if (rowsAffected > 0)
             {
                 return true;
@@ -72,17 +65,10 @@ namespace DataAcces
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@Id", id);
-            try
-            {
-                await dbConn.OpenAsync();
-                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
 
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-            finally { await dbConn.CloseAsync(); }
+            await dbConn.OpenAsync();
+            rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+            await dbConn.CloseAsync();
             if (rowsAffected > 0)
             {
                 return true;
@@ -100,51 +86,43 @@ namespace DataAcces
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@ClientId", id);
-            try
+
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
+                newClient.ClientId = (int)reader["ClientId"];
+                newClient.FirstName = (string)reader["ClFirstName"];
+                newClient.LastName = (string)reader["ClLastName"];
+                newClient.Phone = (int)reader["ClPhone"];
+                newClient.Mail = (string)reader["ClMail"];
+                newClient.ClAddress = (string)reader["CLAddress"];
+                newClient.Subscriber = (bool)reader["Subscriber"];
+                string? date = (string?)reader["SubEndDate"].ToString();
+                if (string.IsNullOrEmpty(date))
                 {
-                    newClient.ClientId = (int)reader["ClientId"];
-                    newClient.FirstName = (string)reader["ClFirstName"];
-                    newClient.LastName = (string)reader["ClLastName"];
-                    newClient.Phone = (int)reader["ClPhone"];
-                    newClient.Mail = (string)reader["ClMail"];
-                    newClient.ClAddress = (string)reader["CLAddress"];
-                    newClient.Subscriber = (bool)reader["Subscriber"];
-                    string? date = (string?)reader["SubEndDate"].ToString();
-                    if (string.IsNullOrEmpty(date))
-                    {
-                        date = "";
-                    }
-                    else
-                    {
-                        newClient.SubEndDate = DateTime.Parse(date);
-                    }
-                    string? price = (string?)reader["SubPrice"].ToString();
-                    if (string.IsNullOrEmpty(price))
-                    {
-                        price = "";
-                    }
-                    else
-                    {
-                        newClient.SubPrice = int.Parse(price);
-                    }
-
-                    return newClient;
-
+                    date = "";
                 }
-                return new Client();
+                else
+                {
+                    newClient.SubEndDate = DateTime.Parse(date);
+                }
+                string? price = (string?)reader["SubPrice"].ToString();
+                if (string.IsNullOrEmpty(price))
+                {
+                    price = "";
+                }
+                else
+                {
+                    newClient.SubPrice = int.Parse(price);
+                }
+
+                return newClient;
+
             }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+            await dbConn.CloseAsync();
+            return new Client();
+
         }
 
         public async Task<List<Client>> GetAllAsync()
@@ -153,52 +131,45 @@ namespace DataAcces
             List<Client> newClientList = new List<Client>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
-            try
+
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
+                Client newClient = new Client();
+                newClient.ClientId = (int)reader["ClientId"];
+                newClient.FirstName = (string)reader["ClFirstName"];
+                newClient.LastName = (string)reader["ClLastName"];
+                newClient.Phone = (int)reader["ClPhone"];
+                newClient.Mail = (string)reader["ClMail"];
+                newClient.ClAddress = (string)reader["CLAddress"];
+                newClient.Subscriber = (bool)reader["Subscriber"];
+                string? date = (string?)reader["SubEndDate"].ToString();
+                if (string.IsNullOrEmpty(date))
                 {
-                    Client newClient = new Client();
-                    newClient.ClientId = (int)reader["ClientId"];
-                    newClient.FirstName = (string)reader["ClFirstName"];
-                    newClient.LastName = (string)reader["ClLastName"];
-                    newClient.Phone = (int)reader["ClPhone"];
-                    newClient.Mail = (string)reader["ClMail"];
-                    newClient.ClAddress = (string)reader["CLAddress"];
-                    newClient.Subscriber = (bool)reader["Subscriber"];
-                    string? date = (string?)reader["SubEndDate"].ToString();
-                    if (string.IsNullOrEmpty(date))
-                    {
-                        date = "";
-                    }
-                    else
-                    {
-                        newClient.SubEndDate = DateTime.Parse(date);
-                    }
-
-                    string? price = (string?)reader["SubPrice"].ToString();
-                    if (string.IsNullOrEmpty(price))
-                    {
-                        price = "";
-                    }
-                    else
-                    {
-                        newClient.SubPrice = int.Parse(price);
-                    }
-
-                    newClientList.Add(newClient);
+                    date = "";
                 }
-                return newClientList;
+                else
+                {
+                    newClient.SubEndDate = DateTime.Parse(date);
+                }
+
+                string? price = (string?)reader["SubPrice"].ToString();
+                if (string.IsNullOrEmpty(price))
+                {
+                    price = "";
+                }
+                else
+                {
+                    newClient.SubPrice = int.Parse(price);
+                }
+
+                newClientList.Add(newClient);
             }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+            await dbConn.CloseAsync();
+            return newClientList;
+
+
         }
 
 
@@ -244,17 +215,11 @@ namespace DataAcces
 
 
             sqlCommand.Parameters.AddWithValue("@ClientId", newClient.ClientId);
-            try
-            {
-                await dbConn.OpenAsync();
-                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
 
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally { await dbConn.CloseAsync(); }
+            await dbConn.OpenAsync();
+            rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+
+            await dbConn.CloseAsync();
             if (rowsAffected > 0)
             {
                 return true;

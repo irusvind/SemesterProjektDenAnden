@@ -1,15 +1,7 @@
 ﻿using BusinessLogic;
 using Models;
 using SemesterProjektDenAnden.ClientFroms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace SemesterProjektDenAnden.LogInForms
 {
@@ -28,36 +20,61 @@ namespace SemesterProjektDenAnden.LogInForms
 
         private async void AddToCombobox()
         {
-            List<Client> clients = await clientBL.GetAllAsync();
-            foreach (Client client in clients)
+            try
             {
-                ClientCB.Items.Add(client.ClientId + ": " + client.FirstName + " " + client.LastName);
+                List<Client> clients = await clientBL.GetAllAsync();
+                foreach (Client client in clients)
+                {
+                    ClientCB.Items.Add(client.ClientId + ": " + client.FirstName + " " + client.LastName);
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void Loginbtn_Click(object sender, EventArgs e)
         {
-            if(ClientCB.Text.Length > 0)
+            try
             {
-                string[] idString = ClientCB.Items[ClientCB.SelectedIndex].ToString().Split(':');
-                int id = int.Parse(idString[0]);
-                clientMDI = new ClientMDI(id);
-                clientMDI.Show();
-                this.Close();
+                if (ClientCB.Text.Length > 0)
+                {
+                    string[] idString = ClientCB.Items[ClientCB.SelectedIndex].ToString().Split(':');
+                    int id = int.Parse(idString[0]);
+                    clientMDI = new ClientMDI(id);
+                    clientMDI.Show();
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void SignUpbtn_Click(object sender, EventArgs e)
         {
-            clientSignUp = new ClientSignUp();
-            clientSignUp.Show();
-            this.Close();
+            try
+            {
+                clientSignUp = new ClientSignUp();
+                clientSignUp.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
         private void ClientLogIn_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(Application.OpenForms.Count == 2)
+            if (Application.OpenForms.Count == 2)
             {
                 Application.OpenForms[0].Show();
             }

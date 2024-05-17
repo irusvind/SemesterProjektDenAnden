@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -33,71 +34,109 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private async void SetData()
         {
-            Case @case = new Case();
-            @case = await caseBL.GetAsync(this.caseId);
+            try
+            {
+                Case @case = new Case();
+                @case = await caseBL.GetAsync(this.caseId);
 
-            Client client = new Client();
-            client = await clientBL.GetAsync(@case.ClientId);
+                Client client = new Client();
+                client = await clientBL.GetAsync(@case.ClientId);
 
-            Employee employee = new Employee();
-            employee = await employeeBL.GetAsync(@case.EmployeeId);
+                Employee employee = new Employee();
+                employee = await employeeBL.GetAsync(@case.EmployeeId);
 
-            TransportLog transport = new TransportLog();
-            transport = await transportLogBL.GetAsync(this.caseId);
+                TransportLog transport = new TransportLog();
+                transport = await transportLogBL.GetAsync(this.caseId);
 
 
-            clientNamebox.Text = client.FirstName + " " + client.LastName;
-            clientMailbox.Text = client.Mail;
-            clientPhoneBox.Text = client.Phone.ToString();
-            employeeIdBox.Text = employee.Id.ToString();
-            employeeNameBox.Text = employee.FirstName + " " + employee.LastName;
-            startDataBox.Text = @case.StartDate.ToString();
-            exhourBox.Text = @case.EstHours.ToString();
-            endDateBox.Text = @case.ExEndDate.ToString();
-            usedHoursbox.Text = @case.UsedHours.ToString();
-            kmBox.Text = transport.KmDriven.ToString();
+                clientNamebox.Text = client.FirstName + " " + client.LastName;
+                clientMailbox.Text = client.Mail;
+                clientPhoneBox.Text = client.Phone.ToString();
+                employeeIdBox.Text = employee.Id.ToString();
+                employeeNameBox.Text = employee.FirstName + " " + employee.LastName;
+                startDataBox.Text = @case.StartDate.ToString();
+                exhourBox.Text = @case.EstHours.ToString();
+                endDateBox.Text = @case.ExEndDate.ToString();
+                usedHoursbox.Text = @case.UsedHours.ToString();
+                kmBox.Text = transport.KmDriven.ToString();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private async void AddToServiceCombobox()
         {
-            List<Service> services = await serviceBL.GetAllAsync();
-            foreach (Service service in services)
+            try
             {
-                comboCaseYdelse.Items.Add(service.ServiceId + " : " + service.ServiceName);
+                List<Service> services = await serviceBL.GetAllAsync();
+                foreach (Service service in services)
+                {
+                    comboCaseYdelse.Items.Add(service.ServiceId + " : " + service.ServiceName);
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private async void updateBtn_Click(object sender, EventArgs e)
         {
-            Case newcase = new Case();
-            newcase = await caseBL.GetAsync(this.caseId);
-            newcase.EstHours = int.Parse(exhourBox.Text);
-            newcase.UsedHours = int.Parse(usedHoursbox.Text);
-            newcase.ExEndDate = DateTime.Parse(endDateBox.Text);
+            try
+            {
+                Case newcase = new Case();
+                newcase = await caseBL.GetAsync(this.caseId);
+                newcase.EstHours = int.Parse(exhourBox.Text);
+                newcase.UsedHours = int.Parse(usedHoursbox.Text);
+                newcase.ExEndDate = DateTime.Parse(endDateBox.Text);
 
+                Employee employee = new Employee();
+                employee = await employeeBL.GetAsync(this.caseId);
+                employee.Id = int.Parse(employeeIdBox.Text);
+                employee = await employeeBL.GetAsync(int.Parse(employeeIdBox.Text));
+                employeeNameBox.Text = employee.FirstName + " " + employee.LastName;
+                newcase.EmployeeId = int.Parse(employeeIdBox.Text);
+                await caseBL.UpdateAsync(newcase);
+                TransportLog transportLog = new TransportLog();
+                transportLog.KmDriven = int.Parse(kmBox.Text);
+                transportLog.LogDescription = trandDisc.Text;
+                transportLog.CaseId = caseId;
+                transportLog.ServiceId = caseId; // todo lav getServiceID
+                await transportLogBL.CreateAsync(transportLog);
 
-
-            Employee employee = new Employee();
-            employee = await employeeBL.GetAsync(this.caseId);
-            employee.Id = int.Parse(employeeIdBox.Text);
-            employee = await employeeBL.GetAsync(int.Parse(employeeIdBox.Text));
-            employeeNameBox.Text = employee.FirstName + " " + employee.LastName;
-            newcase.EmployeeId = int.Parse(employeeIdBox.Text);
-            await caseBL.UpdateAsync(newcase);
-            TransportLog transportLog = new TransportLog();
-            transportLog.KmDriven = int.Parse(kmBox.Text);
-            transportLog.LogDescription = trandDisc.Text;
-            transportLog.CaseId = caseId;
-            transportLog.ServiceId = caseId; // todo lav getServiceID
-            await transportLogBL.CreateAsync(transportLog);
-
-            MessageBox.Show("Case Updated");
+                MessageBox.Show("Case Updated");
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void addServiceBtn_Click(object sender, EventArgs e)
         {
-            string[] idString = comboCaseYdelse.Items[comboCaseYdelse.SelectedIndex].ToString().Split(':');
-            int id = int.Parse(idString[0]);
+            try
+            {
+                string[] idString = comboCaseYdelse.Items[comboCaseYdelse.SelectedIndex].ToString().Split(':');
+                int id = int.Parse(idString[0]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -32,8 +33,19 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
             this.employeeMdi = employeeMdi;
             this.employeeId = employeeId;
-            EmployeeData();
-            CoursesDGVData();
+            try
+            {
+                EmployeeData();
+                CoursesDGVData();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public async void EmployeeData()
@@ -76,45 +88,67 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private async void DeleteEmployeeBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Er du sikker på du vil slette denne medarbejder?", "Slet medarbejder", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            try
             {
-                await employeeBL.DeleteAsync(employeeId);
-                Employees employees = new Employees(employeeMdi);
-                employeeMdi.FormOpener(employees);
+                DialogResult result = MessageBox.Show("Er du sikker på du vil slette denne medarbejder?", "Slet medarbejder", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    await employeeBL.DeleteAsync(employeeId);
+                    Employees employees = new Employees(employeeMdi);
+                    employeeMdi.FormOpener(employees);
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private async void UpdateEmployeeBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Er du sikker på du vil opdatere denne medarbejders information?", "Opdater medarbejder", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            try
             {
-                Employee updatedEmployee = await employeeBL.GetAsync(employeeId);
-
-                updatedEmployee.FirstName = FnameTxt.Text;
-                updatedEmployee.LastName = LnameTxt.Text;
-                updatedEmployee.PhoneNumber = int.Parse(PhoneTxt.Text);
-                updatedEmployee.Email = MailTxt.Text;
-                updatedEmployee.Address = addressTxt.Text;
-
-                ValidationContext context = new ValidationContext(updatedEmployee, serviceProvider: null, items: null);
-                bool isValid = Validator.TryValidateObject(updatedEmployee, context, null, true);
-                if (isValid)
+                DialogResult result = MessageBox.Show("Er du sikker på du vil opdatere denne medarbejders information?", "Opdater medarbejder", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
                 {
-                    bool Updateresult = await employeeBL.UpdateAsync(updatedEmployee);
-                    if (Updateresult)
+                    Employee updatedEmployee = await employeeBL.GetAsync(employeeId);
+
+                    updatedEmployee.FirstName = FnameTxt.Text;
+                    updatedEmployee.LastName = LnameTxt.Text;
+                    updatedEmployee.PhoneNumber = int.Parse(PhoneTxt.Text);
+                    updatedEmployee.Email = MailTxt.Text;
+                    updatedEmployee.Address = addressTxt.Text;
+
+                    ValidationContext context = new ValidationContext(updatedEmployee, serviceProvider: null, items: null);
+                    bool isValid = Validator.TryValidateObject(updatedEmployee, context, null, true);
+                    if (isValid)
                     {
-                        MessageBox.Show("Medarbejder opdateret", "Medarbejder opdateret");
-                        Employees employees = new Employees(employeeMdi);
-                        employeeMdi.FormOpener(employees);
+                        bool Updateresult = await employeeBL.UpdateAsync(updatedEmployee);
+                        if (Updateresult)
+                        {
+                            MessageBox.Show("Medarbejder opdateret", "Medarbejder opdateret");
+                            Employees employees = new Employees(employeeMdi);
+                            employeeMdi.FormOpener(employees);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Medarbejder ikke oprettet: Ukendt fejl", "Fejl");
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Medarbejder ikke oprettet: Ukendt fejl", "Fejl");
-                    }
+                    else { MessageBox.Show("Fejl: Medarbejder ikke opdateret, info ikke valid", "Info ikke valid"); };
                 }
-                else { MessageBox.Show("Fejl: Medarbejder ikke opdateret, info ikke valid", "Info ikke valid"); };
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,19 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private async void CLientCases(int id)
         {
-            List<Case> clientCases = await caseBL.GetCaseWithClientIdAsync(id);
+            List<Case> clientCases = new List<Case>();
+            try
+            {
+                clientCases = await caseBL.GetCaseWithClientIdAsync(id);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             BindingSource caseSource = new BindingSource();
             caseSource.DataSource = clientCases;
