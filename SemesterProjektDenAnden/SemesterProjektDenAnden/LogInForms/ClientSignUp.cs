@@ -43,7 +43,6 @@ namespace SemesterProjektDenAnden.LogInForms
                 newClient.Phone = int.Parse(PhoneTxt.Text);
                 newClient.Mail = MailTxt.Text;
                 newClient.ClAddress = AddressTxt.Text;
-                newClient.Subscriber = SubscribeCB.Checked;
                 var context = new ValidationContext(newClient, serviceProvider: null, items: null);
                 bool isValid = Validator.TryValidateObject(newClient, context, null, true);
 
