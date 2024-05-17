@@ -1,6 +1,7 @@
 ﻿using BusinessLogic;
 using Models;
 using SemesterProjektDenAnden.LogInForms;
+using System.Data.SqlClient;
 
 namespace SemesterProjektDenAnden.EmployeeForms
 {
@@ -14,20 +15,38 @@ namespace SemesterProjektDenAnden.EmployeeForms
             InitializeComponent();
             this.employeeMdi = employeeMdi;
 
-            DGVData();
+            try
+            {
+                DGVData();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void employeesDgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridView dgv = (DataGridView)sender;
-
-            int row = e.RowIndex;
-            if (row >= 0)
+            try
             {
-                DataGridViewRow temp = dgv.Rows[row];
-                int id = (int)temp.Cells[0].Value;
-                EmployeeSpec employeeSpec = new EmployeeSpec(employeeMdi, id);
-                employeeMdi.FormOpener(employeeSpec);
+                DataGridView dgv = (DataGridView)sender;
+
+                int row = e.RowIndex;
+                if (row >= 0)
+                {
+                    DataGridViewRow temp = dgv.Rows[row];
+                    int id = (int)temp.Cells[0].Value;
+                    EmployeeSpec employeeSpec = new EmployeeSpec(employeeMdi, id);
+                    employeeMdi.FormOpener(employeeSpec);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

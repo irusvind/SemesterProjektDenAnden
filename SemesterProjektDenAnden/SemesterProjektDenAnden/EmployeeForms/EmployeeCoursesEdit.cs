@@ -1,5 +1,6 @@
 ﻿using BusinessLogic;
 using Models;
+using System.Data.SqlClient;
 
 namespace SemesterProjektDenAnden.EmployeeForms
 {
@@ -19,7 +20,18 @@ namespace SemesterProjektDenAnden.EmployeeForms
             this.employeeMdi = employeeMdi;
             this.employeeId = employeeId;
 
-            DGVData();
+            try
+            {
+                DGVData();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -42,10 +54,17 @@ namespace SemesterProjektDenAnden.EmployeeForms
         {
             if(e.RowIndex >= 0)
             {
-                Course changedCourse = possibleCourses[e.RowIndex];
-                possibleCourses.RemoveAt(e.RowIndex);
-                selectedCourses.Add(changedCourse);
-                UpdateDGV();
+                try
+                {
+                    Course changedCourse = possibleCourses[e.RowIndex];
+                    possibleCourses.RemoveAt(e.RowIndex);
+                    selectedCourses.Add(changedCourse);
+                    UpdateDGV();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -53,10 +72,17 @@ namespace SemesterProjektDenAnden.EmployeeForms
         {
             if(e.RowIndex >= 0)
             {
-                Course changedCourse = selectedCourses[e.RowIndex];
-                selectedCourses.RemoveAt(e.RowIndex);
-                possibleCourses.Add(changedCourse);
-                UpdateDGV();
+                try
+                {
+                    Course changedCourse = selectedCourses[e.RowIndex];
+                    selectedCourses.RemoveAt(e.RowIndex);
+                    possibleCourses.Add(changedCourse);
+                    UpdateDGV();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -75,9 +101,20 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private async void OKBtn_Click(object sender, EventArgs e)
         {
-            await employeeBL.UpdateCoursesAsync(selectedCourses, employeeId);
-            EmployeeSpec employeeSpec = new EmployeeSpec(employeeMdi, employeeId);
-            employeeMdi.FormOpener(employeeSpec);
+            try
+            {
+                await employeeBL.UpdateCoursesAsync(selectedCourses, employeeId);
+                EmployeeSpec employeeSpec = new EmployeeSpec(employeeMdi, employeeId);
+                employeeMdi.FormOpener(employeeSpec);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

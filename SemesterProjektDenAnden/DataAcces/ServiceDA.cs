@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DataAcces.DAInterfaces;
+using Models;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAcces.DAInterfaces;
-using Models;
 
 namespace DataAcces
 {
@@ -27,26 +22,18 @@ namespace DataAcces
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@ServiceId", id);
-            try
-            {
-                await dbConn.OpenAsync();
-                rowAffected = await sqlCommand.ExecuteNonQueryAsync();
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+
+            await dbConn.OpenAsync();
+            rowAffected = await sqlCommand.ExecuteNonQueryAsync();
+            await dbConn.CloseAsync();
+
             if (rowAffected > 0)
             {
                 return true;
             }
             return false;
         }
-        
+
 
         public async Task<List<Service>> GetAllAsync()
         {
@@ -54,26 +41,20 @@ namespace DataAcces
             List<Service> services = new List<Service>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
-            try
+
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    Service newService = new Service();
-                    newService.ServiceId = (int)reader["ServiceId"];
-                    newService.ServiceName = (string)reader["ServiceName"];
-                    newService.Price = (double)reader["Price"];
-                    newService.PriceHourly = (bool)reader["PriceHourly"];
-                    services.Add(newService);
-                }
-                return services;
+                Service newService = new Service();
+                newService.ServiceId = (int)reader["ServiceId"];
+                newService.ServiceName = (string)reader["ServiceName"];
+                newService.Price = (double)reader["Price"];
+                newService.PriceHourly = (bool)reader["PriceHourly"];
+                services.Add(newService);
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally { await dbConn.CloseAsync(); }  
+            await dbConn.CloseAsync();
+            return services;
         }
 
         public async Task<Service> GetAsync(int id)
@@ -83,86 +64,64 @@ namespace DataAcces
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("ServiceId", id);
-            try
-            {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    service.ServiceId = (int)reader["ServiceId"];
-                    service.ServiceName = (string)reader["ServiceName"];
-                    service.Price = (float)reader["Price"];
-                    service.PriceHourly = (bool)reader["PriceHourly"];
 
-                    return service;
-                }
-                return new Service();
-            }
-            catch (Exception e)
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                throw;
+                service.ServiceId = (int)reader["ServiceId"];
+                service.ServiceName = (string)reader["ServiceName"];
+                service.Price = (float)reader["Price"];
+                service.PriceHourly = (bool)reader["PriceHourly"];
+
+                return service;
             }
-            finally { await dbConn.CloseAsync(); }
+            await dbConn.CloseAsync();
+            return new Service();
         }
 
         public async Task UpdateServicesAsync(int serviceId, int caseId)
         {
 
-            
+
             string createCommand = "INSERT INTO SERVICELIST (CaseId, serviceId) VALUES (@caseID, @ServiceId)";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
 
-            try
-            {
-                await dbConn.OpenAsync();
-                
-                    SqlCommand sqlCreateCommand = new SqlCommand(createCommand, dbConn);
-                    sqlCreateCommand.Parameters.AddWithValue("@caseID", caseId);
-                    sqlCreateCommand.Parameters.AddWithValue("@ServiceId", serviceId);
-                    await sqlCreateCommand.ExecuteNonQueryAsync();
+            await dbConn.OpenAsync();
 
-                
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+            SqlCommand sqlCreateCommand = new SqlCommand(createCommand, dbConn);
+            sqlCreateCommand.Parameters.AddWithValue("@caseID", caseId);
+            sqlCreateCommand.Parameters.AddWithValue("@ServiceId", serviceId);
+            await sqlCreateCommand.ExecuteNonQueryAsync();
+
+
+            await dbConn.CloseAsync();
+            
 
         }
         public async Task<List<Service>> GetSpecificCaseServiceAsync(int caseId)
         {
-            List<Service> services  = new List<Service>();
+            List<Service> services = new List<Service>();
             string command = "SELECT SERVICE_.ServiceId, SERVICE_.ServiceName FROM SERVICE_ " +
                 "INNER JOIN SERVICELIST ON SERVICELIST.CaseId = @caseId AND SERVICELIST.ServiceId = SERVICE_.ServiceId";
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@CaseId", caseId);
-            try
+
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    Service service = new Service();
-                    service.ServiceId = (int)reader["ServiceId"];
-                    service.ServiceName = (string)reader["ServiceName"];
-                    services.Add(service);
-                }
-                return services;
+                Service service = new Service();
+                service.ServiceId = (int)reader["ServiceId"];
+                service.ServiceName = (string)reader["ServiceName"];
+                services.Add(service);
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+            await dbConn.CloseAsync();
+            return services;
+
+
         }
 
 

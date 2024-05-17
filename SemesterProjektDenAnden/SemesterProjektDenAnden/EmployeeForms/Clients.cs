@@ -1,5 +1,6 @@
 ﻿using BusinessLogic;
 using Models;
+using System.Data.SqlClient;
 
 namespace SemesterProjektDenAnden.EmployeeForms
 {
@@ -19,11 +20,22 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private async void ClientsData()
         {
-            List<Client> clients = await clientBL.GetAllAsync();
+            try
+            {
+                List<Client> clients = await clientBL.GetAllAsync();
 
-            BindingSource clientSource = new BindingSource();
-            clientSource.DataSource = clients;
-            clientsDgv.DataSource = clientSource;
+                BindingSource clientSource = new BindingSource();
+                clientSource.DataSource = clients;
+                clientsDgv.DataSource = clientSource;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void clientsDgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

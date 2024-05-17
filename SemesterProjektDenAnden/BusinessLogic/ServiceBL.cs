@@ -30,7 +30,7 @@ namespace BusinessLogic
             return service;
         }
 
-        public async void UpdateAsync(int serviceID, int caseId)
+        public async Task UpdateAsync(int serviceID, int caseId)
         {
             await serviceDA.UpdateServicesAsync(serviceID, caseId);
             

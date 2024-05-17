@@ -1,13 +1,7 @@
 ﻿using DataAcces.DAInterfaces;
 using Models;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAcces
 {
@@ -31,16 +25,10 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@WorkDescription", newWorkLog.WorkDescription);
             sqlCommand.Parameters.AddWithValue("@CaseId", newWorkLog.CaseId);
             sqlCommand.Parameters.AddWithValue("@ServiceId", newWorkLog.ServiceId);
-            try
-            {
-                await dbConn.OpenAsync();
-                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally { await dbConn.CloseAsync(); }
+
+            await dbConn.OpenAsync();
+            rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+            await dbConn.CloseAsync();
             if (rowsAffected > 0)
             {
                 return true;
@@ -55,16 +43,10 @@ namespace DataAcces
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@WorkLogId", id);
-            try
-            {
-                await dbConn.OpenAsync();
-                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally { await dbConn.CloseAsync(); }
+
+            await dbConn.OpenAsync();
+            rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+            await dbConn.CloseAsync();
             if (rowsAffected > 0)
             {
                 return true;
@@ -79,28 +61,22 @@ namespace DataAcces
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@WorkLogId", id);
-            try
-            {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    workLog.WorkLogId = (int)reader["TransportLogId"];
-                    workLog.WorkDescription = (string)reader["LogDescription"];
-                    workLog.StartDate = (DateTime)reader["StartDate"];
-                    workLog.EndDate = (DateTime)reader["EndDate"];
-                    workLog.CaseId = (int)reader["CaseId"];
-                    workLog.ServiceId = (int)reader["ServiceId"];
 
-                    return workLog;
-                }
-                return new WorkLog();
-            }
-            catch (Exception e)
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                throw;
+                workLog.WorkLogId = (int)reader["TransportLogId"];
+                workLog.WorkDescription = (string)reader["LogDescription"];
+                workLog.StartDate = (DateTime)reader["StartDate"];
+                workLog.EndDate = (DateTime)reader["EndDate"];
+                workLog.CaseId = (int)reader["CaseId"];
+                workLog.ServiceId = (int)reader["ServiceId"];
+
+                return workLog;
             }
-            finally { await dbConn.CloseAsync(); }
+            await dbConn.CloseAsync();
+            return new WorkLog();
         }
 
         public async Task<List<WorkLog>> GetAllAsync()
@@ -109,29 +85,23 @@ namespace DataAcces
             List<WorkLog> workLogs = new List<WorkLog>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
-            try
-            {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    WorkLog workLog = new WorkLog();
-                    workLog.WorkLogId = (int)reader["TransportLogId"];
-                    workLog.WorkDescription = (string)reader["LogDescription"];
-                    workLog.StartDate = (DateTime)reader["StartDate"];
-                    workLog.EndDate = (DateTime)reader["EndDate"];
-                    workLog.CaseId = (int)reader["CaseId"];
-                    workLog.ServiceId = (int)reader["ServiceId"];
-                    workLogs.Add(workLog);
 
-                }
-                return workLogs;
-            }
-            catch (Exception e)
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                throw;
+                WorkLog workLog = new WorkLog();
+                workLog.WorkLogId = (int)reader["TransportLogId"];
+                workLog.WorkDescription = (string)reader["LogDescription"];
+                workLog.StartDate = (DateTime)reader["StartDate"];
+                workLog.EndDate = (DateTime)reader["EndDate"];
+                workLog.CaseId = (int)reader["CaseId"];
+                workLog.ServiceId = (int)reader["ServiceId"];
+                workLogs.Add(workLog);
+
             }
-            finally { await dbConn.CloseAsync(); }
+            await dbConn.CloseAsync();
+            return workLogs;
         }
 
         public async Task<bool> UpdateAsync(WorkLog newWorkLog)
@@ -142,16 +112,10 @@ namespace DataAcces
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@WorkDescription", newWorkLog.WorkDescription);
-            try
-            {
-                await dbConn.OpenAsync();
-                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally { await dbConn.CloseAsync(); }
+
+            await dbConn.OpenAsync();
+            rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+            await dbConn.CloseAsync();
             if (rowsAffected > 0)
             {
                 return true;

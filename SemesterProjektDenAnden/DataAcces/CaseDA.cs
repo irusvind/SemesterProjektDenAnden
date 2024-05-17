@@ -1,13 +1,7 @@
 ﻿using DataAcces.DAInterfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Models;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Net;
 
 namespace DataAcces
 {
@@ -37,17 +31,11 @@ namespace DataAcces
                 sqlCommand.Parameters.AddWithValue("@EmployeeId", newCase.EmployeeId);
                 sqlCommand.Parameters.AddWithValue("@ClientId", newCase.ClientId);
 
-                try
-                {
-                    await dbConn.OpenAsync();
-                    rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
 
-                }
-                catch (Exception e)
-                {
-                    throw;
-                }
-                finally { await dbConn.CloseAsync(); }
+                await dbConn.OpenAsync();
+                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+
+                await dbConn.CloseAsync();
                 if (rowsAffected > 0)
                 {
                     return true;
@@ -67,17 +55,11 @@ namespace DataAcces
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@Id", id);
-            try
-            {
-                await dbConn.OpenAsync();
-                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
 
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-            finally { await dbConn.CloseAsync(); }
+            await dbConn.OpenAsync();
+            rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+
+            await dbConn.CloseAsync();
             if (rowsAffected > 0)
             {
                 return true;
@@ -95,39 +77,32 @@ namespace DataAcces
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@CaseId", id);
-            try
+
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
+                newCase.CaseId = (int)reader["CaseId"];
+                newCase.CaseTitle = (string)reader["CaseTitle"];
+                newCase.StartDate = (DateTime)reader["CaseStartDate"];
+                newCase.ExEndDate = (DateTime)reader["EstEndDate"];
+                newCase.EstHours = (int)reader["EstHours"];
+                if (reader["UsedHours"] != DBNull.Value)
                 {
-                    newCase.CaseId = (int)reader["CaseId"];
-                    newCase.CaseTitle = (string)reader["CaseTitle"];
-                    newCase.StartDate = (DateTime)reader["CaseStartDate"];
-                    newCase.ExEndDate = (DateTime)reader["EstEndDate"];
-                    newCase.EstHours = (int)reader["EstHours"];
-                    if (reader["UsedHours"] != DBNull.Value)
-                    {
-                        newCase.UsedHours = (int)reader["UsedHours"];
-                    }
-                    else newCase.UsedHours = 0;
-                    newCase.Done = (bool)reader["Done"];
-                    newCase.EmployeeId = (int)reader["EmployeeId"];
-                    newCase.ClientId = (int)reader["ClientId"];
-
-                    return newCase;
-
+                    newCase.UsedHours = (int)reader["UsedHours"];
                 }
-                return new Case();
+                else newCase.UsedHours = 0;
+                newCase.Done = (bool)reader["Done"];
+                newCase.EmployeeId = (int)reader["EmployeeId"];
+                newCase.ClientId = (int)reader["ClientId"];
+
+                return newCase;
+
             }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+            await dbConn.CloseAsync();
+            return new Case();
+
+
         }
 
         public async Task<List<Case>> GetAllAsync()
@@ -136,40 +111,34 @@ namespace DataAcces
             List<Case> newCaseList = new List<Case>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
-            try
+
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
+                Case newCase = new Case();
+                newCase.CaseId = (int)reader["CaseId"];
+                newCase.CaseTitle = (string)reader["CaseTitle"];
+
+                newCase.StartDate = (DateTime)reader["CaseStartDate"];
+                newCase.ExEndDate = (DateTime)reader["EstEndDate"];
+                if (reader["UsedHours"] != DBNull.Value)
                 {
-                    Case newCase = new Case();
-                    newCase.CaseId = (int)reader["CaseId"];
-                    newCase.CaseTitle = (string)reader["CaseTitle"];
-
-                    newCase.StartDate = (DateTime)reader["CaseStartDate"];
-                    newCase.ExEndDate = (DateTime)reader["EstEndDate"];
-                    if (reader["UsedHours"] != DBNull.Value)
-                    {
-                        newCase.UsedHours = (int)reader["UsedHours"];
-                    }
-                    else newCase.UsedHours = 0;
-                    newCase.EstHours = (int)reader["EstHours"];
-                    newCase.Done = (bool)reader["Done"];
-                    newCase.EmployeeId = (int)reader["EmployeeId"];
-                    newCase.ClientId = (int)reader["ClientId"];
-                    newCaseList.Add(newCase);
-
+                    newCase.UsedHours = (int)reader["UsedHours"];
                 }
-                return newCaseList;
+                else newCase.UsedHours = 0;
+                newCase.EstHours = (int)reader["EstHours"];
+                newCase.Done = (bool)reader["Done"];
+                newCase.EmployeeId = (int)reader["EmployeeId"];
+                newCase.ClientId = (int)reader["ClientId"];
+                newCaseList.Add(newCase);
+
             }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+
+            await dbConn.CloseAsync();
+            return newCaseList;
+
+
         }
 
         public async Task<bool> UpdateAsync(Case newCase)
@@ -196,17 +165,10 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@EmployeeId", newCase.EmployeeId);
             sqlCommand.Parameters.AddWithValue("@ClientId", newCase.ClientId);
             sqlCommand.Parameters.AddWithValue("@CaseId", newCase.CaseId);
-            try
-            {
-                await dbConn.OpenAsync();
-                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
 
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally { await dbConn.CloseAsync(); }
+            await dbConn.OpenAsync();
+            rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+            await dbConn.CloseAsync();
             if (rowsAffected > 0)
             {
                 return true;
@@ -224,49 +186,37 @@ namespace DataAcces
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@ClientId", id);
-            try
+
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
+                Case newCaseClient = new Case();
+                newCaseClient.CaseId = (int)reader["CaseId"];
+                newCaseClient.CaseTitle = (string)reader["CaseTitle"];
+                newCaseClient.StartDate = (DateTime)reader["CaseStartDate"];
+                newCaseClient.ExEndDate = (DateTime)reader["EstEndDate"];
+                newCaseClient.EstHours = (int)reader["EstHours"];
+                if (reader["UsedHours"] != DBNull.Value)
                 {
-                    Case newCaseClient = new Case();
-                    newCaseClient.CaseId = (int)reader["CaseId"];
-                    newCaseClient.CaseTitle = (string)reader["CaseTitle"];
-                    newCaseClient.StartDate = (DateTime)reader["CaseStartDate"];
-                    newCaseClient.ExEndDate = (DateTime)reader["EstEndDate"];
-                    newCaseClient.EstHours = (int)reader["EstHours"];
-                    if (reader["UsedHours"] != DBNull.Value)
-                    {
-                        newCaseClient.UsedHours = (int)reader["UsedHours"];
-                    }
-                    newCaseClient.Done = (bool)reader["Done"];
-                    newCaseClient.EmployeeId = (int)reader["EmployeeId"];
-                    newCaseClient.ClientId = (int)reader["ClientId"];
-                    caseListClient.Add(newCaseClient);
-
+                    newCaseClient.UsedHours = (int)reader["UsedHours"];
                 }
-                return caseListClient;
-
+                newCaseClient.Done = (bool)reader["Done"];
+                newCaseClient.EmployeeId = (int)reader["EmployeeId"];
+                newCaseClient.ClientId = (int)reader["ClientId"];
+                caseListClient.Add(newCaseClient);
             }
 
+            await dbConn.CloseAsync();
+            return caseListClient;
 
-            catch (Exception e)
 
-            {
-
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
         }
 
     }
 }
 
 
-    
+
 
 

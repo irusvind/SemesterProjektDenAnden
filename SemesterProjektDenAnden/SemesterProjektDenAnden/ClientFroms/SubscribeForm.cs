@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -37,7 +38,6 @@ namespace SemesterProjektDenAnden.ClientFroms
                 {
                     
                     await UpdateSubscriber(12, 5555);
-                    this.Close();
                 }
 
             }
@@ -48,7 +48,6 @@ namespace SemesterProjektDenAnden.ClientFroms
                 {
 
                     await UpdateSubscriber(6, 3299);
-                    this.Close();
                 }
             }
             else if (CB3mdr.Checked)
@@ -58,7 +57,6 @@ namespace SemesterProjektDenAnden.ClientFroms
                 {
 
                     await UpdateSubscriber(3, 1749);
-                    this.Close();
                 }
             }
             else if (CB1mdr.Checked)
@@ -68,7 +66,6 @@ namespace SemesterProjektDenAnden.ClientFroms
                 {
 
                     await UpdateSubscriber(1, 999);
-                    this.Close();
                 }
             }
             else
@@ -77,17 +74,28 @@ namespace SemesterProjektDenAnden.ClientFroms
             }
         }
 
-        private async Task<bool> UpdateSubscriber(int months, int price)
+        private async Task UpdateSubscriber(int months, int price)
         {
-            Client updateClient = await clientBL.GetAsync(clientId);
-            DateTime date = DateTime.Now.AddMonths(months);
-            updateClient.Subscriber = true;
-            updateClient.SubEndDate = date;
-            updateClient.SubPrice = price;
-            await clientBL.UpdateAsync(updateClient);
-            MyPage myPage = new MyPage(clientMdi, clientId);
-            clientMdi.FormOpener(myPage);
-            return true;
+            try
+            {
+                Client updateClient = await clientBL.GetAsync(clientId);
+                DateTime date = DateTime.Now.AddMonths(months);
+                updateClient.Subscriber = true;
+                updateClient.SubEndDate = date;
+                updateClient.SubPrice = price;
+                await clientBL.UpdateAsync(updateClient);
+                MyPage myPage = new MyPage(clientMdi, clientId);
+                clientMdi.FormOpener(myPage);
+                this.Close();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
