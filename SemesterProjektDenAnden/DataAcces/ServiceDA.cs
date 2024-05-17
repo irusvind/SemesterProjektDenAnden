@@ -76,68 +76,52 @@ namespace DataAcces
 
                 return service;
             }
-            return new Service();
             await dbConn.CloseAsync();
+            return new Service();
         }
 
         public async Task UpdateServicesAsync(int serviceId, int caseId)
         {
 
-            
+
             string createCommand = "INSERT INTO SERVICELIST (CaseId, serviceId) VALUES (@caseID, @ServiceId)";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
 
-            try
-            {
-                await dbConn.OpenAsync();
-                
-                    SqlCommand sqlCreateCommand = new SqlCommand(createCommand, dbConn);
-                    sqlCreateCommand.Parameters.AddWithValue("@caseID", caseId);
-                    sqlCreateCommand.Parameters.AddWithValue("@ServiceId", serviceId);
-                    await sqlCreateCommand.ExecuteNonQueryAsync();
+            await dbConn.OpenAsync();
 
-                
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+            SqlCommand sqlCreateCommand = new SqlCommand(createCommand, dbConn);
+            sqlCreateCommand.Parameters.AddWithValue("@caseID", caseId);
+            sqlCreateCommand.Parameters.AddWithValue("@ServiceId", serviceId);
+            await sqlCreateCommand.ExecuteNonQueryAsync();
+
+
+            await dbConn.CloseAsync();
+            
 
         }
         public async Task<List<Service>> GetSpecificCaseServiceAsync(int caseId)
         {
-            List<Service> services  = new List<Service>();
+            List<Service> services = new List<Service>();
             string command = "SELECT SERVICE_.ServiceId, SERVICE_.ServiceName FROM SERVICE_ " +
                 "INNER JOIN SERVICELIST ON SERVICELIST.CaseId = @caseId AND SERVICELIST.ServiceId = SERVICE_.ServiceId";
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@CaseId", caseId);
-            try
+
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    Service service = new Service();
-                    service.ServiceId = (int)reader["ServiceId"];
-                    service.ServiceName = (string)reader["ServiceName"];
-                    services.Add(service);
-                }
-                return services;
+                Service service = new Service();
+                service.ServiceId = (int)reader["ServiceId"];
+                service.ServiceName = (string)reader["ServiceName"];
+                services.Add(service);
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+            await dbConn.CloseAsync();
+            return services;
+
+
         }
 
 

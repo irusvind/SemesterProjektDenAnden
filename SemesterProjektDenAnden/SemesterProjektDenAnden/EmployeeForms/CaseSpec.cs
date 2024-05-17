@@ -137,6 +137,10 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 serviceBL.UpdateAsync(id, caseId);
                 ServincesDGVData();
             }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -144,11 +148,22 @@ namespace SemesterProjektDenAnden.EmployeeForms
         }
         private async void ServincesDGVData()
         {
-            List<Service> services = await serviceBL.GetSpecificCaseServiceAsync(caseId);
+            try
+            {
+                List<Service> services = await serviceBL.GetSpecificCaseServiceAsync(caseId);
 
-            BindingSource servinceSource = new BindingSource();
-            servinceSource.DataSource = services;
-            ydelserDgv.DataSource = servinceSource;
+                BindingSource servinceSource = new BindingSource();
+                servinceSource.DataSource = services;
+                ydelserDgv.DataSource = servinceSource;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }
