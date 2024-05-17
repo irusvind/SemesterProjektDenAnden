@@ -242,7 +242,7 @@
             // 
             // clientPhoneBox
             // 
-            clientPhoneBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            clientPhoneBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             clientPhoneBox.Location = new Point(764, 191);
             clientPhoneBox.Name = "clientPhoneBox";
             clientPhoneBox.Size = new Size(196, 24);
@@ -250,7 +250,7 @@
             // 
             // clientNamebox
             // 
-            clientNamebox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            clientNamebox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             clientNamebox.Location = new Point(764, 160);
             clientNamebox.Name = "clientNamebox";
             clientNamebox.Size = new Size(196, 24);
@@ -290,7 +290,7 @@
             // 
             // clientMailbox
             // 
-            clientMailbox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            clientMailbox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             clientMailbox.Location = new Point(764, 221);
             clientMailbox.Name = "clientMailbox";
             clientMailbox.Size = new Size(196, 24);
@@ -298,7 +298,7 @@
             // 
             // employeeNameBox
             // 
-            employeeNameBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            employeeNameBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             employeeNameBox.Location = new Point(764, 387);
             employeeNameBox.Name = "employeeNameBox";
             employeeNameBox.Size = new Size(196, 24);
@@ -306,7 +306,7 @@
             // 
             // employeeIdBox
             // 
-            employeeIdBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            employeeIdBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             employeeIdBox.Location = new Point(764, 417);
             employeeIdBox.Name = "employeeIdBox";
             employeeIdBox.Size = new Size(196, 24);
