@@ -46,7 +46,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             TransportLog transport = new TransportLog();
             transport = await transportLogBL.GetAsync(this.caseId);
 
-
+            sagsNavnNrLbl.Text = @case.CaseTitle + " " + @case.CaseId;
             clientNamebox.Text = client.FirstName + " " + client.LastName;
             clientMailbox.Text = client.Mail;
             clientPhoneBox.Text = client.Phone.ToString();
