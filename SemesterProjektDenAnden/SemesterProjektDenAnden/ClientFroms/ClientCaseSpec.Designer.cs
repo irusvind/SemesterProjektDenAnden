@@ -53,6 +53,7 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
+            ReportBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)ydelserDgv).BeginInit();
             SuspendLayout();
             // 
@@ -312,11 +313,24 @@
             label8.TabIndex = 62;
             label8.Text = "label8";
             // 
+            // ReportBtn
+            // 
+            ReportBtn.BackColor = Color.Black;
+            ReportBtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            ReportBtn.ForeColor = Color.White;
+            ReportBtn.Location = new Point(696, 497);
+            ReportBtn.Name = "ReportBtn";
+            ReportBtn.Size = new Size(118, 43);
+            ReportBtn.TabIndex = 63;
+            ReportBtn.Text = "button1";
+            ReportBtn.UseVisualStyleBackColor = false;
+            // 
             // ClientCaseSpec
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1049, 616);
+            Controls.Add(ReportBtn);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -371,5 +385,6 @@
         private Label label6;
         private Label label7;
         private Label label8;
+        private Button ReportBtn;
     }
 }
