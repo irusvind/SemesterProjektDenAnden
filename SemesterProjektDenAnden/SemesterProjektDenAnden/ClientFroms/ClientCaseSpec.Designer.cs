@@ -45,6 +45,17 @@
             ydelserlbl = new Label();
             ydelserDgv = new DataGridView();
             sagsNavnNrLbl = new Label();
+<<<<<<< HEAD
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            ReportBtn = new Button();
+=======
             employeeNr = new Label();
             employeeName = new Label();
             endData = new Label();
@@ -53,7 +64,7 @@
             clientMail = new Label();
             startDate = new Label();
             expectedHour = new Label();
-            ReportBtn = new Button();
+>>>>>>> main
             ((System.ComponentModel.ISupportInitialize)ydelserDgv).BeginInit();
             SuspendLayout();
             // 
@@ -332,7 +343,17 @@
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1049, 616);
+<<<<<<< HEAD
             Controls.Add(ReportBtn);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+=======
             Controls.Add(expectedHour);
             Controls.Add(startDate);
             Controls.Add(clientMail);
@@ -341,6 +362,7 @@
             Controls.Add(endData);
             Controls.Add(employeeName);
             Controls.Add(employeeNr);
+>>>>>>> main
             Controls.Add(EmployeeInfolbl);
             Controls.Add(EmployeeNrLbl);
             Controls.Add(advocatNameLbl);
@@ -379,6 +401,7 @@
         private Label ydelserlbl;
         private DataGridView ydelserDgv;
         private Label sagsNavnNrLbl;
+
         private Label employeeNr;
         private Label employeeName;
         private Label endData;
@@ -388,5 +411,6 @@
         private Label startDate;
         private Label expectedHour;
         private Button ReportBtn;
+
     }
 }
