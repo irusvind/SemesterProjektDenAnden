@@ -113,11 +113,11 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private void employeeHelpBtn_Click(object sender, EventArgs e)
         {
-            ProcessStartInfo psi = new ProcessStartInfo(@"..\..\..\Resources\LawHouse-DMVE231-v1.pdf");
+            ProcessStartInfo process = new ProcessStartInfo(@"..\..\..\Resources\LawHouse-DMVE231-v1.pdf");
             {
-                psi.UseShellExecute = true;
+                process.UseShellExecute = true;
             }
-            Process.Start(psi);
+            Process.Start(process);
         }
 
         private void Button_MouseEnter(object sender, EventArgs e)

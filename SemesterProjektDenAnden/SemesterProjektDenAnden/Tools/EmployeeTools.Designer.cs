@@ -79,7 +79,7 @@
             CalculatorBtn.Name = "CalculatorBtn";
             CalculatorBtn.Size = new Size(254, 65);
             CalculatorBtn.TabIndex = 3;
-            CalculatorBtn.Text = "Lånberegner";
+            CalculatorBtn.Text = "Låneberegner";
             CalculatorBtn.UseVisualStyleBackColor = false;
             CalculatorBtn.Click += CalculatorBtn_Click;
             // 
