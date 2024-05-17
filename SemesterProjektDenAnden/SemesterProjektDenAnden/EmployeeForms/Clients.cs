@@ -1,15 +1,5 @@
 ﻿using BusinessLogic;
-using DataAcces;
 using Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SemesterProjektDenAnden.EmployeeForms
 {
@@ -40,12 +30,14 @@ namespace SemesterProjektDenAnden.EmployeeForms
         {
             DataGridView dgv = (DataGridView)sender;
             int row = e.RowIndex;
+            if (row >= 0)
+            {
+                DataGridViewRow temp = dgv.Rows[row];
+                int id = (int)temp.Cells[0].Value;
 
-            DataGridViewRow temp = dgv.Rows[row];
-            int id = (int)temp.Cells[0].Value;
-
-            ClientSpec clientSpec = new ClientSpec(employeeMdi, id);
-            employeeMdi.FormOpener(clientSpec);
+                ClientSpec clientSpec = new ClientSpec(employeeMdi, id);
+                employeeMdi.FormOpener(clientSpec);
+            }
         }
     }
 }

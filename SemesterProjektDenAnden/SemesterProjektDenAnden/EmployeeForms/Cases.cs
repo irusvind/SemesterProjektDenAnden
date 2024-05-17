@@ -32,19 +32,16 @@ namespace SemesterProjektDenAnden.EmployeeForms
             DataGridView dgv = (DataGridView)sender;
 
             int row = e.RowIndex;
-            try { 
-            DataGridViewRow temp = dgv.Rows[row];
+            if (row >= 0)
+            {
+                DataGridViewRow temp = dgv.Rows[row];
 
                 int id = (int)temp.Cells[0].Value;
 
                 CaseSpec caseSpec = new CaseSpec(employeeMdi, id);
                 employeeMdi.FormOpener(caseSpec);
+            }
 
-            }
-            catch (Exception ex)
-            {
-                this.Show();
-            }
         }
 
         private void OpretSagBtn_Click(object sender, EventArgs e)

@@ -40,18 +40,24 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private void PossibleCoursesDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Course changedCourse = possibleCourses[e.RowIndex];
-            possibleCourses.RemoveAt(e.RowIndex);
-            selectedCourses.Add(changedCourse);
-            UpdateDGV();
+            if(e.RowIndex >= 0)
+            {
+                Course changedCourse = possibleCourses[e.RowIndex];
+                possibleCourses.RemoveAt(e.RowIndex);
+                selectedCourses.Add(changedCourse);
+                UpdateDGV();
+            }
         }
 
         private void ChosenCoursesDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Course changedCourse = selectedCourses[e.RowIndex];
-            selectedCourses.RemoveAt(e.RowIndex);
-            possibleCourses.Add(changedCourse);
-            UpdateDGV();
+            if(e.RowIndex >= 0)
+            {
+                Course changedCourse = selectedCourses[e.RowIndex];
+                selectedCourses.RemoveAt(e.RowIndex);
+                possibleCourses.Add(changedCourse);
+                UpdateDGV();
+            }
         }
 
         private void UpdateDGV() 

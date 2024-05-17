@@ -1,15 +1,6 @@
 ﻿using BusinessLogic;
 using Models;
 using SemesterProjektDenAnden.LogInForms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SemesterProjektDenAnden.EmployeeForms
 {
@@ -31,20 +22,13 @@ namespace SemesterProjektDenAnden.EmployeeForms
             DataGridView dgv = (DataGridView)sender;
 
             int row = e.RowIndex;
-            try
+            if (row >= 0)
             {
                 DataGridViewRow temp = dgv.Rows[row];
-
                 int id = (int)temp.Cells[0].Value;
-
                 EmployeeSpec employeeSpec = new EmployeeSpec(employeeMdi, id);
                 employeeMdi.FormOpener(employeeSpec);
             }
-            catch (Exception ex)
-            {
-                this.Show();
-            }
-
         }
 
         private void OpretEmployeeBtn_Click(object sender, EventArgs e)
