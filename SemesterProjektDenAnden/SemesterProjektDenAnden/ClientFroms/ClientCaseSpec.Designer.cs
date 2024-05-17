@@ -45,9 +45,6 @@
             ydelserlbl = new Label();
             ydelserDgv = new DataGridView();
             sagsNavnNrLbl = new Label();
-
-            ReportBtn = new Button();
-
             employeeNr = new Label();
             employeeName = new Label();
             endData = new Label();
@@ -56,7 +53,8 @@
             clientMail = new Label();
             startDate = new Label();
             expectedHour = new Label();
-
+            ReportBtn = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)ydelserDgv).BeginInit();
             SuspendLayout();
             // 
@@ -321,21 +319,31 @@
             // ReportBtn
             // 
             ReportBtn.BackColor = Color.Black;
-            ReportBtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            ReportBtn.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             ReportBtn.ForeColor = Color.White;
             ReportBtn.Location = new Point(696, 497);
             ReportBtn.Name = "ReportBtn";
             ReportBtn.Size = new Size(118, 43);
             ReportBtn.TabIndex = 63;
-            ReportBtn.Text = "button1";
+            ReportBtn.Text = "Download";
             ReportBtn.UseVisualStyleBackColor = false;
+            ReportBtn.Click += ReportBtn_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(709, 479);
+            label1.Name = "label1";
+            label1.Size = new Size(91, 15);
+            label1.TabIndex = 64;
+            label1.Text = "Sigende rapport";
             // 
             // ClientCaseSpec
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1049, 616);
-
+            Controls.Add(label1);
             Controls.Add(expectedHour);
             Controls.Add(startDate);
             Controls.Add(clientMail);
@@ -344,7 +352,7 @@
             Controls.Add(endData);
             Controls.Add(employeeName);
             Controls.Add(employeeNr);
-
+            Controls.Add(ReportBtn);
             Controls.Add(EmployeeInfolbl);
             Controls.Add(EmployeeNrLbl);
             Controls.Add(advocatNameLbl);
@@ -393,6 +401,6 @@
         private Label startDate;
         private Label expectedHour;
         private Button ReportBtn;
-
+        private Label label1;
     }
 }

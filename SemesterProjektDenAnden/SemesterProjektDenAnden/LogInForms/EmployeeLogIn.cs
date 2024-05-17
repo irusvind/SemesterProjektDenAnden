@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -29,22 +30,40 @@ namespace SemesterProjektDenAnden.LogInForms
 
         private async void AddToCombobox()
         {
-            List<Employee> employees = await employeeBL.GetAllAsync();
-            foreach (Employee employee in employees)
+            try
             {
-                EmployeeCB.Items.Add(employee.Id + ": " + employee.FirstName + " " + employee.LastName);
+                List<Employee> employees = await employeeBL.GetAllAsync();
+                foreach (Employee employee in employees)
+                {
+                    EmployeeCB.Items.Add(employee.Id + ": " + employee.FirstName + " " + employee.LastName);
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void logInBtn_Click(object sender, EventArgs e)
         {
-            if (EmployeeCB.Text.Length > 0)
+            try
             {
-                string[] idString = EmployeeCB.Items[EmployeeCB.SelectedIndex].ToString().Split(':');
-                int id = int.Parse(idString[0]);
-                employeeMdi = new EmployeeMdi(id);
-                employeeMdi.Show();
-                this.Close();
+                if (EmployeeCB.Text.Length > 0)
+                {
+                    string[] idString = EmployeeCB.Items[EmployeeCB.SelectedIndex].ToString().Split(':');
+                    int id = int.Parse(idString[0]);
+                    employeeMdi = new EmployeeMdi(id);
+                    employeeMdi.Show();
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -28,16 +28,9 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@EmAddress", employee.Address);
             sqlCommand.Parameters.AddWithValue("@JobTitle", employee.JobTitle);
 
-            try
-            {
-                await dbConn.OpenAsync();
-                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally { await dbConn.CloseAsync(); }
+            await dbConn.OpenAsync();
+            rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+            await dbConn.CloseAsync();
             if (rowsAffected > 0)
             {
                 return true;
@@ -56,16 +49,10 @@ namespace DataAcces
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@Id", id);
-            try
-            {
-                await dbConn.OpenAsync();
-                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            finally { await dbConn.CloseAsync(); }
+
+            await dbConn.OpenAsync();
+            rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+            await dbConn.CloseAsync();
             if (rowsAffected > 0)
             {
                 return true;
@@ -82,32 +69,26 @@ namespace DataAcces
             List<Employee> employees = new List<Employee>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
-            try
+
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    Employee employee = new Employee();
-                    employee.Id = (int)reader["EmployeeId"];
-                    employee.FirstName = (string)reader["EmFirstName"];
-                    employee.LastName = (string)reader["EmLastName"];
-                    employee.PhoneNumber = (int)reader["EmPhone"];
-                    employee.Email = (string)reader["EmMail"];
-                    employee.Address = (string)reader["EmAddress"];
-                    employee.JobTitle = (string)reader["JobTitle"];
-                    employees.Add(employee);
-                }
-                return employees;
+                Employee employee = new Employee();
+                employee.Id = (int)reader["EmployeeId"];
+                employee.FirstName = (string)reader["EmFirstName"];
+                employee.LastName = (string)reader["EmLastName"];
+                employee.PhoneNumber = (int)reader["EmPhone"];
+                employee.Email = (string)reader["EmMail"];
+                employee.Address = (string)reader["EmAddress"];
+                employee.JobTitle = (string)reader["JobTitle"];
+                employees.Add(employee);
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+            await dbConn.CloseAsync();
+            return employees;
+
+
+
         }
 
         public async Task<Employee> GetAsync(int id)
@@ -117,35 +98,29 @@ namespace DataAcces
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@EmployeeId", id);
-            try
+
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
 
-                    employee.Id = (int)reader["EmployeeId"];
-                    employee.FirstName = (string)reader["EmFirstName"];
-                    employee.LastName = (string)reader["EmLastName"];
-                    employee.PhoneNumber = (int)reader["EmPhone"];
-                    employee.Email = (string)reader["EmMail"];
-                    employee.Address = (string)reader["EmAddress"];
-                    employee.JobTitle = (string)reader["JobTitle"];
+                employee.Id = (int)reader["EmployeeId"];
+                employee.FirstName = (string)reader["EmFirstName"];
+                employee.LastName = (string)reader["EmLastName"];
+                employee.PhoneNumber = (int)reader["EmPhone"];
+                employee.Email = (string)reader["EmMail"];
+                employee.Address = (string)reader["EmAddress"];
+                employee.JobTitle = (string)reader["JobTitle"];
 
 
-                    return employee;
+                return employee;
 
-                }
-                return new Employee();
             }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+            await dbConn.CloseAsync();
+            return new Employee();
+
+
+
         }
 
         public async Task<bool> UpdateAsync(Employee employee)
@@ -168,19 +143,10 @@ namespace DataAcces
             sqlCommand.Parameters.AddWithValue("@EmAddress", employee.Address);
             sqlCommand.Parameters.AddWithValue("@JobTitle", employee.JobTitle);
             sqlCommand.Parameters.AddWithValue("@EmployeeId", employee.Id);
-            try
-            {
-                await dbConn.OpenAsync();
-                rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+            await dbConn.OpenAsync();
+            rowsAffected = await sqlCommand.ExecuteNonQueryAsync();
+            await dbConn.CloseAsync();
+
             if (rowsAffected > 0)
             {
                 return true;
@@ -197,27 +163,21 @@ namespace DataAcces
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
             sqlCommand.Parameters.AddWithValue("@EmployeeId", employeeId);
-            try
+
+            await dbConn.OpenAsync();
+            SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
-                await dbConn.OpenAsync();
-                SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    Course course = new Course();
-                    course.CourseId = (int)reader["CourseId"];
-                    course.CourseName = (string)reader["CourseName"];
-                    courses.Add(course);
-                }
-                return courses;
+                Course course = new Course();
+                course.CourseId = (int)reader["CourseId"];
+                course.CourseName = (string)reader["CourseName"];
+                courses.Add(course);
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+            await dbConn.CloseAsync();
+            return courses;
+
+
+
         }
 
         public async Task UpdateCoursesAsync(List<Course> courses, int employeeId)
@@ -230,27 +190,19 @@ namespace DataAcces
             SqlCommand sqlDeleteCommand = new SqlCommand(deleteCommand, dbConn);
             sqlDeleteCommand.Parameters.AddWithValue("@employeeId", employeeId);
 
-            try
+
+            await dbConn.OpenAsync();
+            await sqlDeleteCommand.ExecuteNonQueryAsync();
+            foreach (Course course in courses)
             {
-                await dbConn.OpenAsync();
-                await sqlDeleteCommand.ExecuteNonQueryAsync();
-                foreach (Course course in courses) 
-                {
-                    SqlCommand sqlCreateCommand = new SqlCommand(createCommand, dbConn);
-                    sqlCreateCommand.Parameters.AddWithValue("@employeeId", employeeId);
-                    sqlCreateCommand.Parameters.AddWithValue("@courseId", course.CourseId);
-                    await sqlCreateCommand.ExecuteNonQueryAsync();
-                    
-                }
+                SqlCommand sqlCreateCommand = new SqlCommand(createCommand, dbConn);
+                sqlCreateCommand.Parameters.AddWithValue("@employeeId", employeeId);
+                sqlCreateCommand.Parameters.AddWithValue("@courseId", course.CourseId);
+                await sqlCreateCommand.ExecuteNonQueryAsync();
+
             }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally
-            {
-                await dbConn.CloseAsync();
-            }
+            await dbConn.CloseAsync();
+
 
         }
     }

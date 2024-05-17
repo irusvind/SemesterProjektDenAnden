@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
     {
         EmployeeMdi employeeMdi;
         
-        ICaseBL CaseBL = new CaseBL();
+        CaseBL CaseBL = new CaseBL();
         public Cases(EmployeeMdi employeeMdi)
         {
             InitializeComponent();
@@ -51,11 +52,21 @@ namespace SemesterProjektDenAnden.EmployeeForms
         }
         private async void CasesDGVData()
         {
-            List<Case> cases = await CaseBL.GetAllAsync();
-
-            BindingSource caseSource = new BindingSource();
-            caseSource.DataSource = cases;
-            sagerDgv.DataSource = caseSource;
+            try
+            {
+                List<Case> cases = await CaseBL.GetAllAsync();
+                BindingSource caseSource = new BindingSource();
+                caseSource.DataSource = cases;
+                sagerDgv.DataSource = caseSource;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }
