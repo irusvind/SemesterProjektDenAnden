@@ -28,7 +28,7 @@ namespace SemesterProjektDenAnden.ClientFroms
             InitializeComponent();
             this.clientMid = clientMDI;
             this.caseId = CaseId;
-            
+
             SetData();
             ServincesDGVData();
 
@@ -78,9 +78,14 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void ydelserDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-                
-            
+
+
+
+        }
+
+        private void ReportBtn_Click(object sender, EventArgs e)
+        {
+            caseBL.printRapport(caseId);
         }
     }
 }
