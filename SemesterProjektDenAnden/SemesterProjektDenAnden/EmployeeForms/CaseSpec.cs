@@ -29,6 +29,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             this.caseId = CaseId;
             SetData();
             AddToServiceCombobox();
+            ServincesDGVData();
         }
 
         private async void SetData()
@@ -94,10 +95,24 @@ namespace SemesterProjektDenAnden.EmployeeForms
             MessageBox.Show("Case Updated");
         }
 
-        private void addServiceBtn_Click(object sender, EventArgs e)
+        
+        private void AddServiceBtn_Click(object sender, EventArgs e)
         {
             string[] idString = comboCaseYdelse.Items[comboCaseYdelse.SelectedIndex].ToString().Split(':');
             int id = int.Parse(idString[0]);
+            serviceBL.UpdateAsync(id, caseId);
+            ServincesDGVData();
+
+        }
+
+        private async void ServincesDGVData()
+        {
+            List<Service>services = await serviceBL.GetSpecificCaseServiceAsync(caseId);
+
+            BindingSource servinceSource = new BindingSource();
+            servinceSource.DataSource = services;
+            ydelserDgv.DataSource = servinceSource;
+
         }
     }
 }

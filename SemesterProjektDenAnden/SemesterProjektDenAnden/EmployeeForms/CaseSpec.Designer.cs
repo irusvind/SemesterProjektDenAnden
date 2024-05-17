@@ -94,7 +94,7 @@
             addServiceBtn.TabIndex = 61;
             addServiceBtn.Text = "Tilføj";
             addServiceBtn.UseVisualStyleBackColor = false;
-            addServiceBtn.Click += addServiceBtn_Click;
+            addServiceBtn.Click += AddServiceBtn_Click;
             // 
             // comboCaseYdelse
             // 

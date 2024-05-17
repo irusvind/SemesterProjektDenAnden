@@ -29,5 +29,20 @@ namespace BusinessLogic
             Service service = await serviceDA.GetAsync(id);
             return service;
         }
+
+        public async void UpdateAsync(int serviceID, int caseId)
+        {
+            await serviceDA.UpdateServicesAsync(serviceID, caseId);
+            
+
+        }
+
+        public async Task<List<Service>> GetSpecificCaseServiceAsync(int caseId)
+        {
+            List<Service> services = await serviceDA.GetSpecificCaseServiceAsync(caseId);
+            return services;
+            
+        }
     }
+
 }
