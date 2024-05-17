@@ -228,21 +228,23 @@ namespace DataAcces
             {
                 await dbConn.OpenAsync();
                 SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
-                while (await reader.ReadAsync()) { 
-                Case newCaseClient = new Case();
-                newCaseClient.CaseId = (int)reader["CaseId"];
-                newCaseClient.StartDate = (DateTime)reader["CaseStartDate"];
-                newCaseClient.ExEndDate = (DateTime)reader["EstEndDate"];
-                newCaseClient.EstHours = (int)reader["EstHours"];
-                if (reader["UsedHours"] != DBNull.Value)
+                while (await reader.ReadAsync())
                 {
-                    newCaseClient.UsedHours = (int)reader["UsedHours"];
-                }
-                newCaseClient.Done = (bool)reader["Done"];
-                newCaseClient.EmployeeId = (int)reader["EmployeeId"];
-                newCaseClient.ClientId = (int)reader["ClientId"];
-                caseListClient.Add(newCaseClient);
-                
+                    Case newCaseClient = new Case();
+                    newCaseClient.CaseId = (int)reader["CaseId"];
+                    newCaseClient.CaseTitle = (string)reader["CaseTitle"];
+                    newCaseClient.StartDate = (DateTime)reader["CaseStartDate"];
+                    newCaseClient.ExEndDate = (DateTime)reader["EstEndDate"];
+                    newCaseClient.EstHours = (int)reader["EstHours"];
+                    if (reader["UsedHours"] != DBNull.Value)
+                    {
+                        newCaseClient.UsedHours = (int)reader["UsedHours"];
+                    }
+                    newCaseClient.Done = (bool)reader["Done"];
+                    newCaseClient.EmployeeId = (int)reader["EmployeeId"];
+                    newCaseClient.ClientId = (int)reader["ClientId"];
+                    caseListClient.Add(newCaseClient);
+
                 }
                 return caseListClient;
 
@@ -260,11 +262,7 @@ namespace DataAcces
                 await dbConn.CloseAsync();
             }
         }
-        //    public Task<bool> addServiceToCase(int caseId, int serviceId)
-        //    {
 
-        //    }
-        //}
     }
 }
 
