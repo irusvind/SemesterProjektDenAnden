@@ -94,7 +94,7 @@
             addServiceBtn.TabIndex = 61;
             addServiceBtn.Text = "Tilføj";
             addServiceBtn.UseVisualStyleBackColor = false;
-            addServiceBtn.Click += addServiceBtn_Click;
+            addServiceBtn.Click += AddServiceBtn_Click;
             // 
             // comboCaseYdelse
             // 
@@ -399,6 +399,7 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.White;
             ClientSize = new Size(1065, 655);
             Controls.Add(transDescrpt);
             Controls.Add(trandDisc);

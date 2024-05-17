@@ -193,6 +193,7 @@ namespace DataAcces
             {
                 Case newCaseClient = new Case();
                 newCaseClient.CaseId = (int)reader["CaseId"];
+                newCaseClient.CaseTitle = (string)reader["CaseTitle"];
                 newCaseClient.StartDate = (DateTime)reader["CaseStartDate"];
                 newCaseClient.ExEndDate = (DateTime)reader["EstEndDate"];
                 newCaseClient.EstHours = (int)reader["EstHours"];
@@ -211,11 +212,7 @@ namespace DataAcces
 
 
         }
-        //    public Task<bool> addServiceToCase(int caseId, int serviceId)
-        //    {
 
-        //    }
-        //}
     }
 }
 

@@ -47,15 +47,14 @@ namespace SemesterProjektDenAnden.LogInForms
                 {
 
                 
-                    Client newClient = new Client();
-                    newClient.FirstName = FnameTxt.Text;
-                    newClient.LastName = LnameTxt.Text;
-                    newClient.Phone = int.Parse(PhoneTxt.Text);
-                    newClient.Mail = MailTxt.Text;
-                    newClient.ClAddress = AddressTxt.Text;
-                    newClient.Subscriber = SubscribeCB.Checked;
-                    var context = new ValidationContext(newClient, serviceProvider: null, items: null);
-                    bool isValid = Validator.TryValidateObject(newClient, context, null, true);
+                Client newClient = new Client();
+                newClient.FirstName = FnameTxt.Text;
+                newClient.LastName = LnameTxt.Text;
+                newClient.Phone = int.Parse(PhoneTxt.Text);
+                newClient.Mail = MailTxt.Text;
+                newClient.ClAddress = AddressTxt.Text;
+                var context = new ValidationContext(newClient, serviceProvider: null, items: null);
+                bool isValid = Validator.TryValidateObject(newClient, context, null, true);
 
                     if (isValid)
                     {

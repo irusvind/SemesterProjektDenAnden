@@ -30,6 +30,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             this.caseId = CaseId;
             SetData();
             AddToServiceCombobox();
+            ServincesDGVData();
         }
 
         private async void SetData()
@@ -47,8 +48,8 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
                 TransportLog transport = new TransportLog();
                 transport = await transportLogBL.GetAsync(this.caseId);
-
-
+                
+                sagsNavnNrLbl.Text = @case.CaseTitle + " " + @case.CaseId;
                 clientNamebox.Text = client.FirstName + " " + client.LastName;
                 clientMailbox.Text = client.Mail;
                 clientPhoneBox.Text = client.Phone.ToString();
@@ -69,7 +70,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+            
         private async void AddToServiceCombobox()
         {
             try
@@ -126,17 +127,29 @@ namespace SemesterProjektDenAnden.EmployeeForms
             }
         }
 
-        private void addServiceBtn_Click(object sender, EventArgs e)
+        
+        private void AddServiceBtn_Click(object sender, EventArgs e)
         {
             try
             {
                 string[] idString = comboCaseYdelse.Items[comboCaseYdelse.SelectedIndex].ToString().Split(':');
                 int id = int.Parse(idString[0]);
+                serviceBL.UpdateAsync(id, caseId);
+                ServincesDGVData();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private async void ServincesDGVData()
+        {
+            List<Service> services = await serviceBL.GetSpecificCaseServiceAsync(caseId);
+
+            BindingSource servinceSource = new BindingSource();
+            servinceSource.DataSource = services;
+            ydelserDgv.DataSource = servinceSource;
+
         }
     }
 }
