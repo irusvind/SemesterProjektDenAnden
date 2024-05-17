@@ -186,6 +186,7 @@
             clientCasesDGV.SelectionMode = DataGridViewSelectionMode.CellSelect;
             clientCasesDGV.Size = new Size(412, 150);
             clientCasesDGV.TabIndex = 17;
+            clientCasesDGV.CellContentDoubleClick += clientCasesDGV_CellContentDoubleClick;
             // 
             // clientIdTxt
             // 
