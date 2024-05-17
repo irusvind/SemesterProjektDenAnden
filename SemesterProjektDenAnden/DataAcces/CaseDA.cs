@@ -242,8 +242,6 @@ namespace DataAcces
                 newCaseClient.EmployeeId = (int)reader["EmployeeId"];
                 newCaseClient.ClientId = (int)reader["ClientId"];
                 caseListClient.Add(newCaseClient);
-                caseListClient.Add(newCaseClient);
-                caseListClient.Add(newCaseClient);
                 }
                 return caseListClient;
 
