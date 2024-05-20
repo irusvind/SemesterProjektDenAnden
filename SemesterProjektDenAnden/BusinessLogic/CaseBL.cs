@@ -67,26 +67,40 @@ namespace BusinessLogic
             TransportLog transport = new TransportLog();
             transport = await new TransportLogBL().GetAsync(caseId);
 
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-            DataTable dt = (DataTable)JsonConvert.DeserializeObject(JsonConvert.SerializeObject(case_), (typeof(DataTable)));
-            FileInfo fileInfo = new FileInfo("Rapport.txt");
-            var excel = new ExcelPackage(fileInfo);
-            var ws = excel.Workbook.Worksheets.Add("Rapport");
-            ws.Cells["A1"].LoadFromDataTable(dt, true);
-            excel.Save();
-            //Console.WriteLine("Case ID: " + case_.CaseId);
-            //Console.WriteLine("Case Title: " + case_.CaseTitle);
-            //Console.WriteLine("Client Name: " + client.FirstName + " " + client.LastName);
-            //Console.WriteLine("Client Mail: " + client.Mail);
-            //Console.WriteLine("Client Phone: " + client.Phone);
-            //Console.WriteLine("Employee ID: " + employee.Id);
-            //Console.WriteLine("Employee Name: " + employee.FirstName + " " + employee.LastName);
-            //Console.WriteLine("Start Date: " + case_.StartDate);
-            //Console.WriteLine("Expected Hours: " + case_.EstHours);
-            //Console.WriteLine("End Date: " + case_.ExEndDate);
-            //Console.WriteLine("Transport ID: " + transport.TransportLogId);
-            //Console.WriteLine("Transport KM: " + transport.KmDriven);
-            //Console.WriteLine("Transport Description: " + transport.LogDescription);
+            ExcelWorksheet ws;
+            using (var package = new ExcelPackage( new FileInfo(@"C:\Users\Frederik\Desktop\pokemon\games\pokemondecomp\SemesterProjektDenAnden\SemesterProjektDenAnden\SemesterProjektDenAnden\bin\Debug\net6.0-windows\mysheet.xlsx")))
+            {
+                ws = package.Workbook.Worksheets.Add(case_.CaseTitle);
+                ws.Cells["A1"].Value = "Case ID";
+                ws.Cells["B1"].Value = case_.CaseId;
+                ws.Cells["A2"].Value = "Case Title";
+                ws.Cells["B2"].Value = case_.CaseTitle;
+                ws.Cells["A3"].Value = "Client Name";
+                ws.Cells["B3"].Value = client.FirstName + " " + client.LastName;
+                ws.Cells["A4"].Value = "Client Mail";
+                ws.Cells["B4"].Value = client.Mail;
+                ws.Cells["A5"].Value = "Client Phone";
+                ws.Cells["B5"].Value = client.Phone;
+                ws.Cells["A6"].Value = "Employee ID";
+                ws.Cells["B6"].Value = employee.Id;
+                ws.Cells["A7"].Value = "Employee Name";
+                ws.Cells["B7"].Value = employee.FirstName + " " + employee.LastName;
+                ws.Cells["A8"].Value = "Start Date";
+                ws.Cells["B8"].Value = case_.StartDate;
+                ws.Cells["A9"].Value = "Expected Hours";
+                ws.Cells["B9"].Value = case_.EstHours;
+                ws.Cells["A10"].Value = "End Date";
+                ws.Cells["B10"].Value = case_.ExEndDate;
+                ws.Cells["A11"].Value = "Transport ID";
+                ws.Cells["B11"].Value = transport.TransportLogId;
+                ws.Cells["A12"].Value = "Transport KM";
+                ws.Cells["B12"].Value = transport.KmDriven;
+                ws.Cells["A13"].Value = "Transport Description";
+                ws.Cells["B13"].Value = transport.LogDescription;
+                package.Save();
+            }   
 
         }
     }
