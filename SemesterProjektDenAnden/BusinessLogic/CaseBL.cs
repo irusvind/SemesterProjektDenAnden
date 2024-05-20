@@ -67,6 +67,9 @@ namespace BusinessLogic
             TransportLog transport = new TransportLog();
             transport = await new TransportLogBL().GetAsync(caseId);
 
+            List<TransportLog> transportLogs = new List<TransportLog>();
+            transportLogs.Add(transport);
+
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
             ExcelWorksheet ws;
@@ -93,12 +96,12 @@ namespace BusinessLogic
                 ws.Cells["B9"].Value = case_.EstHours;
                 ws.Cells["A10"].Value = "End Date";
                 ws.Cells["B10"].Value = case_.ExEndDate;
-                ws.Cells["A11"].Value = "Transport ID";
-                ws.Cells["B11"].Value = transport.TransportLogId;
-                ws.Cells["A12"].Value = "Transport KM";
-                ws.Cells["B12"].Value = transport.KmDriven;
-                ws.Cells["A13"].Value = "Transport Description";
-                ws.Cells["B13"].Value = transport.LogDescription;
+                ws.Cells["E1"].Value = "Transport ID";
+                ws.Cells["F1"].Value = transport.TransportLogId;
+                ws.Cells["E2"].Value = "Transport KM";
+                ws.Cells["F2"].Value = transport.KmDriven;
+                ws.Cells["E3"].Value = "Transport Description";
+                ws.Cells["F3"].Value = transport.LogDescription;
                 package.Save();
             }   
 
