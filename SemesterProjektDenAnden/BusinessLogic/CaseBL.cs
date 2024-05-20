@@ -65,10 +65,10 @@ namespace BusinessLogic
             client = await new ClientBL().GetAsync(case_.ClientId);
 
             TransportLog transport = new TransportLog();
-            transport = await new TransportLogBL().GetAsync(caseId);
+            
 
             List<TransportLog> transportLogs = new List<TransportLog>();
-            transportLogs.Add(transport);
+            transportLogs = await new TransportLogBL().GetAllAsync(caseId);
 
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
@@ -97,11 +97,20 @@ namespace BusinessLogic
                 ws.Cells["A10"].Value = "End Date";
                 ws.Cells["B10"].Value = case_.ExEndDate;
                 ws.Cells["E1"].Value = "Transport ID";
-                ws.Cells["F1"].Value = transport.TransportLogId;
-                ws.Cells["E2"].Value = "Transport KM";
-                ws.Cells["F2"].Value = transport.KmDriven;
-                ws.Cells["E3"].Value = "Transport Description";
-                ws.Cells["F3"].Value = transport.LogDescription;
+                ws.Cells["F1"].Value = "Transport KM";
+                ws.Cells["G1"].Value = "Transport Description";
+                int i = 2;
+                foreach (var item in transportLogs)
+                {
+                    
+                    ws.Cells["E" + i].Value = item.TransportLogId;
+                    ws.Cells["F" + i].Value = item.KmDriven;
+                    ws.Cells["G" +i].Value = item.LogDescription;
+                    i++;
+                }
+                //ws.Cells["E2"].Value = transport.TransportLogId;
+                //ws.Cells["F2"].Value = transport.KmDriven;
+                //ws.Cells["G2"].Value = transport.LogDescription;
                 package.Save();
             }   
 

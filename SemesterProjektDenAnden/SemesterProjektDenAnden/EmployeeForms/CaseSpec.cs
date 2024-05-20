@@ -48,7 +48,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
                 TransportLog transport = new TransportLog();
                 transport = await transportLogBL.GetAsync(this.caseId);
-                
+
                 sagsNavnNrLbl.Text = @case.CaseTitle + " " + @case.CaseId;
                 clientNamebox.Text = client.FirstName + " " + client.LastName;
                 clientMailbox.Text = client.Mail;
@@ -60,6 +60,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 endDateBox.Text = @case.ExEndDate.ToString();
                 usedHoursbox.Text = @case.UsedHours.ToString();
                 kmBox.Text = transport.KmDriven.ToString();
+                trandDisc.Text = "Bekrivlese af distination";
             }
             catch (SqlException)
             {
@@ -70,7 +71,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-            
+
         private async void AddToServiceCombobox()
         {
             try
@@ -108,12 +109,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 employeeNameBox.Text = employee.FirstName + " " + employee.LastName;
                 newcase.EmployeeId = int.Parse(employeeIdBox.Text);
                 await caseBL.UpdateAsync(newcase);
-                TransportLog transportLog = new TransportLog();
-                transportLog.KmDriven = int.Parse(kmBox.Text);
-                transportLog.LogDescription = trandDisc.Text;
-                transportLog.CaseId = caseId;
-                transportLog.ServiceId = caseId; // todo lav getServiceID
-                await transportLogBL.CreateAsync(transportLog);
+
 
                 MessageBox.Show("Case Updated");
             }
@@ -127,7 +123,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             }
         }
 
-        
+
         private void AddServiceBtn_Click(object sender, EventArgs e)
         {
             try
@@ -165,6 +161,14 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void transportBtn_Click(object sender, EventArgs e)
+        {
+            
+            Transport transport = new Transport(caseId);
+            transport.Show();
+            
         }
     }
 }

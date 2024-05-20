@@ -55,11 +55,11 @@ namespace DataAcces
 
         public async Task<TransportLog> GetAsync(int id)
         {
-            string command = "SELECT * FROM TRANSPORT_LOG WHERE TransportLogId = @TransportLogId";
+            string command = "SELECT * FROM TRANSPORT_LOG WHERE CaseId = @CaseId";
             TransportLog transportLog = new TransportLog();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
-            sqlCommand.Parameters.AddWithValue("@TransportLogId", id);
+            sqlCommand.Parameters.AddWithValue("@CaseId", id);
 
             await dbConn.OpenAsync();
             SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
@@ -67,6 +67,7 @@ namespace DataAcces
             {
                 transportLog.TransportLogId = (int)reader["TransportLogId"];
                 transportLog.LogDescription = (string)reader["LogDescription"];
+                transportLog.KmDriven = (int)reader["KmDriven"];
                 transportLog.CaseId = (int)reader["CaseId"];
                 transportLog.ServiceId = (int)reader["ServiceId"];
 
@@ -76,12 +77,14 @@ namespace DataAcces
             return new TransportLog();
         }
 
-        public async Task<List<TransportLog>> GetAllAsync()
+        public async Task<List<TransportLog>> GetAllAsync(int id)
         {
-            string command = "SELECT * FROM TRANSPORT_LOG";
+            string command = "SELECT * FROM TRANSPORT_LOG WHERE CaseId = @CaseId";
             List<TransportLog> transportLogs = new List<TransportLog>();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
+            sqlCommand.Parameters.AddWithValue("@CaseId", id);
+
 
             await dbConn.OpenAsync();
             SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
@@ -90,6 +93,7 @@ namespace DataAcces
                 TransportLog transportLog = new TransportLog();
                 transportLog.TransportLogId = (int)reader["TransportLogId"];
                 transportLog.LogDescription = (string)reader["LogDescription"];
+                transportLog.KmDriven = (int)reader["KmDriven"];
                 transportLog.CaseId = (int)reader["CaseId"];
                 transportLog.ServiceId = (int)reader["ServiceId"];
                 transportLogs.Add(transportLog);

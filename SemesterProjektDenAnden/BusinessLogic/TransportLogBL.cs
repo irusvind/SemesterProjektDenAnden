@@ -31,9 +31,9 @@ namespace BusinessLogic
             return transportLog;
         }
 
-        public async Task<List<TransportLog>> GetAllAsync()
+        public async Task<List<TransportLog>> GetAllAsync(int id)
         {
-            List<TransportLog> result = await transportLogDA.GetAllAsync();
+            List<TransportLog> result = await transportLogDA.GetAllAsync(id);
             return result;
         }
 

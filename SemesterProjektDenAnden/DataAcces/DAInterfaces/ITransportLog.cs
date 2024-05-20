@@ -13,7 +13,7 @@ namespace DataAcces.DAInterfaces
 
         Task<bool> DeleteAsync(int id);
 
-        Task<List<TransportLog>> GetAllAsync();
+        Task<List<TransportLog>> GetAllAsync(int id);
 
         Task<TransportLog> GetAsync(int id);
 
