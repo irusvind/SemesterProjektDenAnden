@@ -1,5 +1,6 @@
 ﻿using BusinessLogic;
 using Models;
+using OfficeOpenXml.FormulaParsing.Excel.Functions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
         TransportLogBL transportLogBL = new TransportLogBL();
         EmployeeBL employeeBL = new EmployeeBL();
         ServiceBL serviceBL = new ServiceBL();
+        WorkLogBL workLogBL = new WorkLogBL();
 
         public CaseSpec(EmployeeMdi employeeMdi, int CaseId)
         {
@@ -31,6 +33,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             SetData();
             AddToServiceCombobox();
             ServincesDGVData();
+            AddToLogServiceCombobox();
         }
 
         private async void SetData()
@@ -59,8 +62,8 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 exhourBox.Text = @case.EstHours.ToString();
                 endDateBox.Text = @case.ExEndDate.ToString();
                 usedHoursbox.Text = @case.UsedHours.ToString();
-                kmBox.Text = transport.KmDriven.ToString();
                 trandDisc.Text = "Bekrivlese af distination";
+
             }
             catch (SqlException)
             {
@@ -72,6 +75,9 @@ namespace SemesterProjektDenAnden.EmployeeForms
             }
         }
 
+
+        
+
         private async void AddToServiceCombobox()
         {
             try
@@ -80,6 +86,26 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 foreach (Service service in services)
                 {
                     comboCaseYdelse.Items.Add(service.ServiceId + " : " + service.ServiceName);
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void AddToLogServiceCombobox()
+        {
+            try
+            {
+                List<Service> services = await serviceBL.GetSpecificCaseServiceAsync(caseId);
+                foreach (Service service in services)
+                {
+                    logYdelsecomboBox.Items.Add(service.ServiceId + " : " + service.ServiceName);
                 }
             }
             catch (SqlException)
@@ -109,6 +135,15 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 employeeNameBox.Text = employee.FirstName + " " + employee.LastName;
                 newcase.EmployeeId = int.Parse(employeeIdBox.Text);
                 await caseBL.UpdateAsync(newcase);
+                WorkLog newWorkLog = new WorkLog();
+                newWorkLog.StartDate = DateTime.Now;
+                newWorkLog.EndDate = DateTime.Now.AddHours(double.Parse(usedHoursbox.Text));
+                newWorkLog.CaseId = caseId;
+                string[] idString = logYdelsecomboBox.Items[comboCaseYdelse.SelectedIndex].ToString().Split(':');
+                int id = int.Parse(idString[0]);
+                newWorkLog.ServiceId = id;
+                newWorkLog.WorkDescription = trandDisc.Text;
+                await workLogBL.CreateAsync(newWorkLog);
 
 
                 MessageBox.Show("Case Updated");
@@ -117,20 +152,20 @@ namespace SemesterProjektDenAnden.EmployeeForms
             {
                 MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
 
-        private void AddServiceBtn_Click(object sender, EventArgs e)
+        private async void AddServiceBtn_Click(object sender, EventArgs e)
         {
             try
             {
                 string[] idString = comboCaseYdelse.Items[comboCaseYdelse.SelectedIndex].ToString().Split(':');
                 int id = int.Parse(idString[0]);
-                serviceBL.UpdateAsync(id, caseId);
+                await serviceBL.UpdateAsync(id, caseId);
                 ServincesDGVData();
             }
             catch (SqlException)

@@ -86,6 +86,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         private void ReportBtn_Click(object sender, EventArgs e)
         {
             caseBL.printRapport(caseId);
+            MessageBox.Show("Rapporten er nu gemt i bin mappen");
         }
     }
 }

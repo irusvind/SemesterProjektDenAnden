@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             transDescrpt = new Label();
             trandDisc = new TextBox();
             addServiceBtn = new Button();
@@ -44,7 +44,6 @@
             clientMailbox = new TextBox();
             endDateBox = new TextBox();
             usedHoursbox = new TextBox();
-            kmBox = new TextBox();
             exhourBox = new TextBox();
             clientNamebox = new TextBox();
             clientPhoneBox = new TextBox();
@@ -63,6 +62,7 @@
             ydelserDgv = new DataGridView();
             sagsNavnNrLbl = new Label();
             transportBtn = new Button();
+            logYdelsecomboBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)ydelserDgv).BeginInit();
             SuspendLayout();
             // 
@@ -74,7 +74,7 @@
             transDescrpt.Name = "transDescrpt";
             transDescrpt.Size = new Size(125, 18);
             transDescrpt.TabIndex = 63;
-            transDescrpt.Text = "Kørsels beskrivelse";
+            transDescrpt.Text = "Arbejds beskrivelse";
             // 
             // trandDisc
             // 
@@ -189,14 +189,6 @@
             usedHoursbox.Size = new Size(196, 24);
             usedHoursbox.TabIndex = 51;
             // 
-            // kmBox
-            // 
-            kmBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            kmBox.Location = new Point(274, 502);
-            kmBox.Name = "kmBox";
-            kmBox.Size = new Size(196, 24);
-            kmBox.TabIndex = 50;
-            // 
             // exhourBox
             // 
             exhourBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -255,9 +247,9 @@
             kmlbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             kmlbl.Location = new Point(98, 505);
             kmlbl.Name = "kmlbl";
-            kmlbl.Size = new Size(104, 18);
+            kmlbl.Size = new Size(47, 18);
             kmlbl.TabIndex = 43;
-            kmlbl.Text = "Kørte kilometer";
+            kmlbl.Text = "Ydelse";
             // 
             // UsedHoursLbl
             // 
@@ -350,36 +342,36 @@
             ydelserDgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             ydelserDgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             ydelserDgv.BackgroundColor = Color.Black;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.Black;
-            dataGridViewCellStyle4.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            ydelserDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Black;
+            dataGridViewCellStyle1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            ydelserDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             ydelserDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.Black;
-            dataGridViewCellStyle5.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            ydelserDgv.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Black;
+            dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            ydelserDgv.DefaultCellStyle = dataGridViewCellStyle2;
             ydelserDgv.EditMode = DataGridViewEditMode.EditProgrammatically;
             ydelserDgv.EnableHeadersVisualStyles = false;
             ydelserDgv.GridColor = Color.DimGray;
             ydelserDgv.Location = new Point(98, 161);
             ydelserDgv.Name = "ydelserDgv";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.Black;
-            dataGridViewCellStyle6.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            ydelserDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Black;
+            dataGridViewCellStyle3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            ydelserDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             ydelserDgv.RowTemplate.Height = 25;
             ydelserDgv.SelectionMode = DataGridViewSelectionMode.CellSelect;
             ydelserDgv.Size = new Size(372, 150);
@@ -409,12 +401,21 @@
             transportBtn.UseVisualStyleBackColor = false;
             transportBtn.Click += transportBtn_Click;
             // 
+            // logYdelsecomboBox
+            // 
+            logYdelsecomboBox.FormattingEnabled = true;
+            logYdelsecomboBox.Location = new Point(274, 502);
+            logYdelsecomboBox.Name = "logYdelsecomboBox";
+            logYdelsecomboBox.Size = new Size(196, 23);
+            logYdelsecomboBox.TabIndex = 65;
+            // 
             // CaseSpec
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
             ClientSize = new Size(1065, 655);
+            Controls.Add(logYdelsecomboBox);
             Controls.Add(transportBtn);
             Controls.Add(transDescrpt);
             Controls.Add(trandDisc);
@@ -429,7 +430,6 @@
             Controls.Add(clientMailbox);
             Controls.Add(endDateBox);
             Controls.Add(usedHoursbox);
-            Controls.Add(kmBox);
             Controls.Add(exhourBox);
             Controls.Add(clientNamebox);
             Controls.Add(clientPhoneBox);
@@ -470,7 +470,6 @@
         private TextBox clientMailbox;
         private TextBox endDateBox;
         private TextBox usedHoursbox;
-        private TextBox kmBox;
         private TextBox exhourBox;
         private TextBox clientNamebox;
         private TextBox clientPhoneBox;
@@ -489,5 +488,6 @@
         private DataGridView ydelserDgv;
         private Label sagsNavnNrLbl;
         private Button transportBtn;
+        private ComboBox logYdelsecomboBox;
     }
 }

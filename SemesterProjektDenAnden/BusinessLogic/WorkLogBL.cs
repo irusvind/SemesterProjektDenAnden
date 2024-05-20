@@ -30,9 +30,9 @@ namespace BusinessLogic
             return workLog;
         }
 
-        public async Task<List<WorkLog>> GetAllAsync()
+        public async Task<List<WorkLog>> GetAllAsync(int id)
         {
-            List<WorkLog> workLogs = await workLogDA.GetAllAsync();
+            List<WorkLog> workLogs = await workLogDA.GetAllAsync(id);
             return workLogs;
         }
 
