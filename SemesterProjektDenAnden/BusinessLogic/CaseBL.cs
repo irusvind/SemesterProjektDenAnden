@@ -11,11 +11,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace BusinessLogic
 {
     public class CaseBL : ICaseBL
     {
         ICase caseDA = new CaseDA();
+
+        
 
         public async Task<bool> CreateAsync(Case newCase)
         {
@@ -53,7 +57,7 @@ namespace BusinessLogic
             return clientCases;
         }
 
-        public async void printRapport(int caseId)
+        public async void printRapport(int caseId, string path)
         {
             Case case_ = new Case();
             case_ = await GetAsync(caseId);
@@ -74,10 +78,12 @@ namespace BusinessLogic
             workLogs = await new WorkLogBL().GetAllAsync(caseId);
 
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
+            
+            
             ExcelWorksheet ws;
-            using (var package = new ExcelPackage( new FileInfo(@"C:\Users\Frederik\Desktop\pokemon\games\pokemondecomp\SemesterProjektDenAnden\SemesterProjektDenAnden\SemesterProjektDenAnden\bin\Debug\net6.0-windows\mysheet.xlsx")))
+            using (var package = new ExcelPackage(new FileInfo(path)))
             {
+
                 ws = package.Workbook.Worksheets.Add(case_.CaseTitle);
                 ws.Cells["A1"].Value = "Case ID";
                 ws.Cells["B1"].Value = case_.CaseId;
@@ -107,17 +113,17 @@ namespace BusinessLogic
                 int i = 2;
                 foreach (var item in transportLogs)
                 {
-                    
+
                     ws.Cells["E" + i].Value = item.TransportLogId;
                     ws.Cells["F" + i].Value = item.KmDriven;
-                    ws.Cells["G" +i].Value = item.LogDescription;
+                    ws.Cells["G" + i].Value = item.LogDescription;
                     i++;
                 }
 
                 ws.Cells["E" + i].Value = "Total KM";
-                ws.Cells["F" + i].Formula = $"SUM(F2:F{i-1})";
+                ws.Cells["F" + i].Formula = $"SUM(F2:F{i - 1})";
 
-                
+
                 ws.Cells["J1"].Value = "WorkLog Description";
                 ws.Cells["K1"].Value = "Start Date";
                 ws.Cells["L1"].Value = "End Date";
@@ -134,7 +140,7 @@ namespace BusinessLogic
                     i++;
                 }
                 ws.Cells[ws.Dimension.Address].AutoFitColumns();
-                
+
 
                 package.Save();
             }   
