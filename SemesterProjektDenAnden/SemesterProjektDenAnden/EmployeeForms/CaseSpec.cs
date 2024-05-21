@@ -61,8 +61,8 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 startDataBox.Text = @case.StartDate.ToString();
                 exhourBox.Text = @case.EstHours.ToString();
                 endDateBox.Text = @case.ExEndDate.ToString();
-                usedHoursbox.Text = @case.UsedHours.ToString();
-                trandDisc.Text = "Bekrivlese af distination";
+                trandDisc.Text = "Hvor har du været?";
+                totalHours.Text = @case.UsedHours.ToString();
 
             }
             catch (SqlException)
@@ -105,7 +105,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 List<Service> services = await serviceBL.GetSpecificCaseServiceAsync(caseId);
                 foreach (Service service in services)
                 {
-                    logYdelsecomboBox.Items.Add(service.ServiceId + " : " + service.ServiceName);
+                    logYdelsecomboBox.Items.Add(service.ServiceId + ": " + service.ServiceName);
                 }
             }
             catch (SqlException)
@@ -125,7 +125,9 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 Case newcase = new Case();
                 newcase = await caseBL.GetAsync(this.caseId);
                 newcase.EstHours = int.Parse(exhourBox.Text);
-                newcase.UsedHours = int.Parse(usedHoursbox.Text);
+                int usedHours = newcase.UsedHours;
+                usedHours += int.Parse(usedHoursbox.Text);
+                newcase.UsedHours = usedHours;
                 newcase.ExEndDate = DateTime.Parse(endDateBox.Text);
 
                 Employee employee = new Employee();
@@ -139,7 +141,9 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 newWorkLog.StartDate = DateTime.Now;
                 newWorkLog.EndDate = DateTime.Now.AddHours(double.Parse(usedHoursbox.Text));
                 newWorkLog.CaseId = caseId;
-                string[] idString = logYdelsecomboBox.Items[comboCaseYdelse.SelectedIndex].ToString().Split(':');
+
+                string[] idString = new string[2];
+                idString = logYdelsecomboBox.Items[logYdelsecomboBox.SelectedIndex].ToString().Split(':');
                 int id = int.Parse(idString[0]);
                 newWorkLog.ServiceId = id;
                 newWorkLog.WorkDescription = trandDisc.Text;
