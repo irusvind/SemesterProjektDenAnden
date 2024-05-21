@@ -86,11 +86,12 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             casesDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            casesDgv.RowHeadersVisible = false;
             casesDgv.RowTemplate.Height = 25;
             casesDgv.SelectionMode = DataGridViewSelectionMode.CellSelect;
             casesDgv.Size = new Size(932, 394);
             casesDgv.TabIndex = 1;
-            casesDgv.CellContentClick += casesDgv_CellContentClick;
+            casesDgv.CellDoubleClick += casesDgv_CellDoubleClick;
             // 
             // MyCases
             // 

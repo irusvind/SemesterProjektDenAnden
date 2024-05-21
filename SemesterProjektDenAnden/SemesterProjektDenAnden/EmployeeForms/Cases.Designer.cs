@@ -65,6 +65,7 @@
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             sagerDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            sagerDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.Black;
             dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -75,7 +76,7 @@
             sagerDgv.DefaultCellStyle = dataGridViewCellStyle2;
             sagerDgv.EditMode = DataGridViewEditMode.EditProgrammatically;
             sagerDgv.EnableHeadersVisualStyles = false;
-            sagerDgv.GridColor = Color.White;
+            sagerDgv.GridColor = Color.DimGray;
             sagerDgv.Location = new Point(65, 151);
             sagerDgv.MultiSelect = false;
             sagerDgv.Name = "sagerDgv";
@@ -88,6 +89,7 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             sagerDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            sagerDgv.RowHeadersVisible = false;
             sagerDgv.RowTemplate.Height = 25;
             sagerDgv.SelectionMode = DataGridViewSelectionMode.CellSelect;
             sagerDgv.Size = new Size(930, 370);

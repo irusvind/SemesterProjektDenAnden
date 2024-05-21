@@ -117,6 +117,7 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             coursesDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            coursesDGV.RowHeadersVisible = false;
             coursesDGV.SelectionMode = DataGridViewSelectionMode.CellSelect;
             coursesDGV.Size = new Size(300, 200);
             coursesDGV.TabIndex = 2;
@@ -257,6 +258,7 @@
             dataGridViewCellStyle6.SelectionForeColor = Color.Black;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
             CasesDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            CasesDGV.RowHeadersVisible = false;
             CasesDGV.SelectionMode = DataGridViewSelectionMode.CellSelect;
             CasesDGV.Size = new Size(525, 200);
             CasesDGV.TabIndex = 13;

@@ -182,6 +182,10 @@
             // 
             // ydelserDgv
             // 
+            ydelserDgv.AllowUserToAddRows = false;
+            ydelserDgv.AllowUserToDeleteRows = false;
+            ydelserDgv.AllowUserToResizeColumns = false;
+            ydelserDgv.AllowUserToResizeRows = false;
             ydelserDgv.BackgroundColor = Color.Black;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
@@ -200,6 +204,8 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             ydelserDgv.DefaultCellStyle = dataGridViewCellStyle2;
+            ydelserDgv.EnableHeadersVisualStyles = false;
+            ydelserDgv.GridColor = Color.DimGray;
             ydelserDgv.Location = new Point(104, 158);
             ydelserDgv.Name = "ydelserDgv";
             ydelserDgv.ReadOnly = true;
@@ -211,6 +217,7 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             ydelserDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            ydelserDgv.RowHeadersVisible = false;
             ydelserDgv.RowTemplate.Height = 25;
             ydelserDgv.Size = new Size(372, 150);
             ydelserDgv.TabIndex = 29;
@@ -342,6 +349,7 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.White;
             ClientSize = new Size(1049, 616);
             Controls.Add(label1);
             Controls.Add(expectedHour);
