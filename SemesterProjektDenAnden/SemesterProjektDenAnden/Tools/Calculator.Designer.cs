@@ -48,7 +48,7 @@
             // sizeBox
             // 
             sizeBox.BackColor = Color.White;
-            sizeBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            sizeBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             sizeBox.ForeColor = Color.Black;
             sizeBox.Location = new Point(268, 194);
             sizeBox.Name = "sizeBox";
@@ -58,7 +58,7 @@
             // rateBox
             // 
             rateBox.BackColor = Color.White;
-            rateBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            rateBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             rateBox.ForeColor = Color.Black;
             rateBox.Location = new Point(268, 223);
             rateBox.Name = "rateBox";
@@ -68,7 +68,7 @@
             // paymentPYearBox
             // 
             paymentPYearBox.BackColor = Color.White;
-            paymentPYearBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            paymentPYearBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             paymentPYearBox.ForeColor = Color.Black;
             paymentPYearBox.Location = new Point(268, 252);
             paymentPYearBox.Name = "paymentPYearBox";
@@ -78,12 +78,12 @@
             // calBtn
             // 
             calBtn.BackColor = Color.Black;
-            calBtn.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            calBtn.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             calBtn.ForeColor = Color.White;
             calBtn.Location = new Point(321, 331);
             calBtn.Name = "calBtn";
             calBtn.Size = new Size(100, 30);
-            calBtn.TabIndex = 4;
+            calBtn.TabIndex = 5;
             calBtn.Text = "Beregn";
             calBtn.UseVisualStyleBackColor = false;
             calBtn.Click += button1_Click;
@@ -91,50 +91,50 @@
             // yearsBox
             // 
             yearsBox.BackColor = Color.White;
-            yearsBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            yearsBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             yearsBox.ForeColor = Color.Black;
             yearsBox.Location = new Point(268, 281);
             yearsBox.Name = "yearsBox";
             yearsBox.Size = new Size(153, 24);
-            yearsBox.TabIndex = 5;
+            yearsBox.TabIndex = 4;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(83, 196);
             label2.Name = "label2";
-            label2.Size = new Size(104, 18);
+            label2.Size = new Size(114, 18);
             label2.TabIndex = 7;
             label2.Text = "Lånets størrelse";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(83, 225);
             label3.Name = "label3";
-            label3.Size = new Size(92, 18);
+            label3.Size = new Size(100, 18);
             label3.TabIndex = 8;
             label3.Text = "Rentefod p. a.";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             label4.Location = new Point(83, 254);
             label4.Name = "label4";
-            label4.Size = new Size(119, 18);
+            label4.Size = new Size(125, 18);
             label4.TabIndex = 9;
             label4.Text = "Antal ydelser pr år";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(83, 283);
             label5.Name = "label5";
-            label5.Size = new Size(55, 18);
+            label5.Size = new Size(57, 18);
             label5.TabIndex = 10;
             label5.Text = "Antal år";
             label5.Click += label5_Click;
@@ -142,27 +142,27 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             label6.Location = new Point(83, 413);
             label6.Name = "label6";
-            label6.Size = new Size(73, 18);
+            label6.Size = new Size(83, 18);
             label6.TabIndex = 11;
             label6.Text = "Fast ydelse";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             label7.Location = new Point(83, 448);
             label7.Name = "label7";
-            label7.Size = new Size(113, 18);
+            label7.Size = new Size(125, 18);
             label7.TabIndex = 12;
             label7.Text = "Fast ydelse per år";
             // 
             // paymentAmount
             // 
             paymentAmount.AutoSize = true;
-            paymentAmount.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            paymentAmount.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             paymentAmount.Location = new Point(253, 413);
             paymentAmount.Name = "paymentAmount";
             paymentAmount.Size = new Size(0, 18);
@@ -172,7 +172,7 @@
             // paymentPYear
             // 
             paymentPYear.AutoSize = true;
-            paymentPYear.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            paymentPYear.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             paymentPYear.Location = new Point(253, 448);
             paymentPYear.Name = "paymentPYear";
             paymentPYear.Size = new Size(0, 18);
@@ -181,21 +181,21 @@
             // sagerLbl
             // 
             sagerLbl.AutoSize = true;
-            sagerLbl.Font = new Font("High Tower Text", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            sagerLbl.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Regular, GraphicsUnit.Point);
             sagerLbl.ForeColor = Color.Black;
             sagerLbl.Location = new Point(65, 67);
             sagerLbl.Name = "sagerLbl";
-            sagerLbl.Size = new Size(295, 57);
+            sagerLbl.Size = new Size(326, 55);
             sagerLbl.TabIndex = 15;
             sagerLbl.Text = "Låneberegner";
             // 
             // descrptLbl
             // 
             descrptLbl.AutoSize = true;
-            descrptLbl.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            descrptLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             descrptLbl.Location = new Point(83, 141);
             descrptLbl.Name = "descrptLbl";
-            descrptLbl.Size = new Size(400, 18);
+            descrptLbl.Size = new Size(437, 18);
             descrptLbl.TabIndex = 16;
             descrptLbl.Text = "Indtast dine værdier nedenfor, og find det lån der passer dig bedst.";
             // 

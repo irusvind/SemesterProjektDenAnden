@@ -71,7 +71,7 @@
             // 
             transDescrpt.AutoSize = true;
             transDescrpt.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            transDescrpt.Location = new Point(98, 535);
+            transDescrpt.Location = new Point(625, 512);
             transDescrpt.Name = "transDescrpt";
             transDescrpt.Size = new Size(135, 18);
             transDescrpt.TabIndex = 63;
@@ -80,7 +80,7 @@
             // trandDisc
             // 
             trandDisc.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            trandDisc.Location = new Point(274, 532);
+            trandDisc.Location = new Point(777, 509);
             trandDisc.Name = "trandDisc";
             trandDisc.Size = new Size(196, 24);
             trandDisc.TabIndex = 62;
@@ -112,7 +112,7 @@
             updateBtn.BackColor = Color.Black;
             updateBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             updateBtn.ForeColor = Color.White;
-            updateBtn.Location = new Point(365, 562);
+            updateBtn.Location = new Point(365, 512);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(105, 28);
             updateBtn.TabIndex = 59;
@@ -123,7 +123,7 @@
             // employeeNameBox
             // 
             employeeNameBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            employeeNameBox.Location = new Point(778, 384);
+            employeeNameBox.Location = new Point(777, 346);
             employeeNameBox.Name = "employeeNameBox";
             employeeNameBox.Size = new Size(196, 24);
             employeeNameBox.TabIndex = 58;
@@ -131,7 +131,7 @@
             // employeeIdBox
             // 
             employeeIdBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            employeeIdBox.Location = new Point(778, 414);
+            employeeIdBox.Location = new Point(777, 376);
             employeeIdBox.Name = "employeeIdBox";
             employeeIdBox.Size = new Size(196, 24);
             employeeIdBox.TabIndex = 57;
@@ -140,7 +140,7 @@
             // 
             EmployeeInfolbl.AutoSize = true;
             EmployeeInfolbl.Font = new Font("Microsoft Sans Serif", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            EmployeeInfolbl.Location = new Point(626, 354);
+            EmployeeInfolbl.Location = new Point(625, 316);
             EmployeeInfolbl.Name = "EmployeeInfolbl";
             EmployeeInfolbl.Size = new Size(112, 24);
             EmployeeInfolbl.TabIndex = 56;
@@ -150,7 +150,7 @@
             // 
             EmployeeNrLbl.AutoSize = true;
             EmployeeNrLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            EmployeeNrLbl.Location = new Point(626, 418);
+            EmployeeNrLbl.Location = new Point(625, 380);
             EmployeeNrLbl.Name = "EmployeeNrLbl";
             EmployeeNrLbl.Size = new Size(111, 18);
             EmployeeNrLbl.TabIndex = 55;
@@ -160,7 +160,7 @@
             // 
             advocatNameLbl.AutoSize = true;
             advocatNameLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            advocatNameLbl.Location = new Point(627, 385);
+            advocatNameLbl.Location = new Point(626, 347);
             advocatNameLbl.Name = "advocatNameLbl";
             advocatNameLbl.Size = new Size(61, 18);
             advocatNameLbl.TabIndex = 54;
@@ -185,7 +185,7 @@
             // usedHoursbox
             // 
             usedHoursbox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            usedHoursbox.Location = new Point(274, 472);
+            usedHoursbox.Location = new Point(777, 449);
             usedHoursbox.Name = "usedHoursbox";
             usedHoursbox.Size = new Size(196, 24);
             usedHoursbox.TabIndex = 51;
@@ -246,7 +246,7 @@
             // 
             kmlbl.AutoSize = true;
             kmlbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            kmlbl.Location = new Point(98, 505);
+            kmlbl.Location = new Point(625, 482);
             kmlbl.Name = "kmlbl";
             kmlbl.Size = new Size(52, 18);
             kmlbl.TabIndex = 43;
@@ -256,7 +256,7 @@
             // 
             UsedHoursLbl.AutoSize = true;
             UsedHoursLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            UsedHoursLbl.Location = new Point(98, 475);
+            UsedHoursLbl.Location = new Point(625, 452);
             UsedHoursLbl.Name = "UsedHoursLbl";
             UsedHoursLbl.Size = new Size(88, 18);
             UsedHoursLbl.TabIndex = 42;
@@ -394,7 +394,7 @@
             transportBtn.BackColor = Color.Black;
             transportBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             transportBtn.ForeColor = Color.White;
-            transportBtn.Location = new Point(98, 562);
+            transportBtn.Location = new Point(98, 512);
             transportBtn.Name = "transportBtn";
             transportBtn.Size = new Size(105, 28);
             transportBtn.TabIndex = 64;
@@ -405,7 +405,7 @@
             // logYdelsecomboBox
             // 
             logYdelsecomboBox.FormattingEnabled = true;
-            logYdelsecomboBox.Location = new Point(274, 502);
+            logYdelsecomboBox.Location = new Point(777, 479);
             logYdelsecomboBox.Name = "logYdelsecomboBox";
             logYdelsecomboBox.Size = new Size(196, 23);
             logYdelsecomboBox.TabIndex = 65;
@@ -413,7 +413,7 @@
             // totalHours
             // 
             totalHours.AutoSize = true;
-            totalHours.Location = new Point(209, 477);
+            totalHours.Location = new Point(733, 454);
             totalHours.Name = "totalHours";
             totalHours.Size = new Size(38, 15);
             totalHours.TabIndex = 66;
