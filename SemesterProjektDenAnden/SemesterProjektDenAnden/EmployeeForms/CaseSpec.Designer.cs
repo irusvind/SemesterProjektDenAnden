@@ -64,6 +64,7 @@
             transportBtn = new Button();
             logYdelsecomboBox = new ComboBox();
             totalHours = new Label();
+            openCloseCaseBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)ydelserDgv).BeginInit();
             SuspendLayout();
             // 
@@ -125,6 +126,7 @@
             employeeNameBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             employeeNameBox.Location = new Point(778, 384);
             employeeNameBox.Name = "employeeNameBox";
+            employeeNameBox.ReadOnly = true;
             employeeNameBox.Size = new Size(196, 24);
             employeeNameBox.TabIndex = 58;
             // 
@@ -171,6 +173,7 @@
             clientMailbox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             clientMailbox.Location = new Point(778, 218);
             clientMailbox.Name = "clientMailbox";
+            clientMailbox.ReadOnly = true;
             clientMailbox.Size = new Size(196, 24);
             clientMailbox.TabIndex = 53;
             // 
@@ -203,6 +206,7 @@
             clientNamebox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             clientNamebox.Location = new Point(778, 157);
             clientNamebox.Name = "clientNamebox";
+            clientNamebox.ReadOnly = true;
             clientNamebox.Size = new Size(196, 24);
             clientNamebox.TabIndex = 48;
             // 
@@ -211,6 +215,7 @@
             clientPhoneBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             clientPhoneBox.Location = new Point(778, 188);
             clientPhoneBox.Name = "clientPhoneBox";
+            clientPhoneBox.ReadOnly = true;
             clientPhoneBox.Size = new Size(196, 24);
             clientPhoneBox.TabIndex = 47;
             // 
@@ -219,6 +224,7 @@
             startDataBox.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             startDataBox.Location = new Point(274, 382);
             startDataBox.Name = "startDataBox";
+            startDataBox.ReadOnly = true;
             startDataBox.Size = new Size(196, 24);
             startDataBox.TabIndex = 46;
             // 
@@ -419,12 +425,26 @@
             totalHours.TabIndex = 66;
             totalHours.Text = "label1";
             // 
+            // openCloseCaseBtn
+            // 
+            openCloseCaseBtn.BackColor = Color.Black;
+            openCloseCaseBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            openCloseCaseBtn.ForeColor = Color.White;
+            openCloseCaseBtn.Location = new Point(627, 562);
+            openCloseCaseBtn.Name = "openCloseCaseBtn";
+            openCloseCaseBtn.Size = new Size(105, 28);
+            openCloseCaseBtn.TabIndex = 67;
+            openCloseCaseBtn.Text = "Luk Case";
+            openCloseCaseBtn.UseVisualStyleBackColor = false;
+            openCloseCaseBtn.Click += openCloseCaseBtn_Click;
+            // 
             // CaseSpec
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
             ClientSize = new Size(1065, 655);
+            Controls.Add(openCloseCaseBtn);
             Controls.Add(totalHours);
             Controls.Add(logYdelsecomboBox);
             Controls.Add(transportBtn);
@@ -501,5 +521,6 @@
         private Button transportBtn;
         private ComboBox logYdelsecomboBox;
         private Label totalHours;
+        private Button openCloseCaseBtn;
     }
 }

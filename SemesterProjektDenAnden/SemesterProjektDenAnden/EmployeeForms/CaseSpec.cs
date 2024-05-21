@@ -63,6 +63,24 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 endDateBox.Text = @case.ExEndDate.ToString();
                 trandDisc.Text = "Hvor har du været?";
                 totalHours.Text = @case.UsedHours.ToString();
+                if (@case.Done)
+                {
+                    openCloseCaseBtn.Text = "Åben sag";
+                    exhourBox.Enabled = false;
+                    endDateBox.Enabled = false;
+                    usedHoursbox.Enabled = false;
+                    logYdelsecomboBox.Enabled = false;
+                    trandDisc.Enabled = false;
+                    comboCaseYdelse.Visible = false;
+                    addServiceBtn.Visible = false;
+                    transportBtn.Visible = false;
+                    updateBtn.Visible = false;
+
+                }
+                else
+                {
+                    openCloseCaseBtn.Text = "Luk sag";
+                }
 
             }
             catch (SqlException)
@@ -76,7 +94,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
         }
 
 
-        
+
 
         private async void AddToServiceCombobox()
         {
@@ -204,10 +222,49 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private void transportBtn_Click(object sender, EventArgs e)
         {
-            
+
             Transport transport = new Transport(caseId);
             transport.Show();
-            
+
+        }
+
+        private async void openCloseCaseBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Case chosenCase = await caseBL.GetAsync(caseId);
+                if (chosenCase.Done)
+                {
+
+                    DialogResult result = MessageBox.Show("Er du sikker på at du vil åbne denne sag igen?", "Åben sag", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        chosenCase.Done = false;
+                        await caseBL.UpdateAsync(chosenCase);
+                        CaseSpec caseSpec = new CaseSpec(employeeMdi, caseId);
+                        employeeMdi.FormOpener(caseSpec);
+                    }
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Er du sikker på at du vil lukke denne sag", "Luk sag", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        chosenCase.Done = true;
+                        await caseBL.UpdateAsync(chosenCase);
+                        CaseSpec caseSpec = new CaseSpec(employeeMdi, caseId);
+                        employeeMdi.FormOpener(caseSpec);
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
