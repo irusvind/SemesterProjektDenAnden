@@ -55,6 +55,8 @@
             expectedHour = new Label();
             ReportBtn = new Button();
             label1 = new Label();
+            label2 = new Label();
+            employeeMail = new Label();
             ((System.ComponentModel.ISupportInitialize)ydelserDgv).BeginInit();
             SuspendLayout();
             // 
@@ -62,7 +64,7 @@
             // 
             EmployeeInfolbl.AutoSize = true;
             EmployeeInfolbl.Font = new Font("Microsoft Sans Serif", 16.125F, FontStyle.Regular, GraphicsUnit.Point);
-            EmployeeInfolbl.Location = new Point(633, 351);
+            EmployeeInfolbl.Location = new Point(633, 300);
             EmployeeInfolbl.Name = "EmployeeInfolbl";
             EmployeeInfolbl.Size = new Size(132, 26);
             EmployeeInfolbl.TabIndex = 52;
@@ -72,7 +74,7 @@
             // 
             EmployeeNrLbl.AutoSize = true;
             EmployeeNrLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            EmployeeNrLbl.Location = new Point(633, 412);
+            EmployeeNrLbl.Location = new Point(633, 361);
             EmployeeNrLbl.Name = "EmployeeNrLbl";
             EmployeeNrLbl.Size = new Size(111, 18);
             EmployeeNrLbl.TabIndex = 51;
@@ -82,7 +84,7 @@
             // 
             advocatNameLbl.AutoSize = true;
             advocatNameLbl.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            advocatNameLbl.Location = new Point(633, 385);
+            advocatNameLbl.Location = new Point(633, 334);
             advocatNameLbl.Name = "advocatNameLbl";
             advocatNameLbl.Size = new Size(61, 18);
             advocatNameLbl.TabIndex = 50;
@@ -240,7 +242,7 @@
             employeeNr.AutoSize = true;
             employeeNr.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             employeeNr.ForeColor = Color.Black;
-            employeeNr.Location = new Point(764, 415);
+            employeeNr.Location = new Point(764, 364);
             employeeNr.Name = "employeeNr";
             employeeNr.Size = new Size(46, 18);
             employeeNr.TabIndex = 55;
@@ -251,7 +253,7 @@
             employeeName.AutoSize = true;
             employeeName.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             employeeName.ForeColor = Color.Black;
-            employeeName.Location = new Point(764, 388);
+            employeeName.Location = new Point(764, 337);
             employeeName.Name = "employeeName";
             employeeName.Size = new Size(46, 18);
             employeeName.TabIndex = 56;
@@ -345,12 +347,32 @@
             label1.TabIndex = 64;
             label1.Text = "Sigende rapport";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(633, 389);
+            label2.Name = "label2";
+            label2.Size = new Size(106, 15);
+            label2.TabIndex = 65;
+            label2.Text = "Medarbejder email";
+            // 
+            // employeeMail
+            // 
+            employeeMail.AutoSize = true;
+            employeeMail.Location = new Point(764, 389);
+            employeeMail.Name = "employeeMail";
+            employeeMail.Size = new Size(38, 15);
+            employeeMail.TabIndex = 66;
+            employeeMail.Text = "label3";
+            // 
             // ClientCaseSpec
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
             ClientSize = new Size(1049, 616);
+            Controls.Add(employeeMail);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(expectedHour);
             Controls.Add(startDate);
@@ -410,5 +432,7 @@
         private Label expectedHour;
         private Button ReportBtn;
         private Label label1;
+        private Label label2;
+        private Label employeeMail;
     }
 }

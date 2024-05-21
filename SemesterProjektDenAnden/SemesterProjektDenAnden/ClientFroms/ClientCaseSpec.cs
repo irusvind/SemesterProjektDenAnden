@@ -52,8 +52,9 @@ namespace SemesterProjektDenAnden.ClientFroms
             clientName.Text = client.FirstName + " " + client.LastName;
             clientMail.Text = client.Mail;
             clientNr.Text = client.Phone.ToString();
-            employeeNr.Text = employee.Id.ToString();
+            employeeNr.Text = employee.PhoneNumber.ToString();
             employeeName.Text = employee.FirstName + " " + employee.LastName;
+            employeeMail.Text = employee.Email;
             startDate.Text = _case.StartDate.ToString();
             expectedHour.Text = _case.EstHours.ToString();
             endData.Text = _case.ExEndDate.ToString();

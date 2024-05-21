@@ -52,7 +52,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
         {
             Employee employee = await employeeBL.GetAsync(employeeId);
             employeesLbl.Text = employee.JobTitle + ": " + employee.FirstName + " " + employee.LastName;
-            employeeIdTxt.Text = employee.Id.ToString();
+            employeeIdLb.Text = employee.Id.ToString();
             FnameTxt.Text = employee.FirstName;
             LnameTxt.Text = employee.LastName;
             PhoneTxt.Text = employee.PhoneNumber.ToString();
