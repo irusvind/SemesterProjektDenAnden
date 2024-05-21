@@ -85,7 +85,18 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void ReportBtn_Click(object sender, EventArgs e)
         {
-            caseBL.printRapport(caseId);
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel File|*.xlsx";
+            saveFileDialog.Title = "Save an Excel File";
+            saveFileDialog.ShowDialog();
+            if (saveFileDialog.FileName != "")
+            {
+                string path = saveFileDialog.FileName;
+                caseBL.printRapport(caseId,path);
+                MessageBox.Show("Rapporten er nu gemt i " + saveFileDialog.FileName);
+            }
+            //caseBL.printRapport(caseId);
+            //MessageBox.Show("Rapporten er nu gemt i bin mappen");
         }
     }
 }

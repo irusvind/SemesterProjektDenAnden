@@ -13,7 +13,7 @@ namespace DataAcces.DAInterfaces
 
         Task<bool> DeleteAsync(int id);
 
-        Task<List<WorkLog>> GetAllAsync();
+        Task<List<WorkLog>> GetAllAsync(int id);
 
         Task<WorkLog> GetAsync(int id);
 
