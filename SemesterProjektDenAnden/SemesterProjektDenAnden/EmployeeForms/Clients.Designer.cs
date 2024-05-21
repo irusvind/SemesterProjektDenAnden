@@ -76,6 +76,7 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             clientsDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            clientsDgv.RowHeadersVisible = false;
             clientsDgv.RowTemplate.Height = 25;
             clientsDgv.SelectionMode = DataGridViewSelectionMode.CellSelect;
             clientsDgv.Size = new Size(930, 370);

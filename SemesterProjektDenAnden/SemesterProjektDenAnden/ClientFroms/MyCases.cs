@@ -51,7 +51,7 @@ namespace SemesterProjektDenAnden.ClientFroms
             casesDgv.DataSource = caseSource;
         }
 
-        private void casesDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void casesDgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             {
                 DataGridView dgv = (DataGridView)sender;

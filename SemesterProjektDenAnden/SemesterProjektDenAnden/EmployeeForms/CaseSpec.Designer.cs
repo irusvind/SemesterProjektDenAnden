@@ -379,6 +379,7 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             ydelserDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            ydelserDgv.RowHeadersVisible = false;
             ydelserDgv.RowTemplate.Height = 25;
             ydelserDgv.SelectionMode = DataGridViewSelectionMode.CellSelect;
             ydelserDgv.Size = new Size(372, 150);

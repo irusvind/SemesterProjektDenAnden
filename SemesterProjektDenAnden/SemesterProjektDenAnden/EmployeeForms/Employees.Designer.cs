@@ -66,6 +66,7 @@
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             employeesDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            employeesDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.Black;
             dataGridViewCellStyle2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -88,6 +89,7 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             employeesDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            employeesDgv.RowHeadersVisible = false;
             employeesDgv.RowTemplate.Height = 25;
             employeesDgv.SelectionMode = DataGridViewSelectionMode.CellSelect;
             employeesDgv.Size = new Size(930, 370);

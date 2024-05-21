@@ -94,6 +94,7 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             possibleCoursesDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            possibleCoursesDGV.RowHeadersVisible = false;
             possibleCoursesDGV.RowTemplate.Height = 25;
             possibleCoursesDGV.SelectionMode = DataGridViewSelectionMode.CellSelect;
             possibleCoursesDGV.Size = new Size(300, 200);
@@ -141,6 +142,7 @@
             dataGridViewCellStyle6.SelectionForeColor = Color.Black;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
             chosenCoursesDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            chosenCoursesDGV.RowHeadersVisible = false;
             chosenCoursesDGV.RowTemplate.Height = 25;
             chosenCoursesDGV.SelectionMode = DataGridViewSelectionMode.CellSelect;
             chosenCoursesDGV.Size = new Size(300, 200);
