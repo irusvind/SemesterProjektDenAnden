@@ -66,15 +66,19 @@ namespace SemesterProjektDenAnden.LogInForms
                         }
                         else
                         {
-                            MessageBox.Show("Fejl: Bruger ikke oprettet", "Fejl");
+                            MessageBox.Show("Fejl: Bruger ikke oprettet", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    else { MessageBox.Show("Fejl: Bruger ikke oprettet", " info ikke valid"); };
+                    else { MessageBox.Show("Fejl: Bruger ikke oprettet, info ikke valid", " info ikke valid", MessageBoxButtons.OK, MessageBoxIcon.Error); };
                 }
             }
             catch (SqlException)
             {
                 MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: telefon nr ikke validt", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
