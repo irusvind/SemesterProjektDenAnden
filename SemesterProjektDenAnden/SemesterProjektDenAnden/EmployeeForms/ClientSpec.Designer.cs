@@ -195,6 +195,7 @@
             clientIdTxt.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             clientIdTxt.Location = new Point(211, 208);
             clientIdTxt.Name = "clientIdTxt";
+            clientIdTxt.ReadOnly = true;
             clientIdTxt.Size = new Size(203, 24);
             clientIdTxt.TabIndex = 16;
             // 
