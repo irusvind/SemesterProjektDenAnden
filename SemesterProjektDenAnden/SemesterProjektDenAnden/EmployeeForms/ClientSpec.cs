@@ -113,5 +113,27 @@ namespace SemesterProjektDenAnden.EmployeeForms
             CaseSpec caseSpec = new CaseSpec(employeeMdi, id);
             employeeMdi.FormOpener(caseSpec);
         }
+
+        private async void updateClientbtn_Click(object sender, EventArgs e)
+        {
+            try { 
+            Client newClient = new Client();
+            newClient = await clientBl.GetAsync(clientId);
+
+            newClient.Phone = int.Parse(clientPhoneTxt.Text);
+            newClient.FirstName = clientFnameTxt.Text;
+            newClient.LastName = clientLnameTxt.Text;
+            newClient.Mail = clientMailTxt.Text;
+            await clientBl.UpdateAsync(newClient);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

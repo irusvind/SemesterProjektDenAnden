@@ -38,7 +38,7 @@ namespace DataAcces
 
         public async Task<bool> DeleteAsync(int id)
         {
-            string command = "DELETE FROM WORKLOG WHERE WorkLogId = @WorkLogId";
+            string command = "DELETE FROM WORK_LOG WHERE WorkLogId = @WorkLogId";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -56,7 +56,7 @@ namespace DataAcces
 
         public async Task<WorkLog> GetAsync(int id)
         {
-            string command = "SELECT * FROM WORKLOG WHERE WorkLogId = @WorkLogId";
+            string command = "SELECT * FROM WORK_LOG WHERE WorkLogId = @WorkLogId";
             WorkLog workLog = new WorkLog();
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlCommand = new SqlCommand(command, dbConn);
@@ -107,7 +107,7 @@ namespace DataAcces
 
         public async Task<bool> UpdateAsync(WorkLog newWorkLog)
         {
-            string command = "UPDATE WORKLOG SET" +
+            string command = "UPDATE WORK_LOG SET" +
                              "WorkDescription = @WorkDescription";
             int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);

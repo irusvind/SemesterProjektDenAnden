@@ -104,16 +104,16 @@ namespace SemesterProjektDenAnden.EmployeeForms
                         bool createResult = await CaseBL.CreateAsync(newCase);
                         if (createResult)
                         {
-                            MessageBox.Show("Bruger oprettet", "Bruger oprettet");
+                            MessageBox.Show("Sag oprettet", "Sag oprettet");
                             Cases newCases = new Cases(employeeMdi);
                             employeeMdi.FormOpener(newCases);
                         }
                         else
                         {
-                            MessageBox.Show("Fejl: Bruger ikke oprettet", "Fejl");
+                            MessageBox.Show("Fejl: Sag ikke oprettet", "Fejl");
                         }
                     }
-                    else { MessageBox.Show("Fejl: Bruger ikke oprettet", " info ikke valid"); };
+                    else { MessageBox.Show("Fejl: Sag ikke oprettet", " info ikke valid"); };
                 }
 
             }

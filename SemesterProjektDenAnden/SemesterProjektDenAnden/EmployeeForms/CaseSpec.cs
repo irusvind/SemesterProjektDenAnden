@@ -4,6 +4,7 @@ using OfficeOpenXml.FormulaParsing.Excel.Functions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -61,7 +62,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 startDataBox.Text = @case.StartDate.ToString();
                 exhourBox.Text = @case.EstHours.ToString();
                 endDateBox.Text = @case.ExEndDate.ToString();
-                trandDisc.Text = "Hvor har du været?";
+                trandDisc.Text = "Hvad har du lavet?";
                 totalHours.Text = @case.UsedHours.ToString();
                 if (@case.Done)
                 {
@@ -165,10 +166,26 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 int id = int.Parse(idString[0]);
                 newWorkLog.ServiceId = id;
                 newWorkLog.WorkDescription = trandDisc.Text;
-                await workLogBL.CreateAsync(newWorkLog);
+                
+                var context = new ValidationContext(newWorkLog, serviceProvider: null, items: null);
+                bool isValid = Validator.TryValidateObject(newWorkLog, context, null, true);
+
+                if (isValid)
+                {
+                    bool createResult = await workLogBL.CreateAsync(newWorkLog);
+                    if (createResult)
+                    {
+                        MessageBox.Show("Sag Opdateret", "Sag Opdateret");
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fejl: Sag blev ikke opdateret", "Fejl");
+                    }
+                }
+                else { MessageBox.Show("Fejl: Sag blev ikke opdateret", " info ikke valid"); };
 
 
-                MessageBox.Show("Case Updated");
             }
             catch (SqlException)
             {
