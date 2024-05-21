@@ -71,6 +71,8 @@
             // employeeBox
             // 
             employeeBox.BackColor = Color.Black;
+            employeeBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            employeeBox.FlatStyle = FlatStyle.Popup;
             employeeBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             employeeBox.ForeColor = Color.White;
             employeeBox.FormattingEnabled = true;
@@ -82,6 +84,8 @@
             // clientBox
             // 
             clientBox.BackColor = Color.Black;
+            clientBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            clientBox.FlatStyle = FlatStyle.Popup;
             clientBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             clientBox.ForeColor = Color.White;
             clientBox.FormattingEnabled = true;
@@ -93,6 +97,8 @@
             // serviceBox
             // 
             serviceBox.BackColor = Color.Black;
+            serviceBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            serviceBox.FlatStyle = FlatStyle.Popup;
             serviceBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             serviceBox.ForeColor = Color.White;
             serviceBox.FormattingEnabled = true;

@@ -39,6 +39,7 @@
             // 
             // serviceCombo
             // 
+            serviceCombo.DropDownStyle = ComboBoxStyle.DropDownList;
             serviceCombo.FormattingEnabled = true;
             serviceCombo.Location = new Point(151, 46);
             serviceCombo.Name = "serviceCombo";

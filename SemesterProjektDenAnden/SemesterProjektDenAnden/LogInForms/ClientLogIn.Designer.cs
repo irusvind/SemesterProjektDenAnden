@@ -87,6 +87,7 @@
             // 
             // ClientCB
             // 
+            ClientCB.DropDownStyle = ComboBoxStyle.DropDownList;
             ClientCB.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             ClientCB.FormattingEnabled = true;
             ClientCB.Location = new Point(330, 210);

@@ -49,6 +49,7 @@
             // 
             // EmployeeCB
             // 
+            EmployeeCB.DropDownStyle = ComboBoxStyle.DropDownList;
             EmployeeCB.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             EmployeeCB.FormattingEnabled = true;
             EmployeeCB.Location = new Point(322, 198);

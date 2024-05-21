@@ -101,6 +101,7 @@
             // 
             // comboCaseYdelse
             // 
+            comboCaseYdelse.DropDownStyle = ComboBoxStyle.DropDownList;
             comboCaseYdelse.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             comboCaseYdelse.FormattingEnabled = true;
             comboCaseYdelse.Location = new Point(246, 317);
@@ -411,6 +412,7 @@
             // 
             // logYdelsecomboBox
             // 
+            logYdelsecomboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             logYdelsecomboBox.FormattingEnabled = true;
             logYdelsecomboBox.Location = new Point(274, 502);
             logYdelsecomboBox.Name = "logYdelsecomboBox";
