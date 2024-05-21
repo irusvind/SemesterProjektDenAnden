@@ -42,6 +42,8 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
             SuspendLayout();
             // 
             // workTitel
@@ -173,7 +175,6 @@
             label3.Size = new Size(103, 18);
             label3.TabIndex = 17;
             label3.Text = "Forventer timer";
-            label3.Click += label3_Click;
             // 
             // label4
             // 
@@ -197,12 +198,34 @@
             label5.TabIndex = 19;
             label5.Text = "Service";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("High Tower Text", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(574, 158);
+            label6.Name = "label6";
+            label6.Size = new Size(99, 18);
+            label6.TabIndex = 20;
+            label6.Text = "Vælg start dato";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("High Tower Text", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(763, 158);
+            label7.Name = "label7";
+            label7.Size = new Size(152, 18);
+            label7.TabIndex = 21;
+            label7.Text = "Vælg estimeret slut dato";
+            // 
             // CreateCase
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1065, 655);
+            Controls.Add(label7);
+            Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -240,5 +263,7 @@
         private Label label3;
         private Label label4;
         private Label label5;
+        private Label label6;
+        private Label label7;
     }
 }

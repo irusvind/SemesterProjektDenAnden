@@ -1,21 +1,9 @@
 ﻿using BusinessLogic;
 using BusinessLogic.BLInterfaces;
 using DataAcces;
-using DataAcces.DAInterfaces;
 using Models;
-using SemesterProjektDenAnden.ClientFroms;
-using SemesterProjektDenAnden.Tools;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SemesterProjektDenAnden.EmployeeForms
 {
@@ -32,6 +20,8 @@ namespace SemesterProjektDenAnden.EmployeeForms
         public CreateCase(EmployeeMdi employeeMdi)
         {
             InitializeComponent();
+
+            this.employeeMdi = employeeMdi;
 
             try
             {
@@ -54,10 +44,11 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private async void AddToClientCombobox()
         {
+
             List<Client> clients = await ClientBL.GetAllAsync();
             foreach (Client client in clients)
             {
-                clientBox.Items.Add(client.ClientId + "" + client.FirstName);
+                clientBox.Items.Add(client.ClientId + ": " + client.FirstName);
             }
         }
 
@@ -66,21 +57,25 @@ namespace SemesterProjektDenAnden.EmployeeForms
             List<Employee> employees = await EmployeeBL.GetAllAsync();
             foreach (Employee employee in employees)
             {
-                employeeBox.Items.Add(employee.Id + "" + employee.FirstName);
+                employeeBox.Items.Add(employee.Id + ": " + employee.FirstName);
             }
+
         }
 
         private async void AddToServiceCombobox()
         {
+
             List<Service> services = await ServiceBL.GetAllAsync();
             foreach (Service service in services)
             {
-                serviceBox.Items.Add(service.ServiceId + "" + service.ServiceName);
+                serviceBox.Items.Add(service.ServiceId + ": " + service.ServiceName);
             }
+
         }
 
         private async void createCaseBtn_Click(object sender, EventArgs e)
         {
+            try
             {
                 string message = "Er du sikker på du vil oprette en case med de indtastede værdier?";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -94,14 +89,14 @@ namespace SemesterProjektDenAnden.EmployeeForms
                     newCase.StartDate = startDateCal.SelectionStart;
                     newCase.ExEndDate = endDateCal.SelectionStart;
                     newCase.EstHours = Convert.ToInt32(estimated_hours.Text);
-                    string client = clientBox.Text;
-                    newCase.ClientId = int.Parse(client);
-                    string employeeId = employeeBox.Text;
-                    newCase.EmployeeId = int.Parse(employeeId);
+                    string[] client = clientBox.Items[clientBox.SelectedIndex].ToString().Split(':');
+                    newCase.ClientId = int.Parse(client[0]);
+                    string[] employeeId = employeeBox.Items[employeeBox.SelectedIndex].ToString().Split(':');
+                    newCase.EmployeeId = int.Parse(employeeId[0]);
                     newCase.Done = false;
 
 
-                    var context = new ValidationContext(newCase, serviceProvider: null, items: null);
+                    ValidationContext context = new ValidationContext(newCase, serviceProvider: null, items: null);
                     bool isValid = Validator.TryValidateObject(newCase, context, null, true);
 
                     if (isValid)
@@ -110,7 +105,8 @@ namespace SemesterProjektDenAnden.EmployeeForms
                         if (createResult)
                         {
                             MessageBox.Show("Bruger oprettet", "Bruger oprettet");
-                            this.Close();
+                            Cases newCases = new Cases(employeeMdi);
+                            employeeMdi.FormOpener(newCases);
                         }
                         else
                         {
@@ -118,19 +114,17 @@ namespace SemesterProjektDenAnden.EmployeeForms
                         }
                     }
                     else { MessageBox.Show("Fejl: Bruger ikke oprettet", " info ikke valid"); };
-
-
-
-
-
                 }
 
             }
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

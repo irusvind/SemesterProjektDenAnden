@@ -35,13 +35,25 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private async void addTransport_Click(object sender, EventArgs e)
         {
-            TransportLog transportLog = new TransportLog();
-            transportLog.KmDriven = int.Parse(kilometerBox.Text);
-            transportLog.LogDescription = transDesBox.Text;
-            transportLog.CaseId = caseId;
-            transportLog.ServiceId = serviceCombo.SelectedIndex;
+            try
+            {
+                TransportLog transportLog = new TransportLog();
+                transportLog.KmDriven = int.Parse(kilometerBox.Text);
+                transportLog.LogDescription = transDesBox.Text;
+                transportLog.CaseId = caseId;
+                transportLog.ServiceId = serviceCombo.SelectedIndex;
 
-            await transportLogBL.CreateAsync(transportLog);
+                await transportLogBL.CreateAsync(transportLog);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private async void AddToServiceCombobox()

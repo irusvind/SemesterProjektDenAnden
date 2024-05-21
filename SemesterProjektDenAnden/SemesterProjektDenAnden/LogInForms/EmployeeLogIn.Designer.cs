@@ -31,6 +31,7 @@
             logInBtn = new Button();
             EmployeeCB = new ComboBox();
             label1 = new Label();
+            BackBtn = new Button();
             SuspendLayout();
             // 
             // logInBtn
@@ -66,12 +67,24 @@
             label1.TabIndex = 5;
             label1.Text = "Log ind";
             // 
+            // BackBtn
+            // 
+            BackBtn.Font = new Font("High Tower Text", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            BackBtn.Location = new Point(434, 228);
+            BackBtn.Name = "BackBtn";
+            BackBtn.Size = new Size(92, 33);
+            BackBtn.TabIndex = 10;
+            BackBtn.Text = "Back";
+            BackBtn.UseVisualStyleBackColor = true;
+            BackBtn.Click += BackBtn_Click;
+            // 
             // EmployeeLogIn
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(804, 451);
+            Controls.Add(BackBtn);
             Controls.Add(EmployeeCB);
             Controls.Add(label1);
             Controls.Add(logInBtn);
@@ -88,5 +101,6 @@
         private Button logInBtn;
         private ComboBox EmployeeCB;
         private Label label1;
+        private Button BackBtn;
     }
 }
