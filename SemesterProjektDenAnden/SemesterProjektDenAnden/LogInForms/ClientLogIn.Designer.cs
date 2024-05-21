@@ -96,6 +96,7 @@
             // 
             // BackBtn
             // 
+            BackBtn.BackColor = Color.White;
             BackBtn.Font = new Font("High Tower Text", 12F, FontStyle.Regular, GraphicsUnit.Point);
             BackBtn.ForeColor = Color.Black;
             BackBtn.Location = new Point(464, 258);
@@ -103,7 +104,7 @@
             BackBtn.Size = new Size(82, 33);
             BackBtn.TabIndex = 5;
             BackBtn.Text = "Back";
-            BackBtn.UseVisualStyleBackColor = true;
+            BackBtn.UseVisualStyleBackColor = false;
             BackBtn.Click += BackBtn_Click;
             // 
             // ClientLogIn
