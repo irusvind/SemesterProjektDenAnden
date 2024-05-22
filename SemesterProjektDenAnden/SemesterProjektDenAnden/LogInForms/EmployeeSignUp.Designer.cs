@@ -175,6 +175,7 @@
             // 
             // JobTitleCB
             // 
+            JobTitleCB.DropDownStyle = ComboBoxStyle.DropDownList;
             JobTitleCB.FormattingEnabled = true;
             JobTitleCB.Items.AddRange(new object[] { "Advokat", "Advokatsekretær" });
             JobTitleCB.Location = new Point(545, 424);

@@ -33,6 +33,7 @@
             label2 = new Label();
             Loginbtn = new Button();
             ClientCB = new ComboBox();
+            BackBtn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -86,6 +87,7 @@
             // 
             // ClientCB
             // 
+            ClientCB.DropDownStyle = ComboBoxStyle.DropDownList;
             ClientCB.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             ClientCB.FormattingEnabled = true;
             ClientCB.Location = new Point(330, 210);
@@ -93,12 +95,26 @@
             ClientCB.Size = new Size(216, 24);
             ClientCB.TabIndex = 4;
             // 
+            // BackBtn
+            // 
+            BackBtn.BackColor = Color.White;
+            BackBtn.Font = new Font("High Tower Text", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            BackBtn.ForeColor = Color.Black;
+            BackBtn.Location = new Point(464, 258);
+            BackBtn.Name = "BackBtn";
+            BackBtn.Size = new Size(82, 33);
+            BackBtn.TabIndex = 5;
+            BackBtn.Text = "Back";
+            BackBtn.UseVisualStyleBackColor = false;
+            BackBtn.Click += BackBtn_Click;
+            // 
             // ClientLogIn
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(804, 451);
+            Controls.Add(BackBtn);
             Controls.Add(ClientCB);
             Controls.Add(Loginbtn);
             Controls.Add(label2);
@@ -121,5 +137,6 @@
         private Label label2;
         private Button Loginbtn;
         private ComboBox ClientCB;
+        private Button BackBtn;
     }
 }

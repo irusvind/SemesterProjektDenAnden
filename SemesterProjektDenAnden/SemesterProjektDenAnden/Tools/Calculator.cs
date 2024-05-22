@@ -30,28 +30,34 @@ namespace SemesterProjektDenAnden.Tools
             try
             {
                 int G = int.Parse(sizeBox.Text);
-                double r = Convert.ToDouble(rateBox.Text) / 100;
+                double r = Convert.ToDouble(rateBox.Text);
                 int perYear = int.Parse(paymentPYearBox.Text);
                 int amountYear = int.Parse(yearsBox.Text);
-                double n = perYear * amountYear;
+                int n = perYear * amountYear;
 
                 double amountpyear = 0;
-
-                double temp;
-                double temp2 = (1 + r);
-
-                //temp = G * r / (1 - (1 + r));
-
-                temp = Math.Pow(temp2, n);
-
-                amountpyear = G * (r / (1 + temp));
-
+                amountpyear = CalculateFinalValue(G, r, n);
+                double amountPYear = CalculateFinalValue (G, r, amountYear);
+                amountPYear = Math.Round(amountPYear,2);
+                amountpyear = Math.Round(amountpyear,2);
                 paymentAmount.Text = amountpyear.ToString();
+                paymentPYear.Text = amountPYear.ToString();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public static double CalculateFinalValue(double initialInvestment, double interestRate, int numCompoundingPeriods)
+        {
+            
+            double r = interestRate / 100.0;
+
+            
+            double finalValue = initialInvestment * r / (1 - Math.Pow(1 + r, -numCompoundingPeriods));
+
+            return finalValue;
         }
 
         private void label5_Click(object sender, EventArgs e)

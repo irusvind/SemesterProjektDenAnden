@@ -28,7 +28,7 @@ namespace SemesterProjektDenAnden.ClientFroms
             InitializeComponent();
             this.clientMid = clientMDI;
             this.caseId = CaseId;
-            
+
             SetData();
             ServincesDGVData();
 
@@ -52,8 +52,9 @@ namespace SemesterProjektDenAnden.ClientFroms
             clientName.Text = client.FirstName + " " + client.LastName;
             clientMail.Text = client.Mail;
             clientNr.Text = client.Phone.ToString();
-            employeeNr.Text = employee.Id.ToString();
+            employeeNr.Text = employee.PhoneNumber.ToString();
             employeeName.Text = employee.FirstName + " " + employee.LastName;
+            employeeMail.Text = employee.Email;
             startDate.Text = _case.StartDate.ToString();
             expectedHour.Text = _case.EstHours.ToString();
             endData.Text = _case.ExEndDate.ToString();
@@ -78,9 +79,25 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void ydelserDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-                
-            
+
+
+
+        }
+
+        private void ReportBtn_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel File|*.xlsx";
+            saveFileDialog.Title = "Save an Excel File";
+            saveFileDialog.ShowDialog();
+            if (saveFileDialog.FileName != "")
+            {
+                string path = saveFileDialog.FileName;
+                caseBL.printRapport(caseId,path);
+                MessageBox.Show("Rapporten er nu gemt i " + saveFileDialog.FileName);
+            }
+            //caseBL.printRapport(caseId);
+            //MessageBox.Show("Rapporten er nu gemt i bin mappen");
         }
     }
 }

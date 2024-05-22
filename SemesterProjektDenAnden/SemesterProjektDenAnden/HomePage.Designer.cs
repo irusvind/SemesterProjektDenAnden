@@ -34,6 +34,7 @@
             // 
             // Clientbtn
             // 
+            Clientbtn.BackColor = Color.White;
             Clientbtn.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
             Clientbtn.Location = new Point(204, 180);
             Clientbtn.Margin = new Padding(3, 2, 3, 2);
@@ -41,11 +42,12 @@
             Clientbtn.Size = new Size(266, 159);
             Clientbtn.TabIndex = 0;
             Clientbtn.Text = "Klient";
-            Clientbtn.UseVisualStyleBackColor = true;
+            Clientbtn.UseVisualStyleBackColor = false;
             Clientbtn.Click += button1_Click;
             // 
             // Employeebtn
             // 
+            Employeebtn.BackColor = Color.White;
             Employeebtn.Font = new Font("High Tower Text", 19.875F, FontStyle.Regular, GraphicsUnit.Point);
             Employeebtn.Location = new Point(543, 180);
             Employeebtn.Margin = new Padding(3, 2, 3, 2);
@@ -53,7 +55,7 @@
             Employeebtn.Size = new Size(266, 159);
             Employeebtn.TabIndex = 0;
             Employeebtn.Text = "Ansat";
-            Employeebtn.UseVisualStyleBackColor = true;
+            Employeebtn.UseVisualStyleBackColor = false;
             Employeebtn.Click += Employeebtn_Click;
             // 
             // HomePage

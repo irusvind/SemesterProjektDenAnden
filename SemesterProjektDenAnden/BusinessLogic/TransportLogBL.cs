@@ -3,6 +3,7 @@ using DataAcces;
 using Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,9 +32,9 @@ namespace BusinessLogic
             return transportLog;
         }
 
-        public async Task<List<TransportLog>> GetAllAsync()
+        public async Task<List<TransportLog>> GetAllAsync(int id)
         {
-            List<TransportLog> result = await transportLogDA.GetAllAsync();
+            List<TransportLog> result = await transportLogDA.GetAllAsync(id);
             return result;
         }
 
@@ -41,6 +42,30 @@ namespace BusinessLogic
         {
            bool result = await transportLogDA.UpdateAsync(transportLog);
             return result;
+        }
+
+
+        public async Task<int> CalKm(int caseId)
+        {
+            try
+            {
+                List<TransportLog> transportLogs = await GetAllAsync(caseId);
+                int km = 0;
+                foreach (TransportLog transport in transportLogs)
+                {
+                    km += transport.KmDriven;
+                }
+                return km;
+            }
+            catch (SqlException)
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            return 0;
         }
     }
 }

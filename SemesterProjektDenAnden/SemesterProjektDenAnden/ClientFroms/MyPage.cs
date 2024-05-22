@@ -123,12 +123,13 @@ namespace SemesterProjektDenAnden.ClientFroms
                     {
                         updateClient.Subscriber = false;
                         updateClient.SubEndDate = null;
+                        updateClient.SubPrice = null;
                         await clientBL.UpdateAsync(updateClient);
                         MyPage newMyPage = new MyPage(clientMdi, clientId);
                         clientMdi.FormOpener(newMyPage);
                     }
                 }
-                else
+                else 
                 {
                     subscribeForm = new SubscribeForm(clientMdi, clientId);
                     subscribeForm.ShowDialog();

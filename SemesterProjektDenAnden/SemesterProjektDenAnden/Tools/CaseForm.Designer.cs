@@ -47,6 +47,7 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.White;
             ClientSize = new Size(1065, 655);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
