@@ -39,61 +39,79 @@
             // 
             // serviceCombo
             // 
+            serviceCombo.BackColor = Color.Black;
             serviceCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            serviceCombo.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            serviceCombo.ForeColor = Color.White;
             serviceCombo.FormattingEnabled = true;
-            serviceCombo.Location = new Point(151, 46);
+            serviceCombo.Location = new Point(190, 47);
             serviceCombo.Name = "serviceCombo";
-            serviceCombo.Size = new Size(121, 23);
+            serviceCombo.Size = new Size(228, 24);
             serviceCombo.TabIndex = 0;
             // 
             // kilometerBox
             // 
-            kilometerBox.Location = new Point(151, 85);
+            kilometerBox.BackColor = Color.Black;
+            kilometerBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            kilometerBox.ForeColor = Color.White;
+            kilometerBox.Location = new Point(190, 86);
             kilometerBox.Name = "kilometerBox";
-            kilometerBox.Size = new Size(100, 23);
+            kilometerBox.Size = new Size(228, 24);
             kilometerBox.TabIndex = 1;
             // 
             // transDesBox
             // 
-            transDesBox.Location = new Point(151, 130);
+            transDesBox.BackColor = Color.Black;
+            transDesBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            transDesBox.ForeColor = Color.White;
+            transDesBox.Location = new Point(190, 131);
             transDesBox.Name = "transDesBox";
-            transDesBox.Size = new Size(100, 23);
+            transDesBox.Size = new Size(228, 24);
             transDesBox.TabIndex = 2;
             // 
             // addTransport
             // 
-            addTransport.Location = new Point(151, 178);
+            addTransport.BackColor = Color.Black;
+            addTransport.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            addTransport.ForeColor = Color.White;
+            addTransport.Location = new Point(190, 176);
             addTransport.Name = "addTransport";
-            addTransport.Size = new Size(75, 23);
+            addTransport.Size = new Size(228, 30);
             addTransport.TabIndex = 3;
             addTransport.Text = "Tilføj";
-            addTransport.UseVisualStyleBackColor = true;
+            addTransport.UseVisualStyleBackColor = false;
             addTransport.Click += addTransport_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(25, 49);
             label1.Name = "label1";
-            label1.Size = new Size(40, 15);
+            label1.Size = new Size(47, 18);
             label1.TabIndex = 4;
             label1.Text = "Ydelse";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(25, 88);
             label2.Name = "label2";
-            label2.Size = new Size(49, 15);
+            label2.Size = new Size(59, 18);
             label2.TabIndex = 5;
             label2.Text = "Km kørt";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(25, 133);
             label3.Name = "label3";
-            label3.Size = new Size(108, 15);
+            label3.Size = new Size(126, 18);
             label3.TabIndex = 6;
             label3.Text = "Hvor har du været?";
             // 

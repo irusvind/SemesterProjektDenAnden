@@ -37,9 +37,9 @@ namespace SemesterProjektDenAnden.Tools
 
                 double amountpyear = 0;
                 amountpyear = CalculateFinalValue(G, r, n);
-                double amountPYear = CalculateFinalValue (G, r, amountYear);
-                amountPYear = Math.Round(amountPYear,2);
-                amountpyear = Math.Round(amountpyear,2);
+                double amountPYear = CalculateFinalValue(G, r, amountYear);
+                amountPYear = Math.Round(amountPYear, 2);
+                amountpyear = Math.Round(amountpyear, 2);
                 paymentAmount.Text = amountpyear.ToString();
                 paymentPYear.Text = amountPYear.ToString();
             }
@@ -51,23 +51,23 @@ namespace SemesterProjektDenAnden.Tools
 
         public static double CalculateFinalValue(double initialInvestment, double interestRate, int numCompoundingPeriods)
         {
-            
+
             double r = interestRate / 100.0;
 
-            
+
             double finalValue = initialInvestment * r / (1 - Math.Pow(1 + r, -numCompoundingPeriods));
 
             return finalValue;
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void clearAllBtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void paymentAmount_Click(object sender, EventArgs e)
-        {
-
+            sizeBox.Text = string.Empty;
+            rateBox.Text = string.Empty;
+            paymentPYearBox.Text = string.Empty;
+            yearsBox.Text = string.Empty;
+            paymentAmount.Text = string.Empty;
+            paymentPYear.Text = string.Empty;
         }
     }
 }
