@@ -70,35 +70,6 @@ namespace SemesterProjektDenAnden.EmployeeForms
             }
         }
 
-        private async void clientDeleteBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DialogResult result = MessageBox.Show("Er du sikker på du vil slette denne klient?", "Slet klient", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    if (await clientBl.DeleteAsync(clientId))
-                    {
-                        MessageBox.Show("Klient slettet", "Klient slettet");
-                        Clients clients = new Clients(employeeMdi);
-                        employeeMdi.FormOpener(clients);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ukendt fejl: Klient ikke slettet", "Fejl");
-                    }
-                }
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void clientCasesDGV_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = (DataGridView)sender;

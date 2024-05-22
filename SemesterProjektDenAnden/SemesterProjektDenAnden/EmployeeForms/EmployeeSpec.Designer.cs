@@ -48,7 +48,6 @@
             nameLbl = new Label();
             CasesDGV = new DataGridView();
             MailTxt = new TextBox();
-            DeleteEmployeeBtn = new Button();
             UpdateEmployeeBtn = new Button();
             addressTxt = new TextBox();
             label1 = new Label();
@@ -262,19 +261,6 @@
             MailTxt.Size = new Size(203, 24);
             MailTxt.TabIndex = 14;
             // 
-            // DeleteEmployeeBtn
-            // 
-            DeleteEmployeeBtn.BackColor = Color.Black;
-            DeleteEmployeeBtn.Font = new Font("Microsoft Sans Serif", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            DeleteEmployeeBtn.ForeColor = Color.White;
-            DeleteEmployeeBtn.Location = new Point(766, 222);
-            DeleteEmployeeBtn.Name = "DeleteEmployeeBtn";
-            DeleteEmployeeBtn.Size = new Size(185, 30);
-            DeleteEmployeeBtn.TabIndex = 15;
-            DeleteEmployeeBtn.Text = "Slet Medarbejder";
-            DeleteEmployeeBtn.UseVisualStyleBackColor = false;
-            DeleteEmployeeBtn.Click += DeleteEmployeeBtn_Click;
-            // 
             // UpdateEmployeeBtn
             // 
             UpdateEmployeeBtn.BackColor = Color.Black;
@@ -339,7 +325,6 @@
             Controls.Add(label1);
             Controls.Add(addressTxt);
             Controls.Add(UpdateEmployeeBtn);
-            Controls.Add(DeleteEmployeeBtn);
             Controls.Add(MailTxt);
             Controls.Add(CasesDGV);
             Controls.Add(nameLbl);
@@ -379,7 +364,6 @@
         private Label nameLbl;
         private DataGridView CasesDGV;
         private TextBox MailTxt;
-        private Button DeleteEmployeeBtn;
         private Button UpdateEmployeeBtn;
         private TextBox addressTxt;
         private Label label1;

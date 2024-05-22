@@ -44,7 +44,6 @@
             clientCasesDGV = new DataGridView();
             clientIdTxt = new TextBox();
             ClientNrLbl = new Label();
-            clientDeleteBtn = new Button();
             updateClientbtn = new Button();
             ((System.ComponentModel.ISupportInitialize)clientCasesDGV).BeginInit();
             SuspendLayout();
@@ -209,19 +208,6 @@
             ClientNrLbl.TabIndex = 15;
             ClientNrLbl.Text = "Klient nr. ";
             // 
-            // clientDeleteBtn
-            // 
-            clientDeleteBtn.BackColor = Color.Black;
-            clientDeleteBtn.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            clientDeleteBtn.ForeColor = Color.White;
-            clientDeleteBtn.Location = new Point(283, 415);
-            clientDeleteBtn.Name = "clientDeleteBtn";
-            clientDeleteBtn.Size = new Size(131, 30);
-            clientDeleteBtn.TabIndex = 28;
-            clientDeleteBtn.Text = "Slet klient";
-            clientDeleteBtn.UseVisualStyleBackColor = false;
-            clientDeleteBtn.Click += clientDeleteBtn_Click;
-            // 
             // updateClientbtn
             // 
             updateClientbtn.BackColor = Color.Black;
@@ -242,7 +228,6 @@
             BackColor = Color.White;
             ClientSize = new Size(1065, 655);
             Controls.Add(updateClientbtn);
-            Controls.Add(clientDeleteBtn);
             Controls.Add(clientMailTxt);
             Controls.Add(nameLbl);
             Controls.Add(LnameLbl);
@@ -279,7 +264,6 @@
         private DataGridView clientCasesDGV;
         private TextBox clientIdTxt;
         private Label ClientNrLbl;
-        private Button clientDeleteBtn;
         private Button updateClientbtn;
     }
 }

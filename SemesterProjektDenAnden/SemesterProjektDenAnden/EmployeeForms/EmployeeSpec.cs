@@ -86,28 +86,6 @@ namespace SemesterProjektDenAnden.EmployeeForms
             CasesDGV.DataSource = caseSource;
         }
 
-        private async void DeleteEmployeeBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DialogResult result = MessageBox.Show("Er du sikker på du vil slette denne medarbejder?", "Slet medarbejder", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    await employeeBL.DeleteAsync(employeeId);
-                    Employees employees = new Employees(employeeMdi);
-                    employeeMdi.FormOpener(employees);
-                }
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Fejl, Operation stoppet: Kunne ikke skrive til Database", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private async void UpdateEmployeeBtn_Click(object sender, EventArgs e)
         {
             try
