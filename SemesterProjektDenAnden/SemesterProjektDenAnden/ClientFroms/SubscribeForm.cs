@@ -25,8 +25,15 @@ namespace SemesterProjektDenAnden.ClientFroms
             InitializeComponent();
             this.clientId = clientId;
             this.clientMdi = clientMdi;
+            CB1mdr.CheckedChanged += CB1mdr_CheckedChanged;
+            CB3mdr.CheckedChanged += CB3mdr_CheckedChanged;
+            CB6mdr.CheckedChanged += CB6mdr_CheckedChanged;
+            CB12mdr.CheckedChanged += CB12mdr_CheckedChanged;
+
 
         }
+
+      
 
         private async void btnPay_Click(object sender, EventArgs e)
         {
@@ -36,7 +43,7 @@ namespace SemesterProjektDenAnden.ClientFroms
                 DialogResult result = MessageBox.Show("Velkommen til LawHouse!\nTryk ja for at acceptere dit abonnement på 12 måneder.", "Start Abonnement", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    
+
                     await UpdateSubscriber(12, 5555);
                 }
 
@@ -103,5 +110,33 @@ namespace SemesterProjektDenAnden.ClientFroms
         {
             this.Close();
         }
+
+
+        private void CB1mdr_CheckedChanged(object? sender, EventArgs e)
+        {
+            CB3mdr.Checked = false;
+            CB6mdr.Checked = false;
+            CB12mdr.Checked = false;
+        }
+        private void CB3mdr_CheckedChanged(object sender, EventArgs e)
+        { 
+            CB1mdr.Checked = false;
+            CB6mdr.Checked = false;
+            CB12mdr.Checked = false;
+        }
+        private void CB6mdr_CheckedChanged(object? sender, EventArgs e)
+        {
+            CB1mdr.Checked = false;
+            CB3mdr.Checked = false;
+            CB12mdr.Checked = false;
+        }
+
+        private void CB12mdr_CheckedChanged(object? sender, EventArgs e)
+        {
+            CB1mdr.Checked = false;
+            CB3mdr.Checked = false;
+            CB6mdr.Checked = false;
+        }
+
     }
 }
