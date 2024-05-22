@@ -96,6 +96,7 @@
             CB3mdr.TabIndex = 4;
             CB3mdr.Text = "3 måneder - 1749 kr.";
             CB3mdr.UseVisualStyleBackColor = true;
+            CB3mdr.CheckedChanged += CB3mdr_CheckedChanged;
             // 
             // CB12mdr
             // 
