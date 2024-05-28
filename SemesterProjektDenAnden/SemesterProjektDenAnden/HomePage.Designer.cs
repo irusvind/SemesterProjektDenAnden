@@ -30,6 +30,8 @@
         {
             Clientbtn = new Button();
             Employeebtn = new Button();
+            label1 = new Label();
+            label2 = new Label();
             SuspendLayout();
             // 
             // Clientbtn
@@ -58,12 +60,36 @@
             Employeebtn.UseVisualStyleBackColor = false;
             Employeebtn.Click += Employeebtn_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("High Tower Text", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(386, 60);
+            label1.Name = "label1";
+            label1.Size = new Size(238, 57);
+            label1.TabIndex = 1;
+            label1.Text = "LawHouse";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("High Tower Text", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(328, 117);
+            label2.Name = "label2";
+            label2.Size = new Size(339, 22);
+            label2.TabIndex = 2;
+            label2.Text = "Vi hjælper dig, med at skabe din fremtid";
+            // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1034, 490);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(Employeebtn);
             Controls.Add(Clientbtn);
             ForeColor = Color.Black;
@@ -72,6 +98,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -85,5 +112,7 @@
         private Button button3;
         private Panel panel4;
         private Button button4;
+        private Label label1;
+        private Label label2;
     }
 }
