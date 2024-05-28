@@ -115,9 +115,10 @@
             // 
             // AddressTxt
             // 
+            AddressTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             AddressTxt.Location = new Point(545, 379);
             AddressTxt.Name = "AddressTxt";
-            AddressTxt.Size = new Size(161, 23);
+            AddressTxt.Size = new Size(161, 24);
             AddressTxt.TabIndex = 5;
             // 
             // MailTxt
@@ -146,9 +147,10 @@
             // 
             // FnameTxt
             // 
+            FnameTxt.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             FnameTxt.Location = new Point(545, 174);
             FnameTxt.Name = "FnameTxt";
-            FnameTxt.Size = new Size(161, 23);
+            FnameTxt.Size = new Size(161, 24);
             FnameTxt.TabIndex = 1;
             // 
             // label1
@@ -176,11 +178,12 @@
             // JobTitleCB
             // 
             JobTitleCB.DropDownStyle = ComboBoxStyle.DropDownList;
+            JobTitleCB.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             JobTitleCB.FormattingEnabled = true;
             JobTitleCB.Items.AddRange(new object[] { "Advokat", "Advokatsekretær" });
             JobTitleCB.Location = new Point(545, 424);
             JobTitleCB.Name = "JobTitleCB";
-            JobTitleCB.Size = new Size(161, 23);
+            JobTitleCB.Size = new Size(161, 24);
             JobTitleCB.TabIndex = 6;
             // 
             // EmployeeSignUp
