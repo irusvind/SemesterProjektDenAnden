@@ -1,18 +1,7 @@
 ﻿using BusinessLogic;
-using DataAcces;
 using Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SemesterProjektDenAnden.EmployeeForms
 {
@@ -20,10 +9,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
     {
 
         int caseId;
-        EmployeeMdi employeeMdi;
-        CaseBL caseBL = new CaseBL();
         TransportLogBL transportLogBL = new TransportLogBL();
-        EmployeeBL employeeBL = new EmployeeBL();
         ServiceBL serviceBL = new ServiceBL();
         public Transport(int CaseId)
         {

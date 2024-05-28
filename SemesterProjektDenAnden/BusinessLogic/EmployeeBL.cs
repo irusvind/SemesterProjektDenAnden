@@ -1,11 +1,10 @@
-﻿using BusinessLogic.BLInterfaces;
-using DataAcces;
-using DataAcces.DAInterfaces;
+﻿using DataAcces;
 using Models;
+using Models.Interfaces;
 
 namespace BusinessLogic
 {
-    public class EmployeeBL : IEmployeeBL
+    public class EmployeeBL : IEmployee
     {
         EmployeeDA employeeDA = new EmployeeDA();
 

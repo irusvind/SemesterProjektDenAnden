@@ -1,13 +1,12 @@
-﻿using Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.BLInterfaces
+namespace Models.Interfaces
 {
-    public interface IWorkLogBL
+    public interface IWorkLog
     {
         Task<bool> CreateAsync(WorkLog newWorkLog);
 

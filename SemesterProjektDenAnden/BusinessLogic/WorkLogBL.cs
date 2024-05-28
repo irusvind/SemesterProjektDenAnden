@@ -1,15 +1,10 @@
-﻿using BusinessLogic.BLInterfaces;
-using DataAcces;
+﻿using DataAcces;
 using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Models.Interfaces;
 
 namespace BusinessLogic
 {
-    public class WorkLogBL : IWorkLogBL
+    public class WorkLogBL : IWorkLog
     {
         WorkLogDA workLogDA = new WorkLogDA();
         public async Task<bool> CreateAsync(WorkLog newWorkLog)

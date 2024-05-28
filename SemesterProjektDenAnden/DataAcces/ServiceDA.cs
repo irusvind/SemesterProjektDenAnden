@@ -1,5 +1,5 @@
-﻿using DataAcces.DAInterfaces;
-using Models;
+﻿using Models;
+using Models.Interfaces;
 using System.Configuration;
 using System.Data.SqlClient;
 
@@ -80,7 +80,7 @@ namespace DataAcces
             return new Service();
         }
 
-        public async Task UpdateServicesAsync(int serviceId, int caseId)
+        public async Task UpdateAsync(int serviceId, int caseId)
         {
 
 

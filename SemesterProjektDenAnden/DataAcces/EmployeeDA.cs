@@ -1,5 +1,5 @@
-﻿using DataAcces.DAInterfaces;
-using Models;
+﻿using Models;
+using Models.Interfaces;
 using System.Configuration;
 using System.Data.SqlClient;
 
@@ -185,7 +185,6 @@ namespace DataAcces
 
             string deleteCommand = "DELETE FROM COMPLETEDCOURSE WHERE EmployeeId = @employeeId";
             string createCommand = "INSERT INTO COMPLETEDCOURSE (EmployeeId, CourseId) VALUES (@employeeId, @courseId)";
-            int rowsAffected;
             using SqlConnection dbConn = new SqlConnection(connString);
             SqlCommand sqlDeleteCommand = new SqlCommand(deleteCommand, dbConn);
             sqlDeleteCommand.Parameters.AddWithValue("@employeeId", employeeId);

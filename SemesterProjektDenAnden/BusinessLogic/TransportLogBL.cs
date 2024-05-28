@@ -1,19 +1,13 @@
-﻿using BusinessLogic.BLInterfaces;
-using DataAcces;
+﻿using DataAcces;
 using Models;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Models.Interfaces;
 
 namespace BusinessLogic
 {
-    
-    public class TransportLogBL : ITransportLogBL
+
+    public class TransportLogBL : ITransportLog
     {
-       TransportLogDA transportLogDA = new TransportLogDA();
+        TransportLogDA transportLogDA = new TransportLogDA();
         public async Task<bool> CreateAsync(TransportLog transport)
         {
             bool result = await transportLogDA.CreateAsync(transport);
@@ -40,32 +34,9 @@ namespace BusinessLogic
 
         public async Task<bool> UpdateAsync(TransportLog transportLog)
         {
-           bool result = await transportLogDA.UpdateAsync(transportLog);
+            bool result = await transportLogDA.UpdateAsync(transportLog);
             return result;
         }
 
-
-        public async Task<int> CalKm(int caseId)
-        {
-            try
-            {
-                List<TransportLog> transportLogs = await GetAllAsync(caseId);
-                int km = 0;
-                foreach (TransportLog transport in transportLogs)
-                {
-                    km += transport.KmDriven;
-                }
-                return km;
-            }
-            catch (SqlException)
-            {
-                
-            }
-            catch (Exception ex)
-            {
-                
-            }
-            return 0;
-        }
     }
 }

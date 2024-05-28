@@ -1,6 +1,4 @@
 ﻿using BusinessLogic;
-using BusinessLogic.BLInterfaces;
-using DataAcces;
 using Models;
 using System.ComponentModel.DataAnnotations;
 using System.Data.SqlClient;
@@ -10,11 +8,10 @@ namespace SemesterProjektDenAnden.EmployeeForms
     public partial class CreateCase : Form
     {
         EmployeeMdi employeeMdi;
-        CreateCase createCase;
-        ICaseBL CaseBL = new CaseBL();
-        IClientBL ClientBL = new ClientBL();
-        IEmployeeBL EmployeeBL = new EmployeeBL();
-        IServiceBL ServiceBL = new ServiceBL();
+        CaseBL CaseBL = new CaseBL();
+        ClientBL ClientBL = new ClientBL();
+        EmployeeBL EmployeeBL = new EmployeeBL();
+        ServiceBL ServiceBL = new ServiceBL();
 
 
         public CreateCase(EmployeeMdi employeeMdi)

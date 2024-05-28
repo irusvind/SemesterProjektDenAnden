@@ -1,5 +1,5 @@
-﻿using DataAcces.DAInterfaces;
-using Models;
+﻿using Models;
+using Models.Interfaces;
 using System.Configuration;
 using System.Data.SqlClient;
 

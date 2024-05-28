@@ -1,30 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BusinessLogic;
-using SemesterProjektDenAnden.EmployeeForms;
-using SemesterProjektDenAnden.Tools;
-
+﻿
 namespace SemesterProjektDenAnden.ClientFroms
 {
     public partial class ClientOverview : Form
     {
-        ClientMDI clientMdi;
-        MyPage myPage;
-        MyCases myCases;
-        int clientId;
-        public ClientOverview(ClientMDI clientMdi, int clientId)
+
+        public ClientOverview(ClientMDI clientMdi)
         {
             InitializeComponent();
-
-            this.clientMdi = clientMdi;
-            this.clientId = clientId;
 
             OverviewMyPagebtn.Click += clientMdi.myPagebtn_Click;
             OverviewMyCasesbtn.Click += clientMdi.myCasesbtn_Click;

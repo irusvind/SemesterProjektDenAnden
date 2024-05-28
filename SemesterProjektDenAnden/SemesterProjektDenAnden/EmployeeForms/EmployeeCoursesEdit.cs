@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 
 namespace SemesterProjektDenAnden.EmployeeForms
 {
-    //mangler async 
     public partial class EmployeeCoursesEdit : Form
     {
         EmployeeMdi employeeMdi;

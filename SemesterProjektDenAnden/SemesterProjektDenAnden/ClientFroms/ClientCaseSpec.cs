@@ -16,17 +16,14 @@ namespace SemesterProjektDenAnden.ClientFroms
     public partial class ClientCaseSpec : Form
     {
         int caseId;
-        ClientMDI clientMid;
         CaseBL caseBL = new CaseBL();
         ClientBL clientBL = new ClientBL();
-        TransportLogBL transportLogBL = new TransportLogBL();
         EmployeeBL employeeBL = new EmployeeBL();
         ServiceBL serviceBL = new ServiceBL();
 
         public ClientCaseSpec(ClientMDI clientMDI, int CaseId)
         {
             InitializeComponent();
-            this.clientMid = clientMDI;
             this.caseId = CaseId;
 
             SetData();
@@ -36,17 +33,11 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private async void SetData()
         {
-            Case _case = new Case();
-            _case = await caseBL.GetAsync(this.caseId);
+            Case _case = await caseBL.GetAsync(this.caseId);
 
-            Client client = new Client();
-            client = await clientBL.GetAsync(_case.ClientId);
+            Client client = await clientBL.GetAsync(_case.ClientId);
 
-            Employee employee = new Employee();
-            employee = await employeeBL.GetAsync(_case.EmployeeId);
-
-            TransportLog transport = new TransportLog();
-            transport = await transportLogBL.GetAsync(this.caseId);
+            Employee employee = await employeeBL.GetAsync(_case.EmployeeId);
 
             sagsNavnNrLbl.Text = _case.CaseTitle + " " + _case.CaseId;
             clientName.Text = client.FirstName + " " + client.LastName;
@@ -83,8 +74,6 @@ namespace SemesterProjektDenAnden.ClientFroms
                 caseBL.printRapport(caseId,path);
                 MessageBox.Show("Rapporten er nu gemt i " + saveFileDialog.FileName);
             }
-            //caseBL.printRapport(caseId);
-            //MessageBox.Show("Rapporten er nu gemt i bin mappen");
         }
     }
 }

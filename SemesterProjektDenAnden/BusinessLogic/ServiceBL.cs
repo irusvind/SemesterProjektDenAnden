@@ -1,15 +1,10 @@
-﻿using BusinessLogic.BLInterfaces;
-using DataAcces;
+﻿using DataAcces;
 using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Models.Interfaces;
 
 namespace BusinessLogic
 {
-    public class ServiceBL : IServiceBL
+    public class ServiceBL : IService
     {
         ServiceDA serviceDA = new ServiceDA();
         public async Task<bool> DeleteAsync(int id)
@@ -32,7 +27,7 @@ namespace BusinessLogic
 
         public async Task UpdateAsync(int serviceID, int caseId)
         {
-            await serviceDA.UpdateServicesAsync(serviceID, caseId);
+            await serviceDA.UpdateAsync(serviceID, caseId);
             
 
         }

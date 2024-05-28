@@ -1,20 +1,7 @@
 ﻿using BusinessLogic;
-using BusinessLogic.BLInterfaces;
-using DataAcces;
 using Models;
-using SemesterProjektDenAnden.ClientFroms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SemesterProjektDenAnden.EmployeeForms
 {
@@ -23,7 +10,6 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         EmployeeBL employeeBL = new EmployeeBL();
         CaseBL caseBL = new CaseBL();
-        CourseBL courseBL = new CourseBL();
         EmployeeMdi employeeMdi;
         int employeeId;
         public EmployeeSpec(EmployeeMdi employeeMdi, int employeeId)

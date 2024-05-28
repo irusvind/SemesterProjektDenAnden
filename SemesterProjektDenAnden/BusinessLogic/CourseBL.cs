@@ -1,17 +1,10 @@
-﻿using BusinessLogic.BLInterfaces;
-using DataAcces;
-using DataAcces.DAInterfaces;
+﻿using DataAcces;
 using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using Models.Interfaces;
 
 namespace BusinessLogic
 {
-    public class CourseBL : ICourseBL
+    public class CourseBL : ICourse
     {
         CourseDA courseDA = new CourseDA();
         public async Task<bool> CreateAsync(Course newCourse)

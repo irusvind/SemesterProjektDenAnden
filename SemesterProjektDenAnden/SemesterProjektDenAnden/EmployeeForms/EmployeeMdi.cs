@@ -1,19 +1,5 @@
-using Microsoft.VisualBasic.ApplicationServices;
-using Models;
-using SemesterProjektDenAnden.ClientFroms;
-using SemesterProjektDenAnden.Properties;
 using SemesterProjektDenAnden.Tools;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SemesterProjektDenAnden.EmployeeForms
 {
@@ -21,7 +7,6 @@ namespace SemesterProjektDenAnden.EmployeeForms
     {
         EmployeeOverview employeeOverview;
         Cases cases;
-        EmployeeTools employeeTools;
         Employees employees;
         Clients clients;
 

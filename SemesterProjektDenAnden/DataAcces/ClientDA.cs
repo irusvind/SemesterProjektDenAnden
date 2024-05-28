@@ -1,11 +1,11 @@
-﻿using DataAcces.DAInterfaces;
-using Models;
+﻿using Models;
+using Models.Interfaces;
 using System.Configuration;
 using System.Data.SqlClient;
 
 namespace DataAcces
 {
-    public class ClientDA : IClientDA
+    public class ClientDA : IClient
     {
         string connString;
         public ClientDA()

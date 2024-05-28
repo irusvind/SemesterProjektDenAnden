@@ -1,17 +1,11 @@
 ﻿using DataAcces;
-using BusinessLogic.BLInterfaces;
 using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAcces.DAInterfaces;
-using System.Drawing.Text;
+using Models.Interfaces;
+
 
 namespace BusinessLogic
 {
-    public class ClientBL : IClientBL
+    public class ClientBL : IClient
     {
         ClientDA clientDA = new ClientDA();
 

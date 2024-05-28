@@ -1,23 +1,15 @@
-﻿using BusinessLogic.BLInterfaces;
-using DataAcces;
-using DataAcces.DAInterfaces;
+﻿using DataAcces;
 using Models;
-using Newtonsoft.Json;
+using Models.Interfaces;
 using OfficeOpenXml;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 
 namespace BusinessLogic
 {
-    public class CaseBL : ICaseBL
+    public class CaseBL : ICase
     {
-        ICase caseDA = new CaseDA();
+        CaseDA caseDA = new CaseDA();
 
         
 

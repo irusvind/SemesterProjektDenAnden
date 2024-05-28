@@ -1,17 +1,7 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using SemesterProjektDenAnden.EmployeeForms;
 using SemesterProjektDenAnden.Tools;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SemesterProjektDenAnden.ClientFroms
 {
@@ -20,7 +10,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         ClientOverview clientOverview;
         MyPage myPage;
         MyCases myCases;
-        Tools.ClientTools tools;
+        ClientTools tools;
         int clientId;
         public bool Formular1Bought = false;
         public bool Formular2Bought = false;
@@ -29,7 +19,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         {
             InitializeComponent();
 
-            clientOverview = new ClientOverview(this, clientId);
+            clientOverview = new ClientOverview(this);
             this.FormOpener(clientOverview);
 
             this.clientId = clientId;
@@ -70,7 +60,7 @@ namespace SemesterProjektDenAnden.ClientFroms
         private void overviewbtn_Click(object sender, EventArgs e)
         {
             ButtonClickColor(overviewbtn);
-            clientOverview = new ClientOverview(this, clientId);
+            clientOverview = new ClientOverview(this);
             this.FormOpener(clientOverview);
         }
 

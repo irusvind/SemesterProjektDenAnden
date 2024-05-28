@@ -1,17 +1,6 @@
 ﻿using BusinessLogic;
-using DataAcces;
 using Models;
-using SemesterProjektDenAnden.EmployeeForms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SemesterProjektDenAnden.ClientFroms
 {
@@ -19,13 +8,12 @@ namespace SemesterProjektDenAnden.ClientFroms
     {
         ClientMDI clientMdi;
         CaseBL caseBL = new CaseBL();
-        int clientId;
+
 
         public MyCases(ClientMDI clientMdi, int clientId)
         {
             InitializeComponent();
             this.clientMdi = clientMdi;
-            this.clientId = clientId;
 
             CLientCases(clientId);
         }
