@@ -25,8 +25,6 @@ namespace SemesterProjektDenAnden.ClientFroms
         public bool Formular1Bought = false;
         public bool Formular2Bought = false;
 
-        string path = "Åbne liste.pdf"; 
-
         public ClientMDI(int clientId)
         {
             InitializeComponent();
@@ -109,7 +107,7 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         private void clientHelpBtn_Click(object sender, EventArgs e)
         {
-            ProcessStartInfo process = new ProcessStartInfo(@"..\..\..\Resources\LawHouse-DMVE231-v1.pdf");
+            ProcessStartInfo process = new ProcessStartInfo(@"..\..\..\Resources\Hjælp.pdf");
             {
                 process.UseShellExecute = true;
             }

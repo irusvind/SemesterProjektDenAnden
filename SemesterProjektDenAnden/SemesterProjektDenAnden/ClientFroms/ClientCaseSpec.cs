@@ -71,19 +71,6 @@ namespace SemesterProjektDenAnden.ClientFroms
 
         }
 
-
-        private void sagsNavnNrLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ydelserDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
-
-        }
-
         private void ReportBtn_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();

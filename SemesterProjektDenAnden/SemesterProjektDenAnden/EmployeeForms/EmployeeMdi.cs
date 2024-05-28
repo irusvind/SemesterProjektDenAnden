@@ -123,7 +123,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
         {
             try
             {
-                ProcessStartInfo process = new ProcessStartInfo(@"..\..\..\Resources\LawHouse-DMVE231-v1.pdf");
+                ProcessStartInfo process = new ProcessStartInfo(@"..\..\..\Resources\HjælpEmployee.pdf");
                 {
                     process.UseShellExecute = true;
                 }
