@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class CaseBL : ICaseBL
+    public class CaseBL : ICase
     {
         ICase caseDA = new CaseDA();
 
@@ -78,7 +78,6 @@ namespace BusinessLogic
             workLogs = await new WorkLogBL().GetAllAsync(caseId);
 
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            
             
             ExcelWorksheet ws;
             using (ExcelPackage package = new ExcelPackage(new FileInfo(path)))

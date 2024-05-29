@@ -49,7 +49,7 @@ namespace SemesterProjektDenAnden.Tools
             }
         }
 
-        public static double CalculateFinalValue(double initialInvestment, double interestRate, int numCompoundingPeriods)
+        private static double CalculateFinalValue(double initialInvestment, double interestRate, int numCompoundingPeriods)
         {
             
             double r = interestRate / 100.0;
