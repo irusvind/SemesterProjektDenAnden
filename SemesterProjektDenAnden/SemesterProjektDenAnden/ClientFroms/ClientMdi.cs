@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using SemesterProjektDenAnden.EmployeeForms;
-using SemesterProjektDenAnden.Tools;
+﻿using SemesterProjektDenAnden.Tools;
 using System.Diagnostics;
 
 namespace SemesterProjektDenAnden.ClientFroms
@@ -31,30 +29,26 @@ namespace SemesterProjektDenAnden.ClientFroms
         {
             foreach (Form forms in this.MdiChildren)
             {
-                forms.Hide();
+                forms.Close();
             }
         }
 
 
         public void FormOpener(Form form)
         {
-            if (this.MdiChildren.Length == 0 || this.MdiChildren[0] != form)
+            if (this.MdiChildren.Length == 0 || form.Name != this.MdiChildren[0].Name)
             {
                 this.FormCloser();
-                form.FormClosed += FormClosed;
                 form.MdiParent = this;
                 form.Dock = DockStyle.Fill;
                 form.Show();
             }
             else
             {
-                form.Activate();
+                this.MdiChildren[0].Activate();
+                form.Close();
             }
 
-            void FormClosed(object sender, FormClosedEventArgs e)
-            {
-                form = null;
-            }
         }
 
         private void overviewbtn_Click(object sender, EventArgs e)
