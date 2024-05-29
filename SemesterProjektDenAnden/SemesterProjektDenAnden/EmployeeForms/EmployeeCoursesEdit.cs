@@ -19,6 +19,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
             this.employeeMdi = employeeMdi;
             this.employeeId = employeeId;
 
+
             try
             {
                 DGVData();
@@ -51,7 +52,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private void PossibleCoursesDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 try
                 {
@@ -69,7 +70,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
 
         private void ChosenCoursesDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 try
                 {
@@ -85,17 +86,13 @@ namespace SemesterProjektDenAnden.EmployeeForms
             }
         }
 
-        private void UpdateDGV() 
+        private void UpdateDGV()
         {
-            BindingSource selectedSource = new BindingSource();
-            List<Course> sortetSelected = selectedCourses.OrderBy(s => s.CourseId).ToList();
-            selectedSource.DataSource = sortetSelected;
-            chosenCoursesDGV.DataSource = selectedSource;
+            selectedCourses = selectedCourses.OrderBy(s => s.CourseId).ToList();
+            chosenCoursesDGV.DataSource = selectedCourses;
 
-            BindingSource possibleSource = new BindingSource();
-            List<Course> sortetPossible = possibleCourses.OrderBy(p => p.CourseId).ToList();
-            possibleSource.DataSource = sortetPossible;
-            possibleCoursesDGV.DataSource = possibleSource;
+            possibleCourses = possibleCourses.OrderBy(p => p.CourseId).ToList();
+            possibleCoursesDGV.DataSource = possibleCourses;
         }
 
         private async void OKBtn_Click(object sender, EventArgs e)
