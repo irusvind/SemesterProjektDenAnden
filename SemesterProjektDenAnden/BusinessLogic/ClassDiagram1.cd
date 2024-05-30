@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BusinessLogic.CaseBL">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <AssociationLine Name="caseDA" Type="DataAcces.CaseDA">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.12" Y="0.289" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAIAAAIAAAAAAEAAAAAAAAAAAAAAgAAAAAIIAAAIA=</HashCode>
+      <FileName>CaseBL.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="caseDA" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BusinessLogic.ClientBL">
+    <Position X="2.5" Y="0.5" Width="1.75" />
+    <AssociationLine Name="clientDA" Type="DataAcces.ClientDA">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.081" Y="0.289" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAIIAAAIg=</HashCode>
+      <FileName>ClientBL.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="clientDA" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BusinessLogic.CourseBL">
+    <Position X="4.5" Y="0.5" Width="1.75" />
+    <AssociationLine Name="courseDA" Type="DataAcces.CourseDA">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.081" Y="0.289" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAEAAAAAAAAAAAgAAAAAIIAAAIA=</HashCode>
+      <FileName>CourseBL.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="courseDA" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BusinessLogic.EmployeeBL">
+    <Position X="6.5" Y="0.5" Width="1.75" />
+    <AssociationLine Name="employeeDA" Type="DataAcces.EmployeeDA">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.086" Y="0.279" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAABAAAAAAAEAAAAAAAAAAAAAAQAgAAAAAIIAAAIA=</HashCode>
+      <FileName>EmployeeBL.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="employeeDA" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BusinessLogic.ServiceBL">
+    <Position X="8.5" Y="0.5" Width="1.75" />
+    <AssociationLine Name="serviceDA" Type="DataAcces.ServiceDA">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.115" Y="0.294" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAEAAAAAAAAAAAAAAAAAAAAAAAAgAAAAgIAAAAIA=</HashCode>
+      <FileName>ServiceBL.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="serviceDA" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BusinessLogic.TransportLogBL">
+    <Position X="10.5" Y="0.5" Width="1.75" />
+    <AssociationLine Name="transportLogDA" Type="DataAcces.TransportLogDA">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.071" Y="0.372" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAABAAAAAAAAAAgAAAAAIIAAAIA=</HashCode>
+      <FileName>TransportLogBL.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="transportLogDA" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BusinessLogic.WorkLogBL">
+    <Position X="12.5" Y="0.5" Width="1.75" />
+    <AssociationLine Name="workLogDA" Type="DataAcces.WorkLogDA">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.065" Y="0.357" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAIIAAAIA=</HashCode>
+      <FileName>WorkLogBL.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="workLogDA" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DataAcces.CaseDA" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier />
+    <Lollipop Orientation="Bottom" Position="1.264" />
+  </Class>
+  <Class Name="DataAcces.ClientDA" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier />
+    <Lollipop Orientation="Bottom" Position="1.3" />
+  </Class>
+  <Class Name="DataAcces.CourseDA" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier />
+    <Lollipop Orientation="Bottom" Position="1.283" />
+  </Class>
+  <Class Name="DataAcces.EmployeeDA" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier />
+    <Lollipop Orientation="Bottom" Position="1.27" />
+  </Class>
+  <Class Name="DataAcces.ServiceDA" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier />
+    <Lollipop Orientation="Bottom" Position="1.3" />
+  </Class>
+  <Class Name="DataAcces.TransportLogDA" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier />
+    <Lollipop Orientation="Bottom" Position="1.264" />
+  </Class>
+  <Class Name="DataAcces.WorkLogDA" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier />
+    <Lollipop Orientation="Bottom" Position="1.244" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

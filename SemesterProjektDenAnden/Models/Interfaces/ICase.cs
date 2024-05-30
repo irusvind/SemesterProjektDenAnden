@@ -8,16 +8,16 @@ namespace Models.Interfaces
 {
     public interface ICase
     {
-        Task<bool> CreateAsync(Case newCase);
+        public Task<bool> CreateAsync(Case newCase);
 
-        Task<bool> DeleteAsync(int id);
+        public Task<bool> DeleteAsync(int id);
 
-        Task<List<Case>> GetAllAsync();
+        public Task<List<Case>> GetAllAsync();
 
-        Task<Case> GetAsync(int id);
+        public Task<Case> GetAsync(int id);
 
-        Task<bool> UpdateAsync(Case newCase);
+        public Task<bool> UpdateAsync(Case newCase);
 
-        Task<List<Case>> GetCaseWithClientIdAsync(int id);
+        public Task<List<Case>> GetCaseWithClientIdAsync(int id);
     }
 }

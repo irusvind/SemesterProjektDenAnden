@@ -36,14 +36,31 @@ namespace SemesterProjektDenAnden.Tools
 
         public static double CalculateFinalValue(double initialInvestment, double interestRate, int numCompoundingPeriods)
         {
+            try
+            {
+                if (interestRate < 0)
+                {
 
-            double r = interestRate / 100.0;
+                    throw new ArgumentException("Interest rate must be greater than or equal to 0");
+                    return 0;
+                }
+                else { }
+                double r = interestRate / 100.0;
 
 
-            double finalValue = initialInvestment * r / (1 - Math.Pow(1 + r, -numCompoundingPeriods));
+                double finalValue = initialInvestment * r / (1 - Math.Pow(1 + r, -numCompoundingPeriods));
+                return finalValue;
+            }
+            
 
-            return finalValue;
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl, Operation stoppet: Program fejl", "Fejl", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            
         }
+           
 
         private void clearAllBtn_Click(object sender, EventArgs e)
         {
