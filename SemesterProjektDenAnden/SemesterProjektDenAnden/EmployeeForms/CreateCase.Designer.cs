@@ -32,7 +32,6 @@
             estimated_hours = new TextBox();
             employeeBox = new ComboBox();
             clientBox = new ComboBox();
-            serviceBox = new ComboBox();
             createCaseBtn = new Button();
             endDateCal = new MonthCalendar();
             startDateCal = new MonthCalendar();
@@ -41,7 +40,6 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            label5 = new Label();
             label6 = new Label();
             label7 = new Label();
             SuspendLayout();
@@ -93,19 +91,6 @@
             clientBox.Name = "clientBox";
             clientBox.Size = new Size(170, 24);
             clientBox.TabIndex = 8;
-            // 
-            // serviceBox
-            // 
-            serviceBox.BackColor = Color.Black;
-            serviceBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            serviceBox.FlatStyle = FlatStyle.Popup;
-            serviceBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            serviceBox.ForeColor = Color.White;
-            serviceBox.FormattingEnabled = true;
-            serviceBox.Location = new Point(272, 417);
-            serviceBox.Name = "serviceBox";
-            serviceBox.Size = new Size(170, 24);
-            serviceBox.TabIndex = 9;
             // 
             // createCaseBtn
             // 
@@ -167,9 +152,9 @@
             label2.ForeColor = Color.Black;
             label2.Location = new Point(141, 228);
             label2.Name = "label2";
-            label2.Size = new Size(67, 18);
+            label2.Size = new Size(58, 18);
             label2.TabIndex = 16;
-            label2.Text = "Employee";
+            label2.Text = "Advokat";
             // 
             // label3
             // 
@@ -178,9 +163,9 @@
             label3.ForeColor = Color.Black;
             label3.Location = new Point(141, 340);
             label3.Name = "label3";
-            label3.Size = new Size(103, 18);
+            label3.Size = new Size(111, 18);
             label3.TabIndex = 17;
-            label3.Text = "Forventer timer";
+            label3.Text = "Forventede timer";
             // 
             // label4
             // 
@@ -192,17 +177,6 @@
             label4.Size = new Size(43, 18);
             label4.TabIndex = 18;
             label4.Text = "Klient";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.ForeColor = Color.Black;
-            label5.Location = new Point(141, 421);
-            label5.Name = "label5";
-            label5.Size = new Size(52, 18);
-            label5.TabIndex = 19;
-            label5.Text = "Service";
             // 
             // label6
             // 
@@ -232,7 +206,6 @@
             ClientSize = new Size(1065, 655);
             Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -241,7 +214,6 @@
             Controls.Add(startDateCal);
             Controls.Add(endDateCal);
             Controls.Add(createCaseBtn);
-            Controls.Add(serviceBox);
             Controls.Add(clientBox);
             Controls.Add(employeeBox);
             Controls.Add(estimated_hours);
@@ -259,7 +231,6 @@
         private TextBox estimated_hours;
         private ComboBox employeeBox;
         private ComboBox clientBox;
-        private ComboBox serviceBox;
         private Button createCaseBtn;
         private MonthCalendar endDateCal;
         private MonthCalendar startDateCal;
@@ -268,7 +239,6 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private Label label5;
         private Label label6;
         private Label label7;
     }

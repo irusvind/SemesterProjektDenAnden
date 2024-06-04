@@ -25,8 +25,6 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 AddToClientCombobox();
 
                 AddToemployeeCombobox();
-
-                AddToServiceCombobox();
             }
             catch (SqlException)
             {
@@ -55,17 +53,6 @@ namespace SemesterProjektDenAnden.EmployeeForms
             foreach (Employee employee in employees)
             {
                 employeeBox.Items.Add(employee.Id + ": " + employee.FirstName);
-            }
-
-        }
-
-        private async void AddToServiceCombobox()
-        {
-
-            List<Service> services = await ServiceBL.GetAllAsync();
-            foreach (Service service in services)
-            {
-                serviceBox.Items.Add(service.ServiceId + ": " + service.ServiceName);
             }
 
         }

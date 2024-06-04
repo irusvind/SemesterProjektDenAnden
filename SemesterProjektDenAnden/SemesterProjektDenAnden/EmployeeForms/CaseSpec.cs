@@ -1,5 +1,6 @@
 ﻿using BusinessLogic;
 using Models;
+using SemesterProjektDenAnden.ClientFroms;
 using System.ComponentModel.DataAnnotations;
 using System.Data.SqlClient;
 
@@ -166,7 +167,10 @@ namespace SemesterProjektDenAnden.EmployeeForms
                     if (createResult)
                     {
                         MessageBox.Show("Sag Opdateret", "Sag Opdateret");
-                        
+                        EmployeeOverview overview = new EmployeeOverview(employeeMdi);
+                        employeeMdi.FormOpener(overview);
+                        CaseSpec newCasePage = new CaseSpec(employeeMdi, caseId);
+                        employeeMdi.FormOpener(newCasePage);
                     }
                     else
                     {
@@ -195,7 +199,10 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 string[] idString = comboCaseYdelse.Items[comboCaseYdelse.SelectedIndex].ToString().Split(':');
                 int id = int.Parse(idString[0]);
                 await serviceBL.UpdateAsync(id, caseId);
-                ServincesDGVData();
+                EmployeeOverview overview = new EmployeeOverview(employeeMdi);
+                employeeMdi.FormOpener(overview);
+                CaseSpec newCasePage = new CaseSpec(employeeMdi, caseId);
+                employeeMdi.FormOpener(newCasePage);
             }
             catch (SqlException)
             {
