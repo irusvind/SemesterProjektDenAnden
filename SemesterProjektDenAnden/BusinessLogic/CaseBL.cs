@@ -124,9 +124,10 @@ namespace BusinessLogic
 
                 ws.Cells["E" + i].Value = "Total KM";
                 ws.Cells["F" + i].Formula = $"SUM(F2:F{i - 1})";
-                ws.Cells["E" + i+1].Value = "Total cost";
-                ws.Cells["F" + i+1].Formula = $"SUM(F2:F{i - 1})*4";
-                ws.Cells["F" + i+1].Style.Numberformat.Format = "0.00";
+                i++;
+                ws.Cells["E" + i].Value = "Total cost";
+                ws.Cells["F" + i].Formula = $"SUM(F2:F{i - 1})*4";
+                ws.Cells["F" + i].Style.Numberformat.Format = "0.00";
 
 
 
