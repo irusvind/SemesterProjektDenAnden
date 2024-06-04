@@ -21,8 +21,9 @@ namespace SemesterProjektDenAnden.Tools
                 int n = perYear * amountYear;
 
                 double amountpyear = 0;
-                amountpyear = CalculateFinalValue(G, r, n);
+                 
                 double amountPYear = CalculateFinalValue(G, r, amountYear);
+                amountpyear = amountPYear / perYear;
                 amountPYear = Math.Round(amountPYear, 2);
                 amountpyear = Math.Round(amountpyear, 2);
                 paymentAmount.Text = amountpyear.ToString();
