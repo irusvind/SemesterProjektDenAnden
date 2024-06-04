@@ -29,7 +29,7 @@ namespace SemesterProjektDenAnden.EmployeeForms
                 transportLog.KmDriven = int.Parse(kilometerBox.Text);
                 transportLog.LogDescription = transDesBox.Text;
                 transportLog.CaseId = caseId;
-                transportLog.ServiceId = serviceCombo.SelectedIndex;
+                transportLog.ServiceId = serviceCombo.SelectedIndex + 1;
                 var context = new ValidationContext(transportLog, serviceProvider: null, items: null);
                 bool isValid = Validator.TryValidateObject(transportLog, context, null, true);
 

@@ -125,6 +125,8 @@ namespace SemesterProjektDenAnden.ClientFroms
                         updateClient.SubEndDate = null;
                         updateClient.SubPrice = null;
                         await clientBL.UpdateAsync(updateClient);
+                        ClientOverview overview = new ClientOverview(clientMdi);
+                        clientMdi.FormOpener(overview);
                         MyPage newMyPage = new MyPage(clientMdi, clientId);
                         clientMdi.FormOpener(newMyPage);
                     }

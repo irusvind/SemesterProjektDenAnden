@@ -136,6 +136,7 @@
             employeeIdBox.Font = new Font("High Tower Text", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             employeeIdBox.Location = new Point(777, 376);
             employeeIdBox.Name = "employeeIdBox";
+            employeeIdBox.ReadOnly = true;
             employeeIdBox.Size = new Size(196, 24);
             employeeIdBox.TabIndex = 57;
             // 

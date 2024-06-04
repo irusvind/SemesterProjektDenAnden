@@ -80,6 +80,8 @@ namespace SemesterProjektDenAnden.ClientFroms
                 updateClient.SubEndDate = date;
                 updateClient.SubPrice = price;
                 await clientBL.UpdateAsync(updateClient);
+                ClientOverview overview = new ClientOverview(clientMdi);
+                clientMdi.FormOpener(overview);
                 MyPage myPage = new MyPage(clientMdi, clientId);
                 clientMdi.FormOpener(myPage);
                 this.Close();
