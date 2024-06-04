@@ -85,10 +85,10 @@ namespace BusinessLogic
                 ws.Cells["B3"].Value = case_.StartDate;
                 ws.Cells["B3"].Style.Numberformat.Format = "yyyy-mm-dd HH:mm";
                 ws.Cells["A4"].Value = "Expected Hours";
-                ws.Cells["B5"].Value = case_.EstHours;
+                ws.Cells["B4"].Value = case_.EstHours;
                 ws.Cells["A5"].Value = "End Date";
-                ws.Cells["B6"].Value = case_.ExEndDate;
-                ws.Cells["B6"].Style.Numberformat.Format = "yyyy-mm-dd HH:mm";
+                ws.Cells["B5"].Value = case_.ExEndDate;
+                ws.Cells["B5"].Style.Numberformat.Format = "yyyy-mm-dd HH:mm";
 
 
                 ws.Cells["A9"].Value = "Client Name";
